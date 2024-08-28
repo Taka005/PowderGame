@@ -1,271 +1,4705 @@
-var aa=window,ba,h=0,k=45,ca=!1,da=8,ea=8,fa=da,ga=ea,ia=new ha,ja=2,ka=0,la=2,ma=0,na=0,oa=0,pa=0,qa=0,ra=0,sa=0,ua=0,va=!0,wa=0,xa=0,ya=0,za=0,Aa=0,Ba=0,Ca=8,Da=8,Ea=8,Fa=8,Ga=new Int8Array(138880),Ha=new Int8Array(138880),Ia=new Int32Array(500),Ja=new Int32Array(500),Ka=new Int32Array(500),La=new Int32Array(500),Ma=new Int8Array(500),Na=0,Oa=0,Pa=-1,Qa=0,Ra=0,Sa=-1,l=new Uint8Array(284789),Ta=0,Ua,Wa,Xa=[0,0,0,0,0,0,0,0],Ya=!0,Za=0,$a="",ab=0,bb="",cb=0,db="",eb=0,fb=0,gb=0,hb=0,ib=0,jb=0,kb=0,
-nb=new mb,ob="",pb="",qb=new mb,rb,sb,ub=0,vb=0,wb=0,xb=["sans-serif","serif","monospace","setFont ->"],yb=["PLAIN","BOLD","ITALIC","BOLD&ITALIC"],zb=[12,14,16,18,20,24,30,36,48,60,72],Ab=new Int32Array(147968),Bb=new mb,Cb=[5,6,7,8,10,1,11,13,14,15,16,17,18,19,20,21,23,24,25,26,27,28,29,30,31,32,33,34,35,37,38,39,40,41,42,43,44,50,51,52,0,0,0,0,0,0,0,0,2,0,0,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],Db=[5,6,7,8,10,0,12,13,0,0,16,0,18,19,20,21,23,24,25,7,27,28,0,0,31,32,33,0,35,0,38,39,40,41,0,43,
-0,0,51,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],Eb=[5,6,7,8,10,1,11,13,0,15,16,0,18,19,20,21,23,24,25,0,27,28,29,0,31,32,33,0,35,0,38,39,40,41,0,43,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],Fb=[0,6,7,8,10,1,11,13,14,15,16,17,18,19,20,21,23,24,25,26,27,28,29,30,31,32,33,34,35,37,38,39,40,41,42,43,44,50,51,52,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],n=[0,8421631,6316128,4210752,12632256,15908203,4210943,16728128,9486400,
-8409120,11567184,13684991,16777215,16728224,9465872,16750950,8400928,16777164,16764006,6697728,8421504,16737843,14737632,8388736,4486912,12615872,16752672,13408665,15790320,16776992,4210752,6710784,13369344,13434624,47872,16777215,3381759,65793,8417360,13158,11184810,16763955,4469538,13421772,13107,15908203,15908203,15908203,15908203,9465872,3355443,6706500,6702131,0],Gb=Array(n.length),Hb=[0,0,0,0,0,0,0,5E3,500,500,0,-1E3,-500,0,0,0,0,0,0,0,0,1E4,0,0,0,1500,4E3,500,0,2E3,0,0,5500,0,500,0,0,0,2E3,
-2E3,0,3E3,0,0,0,0,0,0,0,0,0,0,1E3,0],Ib=[[],[6316128,6316128,6316128,6316128,6316128,6316128,6316128,6316128,6316128,6316128,6316128,6316128,6316128,6316128,6316128,6316128],[0,0,0,0,0,4210752,4210752,0,0,4210752,4210752,0,0,0,0,0],[0,0,0,0,0,12632256,12632256,0,0,12632256,12632256,0,0,0,0,0],[]],Jb="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.*".split(""),Kb=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,63,0,0,0,62,0,0,1,2,3,4,5,6,7,8,9,0,
-0,0,0,0,0,0,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,0,0,0,0,0,0,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,0,0,0,0,0];aa.GameSave=Lb;function Lb(a){if(0==a.length||0!=Za)return"";Mb();Nb(1);for(var c=a=0;c<$a.length;c++)a+=$a.charCodeAt(c)*((c&15)+1);return a=$a+Jb[a&63]}var Ob="";aa.GameLoad=Pb;
-function Pb(a){if(5<a.length){for(var c=0,b=0;b<a.length-1;b++)c+=a.charCodeAt(b)*((b&15)+1);if((c&63)!=Kb[a.charCodeAt(a.length-1)])return-1;Ob=a.substring(0,a.length-1);return 0}0==a.length&&0!=Ob.length&&($a=Ob,Ob="",Qb(1),Rb());return-1}var Sb=0,Tb=0;
-function Ub(a){var c,b;0>ja&&9<ja&&(q=null);0==a?b=Tb:Tb=b=Vb(1024);b+=(h|1)*(b&15|1);b+=(k|1)*(b&15|1);b+=(ja|1)*(b&15|1);b+=(la|1)*(b&15|1);b+=(ma|1)*(b&15|1);b+=(qa|1)*(b&15|1);b+=(ra|1)*(b&15|1);b+=(sa|1)*(b&15|1);b+=(wa|1)*(b&15|1);b+=(Sa|1)*(b&15|1);b+=29*(b&15|1);for(c=0;c<Wa.length;c++)b+=(Wa.charCodeAt(c)|1)*(b&15|1);for(c=0;8>c;c++)b+=(Xa[c]|1)*(b&15|1);b+=(Ya?1:2)*(b&15|1);b+=(Za|1)*(b&15|1);b+=(fb|1)*(b&15|1);b+=(gb|1)*(b&15|1);b+=(hb|1)*(b&15|1);b+=(ib|1)*(b&15|1);0==a?Sb!=(b^16777215)&&
-(q=null):Sb=b^16777215}
-function Mb(){var a,c,b,d,e;for(a=284788;0<=a;a--)l[a]=0;for(b=0;280>b;b++)for(c=0;496>c;c++)d=((b>>2)+2)*r+(c>>2)+2,e=29+496*b+c,0!=t[d]&&(1==t[d]?l[e]=2:2==t[d]?l[e]=3:3==t[d]&&(l[e]=4));for(a=0;a<Wb;a++)d=a*Xb,c=~~w[d+4].x-8,b=~~w[d+4].y-8,0>c||496<=c?Yb(a--):0>b||280<=b?Yb(a--):(c=c>>2<<2,b=b>>2<<2,e=29+496*b+c,l[e]?Yb(a--):x[a]==Zb?(l[e]=45,l[e+138880]=$b[a]):x[a]==ac?(l[e]=46,l[e+138880]=$b[a]):x[a]==bc?(l[e]=47,l[e+138880]=0):x[a]==bc+1?(l[e]=47,l[e+138880]=0):x[a]==cc?(l[e]=49,l[e+138880]=
-0):Yb(a--));for(a=0;a<dc;a++)0!=y[a]&&(c=~~z[a].x-8,b=~~z[a].y-8,0>c||496<=c?ec(a):0>b||280<=b?ec(a):(e=29+496*b+c,l[e]?ec(a):(l[e]=48,l[e+138880]=y[a])));for(a=4;a<fc;a++)c=~~A[a].x-8,b=~~A[a].y-8,0>c||496<=c?gc(a--):0>b||280<=b?gc(a--):22==B[a]&&C[a]!=n[22]?gc(a--):(e=29+496*b+c,l[e]?gc(a--):(l[e]=B[a],1==B[a]?l[e+138880]=D[a]:15==B[a]?l[e+138880]=D[a]&255:52==B[a]&&(l[e+138880]=D[a]&1)));Ta=138909;d=29;for(e=138909;d<e;d++)if(1==l[d]||15==l[d]||45==l[d]||46==l[d]||47==l[d]||48==l[d]||49==l[d]||
-52==l[d])l[Ta++]=l[d+138880];for(a=0;a<hc;a++)l[Ta]=ic[a],0==jc[a]?(l[Ta+1*hc]=E[kc[a]]>>16&255,l[Ta+2*hc]=E[kc[a]]>>8&255,l[Ta+3*hc]=E[kc[a]]&255):1==jc[a]?(c=~~w[kc[a]*Xb+4].x,b=~~w[kc[a]*Xb+4].y,c=c>>2<<2,b=b>>2<<2,e=0+512*b+c,l[Ta+1*hc]=e>>16&255,l[Ta+2*hc]=e>>8&255,l[Ta+3*hc]=e&255):2==jc[a]&&(c=~~z[kc[a]].x,b=~~z[kc[a]].y,e=0+512*b+c,l[Ta+1*hc]=e>>16&255,l[Ta+2*hc]=e>>8&255,l[Ta+3*hc]=e&255),0==lc[a]?(l[Ta+4*hc]=E[mc[a]]>>16&255,l[Ta+5*hc]=E[mc[a]]>>8&255,l[Ta+6*hc]=E[mc[a]]&255):1==lc[a]?(c=
-~~w[mc[a]*Xb+4].x,b=~~w[mc[a]*Xb+4].y,c=c>>2<<2,b=b>>2<<2,e=0+512*b+c,l[Ta+4*hc]=e>>16&255,l[Ta+5*hc]=e>>8&255,l[Ta+6*hc]=e&255):2==lc[a]&&(c=~~z[mc[a]].x,b=~~z[mc[a]].y,e=0+512*b+c,l[Ta+4*hc]=e>>16&255,l[Ta+5*hc]=e>>8&255,l[Ta+6*hc]=e&255),Ta++;Ta+=6*hc;jb=ib}
-function Nb(a){var c,b;if(0==a){var d=new Uint8Array(8680),e=new Uint8Array(768),f,g;for(c=0;c<d.length;c++)d[c]=0;for(c=0;c<dc;c++)0!=y[c]&&(f=~~z[c].x-8,g=~~z[c].y-8,0>f||496<=f||0>g||280<=g||(f>>=2,g>>=2,d[124*g+f]=48));for(g=c=0;280>g;g+=4)for(f=0;496>f;f+=4)d[c]||(b=29+496*g+f,l[b]||(b+=497),d[c]=l[b]),12==la?7!=d[c]&&21!=d[c]&&26!=d[c]&&29!=d[c]&&32!=d[c]&&41!=d[c]&&(d[c]=0):14==la&&(d[c]=d[c]?0:12),c++;g=n;10==la&&(g=Gb);f=new Int32Array(256);for(c=0;256>c;c++)f[c]=0;for(c=0;c<d.length;c++)f[d[c]]++;
-var m=eb=0;for(b=0;256>b;b++)if(f[b]){e[eb++]=g[b]>>16&255;e[eb++]=g[b]>>8&255;e[eb++]=g[b]&255;for(c=0;c<d.length;c++)d[c]==b&&(d[c]=m);m++}16==la&&(e[0]=(n[Cb[h]]>>16&255)+(n[Cb[k]]>>16&255)>>1&255,e[1]=(n[Cb[h]]>>8&255)+(n[Cb[k]]>>8&255)>>1&255,e[2]=(n[Cb[h]]&255)+(n[Cb[k]]&255)>>1&255);bb="";cb=d.length;for(c=0;c<cb;){b=d[c++];for(f=0;c<cb&&255!=f&&b==d[c];c++)f++;bb+=String.fromCharCode(b);bb+=String.fromCharCode(f)}cb=bb.length;bb=aa.btoa(bb);db="";for(c=0;c<eb;c++)db+=String.fromCharCode(e[c]);
-db=aa.btoa(db)}b=0;l[b++]=0;l[b++]=0;for(c=l[b++]=0;8>c;c++)l[b++]=Xa[c];l[b++]=jb&255;l[b++]=jb>>8;l[b++]=Cb[h];l[b++]=Cb[k];l[b++]=ja;l[b++]=la;l[b++]=ra;l[b++]=sa;l[b++]=va?0:1;l[b++]=ua;for(c=0;8>c;c++)l[b++]=0;if(0==a)for(kb=0,c=29;138909>c;c++)0<l[c]&&(kb+=c&255);b=0;for(c=3;c<Ta;c++)b=128>l[c]?b+l[c]*((c&15)+1):b+(l[c]-256)*((c&15)+1);l[1]=b&255;l[2]=b>>8&255;e=[];for(c=d=0;c<Ta;){b=l[c++];for(f=0;c<Ta&&255!=f&&b==l[c];c++)f++;e[d++]=b;e[d++]=f}if(1==a){var p=[],u=0;f=Array(4096);g=1;for(c=
-0;c<d;){var m=0,v=1;if(c<d-1)for(var G=1;G<g;G++)if(f[G].length==v){for(b=0;b<v&&f[G][b]==e[c+b];b++);if(b==v&&(m=G,v++,c+v>=d))break}p[u++]=m>>8;p[u++]=m&255;p[u++]=e[c+v-1];if(4096>g){f[g]=Array(v);for(b=0;b<v;b++)f[g][b]=e[c+b];g++}c+=v}}0==a?(a=e,ab=d):(a=p,ab=u);$a="";for(c=0;c<ab;c++)$a+=String.fromCharCode(a[c]);$a=aa.btoa($a)}
-function Qb(a){var c,b=aa.atob($a),d=[];ab=b.length;for(c=0;c<ab;c++)d[c]=b.charCodeAt(c);if(1==a){var b=[],e=0,f=Array(4096),g=1;for(c=0;c<ab;){var m,p=1;m=d[c++]<<8;m+=d[c++];if(0<m){for(a=0;a<f[m].length;a++)b[e++]=f[m][a];p=1+f[m].length}b[e++]=d[c++];if(4096>g){f[g]=Array(p);for(a=0;a<p;a++)f[g][a]=b[e-p+a];g++}}d=b;ab=e}for(c=Ta=0;c<ab;)for(b=d[c++],e=d[c++],l[Ta++]=b,a=0;a<e;a++)l[Ta++]=b;if(Ta){d=0;for(c=3;c<Ta;c++)d=128>l[c]?d+l[c]*((c&15)+1):d+(l[c]-256)*((c&15)+1);if(l[1]!=(d&255))Ta=0;
-else if(l[2]!=(d>>8&255))Ta=0;else{a=0;a++;a++;a++;for(c=0;8>c;c++)l[a++]!=Xa[c]&&(fb=2,hb=6);jb=l[a++];jb+=l[a++]<<8;if(l[a])for(c=0;c<Cb.length;c++)l[a]==Cb[c]&&(h=c);a++;if(l[a])for(c=0;c<Cb.length;c++)l[a]==Cb[c]&&(k=c);a++;ja=l[a++];la=l[a++];ra=l[a++];sa=l[a++];va=l[a++]?!1:!0;ua=l[a++]}}}
-function Rb(){var a,c,b,d,e;nc(1);if(Ta){e=138909;b=8;for(d=29;288>b;b++)for(c=8;504>c;c++,d++)l[d]&&(2==l[d]?(t[(b>>2)*r+(c>>2)]=1,F[512*b+c]=2):3==l[d]?(t[(b>>2)*r+(c>>2)]=2,F[512*b+c]=2):4==l[d]?(t[(b>>2)*r+(c>>2)]=3,F[512*b+c]=2):45==l[d]?oc(c,b,45,l[e++]):46==l[d]?oc(c,b,46,l[e++]):47==l[d]?(oc(c,b,47,0),e++):48==l[d]?pc(c,b,l[e++]):49==l[d]?(oc(c,b,49,0),e++):(a=qc(c,b,l[d],0),1==l[d]?(H[a].x=.01*Math.cos(l[e]*rc/32),H[a].y=.01*-Math.sin(l[e]*rc/32),D[a]=l[e],e++,F[512*b+c]=1):15==l[d]?D[a]=
-l[e++]:52==l[d]&&(D[a]=l[e++],C[a]=0==D[a]?6702131:3359829)));sc();c=new ha;var f;for(a=4;a<fc;a++)f=4+I(Math.random()*(fc-4)),c.set(A[a]),A[a].set(A[f]),A[f].set(c),c.set(H[a]),H[a].set(H[f]),H[f].set(c),b=B[a],B[a]=B[f],B[f]=b,b=D[a],D[a]=D[f],D[f]=b,b=C[a],C[a]=C[f],C[f]=b,b=E[a],E[a]=E[f],E[f]=b,F[E[a]]=1==B[a]?1:a,F[E[f]]=1==B[f]?1:f;f=I((Ta-e)/7);for(a=e;a<e+f;a++){c=(l[a+1*f]&255)<<16|(l[a+2*f]&255)<<8|l[a+3*f]&255;b=(l[a+4*f]&255)<<16|(l[a+5*f]&255)<<8|l[a+6*f]&255;var g,m=0,p=0;d=29+496*
-((c>>9)-8)+((c&511)-8);g=45==l[d]?1:46==l[d]?1:47==l[d]?1:48==l[d]?2:0;d=29+496*((b>>9)-8)+((b&511)-8);d=45==l[d]?1:46==l[d]?1:47==l[d]?1:48==l[d]?2:0;g?1==g?m=tc(c):2==g&&(m=uc(c)):m=F[c];d?1==d?p=tc(b):2==d&&(p=uc(b)):p=F[b];vc(g,d,m,p,l[a+0*f])}ib=jb}}aa.fff=wc;
-function wc(){var a,c,b;for(a=0;138880>a;a++)Ga[a]=0,Ha[a]=0;for(a=0;a<fc;a++)c=~~A[a].x-8,b=~~A[a].y-8,0>c||496<=c||0>b||280<=b||(c=496*b+c,Ga[c]=B[a],1==B[a]?Ha[c]=D[a]:15==B[a]?Ha[c]=D[a]&255:52==B[a]&&(Ha[c]=D[a]&1));Ca>Ea&&(c=Ca,Ca=Ea,Ea=c);Da>Fa&&(b=Da,Da=Fa,Fa=b);for(a=Na=0;a<hc&&500>Na;a++)0!=jc[a]||0!=lc[a]||~~A[kc[a]].x<Ca||Ea<~~A[kc[a]].x||~~A[kc[a]].y<Da||Fa<~~A[kc[a]].y||~~A[mc[a]].x<Ca||Ea<~~A[mc[a]].x||~~A[mc[a]].y<Da||Fa<~~A[mc[a]].y||(Ia[Na]=~~A[kc[a]].x-Ca,Ja[Na]=~~A[kc[a]].y-Da,
-Ka[Na]=~~A[mc[a]].x-Ca,La[Na]=~~A[mc[a]].y-Da,Ma[Na]=ic[a],Na++)}aa.fff=xc;
-function xc(){var a,c,b,d,e=da-I((Ea-Ca)/2)-Ca,f=ea-I((Fa-Da)/2)-Da;for(b=Da-8;b<=Fa-8;b++)if(!(0>f+b||280<=f+b))for(c=Ca-8;c<=Ea-8;c++)0>e+c||496<=e+c||(d=496*b+c,Ga[d]&&0==F[512*(f+b+8)+(e+c+8)]&&(a=qc(e+c+8,f+b+8,Ga[d],0),0<=a&&(1==Ga[d]?(H[a].x=.01*Math.cos(Ha[d]*rc/32),H[a].y=.01*-Math.sin(Ha[d]*rc/32),D[a]=Ha[d],F[512*(f+b+8)+(e+c+8)]=1):15==Ga[d]?D[a]=Ha[d]:52==Ga[d]&&(D[a]=Ha[d],C[a]=0==D[a]?6702131:3359829))));e=da-I((Ea-Ca)/2);f=ea-I((Fa-Da)/2);for(a=0;a<Na;a++)8>e+Ia[a]||504<=e+Ia[a]||
-8>f+Ja[a]||288<=f+Ja[a]||8>e+Ka[a]||504<=e+Ka[a]||8>f+La[a]||288<=f+La[a]||(c=F[512*(f+Ja[a])+e+Ia[a]],b=F[512*(f+La[a])+e+Ka[a]],4<=c&&4<=b&&c!=b&&255!=(yc[c]&255)&&255!=(yc[b]&255)&&vc(0,0,c,b,Ma[a]))}function zc(a,c,b,d){for(var e=a;;)if(B[F[e]]==c)J(F[e],b,d,n[b]),e--;else break;e++;for(var f=a+1;;)if(B[F[f]]==c)J(F[f],b,d,n[b]),f++;else break;f--;for(a=e;a<=f;a++)B[F[a-512]]==c&&zc(a-512,c,b,d),B[F[a+512]]==c&&zc(a+512,c,b,d)}var Ac=0;
-function Bc(a,c,b,d){if(!Ac){null!=a?Ua=a:Ua="";null!=c?Wa=c:Wa="";for(a=0;8>a&&a<Wa.length;a++)Xa[a]=Wa.charCodeAt(a);Ya=0==b?!0:!1;null!=d?Za=d:Za=0;Cc(Dc);Ec.width=512;Ec.height=430;Ec.width=496;Ec.height=422;for(b=0;256>b;b++)Fc[b]=!1,Gc[b]=!1,Hc[b]=!1,Ic[b]=!1,Jc[b]=!1,Kc[b]=!1,Lc[b]=0,Mc[b]=0;for(b=0;10>b;b++)Lc[48+b]=48+b;for(b=0;9>b;b++)Mc[49+b]=33+b;for(b=0;4>b;b++)Lc[37+b]=37+b;for(b=0;4>b;b++)Mc[37+b]=37+b;Lc[13]=Mc[13]=13;Lc[16]=Mc[16]=16;Lc[17]=Mc[17]=17;Lc[18]=Mc[18]=18;Lc[32]=Mc[32]=
-32;Lc[186]=58;Mc[186]=42;Lc[187]=59;Mc[187]=43;Lc[188]=44;Mc[188]=60;Lc[189]=45;Mc[189]=61;Lc[190]=46;Mc[190]=62;Lc[191]=47;Mc[191]=63;Lc[192]=64;Mc[192]=96;Lc[219]=91;Mc[219]=123;Lc[220]=92;Mc[220]=124;Lc[221]=93;Mc[221]=125;Lc[222]=94;Mc[222]=126;Lc[226]=92;Mc[226]=95;Lc[58]=58;Mc[58]=42;Lc[59]=59;Mc[59]=43;Lc[173]=45;Mc[173]=61;Lc[64]=64;Mc[64]=96;Lc[160]=94;Mc[160]=126;for(b=0;1024>b;b++)Nc[b]=b/1024;for(b=0;1024>b;b++)d=I(1024*Math.random()),a=Nc[b],Nc[b]=Nc[d],Nc[d]=a;Oc=I(1024*Math.random())&
-1023;Pc=I(512*Math.random())|1;for(b=0;220160>b;b++)q[b]=0;b=L;d=b.g;"font.gif"!=d.l&&(Qc++,d.l="font.gif",d.a=new Image,d.a.src=Rc+"font.gif?8.3",delete d.b,d.b=0,d.i=0);b.c=8;b.i=12;b.a=0;b.f=0;Sc()?Ac--:Ac++}if(1==Ac){b=L.g;if(!b.i&&b.a.complete){Qc--;d=b.a.width;a=b.a.height;if(!d||!a)throw delete b.a,b.l="",Tc;c=Uc.createElement(Vc);c.width=d;c.height=a;c=c.getContext(Wc);c.drawImage(b.a,0,0);c=c.getImageData(0,0,d,a).data;Xc(b,d,a);d=0;for(a=c.length;d<a;d+=4)b.b[d>>2]=0==c[d+3]?-1:c[d+0]<<
-16|c[d+1]<<8|c[d+2];delete b.a;b.i=1}Qc?Yc(Bc,Zc()):Ac++}if(2==Ac){0==Wa.length?(fb=2,hb=1):0!=Za&&(fb=2,hb=3);nc(0);Mb();0<Za&&(b=$c(47,115,99,111,114,101,47,100,117,115,116,50,46,112,104,112,63,97,61),b+=Za,ad(b,""),1==bd&&"ok"==cd[0]?($a=cd[1],Qb(0),0<Ta?(Rb(),gb=1):gb=2):gb=2,qa=1);Ub(1);for(a=0;a<n.length;a++)b=I((2989*(n[a]>>16&255)+5866*(n[a]>>8&255)+1145*(n[a]&255))/1E4),Gb[a]=b<<16|b<<8|b;dd(0,0,512,430,4210752);M(L,13,291,"POWDER",15908203,0);M(L,13,305,"WATER",4210943,0);M(L,13,319,"FIRE",
-16728128,0);M(L,13,333,"SEED",9486400,0);ed(13,347,"G-POWDER",-1,0,-2);ed(13,347,"G-POWDER",11567184,-1,-2);ed(13,361,"FAN",8421631,0,-1);M(L,13,375,"ICE",13684991,0);M(L,13,389,"S-BALL",16728224,0);M(L,13,403,"CLONE",9465872,0);ed(68,291,"F-WORKS",16750950,0,-1);M(L,68,305,"OIL",8400928,0);M(L,68,319,"C-4",16777164,0);M(L,68,333,"SAND",16764006,0);M(L,68,347,"MUD",6697728,0);M(L,68,361,"STONE",8421504,0);M(L,68,375,"LAVA",16737843,0);M(L,68,389,"VIRUS",8388736,0);M(L,68,403,"NITRO",4486912,0);M(L,
-123,291,"ANT",12615872,0);M(L,123,305,"TORCH",16752672,0);M(L,123,319,"GAS",13408665,0);M(L,123,333,"SOAPY",15790320,0);ed(123,347,"THUNDER",16776992,0,-1);M(L,123,361,"METAL",4210752,0);M(L,123,375,"BOMB",6710784,0);M(L,123,389,"LASER",13369344,0);M(L,123,403,"ACID",13434624,0);M(L,178,291,"VINE",47872,0);M(L,178,305,"SALT",16777215,0);M(L,178,319,"GLASS",4210752,0);M(L,178,333,"BIRD",8417360,0);M(L,178,347,"FISH",13158,0);ed(178,361,"MERCURY",11184810,0,-1);M(L,178,375,"SPARK",16763955,0);M(L,178,
-389,"FUSE",4469538,0);M(L,178,403,"CLOUD",13421772,0);M(L,233,291,"PUMP",13107,0);ed(233,305,"CRYSTAL",3355443,0,-1);M(L,233,319,"JBOMB",6706500,0);ed(233,333,"Conveyer",-1,0,-2);ed(233,333,"Conv    ",6702131,-1,-2);ed(233,333,"    eyer",3359829,-1,-2);M(L,288,291,"WIND",8421631,0);ed(288,305,"CYCLONE",8421631,0,-1);M(L,288,319,"DRAG",16777215,0);M(L,288,347,"PLAYER",15908203,0);ed(288,361,"FIGHTER",15908203,0,-1);M(L,288,375,"BALL",15908203,0);M(L,288,389,"CREATE",9465872,0);M(L,343,291,"BLOCK",
-8421504,0);M(L,343,305,"ERASE",8421504,0);M(L,343,319,"CLEAR",16777215,0);M(L,343,333,"BH",0,8421504);M(L,343,347,"WH",4210752,12632256);ed(343,403,"MiniMap",16752800,0,-1);M(L,398,305,"TEXT",16777215,0);ed(397,319,"Copy",-1,0,-2);ed(397,319,"Copy",16777215,-1,-2);ed(421,319,"Paste",-1,0,-3);ed(421,319,"Paste",16777215,-1,-3);ed(398,333,"PEN",16777215,0,-1);ed(398,347,"PEN-S ",16777215,0,-1);ed(398,361,"SCALE",16777215,0,-1);ed(398,375,"|",16777215,0,-1);ed(398,389,"SPEEDx",16777215,0,-1);ed(397,
-403,"Start",-1,0,-3);ed(397,403,"Start",16777215,-1,-3);ed(423,403,"Stop",-1,0,-2);ed(423,403,"Stop",16777215,-1,-2);M(L,453,291,"UPLOAD",16752800,0);M(L,453,305,"SAVE",16752800,0);M(L,453,319,"LOAD",16752800,0);M(L,453,347,"G-",-1,0);ed(453,361,"SIDE-",-1,0,-3);ed(453,361,"SIDE-",16777215,-1,-3);ed(453,375,"BG-",-1,0,-2);ed(453,375,"BG-",16777215,-1,-2);M(L,453,389,"GRID",8388608,0);M(L,453,403,"RESET",16777215,0);M(L,69,417,"x    y",-1,0);M(L,153,417,"dot",-1,0);M(L,230,417,"j",-1,0);M(L,285,417,
-Dc,-1,0);Xc(Bb,512,430);for(a=0;220160>a;a++)Bb.b[a]=q[a]&16777215;for(b=220159;0<=b;b--)q[b]=0;fd()}}
-function nc(a){var c,b,d;for(d=b=0;b<gd;b++)for(c=0;c<r;c++,d++)t[d]=0,N[d]=0,O[d]=0,hd[d]=0,id[d]=0,P[d]=0;sc();fc=4;for(c=0;151552>c;c++)F[c]=0;for(b=0;296>b;b++)for(c=0;512>c;c++)jd[512*b+c]=8>c||504<=c||8>b||288<=b?!1:!0,Q[512*b+c]=(b>>2)*r+(c>>2);B[0]=0;B[1]=1;B[2]=2;B[3]=48;hc=0;kd=64;for(c=Wb=0;c<ld*Xb;c++)md[c]=0;for(c=0;c<ld;c++)x[c]=0;for(c=0;c<ld;c++)nd[c]=0;for(c=0;c<ld;c++)$b[c]=0;for(c=0;c<ld;c++)od[c]=0;for(c=0;c<ld;c++)pd[c]=0;for(c=0;c<dc;c++)y[c]=0;for(c=0;c<dc;c++)R[c]=0;for(c=
-0;c<dc;c++)qd[c]=0;for(c=0;c<dc;c++)rd[c]=0;if(0==a){for(a=2;a<sd;a++)t[2*r+a]=1;for(a=2;a<sd;a++)t[(gd-3)*r+a]=1;for(c=2;c<td;c++)t[c*r+2]=1;for(c=2;c<td;c++)t[c*r+r-3]=1}for(c=8;288>c;c++)for(a=8;504>a;a++)1<=t[(c>>2)*r+(a>>2)]&&(F[512*c+a]=2);ib=0}aa.fff=ud;
-function ud(){if(0<vd)vd++;else{var a,c,b,d,e,f,g;d=new ha;Ub(0);Lb("");Pb("");280<=wd&&(xd||yd)&&0==ca?ca=!0:280>wd&&(xd||yd)&&1==ca&&(ca=!1);xd&&!Sa&&(Fc[48]?ja=0:Fc[49]?ja=1:Fc[50]?ja=2:Fc[51]?ja=3:Fc[52]?ja=4:Fc[53]?ja=5:Fc[54]?ja=6:Fc[55]?ja=7:Fc[56]?ja=8:Fc[57]?ja=9:Fc[32]?qa=zd(qa+1,1):Fc[10]||Fc[13]?qa=1:Fc[108]?(Rb(),ka=-10):Fc[106]&&(Qa=zd(Qa+1,3)));f=13;g=291;if(Ad(f-4-8,g-1-8,495,126)&&ca&&!Sa)if(e=I((Bd-(f-4-8))/55),c=I((wd-(g-1-8))/14),c=9*e+c,5==c)yd?(5==h&&(Aa=zd(Aa+8,56)),h=c):Cd&&
-(5==k&&(Aa=zd(Aa-8,56)),k=c);else if(40!=c&&41!=c&&42!=c&&43!=c&&44!=c&&48!=c)if(53==c)yd?(53==h&&(Oa=zd(Oa+1,5)),h=c):Cd&&(53==k&&(Oa=zd(Oa-1,5)),k=c);else if(59!=c&&60!=c&&61!=c)if(62==c)Ra=zd(Ra+Dd,1);else if(63!=c)if(65==c)yd&&(65==h&&(Ba=1-Ba),h=c),Cd&&(65==k&&(Ba=1-Ba),k=c);else if(66==c)wa=zd(wa+Dd,3);else if(67==c)ja=zd(ja+Dd,9);else if(68==c){if(!ma&&(yd||Cd))for(b=147455;4096<=b;b--)Bb.b[b]=q[b];yd?(68==h&&4>ma?(ma++,na+=496>>ma>>1,oa+=280>>ma>>1):68==h&&(ma=0),h=c):Cd&&(68==k&&0<ma?(na-=
-496>>ma>>1,oa-=280>>ma>>1,ma--):68==k&&(ma=4,na+=248-(496>>ma>>1)-1,oa+=140-(280>>ma>>1)-2),k=c);na=Ed(na,0,496-(496>>ma));oa=Ed(oa,0,280-[280,140,70,35,18][ma]);if(!ma&&(yd||Cd))for(b=147455;4096<=b;b--)q[b]=Bb.b[b]}else if(69==c)pa=zd(pa+Dd,1);else if(70==c)ra=zd(ra+Dd,3);else if(71==c)qa=zd(qa+Dd,1);else if(72==c)Dd&&(Sa=1);else if(73==c){if(yd||Cd)Mb(),ka=10}else if(74==c)Dd&&(Rb(),ka=-10);else if(75!=c)if(76==c){if(Dd){va=va?!1:!0;for(b=147455;4096<=b;b--)Fd[b]+=va?1:-1;Gd=1;Hd()}}else if(77==
-c){if(sa=zd(sa+Dd,1),Dd)if(0==sa){for(a=2;a<sd;a++)N[128+a]=0,N[9216+a]=0,O[128+a]=0,O[9216+a]=0,hd[128+a]=0,hd[9216+a]=0,id[128+a]=0,id[9216+a]=0,P[128+a]=0,P[9216+a]=0;for(c=256;c<td<<7;c+=r)N[c+1]=0,N[c+sd]=0,O[c+1]=0,O[c+sd]=0,hd[c+1]=0,hd[c+sd]=0,id[c+1]=0,id[c+sd]=0,P[c+1]=0,P[c+sd]=0}else if(1==sa){for(a=2;a<sd;a++)N[128+a]=N[9088+a],N[9216+a]=N[256+a],O[128+a]=O[9088+a],O[9216+a]=O[256+a],hd[128+a]=hd[9088+a],hd[9216+a]=hd[256+a],id[128+a]=id[9088+a],id[9216+a]=id[256+a],P[128+a]=P[9088+a],
-P[9216+a]=P[256+a];for(c=256;c<td<<7;c+=r)N[c+1]=N[c+sd-1],N[c+sd]=N[c+2],O[c+1]=O[c+sd-1],O[c+sd]=O[c+2],hd[c+1]=hd[c+sd-1],hd[c+sd]=hd[c+2],id[c+1]=id[c+sd-1],id[c+sd]=id[c+2],P[c+1]=P[c+sd-1],P[c+sd]=P[c+2]}}else if(78==c){if(la=zd(la+Dd,16),Dd)for(a=0;a<Ab.length;a++)Ab[a]=0}else 79==c?ua=zd(ua+Dd,9):80==c?Dd&&nc(0):yd?h=c:Cd&&(k=c);if(!ca&&!Sa){fa=da;ga=ea;da=Ed(Bd+8,8,4*(r-2)-1);ea=Ed(wd+8,8,4*(gd-2)-1);0<ma&&(da=8+I(na)+(Bd>>ma),ea=8+I(oa)+(wd>>ma),da=Ed(da,8,4*(r-2)-1),ea=Ed(ea,8,4*(gd-2)-
-1));yd&&(fa=da,ga=ea);if(1==wa)if(yd||Cd)ya=da,za=ea;else{if(Id||Jd)fa=ya,ga=za}else if(2==wa&&(Kd||Ld)){if(yd||Cd)xa=0;xa||(Md(da-fa)>Md(ea-ga)?xa=1:Md(da-fa)<Md(ea-ga)?xa=2:(da=fa,ea=ga));1==xa?ea=ga:2==xa&&(da=fa)}S(d,da,ea);S(ia,fa-5*ia.x,ga-5*ia.y);c=5;a=e=.5;Nd(Od,d,ia);c-=Pd(Od);e*=c;a*=c;d.x+=Od.x*e;d.y+=Od.y*e;ia.x-=Od.x*a;ia.y-=Od.y*a;Nd(ia,d,ia);Pd(ia);Qd(0);Qd(1);if(yd||Cd)ib=Ed(ib+1,0,65535)}Ub(1);c=[1,2,4,8];for(e=0;e<c[ra]&&(1!=qa||xd&&!Sa&&Fc[10]|Fc[13]);e++)Rd++,Sd(),Td(),Ud(),Vd(),
-Wd();if(ma&&0!=pa)for(b=147455;4096<=b;b--)q[b]=Bb.b[b];Xd();if(ma){for(b=147455;4096<=b;b--)Bb.b[b]=q[b];e=8+I(na);c=8+I(oa);3>=ma?Yd(8,280,e,c,280>>ma):4==ma&&(Yd(8,272,e,c,17),Yd(280,8,e,c+17,1))}d=220160;for(b=147456;b<d;b++)q[b]=Bb.b[b];if(Ad(f-4-8,g-1-8,495,126)&&ca&&!Sa){e=I((Bd-(f-4-8))/55);c=I((wd-(g-1-8))/14);e=f-4+55*e;c=g-1+14*c;d=55;a=13;var m;d=512<e+d?512:~~(e+d);e=0>e?0:~~e;b=512*(0>c?0:~~c)+e;m=512-(d-e);d=b+d-e;for(a=512*(430<c+a?430:~~(c+a));b<a;b+=m,d+=512)for(;b<d;b++)4210752==
-(q[b]&16777215)&&(q[b]=4194304)}ca&&Zd(8,288,504,288,6684672);ed(f+0-2,g+70,"    "+I(360*Aa/64)+"'",8421631,0,-1);ed(f+275,g+112,"JOINT-n J-left J-right J-scale J-none J-blind".split(" ")[Oa],15908203,0,-1);1==Ra&&ed(f+330,g+112,"MiniMap",16777215,16711680,-1);Ba?ed(f+408,g+28,"Paste",16728128,-1,-3):ed(f+385-1,g+28,"Copy",16728128,-1,-2);c=["free","line","lock","paint"];3>wa?ed(f+386,g+42,"   "+c[wa],16777215,0,-1):ed(f+389,g+42,"   "+c[wa],16777215,0,-2);ed(f+385,g+56,"      "+ja,16777215,0,-1);
-ed(f+385,g+70,"      "+["x1","x2","x4","x8","16"][ma],16777215,0,-2);ed(f+385,g+84," "+["normal","exact"][pa],16777215,0,-1);ed(f+385,g+98,"       "+(1<<ra),16777215,0,-2);0==qa?ed(f+385-1,g+112,"Start",16728128,-1,-3):ed(f+410,g+112,"Stop",16728128,-1,-2);2==fb&&M(L,f+440,g+0,"UPLOAD",5259328,3158064);0<ka&&(ka--,1<ka&&M(L,f+440,g+14,"SAVE",16777215,16711680));0>ka&&(ka++,-1>ka&&M(L,f+440,g+28,"LOAD",16777215,16711680));M(L,f+440,g+56,va?"  on":"  off",-1,0);c=["OFF","LOOP"];ed(f+465,g+70,c[sa],
--1,0,-2);ed(f+465,g+70,c[sa],16777215,-1,-2);c="non air line blur g-map shade aura light toon mesh gray track dark TG silet mosaic color ".split(" ");15==la?(ed(f+443,g+84,"   "+c[la],-1,0,-3),ed(f+443,g+84,"   "+c[la],16777215,-1,-3)):(ed(f+440,g+84,"   "+c[la],-1,0,-2),ed(f+440,g+84,"   "+c[la],16777215,-1,-2));M(L,f+440,g+98,"     "+ua,8388608,0);dd(f-4+55*I(h/9),g+1+h%9*14,3,4,16711680);dd(f-4+55*I(k/9),g+6+k%9*14,3,4,255);M(L,f+56,g+126," "+(da-8),-1,0);M(L,f+56,g+126,"      "+(ea-8),-1,0);M(L,
-f+140,g+126,"   "+($d-fc),-1,0);0==Qa?M(L,f+217,g+126," "+hc,-1,0):1==Qa?M(L,f+217,g+126," "+hc,-1,14540253):2==Qa?M(L,f+217,g+126," "+hc,-1,2236962):3==Qa&&M(L,f+217,g+126," "+hc,0,-1);M(L,f+0,g+126,ae+be,-1,0);if(1==Ra){f=13;g=291;166>Bd&&ca&&(f=178);dd(f,g,124,70,0);for(b=a=0;a<Wb;a++,b+=Xb)e=I(w[b+4].x)-8,c=I(w[b+4].y)-8,0>e||496<=e||0>c||280<=c||(e>>=2,c>>=2,d=512*(g+c)+(f+e),x[a]==Zb?q[d]=45:x[a]==ac?q[d]=46:x[a]==bc?q[d]=47:x[a]==bc+1?q[d]=47:x[a]==cc&&(q[d]=49));for(a=0;a<dc;a++)0!=y[a]&&
-(e=I(z[a].x)-8,c=I(z[a].y)-8,0>e||496<=e||0>c||280<=c||(e>>=2,c>>=2,d=512*(g+c)+(f+e),q[d]=48));for(c=0;70>c;c++)for(e=0;124>e;e++)b=(c+2)*r+(e+2),d=2048*(c+2)+4*(e+2),a=q[512*(g+c)+(f+e)],0==a&&(1==t[b]?a=2:2==t[b]?a=3:3==t[b]?a=4:(a=B[F[d]],48==a&&(a=0),0==a&&(a=B[F[d+513]]),48==a&&(a=0))),d=n,10==la?d=Gb:12==la?7!=a&&21!=a&&26!=a&&29!=a&&32!=a&&41!=a&&(a=0):14==la&&(a=0==a?12:0),q[512*(g+c)+(f+e)]=d[a],16==la&&0==a&&(d=(n[Cb[h]]&255)+(n[Cb[k]]&255)>>1,q[512*(g+c)+(f+e)]=(n[Cb[h]]>>16&255)+(n[Cb[k]]>>
-16&255)>>1<<16|(n[Cb[h]]>>8&255)+(n[Cb[k]]>>8&255)>>1<<8|d)}Ub(0);-1==Sa&&Sa++;1==gb?(Ya?ce(nb,"\u30af\u30ea\u30c3\u30af\u3067\u518d\u751f\u3001\uff2c\uff2f\uff21\uff24\u3067\u518d\u30b9\u30bf\u30fc\u30c8"):ce(nb,"Click to play, LOAD to restart."),gb=0,Sa=10):2==gb&&(Ya?ce(nb,"\u30a8\u30e9\u30fc"):ce(nb,"Error"),gb=0,Sa=10);1==Sa&&(ma=0,fb||(f=$c(47,115,99,111,114,101,47,100,117,115,116,50,46,112,104,112,63,97,61),f+=Ua,f+=de+(Ya?"0":"1"),ad(f,""),1==bd&&"ok"==cd[0]?fb=1:(fb=2,hb="err1"==cd[0]?1:
-"err2"==cd[0]?2:"err3"==cd[0]?3:"err4"==cd[0]?4:"err5"==cd[0]?5:0)),Sa++);if(2==Sa)1==fb?10>ib?Ya?ce(nb,"\u3082\u3046\u5c11\u3057\u4f5c\u308a\u8fbc\u3093\u3067\u4e0b\u3055\u3044\u3002"):ce(nb,"Please carefully created."):Ya?ce(nb,"\u30bf\u30a4\u30c8\u30eb\u3092\u8a18\u5165\u3057\u3066\uff2f\uff2b\u3092\u62bc\u3057\u3066\u4e0b\u3055\u3044"):ce(nb,"Enter the title and click OK."):2==fb&&(Ya?1==hb?ce(nb,"\u30e6\u30fc\u30b6\u30fc\u767b\u9332\u304c\u5fc5\u8981\u3067\u3059"):2==hb?ce(nb,"1\u65e5\u306b1\u56de\u306e\u307f\u3067\u3059"):
-3==hb?ce(nb,"\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9\u30c7\u30fc\u30bf"):4==hb?ce(nb,"\u904e\u53bb12\u6642\u9593\u306e\u4f5c\u54c1\u6570\u304c50\u4ef6\u306b\u9054\u3057\u305f\u70ba\uff71\uff6f\uff8c\uff9f\u51fa\u6765\u307e\u305b\u3093"):5==hb?ce(nb,"\u8a00\u8a9e\u30a8\u30e9\u30fc"):6==hb?ce(nb,"\u4f5c\u8005\u306e\u307f\u3067\u3059"):ce(nb,"\u30a2\u30c3\u30d7\u30ed\u30fc\u30c9\u51fa\u6765\u307e\u305b\u3093"):1==hb?ce(nb,"User registration is required."):2==hb?ce(nb,"1 time in 1 days only."):3==hb?ce(nb,
-"Download data."):4==hb?ce(nb,"Reached 50 posts in 12 hours. Cannot upload."):5==hb?ce(nb,"Language error."):6==hb?ce(nb,"Author only."):ce(nb,"Cannot upload.")),Sa++;else if(3==Sa){dd(96,100,320,100,8421504);ee(256,114,"UPLOAD",16752800);fe(135);if(1==fb&&10<=ib&&(dd(140,150,232,16,16777215),ge(139,149,234,0),Ad(132,142,232,16)&&(ge(139,149,234,16711680),Id&&(f=he("Text",ob),null!=f&&(ob=f))),ce(qb,ob),ie(qb,141,150,230,16,230,16,0),d=Ad(200,172,16,12),ee(216,186,"OK",d?16711680:16777215),d&&Id))if(2>
-ob.length)Ya?ce(nb,"\u30bf\u30a4\u30c8\u30eb\u3092\uff12\u6587\u5b57\u4ee5\u4e0a\u8a18\u5165\u3057\u3066\u4e0b\u3055\u3044"):ce(nb,"The title must be longer than 2 characters.");else{f=ob;g=0;c=f.length;for(e=0;e<c;e++)d=f.charCodeAt(e),g=0<=d&&128>=d||65377<=d&&65439>=d?g+1:g+2;20<g?Ya?ce(nb,"\u30bf\u30a4\u30c8\u30eb\u3092\uff11\uff10\u6587\u5b57\u4ee5\u4e0b\u3067\u8a18\u5165\u3057\u3066\u4e0b\u3055\u3044"):ce(nb,"The title must be shorter than 20 characters."):Sa++}d=Ad(264,172,48,12);ee(296,186,
-"CANCEL",d?16711680:16777215);d&&Id&&(Sa=5)}else if(4==Sa){ob=encodeURIComponent(ob);if(!ob.length){Sa=3;Ya?ce(nb,"\u30a8\u30e9\u30fc"):ce(nb,"Error");Ub(1);return}Mb();Nb(0);f=$c(47,115,99,111,114,101,47,100,117,115,116,50,46,112,104,112,63,97,61);f+=Ua;f+=de+(Ya?"0":"1");f+=je+ab;f+=ke+cb;f+=le+eb;f+=me+jb;f+=ne+kb;f+=oe+ob;g="i="+$a;g+=re+bb;g+=se+db;ad(f,g);fb=2;Sa++}else if(5==Sa)Sa=0;else if(10==Sa)if(dd(128,288,256,70,6291456),dd(132,292,248,62,6316128),ee(256,302,"DOWNLOAD",16752800),fe(323),
-248>Bd?(ee(226,345,"START",16711680),ee(286,345,"STOP",16777215)):(ee(226,345,"START",16777215),ee(286,345,"STOP",16711680)),Id)Sa=0,qa=248>Bd?0:1;else{if(Hc[37]||Hc[39])Sa=0,qa=Hc[37]?0:1}else if(20==Sa)ob="",Sa++;else if(21==Sa){dd(136,289,240,99,8421504);dd(140,297,232,16,16777215);ge(139,296,234,0);Ad(132,289,232,16)&&(ge(139,296,234,16711680),Id&&(f=he("Text",ob),null!=f&&(ob=f)));M(L,141,300,ob.substr(0,28),16777215,0);3==ub&&(dd(288,320,84,16,16777215),ge(287,319,86,0),Ad(280,312,84,16)&&(ge(287,
-319,86,16711680),Id&&(f=he("setFont",pb),null!=f&&(pb=f))),M(L,289,323,pb.substr(0,10),16777215,0));a=-1;128<=Bd&&268>Bd&&314<=wd&&362>wd&&(a=I((wd-314)/16),0==a&&Dd&&(ub=zd(ub+Dd,5)),1==a&&Dd&&(vb=zd(vb+Dd,3)),2==a&&Dd&&(wb=zd(wb+Dd,10)));M(L,140,322,"font :"+xb[ub],0==a?16711680:16777215,0);M(L,140,338,"style:"+yb[vb],1==a?16711680:16777215,0);M(L,140,354,"size :"+zb[wb],2==a?16711680:16777215,0);a=-1;128<=Bd&&368>Bd&&362<=wd&&380>wd&&(a=248>Bd?0:1,yd&&(a?Sa=23:Sa++));M(L,206,372,"OK",a?16777215:
-16711680,0);M(L,256,372,"CANCEL",1==a?16711680:16777215,0);f=xb[ub];3==ub&&(f=pb);te(qb,ob,f,vb,zb[wb]);f=5;0!=Cb[h]?f=Cb[h]:0!=Cb[k]&&(f=Cb[k]);if(37==f||2==f||3==f||4==f)f=5;ie(qb,rb,sb,qb.f,128,qb.f,128,n[f])}else if(22==Sa){f="sex gay fuck suck crap shit dick penis bitch ** \u30bb\u30c3\u30af\u30b9 \u30a8\u30c3\u30c1 \u3061\u3093\u3053 \u30c1\u30f3\u30b3 \u307e\u3093\u3053 \u30de\u30f3\u30b3 \u539f\u7206 \u539f\u5b50\u7206 \u6838 \u88ab\u7206 \u6b7b \u6bba \u7968 \u8a55 \u62cd\u624b \u4eba\u6c17 \u53c2\u52a0 \u30a2\u30f3\u30b1\u30fc\u30c8 \u524a\u9664 \u6d88\u53bb ttp www. .com .jp".split(" ");
-g="";for(a=0;a<ob.length;a++)c=ob[a]," "!=c&&"\u3000"!=c&&(g+=c);g=g.toLowerCase();for(a=0;a<f.length&&!(0<=g.indexOf(f[a]));a++);if(a!=f.length){Sa=23;return}f=xb[ub];3==ub&&(f=pb);te(qb,ob,f,vb,zb[wb]);f=5;0!=Cb[h]?f=Cb[h]:0!=Cb[k]&&(f=Cb[k]);if(37==f||2==f||3==f||4==f)f=5;for(c=0;128>c&&!(288<=sb+c);c++)for(e=0;496>e&&!(504<=rb+e);e++)-1!=qb.b[c*qb.h+e]&&0==F[512*(sb+c)+(rb+e)]&&(b=qc(rb+e,sb+c,f,0),0<=b&&1==f&&(H[b].x=.01*Math.cos(Aa*rc/32),H[b].y=.01*-Math.sin(Aa*rc/32),D[b]=Aa,F[512*(sb+c)+
-(rb+e)]=1));Sa++}else 23==Sa&&(Sa=0);Ub(1)}}
-function Qd(a){var c,b,d,e,f;e=new ha;var g=0==a?h:k,m=0==a?yd:Cd;b=0==a?Id:Jd;f=0==a?Kd:Ld;if(40>g){if(1==wa&&(f=0==a?Id:Jd),f){var m=da-fa,p=ea-ga;if(!(1>=ja&&1==qa&&1>=ma)||m||p||3==wa){var u=ue(ue(Md(m),Md(p)),1),m=I((m<<8)/u),p=I((p<<8)/u),v=(fa<<8)+127,G=(ga<<8)+127;for(c=0;c<=u;c++,v+=m,G+=p){var K=ja+0,W=(v>>8)-K;b=(G>>8)-K;var ta=W+2*K,lb=b+2*K;8>W&&(W=8);8>b&&(b=8);503<ta&&(ta=503);287<lb&&(lb=287);d=512*b+W;var tb=512-(ta-W+1);for(f=b;f<=lb;f++,d+=tb)for(e=W;e<=ta;e++,d++)if(!(K*K+1<(e-
-(v>>8))*(e-(v>>8))+(f-(G>>8))*(f-(G>>8))))if(3==wa){b=0!=Cb[g]?Cb[g]:5;var Va=0;1!=b&&(15==b?0!=Db[h]?Va=Db[h]:0!=Db[k]?Va=Db[k]:Va=5:32==b?(Va=I(8*ve(ia)/we+.5)&7,Va+=1):52==b&&(Va=0==a?0:1),4<=F[d]&&B[F[d]]!=b&&zc(d,B[F[d]],b,Va))}else 0==F[d]&&(Va=Cb[g],(0==a&&Ld&&40>k||1==a&&Kd&&40>h)&&xe(.5)&&(Va=Cb[0==a?k:h]),b=qc(e,f,Va,0),0>b||(1==Va?(H[b].x=.01*Math.cos(Aa*rc/32),H[b].y=.01*-Math.sin(Aa*rc/32),D[b]=Aa,F[d]=1):15==Va?D[b]=0!=Db[h]?Db[h]:0!=Db[k]?Db[k]:5:32==Va?(Va=I(8*ve(ia)/we+.5)&7,D[b]=
-Va+1):52==Va&&(D[b]=0==a?0:1,C[b]=0==a?6702131:3359829)))}}}}else if(45==g)b=(ea>>2)*r+(da>>2),f&&0==t[b]&&(N[b]+=ia.x*(ja+1),O[b]+=ia.y*(ja+1),S(e,N[b],O[b]),10<ye(e)&&1==qa&&(Pd(e),N[b]=10*e.x,O[b]=10*e.y));else if(46==g)f&&(b=(ea>>2)*r+(da>>2),d=ja+1,0==a?(0==t[b-r]&&(N[b-r]+=d,O[b-r]+=d),0==t[b+1]&&(N[b+1]-=d,O[b+1]+=d),0==t[b+r]&&(N[b+r]-=d,O[b+r]-=d),0==t[b-1]&&(N[b-1]+=d,O[b-1]-=d),0==t[b-r+1]&&(N[b-r+1]+=d,O[b-r+1]+=d),0==t[b+r+1]&&(N[b+r+1]-=d,O[b+r+1]+=d),0==t[b+r-1]&&(N[b+r-1]-=d,O[b+r-
-1]-=d),0==t[b-r-1]&&(N[b-r-1]+=d,O[b-r-1]-=d)):(0==t[b-r]&&(N[b-r]-=d,O[b-r]+=d),0==t[b-1]&&(N[b-1]+=d,O[b-1]+=d),0==t[b+r]&&(N[b+r]+=d,O[b+r]-=d),0==t[b+1]&&(N[b+1]-=d,O[b+1]-=d),0==t[b-r-1]&&(N[b-r-1]-=d,O[b-r-1]+=d),0==t[b+r-1]&&(N[b+r-1]+=d,O[b+r-1]+=d),0==t[b+r+1]&&(N[b+r+1]+=d,O[b+r+1]-=d),0==t[b-r+1]&&(N[b-r+1]-=d,O[b-r+1]-=d)));else if(49==g||50==g||52==g){if(e=da>>2<<2,f=ea>>2<<2,b=(ea>>2<<7)+(da>>2),m&&0==t[b])if(49==g){b=45;for(a=0;a<Wb;a++)x[a]==Zb&&(b=46);0!=Eb[h]?d=Eb[h]:0!=Eb[k]?d=
-Eb[k]:d=0;oc(e,f,b,d)}else 50==g?oc(e,f,47,0):52==g&&oc(e,f,49,0)}else if(51==g)b=(ea>>2<<7)+(da>>2),m&&0==t[b]&&(0!=Fb[h]?d=Fb[h]:0!=Fb[k]?d=Fb[k]:d=5,pc(da,ea,d));else if(53==g){if(m){g=[0,-1,-512,1,512,-513,-511,513,511,-2,-1024,2,1024,510,-514,-1025,-1023,-510,514,1025,1023,-3,-1026,-1536,-1022,3,1026,1536,1022,509,-515,-1537,-1535,-509,515,1537,1535];v=u=p=m=0;b=512*ea+da;for(a=0;37>a;a++)if(e=tc(b+g[a]),f=uc(b+g[a]),-1!=e?(p=1,v=e,255==(pd[e]&255)&&(e=-1)):-1!=f?(p=2,v=f,e=0,255==(rd[f]&255)&&
-(e=-1)):4<=F[b+g[a]]&&(p=0,v=F[b+g[a]],e=0,255==(yc[F[b+g[a]]]&255)&&(e=-1)),-1!=e){-1==Pa?Pa=b+g[a]:(e=tc(Pa),f=uc(Pa),-1!=e?(m=1,u=e,255==(pd[e]&255)&&(e=-1)):-1!=f?(m=2,u=f,e=0,255==(rd[f]&255)&&(e=-1)):4<=F[Pa]&&(m=0,u=F[Pa],e=0,255==(yc[F[Pa]]&255)&&(e=-1)),-1!=e&&b+g[a]!=Pa&&vc(m,p,u,v,Oa),Pa=-1);break}37==a&&(Pa=-1)}}else if(54==g||55==g||56==g||57==g||58==g){if(1==wa&&(f=0==a?Id:Jd),f){d=ja;56!=g&&0==ja&&(d=1);m=I(da/4)-I(fa/4);p=I(ea/4)-I(ga/4);u=ue(ue(Md(m),Md(p)),1);m=I((m<<8)/u);p=I((p<<
-8)/u);v=(I(fa/4)<<8)-127;G=(I(ga/4)<<8)-127;for(a=0;a<=u;a++,v+=m,G+=p)for(c=(v>>8)-I(d/2),K=(G>>8)-I(d/2),W=c+d/2+.5,ta=K+d/2+.5,f=K;f<=K+d;f++)for(e=c;e<=c+d;e++)2>e||sd<=e||2>f||td<=f||(e-W)*(e-W)+(f-ta)*(f-ta)>I(d*d/4)||(b=f*r+e,54==g?0==t[b]&&(t[b]=1,N[b]=O[b]=hd[b]=id[b]=P[b]=0):55==g?(2==t[b]?ze(e,f,-1):3==t[b]&&ze(e,f,1),t[b]=-2):56==g?0==t[b]&&(t[b]=-2,N[b]=O[b]=hd[b]=id[b]=P[b]=0):57==g?0==t[b]&&(t[b]=2,N[b]=O[b]=hd[b]=id[b]=P[b]=0,ze(e,f,1)):58==g&&0==t[b]&&(t[b]=3,N[b]=O[b]=hd[b]=id[b]=
-P[b]=0,ze(e,f,-1)));Hd();if(56==g&&0==ja)for(m=da-fa,p=ea-ga,u=ue(ue(Md(m),Md(p)),1),m=I((m<<8)/u),p=I((p<<8)/u),v=(fa<<8)+127,G=(ga<<8)+127,a=0;a<=u;a++,v+=m,G+=p)for(b=4;b<fc;b++)v>>8==I(A[b].x)&&G>>8==I(A[b].y)&&gc(b--);if(54==g||56==g||57==g||58==g)for(a=4;a<fc;a++)0!=t[(A[a].y>>2)*r+(A[a].x>>2)]&&gc(a--);if(54==g||55==g||57==g||58==g){for(a=0;a<Wb;a++)if(x[a]==Zb||x[a]==ac||x[a]==bc||x[a]==bc+1||x[a]==cc)for(c=4;6>c;c++)if(b=(w[a*Xb+c].y>>2<<7)+(w[a*Xb+c].x>>2),0!=t[b]){Yb(a--);break}for(a=0;a<
-dc;a++)if(0!=y[a]&&(b=(z[a].y>>2<<7)+(z[a].x>>2),0!=t[b])){b=(z[a].y<<9)+I(z[a].x);for(c=0;21>c;c++)3==F[b+Ae[c]]&&(F[b+Ae[c]]=0);ec(a)}}if(55==g||56==g)for(f=2;f<=td;f++)for(e=2;e<=sd;e++)b=f*r+e,-2==t[b]&&(t[b]=0);b=4104;for(f=8;288>f;f++,b+=16)for(e=8;504>e;e++,b++)d=(f>>2)*r+(e>>2),0==t[d]&&2==F[b]?F[b]=0:1<=t[d]&&(F[b]=2)}}else 64==g?(rb=da,sb=ea-14,m&&(Sa=20)):65==g?m?Ba?1==qa&&1>=ma&&Ca==Ea&&Da==Fa||xc():(Ca=Ea=da,Da=Fa=ea):b&&!Ba?wc():f&&!Ba&&(Ea=da,Fa=ea):68==g&&f&&(na-=(Bd-Be)/(1<<ma),oa-=
-(wd-Ce)/(1<<ma),na=Ed(na,0,496-(496>>ma)),oa=Ed(oa,0,280-[280,140,70,35,18][ma]))}aa.fff=Xd;
-function Xd(){var a,c,b,d,e,f,g,m,p,u=new ha,v=[1,1,1,509,1,1,1,509,1,1,1,509,1,1,1,509];if(0==la)for(a=147456;4096<a;a--)q[a]=0;else if(1==la||2==la)for(b=2,d=258;b<td;b++,d+=4)for(c=2;c<sd;c++,d++)0==t[d]&&(0<P[d]?g=I(De(10*P[d],96)):g=0,0>P[d]?m=I(De(-10*P[d],96)):m=0,dd(c<<2,b<<2,4,4,0|g<<8|m));else if(3==la)for(a=147456;4096<a;a--)0==t[Q[a]]&&(f=230*(q[a]>>16&255)>>8,g=230*(q[a]>>8&255)>>8,m=230*(q[a]&255)>>8,q[a]=f<<16|g<<8|m);else if(4==la)for(d=4104,b=8;288>b;b++,d+=16)for(c=8;504>c;c++,d++)u.x=
-T[d+(503==c?0:1)]-T[d-(8==c?0:1)],u.y=U[d+(287==b?0:512)]-U[d-(8==b?0:512)],f=I(512*(u.x+u.y)),q[d]=0>=f?De(-f,255):De(f,255)<<8;else if(5==la){for(b=8;288>b;b++){d=(b<<9)+8;for(c=8;503>c;c++,d++)f=(q[d]>>16&255)+(q[d+1]>>16&255)>>1,g=(q[d]>>8&255)+(q[d+1]>>8&255)>>1,m=(q[d]&255)+(q[d+1]&255)>>1,q[d]=f<<16|g<<8|m;for(c=503;8<c;c--,d--)f=(q[d]>>16&255)+(q[d-1]>>16&255)>>1,g=(q[d]>>8&255)+(q[d-1]>>8&255)>>1,m=(q[d]&255)+(q[d-1]&255)>>1,q[d]=f<<16|g<<8|m}for(c=8;504>c;c++){d=4096+c;for(b=8;287>b;b++,
-d+=512)f=(q[d]>>16&255)+(q[d+512]>>16&255)>>1,g=(q[d]>>8&255)+(q[d+512]>>8&255)>>1,m=(q[d]&255)+(q[d+512]&255)>>1,q[d]=f<<16|g<<8|m;for(b=287;8<b;b--,d-=512)f=(q[d]>>16&255)+(q[d-512]>>16&255)>>1,g=(q[d]>>8&255)+(q[d-512]>>8&255)>>1,m=(q[d]&255)+(q[d-512]&255)>>1,q[d]=f<<16|g<<8|m}}else if(6==la){var G,K,W;b=2;for(d=258;b<td;b++,d+=4)for(c=2;c<sd;c++,d++)if(m=Md(N[d]),f=Md(O[d]),0!=m||0!=f)for(g=1/(m+f),p=I(m*g*258),G=I(f*g*258),K=0>N[d]?-1:1,W=0>O[d]?-512:512,e=(b<<11)+(c<<2),a=0;16>a;a++)f=(Ab[e+
-K]>>16&255)+((q[e]>>16&255)*p>>8),255<f&&(f=255),g=(Ab[e+K]>>8&255)+((q[e]>>8&255)*p>>8),255<g&&(g=255),m=(Ab[e+K]&255)+((q[e]&255)*p>>8),255<m&&(m=255),Ab[e+K]=f<<16|g<<8|m,f=(Ab[e+W]>>16&255)+((q[e]>>16&255)*G>>8),255<f&&(f=255),g=(Ab[e+W]>>8&255)+((q[e]>>8&255)*G>>8),255<g&&(g=255),m=(Ab[e+W]&255)+((q[e]&255)*G>>8),255<m&&(m=255),Ab[e+W]=f<<16|g<<8|m,e+=v[a];for(a=147456;4096<a;a--)0==t[Q[a]]&&(q[a]=Ab[a],Ab[a]=0)}else if(7==la)for(a=147456;4096<a;a--)0==t[Q[a]]&&(f=220*(q[a]>>16&255)>>8,g=220*
-(q[a]>>8&255)>>8,m=220*(q[a]&255)>>8,q[a]=f<<16|g<<8|m);else if(8==la){for(a=147968;3584<a;a--)2==F[a]?q[a]=6316128:3==F[a]?q[a]=0:1==F[a]?q[a]=8421631:0==F[a]?q[a]=4<=F[a+1]?C[F[a+1]]:4<=F[a-1]?C[F[a-1]]:4<=F[a+512]?C[F[a+512]]:4<=F[a-512]?C[F[a-512]]:4<=F[a+513]?C[F[a+513]]:4<=F[a+512-1]?C[F[a+512-1]]:4<=F[a-512+1]?C[F[a-512+1]]:4<=F[a-512-1]?C[F[a-512-1]]:0:4<=F[a]&&(q[a]=C[F[a]]);for(a=147456;4096<a;a--)0==q[a]&&(0!=q[a+1]&&15658734!=q[a+1]?q[a]=15658734:0!=q[a-1]&&15658734!=q[a-1]?q[a]=15658734:
-0!=q[a+512]&&15658734!=q[a+512]?q[a]=15658734:0!=q[a-512]&&15658734!=q[a-512]&&(q[a]=15658734))}else if(9==la)for(a=147456;4096<=a;a--)q[a]=0;else if(10==la)for(b=2,d=258;b<td;b++,d+=4)for(c=2;c<sd;c++,d++)0==t[d]&&(f=0,0<P[d]&&(f=I(De(10*P[d],72))),0>P[d]&&(f=I(De(-10*P[d],24))),dd(c<<2,b<<2,4,4,f<<16|f<<8|f));else if(11==la)for(b=2,d=258;b<td;b++,d+=4)for(c=2;c<sd;c++,d++){if(0==t[d]&&(p=256-I(De(Md(P[d]),32)),256!=p))for(e=(b<<11)+(c<<2),a=0;16>a;a++)f=(q[e]>>16&255)*p>>8,g=(q[e]>>8&255)*p>>8,
-m=(q[e]&255)*p>>8,q[e]=f<<16|g<<8|m,e+=v[a]}else if(12==la)for(a=147456;4096<a;a--)q[a]=0,Ab[a]=4>F[a]?I(8*Ab[a]/9):7==B[F[a]]?25500:21==B[F[a]]?25500:26==B[F[a]]?255E3:29==B[F[a]]?255E3:32==B[F[a]]?25500:37==B[F[a]]&&C[F[a]]==n[29]?255E3:41==B[F[a]]?25500:50==B[F[a]]&&0!=D[F[a]]?255E3:I(8*Ab[a]/9);else if(13==la){for(a=0;a<fc;a++)Ab[E[a]]=Hb[B[a]];for(b=8;288>b;b++){d=(b<<9)+8;for(c=8;503>c;c++,d++)Ab[d]=Ab[d+1]=Ab[d]+Ab[d+1]>>1;for(c=503;8<c;c--,d--)Ab[d]=Ab[d-1]=Ab[d]+Ab[d-1]>>1}for(c=8;504>c;c++){d=
-4096+c;for(b=8;287>b;b++,d+=512)Ab[d]=Ab[d+512]=Ab[d]+Ab[d+512]>>1;for(b=287;8<b;b--,d-=512)Ab[d]=Ab[d-512]=Ab[d]+Ab[d-512]>>1}for(a=147456;4096<a;a--)p=Ab[a],0>p?(f=-p>>3,g=0,m=-p>>2):1024>p?(g=f=0,m=p>>2):2048>p?(f=0,g=p-1024>>2,m=255):3072>p?(f=0,g=255,m=255-(p-2048>>2)):4096>p?(f=p-3072>>2,g=255,m=0):6144>p?(f=255,g=255-(p-4096>>3),m=0):(f=255,g=p-6144>>3,255<g&&(g=255),m=p-6144>>3,255<m&&(m=255)),q[a]=f<<16|g<<8|m}else if(15==la)for(a=147456;4096<a;a--)q[a]=0;else if(16==la)for(f=(n[Cb[h]]>>
-16&255)+(n[Cb[k]]>>16&255)>>1,g=(n[Cb[h]]>>8&255)+(n[Cb[k]]>>8&255)>>1,m=(n[Cb[h]]&255)+(n[Cb[k]]&255)>>1,d=0|f<<16|g<<8|m,a=147456;4096<a;a--)q[a]=d;b=2;for(d=258;b<td;b++,d+=4)for(c=2;c<sd;c++,d++)if(0!=t[d])for(e=(b<<11)+(c<<2),a=0;16>a;a++)q[e]=Ib[t[d]][a],e+=v[a];if(2==la)for(b=2,d=258;b<td;b++,d+=4)for(c=2;c<sd;c++,d++)0==t[d]&&(S(u,N[d],O[d]),f=I(10*Pd(u)),2>f||(48<f&&(f=48),a=(c<<2)+2,p=(b<<2)+2,Zd(a,p,a+u.x*f,p+u.y*f,0|f<<17)));else if(9==la)for(b=2,d=258;b<td;b++,d+=4)for(c=2;c<sd;c++,d++)0==
-t[d]&&(S(u,N[d],O[d]),a=ye(u),.2>a||(g=I(De(16*a,80)),f=0,0<P[d]&&(f=I(De(P[d]*a,80))),m=0,0>P[d]&&(m=I(De(-P[d]*a,80))),a=(c<<2)+5*N[d],p=(b<<2)+5*O[d],e=(c+1<<2)+5*N[d+1],G=(b<<2)+5*O[d+1],Zd(a,p,e,G,f<<16|g<<8|m),e=(c<<2)+5*N[d+r],G=(b+1<<2)+5*O[d+r],Zd(a,p,e,G,f<<16|g<<8|m)));else if(14==la)for(a=147456;4096<a;a--)0==F[a]?(f=255-(255-(q[a]>>16&255)>>1),g=255-(255-(q[a]>>8&255)>>1),m=255-(255-(q[a]&255)>>1),q[a]=f<<16|g<<8|m):3>F[a]&&(q[a]=0);if(2<=ua){c=[0,0,124,62,32,20,16,12,8,4];u=[0,0,70,
-35,32,20,16,12,8,4];g=[0,0,0,0,-8,8,8,-4,0,0];f=[0,0,0,0,12,0,-4,-4,0,0];for(a=0;496>a;a+=c[ua])for(b=0,d=4104+a+g[ua];280>b;b++,d+=512)6316128!=q[d]&&(q[d]=3355443);for(a=0;280>a;a+=u[ua])for(c=0,d=512*(8+a+f[ua])+8;496>c;c++,d++)6316128!=q[d]&&(q[d]=3355443)}if(1<=ua){b=0;for(d=4352;280>b;b++,d+=512)6316128!=q[d]&&(q[d]=4194304);c=0;for(d=75784;496>c;c++,d++)6316128!=q[d]&&(q[d]=4194304)}if(7==la)for(a=4;a<fc;a++)f=((C[a]&16711680)>>18)+(q[E[a]]>>16&255),255<f&&(f=255),g=((C[a]&65280)>>10)+(q[E[a]]>>
-8&255),255<g&&(g=255),m=((C[a]&255)>>2)+(q[E[a]]&255),255<m&&(m=255),q[E[a]]=f<<16|g<<8|m;else if(8!=la)if(10==la)for(a=4;a<fc;a++)q[E[a]]=Gb[B[a]];else if(14==la)for(a=4;a<fc;a++)f=(q[E[a]]>>16&255)-(255-(C[a]>>16&255)+10),0>f&&(f=0),g=(q[E[a]]>>8&255)-(255-(C[a]>>8&255)+10),0>g&&(g=0),m=(q[E[a]]&255)-(255-(C[a]&255)+10),0>m&&(m=0),q[E[a]]=f<<16|g<<8|m;else if(16==la)for(a=4;a<fc;a++)q[E[a]]=q[E[a]]==C[a]?0:C[a];else for(a=4;a<fc;a++)q[E[a]]=C[a];Ee();Fe();Ge();if(12==la){for(b=8;288>b;b++){d=(b<<
-9)+8;for(c=8;503>c;c++,d++)Ab[d]=Ab[d]+Ab[d+1]>>1;for(c=503;8<c;c--,d--)Ab[d]=Ab[d]+Ab[d-1]>>1}for(c=8;504>c;c++){d=4096+c;for(b=8;287>b;b++,d+=512)Ab[d]=Ab[d]+Ab[d+512]>>1;for(b=287;8<b;b--,d-=512)Ab[d]=Ab[d]+Ab[d-512]>>1}for(a=147456;4096<a;a--)1>Ab[a]?q[a]=0:(p=De(Ab[a],255),f=(q[a]>>16&255)*p>>8,g=(q[a]>>8&255)*p>>8,m=(q[a]&255)*p>>8,q[a]=f<<16|g<<8|m)}else if(15==la)for(b=2,d=258;b<td;b++,d+=4)for(c=2;c<sd;c++,d++){p=m=g=f=0;e=(b<<11)+(c<<2);for(a=0;16>a;a++)0!=q[e]&&(f+=q[e]>>16&255,g+=q[e]>>
-8&255,m+=q[e]&255,p++),e+=v[a];if(p)for(f=I(f/p),g=I(g/p),m=I(m/p),e=(b<<11)+(c<<2),a=0;16>a;a++)q[e]=3>a||4==a||8==a?De(f+48,255)<<16|De(g+48,255)<<8|De(m+48,255):12<a||7==a||11==a?ue(f-32,0)<<16|ue(g-32,0)<<8|ue(m-32,0):f<<16|g<<8|m,e+=v[a]}He()}
-var Ie=[0,0,0,0,1,1,1,2,2,2,3],Je=[[],[1,1,1,2,2,2,3,3,3,4,4,4],[1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4],[1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4],[1,1,1,1,1,1,1,2,2,2,2,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,2,2,2,2,3,3,3,3,3,3,3,4,4,4,4,3,3,3,3,4,4,4,4,4,4,4,1,1,1,1,4,4,4,4],[1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,1,1,1,1,4,4,4,4],[1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,2,2,2,2,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,1,1,1,4,4,4,4],[1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,1,1,1,1,2,2,2,2,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,2,2,2,2,3,3,3,3,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,3,3,3,3,4,4,4,4,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,1,1,1,1,4,4,4,4,1,1,1,1,4,4,4,4],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,1,1,1,1,2,2,2,2,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,2,2,2,2,3,
-3,3,3,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,3,3,3,3,4,4,4,4,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,1,1,1,4,4,4,4,1,1,1,1,4,4,4,4],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,1,1,1,1,2,2,2,2,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,2,2,2,2,3,3,3,3,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,3,3,3,3,4,4,4,4,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,1,1,1,4,4,4,4,1,1,1,1,4,4,4,4],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,1,1,1,1,2,
-2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,1,1,1,4,4,4,4,4,4,4,4,1,1,1,1,1,1,1,1,4,4,4,4]];aa.fff=He;
-function He(){var a,c,b,d,e,f=!1;if(54==h||55==h||56==h||57==h||58==h)f=!0;var g=!1;if(54==k||55==k||56==k||57==k||58==k)g=!0;if(!ca&&!Sa){if(f||g){var m=ja;f&&56!=h&&0==ja&&(m=1);g&&56!=k&&0==ja&&(m=1);e=4210752;f&&(e|=16711680);g&&(e|=255);b=(ea>>2)-I(m/2);c=4*((da>>2)-I(m/2)+Ie[m]);b=4*(b+0);for(a=0;a<Je[m].length;a++)d=512*Ed(b,0,288)+Ed(c,0,511),q[d]=e,1==Je[m][a]&&c++,2==Je[m][a]&&b++,3==Je[m][a]&&c--,4==Je[m][a]&&b--}if(45==h||45==k||25==h||25==k){e=4210752;if(45==h||25==h)e|=16711680;if(45==
-k||25==k)e|=255;Zd(da+.5,ea+.5,da+.5+30*ia.x,ea+.5+30*ia.y,e)}if(5==h||5==k)e=4210752,5==h&&(e|=16711680),5==k&&(e|=255),Zd(da+.5,ea+.5,da+.5+20*Math.cos(Aa*rc/32),ea+.5-20*Math.sin(Aa*rc/32),e);1==wa&&(Kd&&(40>h||f)||Ld&&(40>k||g))&&Zd(ya,za,da,ea,16711680);if(64==h||64==k)e=4210752,64==h&&(e|=16711680),64==k&&(e|=255),Zd(rb,sb,rb,sb+13,e),Zd(rb,sb,rb+200,sb,e),Zd(rb,sb+13,rb+200,sb+13,e);if(65==h||65==k)if(Ba)c=da-I((Ea-Ca)/2),b=ea-I((Fa-Da)/2),e=Ea-Ca,a=Fa-Da,Zd(c,b,c+e,b,12632319),Zd(c,b+a,c+
-e,b+a,12632319),Zd(c,b,c,b+a,12632319),Zd(c+e,b,c+e,b+a,12632319);else if(65==h&&Kd||65==k&&Ld)Zd(Ca,Da,Ea,Da,16761024),Zd(Ca,Fa,Ea,Fa,16761024),Zd(Ca,Da,Ca,Fa,16761024),Zd(Ea,Da,Ea,Fa,16761024);if(53==h||53==k){e=4210752;53==h&&(e|=16711680);53==k&&(e|=255);f=[0,-1,-512,1,512,-513,-511,513,511,-2,-1024,2,1024,510,-514,-1025,-1023,-510,514,1025,1023,-3,-1026,-1536,-1022,3,1026,1536,1022,509,-515,-1537,-1535,-509,515,1537,1535];c=da;b=ea;d=512*ea+da;for(a=0;37>a;a++)if(-1!=tc(d+f[a])||-1!=uc(d+f[a])||
-4<=F[d+f[a]]){c=d+f[a]&511;b=I((d+f[a])/512);break}-1!=Pa?Zd(Pa&511,Pa/512,c,b,e):Zd(c,b,da,ea,e)}}}var Ke=.01,Le=1/Ke,r=128,gd=74,sd=r-2,td=gd-2,t=new Int8Array(gd*r),N=new Float32Array(gd*r),O=new Float32Array(gd*r),hd=new Float32Array(gd*r),id=new Float32Array(gd*r),P=new Float32Array(gd*r);aa.fff=Sd;
-function Sd(){var a,c,b,d,e,f,g;if(1==sa){for(a=2;a<sd;a++)N[128+a]=N[9088+a],N[9216+a]=N[256+a],O[128+a]=O[9088+a],O[9216+a]=O[256+a];for(b=256;b<td<<7;b+=r)N[b+1]=N[b+sd-1],N[b+sd]=N[b+2],O[b+1]=O[b+sd-1],O[b+sd]=O[b+2]}b=2;f=258;for(g=f+124;b<td;b++,f+=4,g+=r)for(;f<g;f++)1<=t[f]||(P[f]*=.9,P[f]-=(N[f+1]-N[f-1]+O[f+r]-O[f-r])*Le);for(a=0;2>a;a++){b=2;for(f=257;b<td;b++,f+=128){1==sa&&(P[f+125]=.5*(P[f]+P[f+1]));for(c=1;c<sd;c++,f++)1<=t[f]||1<=t[f+1]||(P[f]=.5*(P[f]+P[f+1]));for(c=sd;2<=c;c--,
-f--)1<=t[f]||1<=t[f-1]||(P[f]=.5*(P[f]+P[f-1]))}c=2;for(f=130;c<sd;c++,f++){for(b=1;b<td;b++,f+=128)1<=t[f]||1<=t[f+r]||(P[f]=.5*(P[f]+P[f+r]));for(b=td;2<=b;b--,f-=128)1<=t[f]||1<=t[f-r]||(P[f]=.5*(P[f]+P[f-r]))}}if(1==sa){for(a=2;a<sd;a++)P[128+a]=P[9088+a],P[9216+a]=P[256+a];for(b=256;b<td<<7;b+=r)P[b+1]=P[b+sd-1],P[b+sd]=P[b+2]}var m,p,u,v,G,K;b=2;f=258;for(g=f+124;b<td;b++,f+=4,g+=r)for(;f<g;f++)1<=t[f]||(a=f+1,c=f-1,d=f+r,e=f-r,m=3*Md(N[f]),p=3*Md(O[f]),u=6*N[f]*(N[a]-N[c])+m*(2*N[f]-N[a]-N[c]),
-v=6*O[f]*(N[d]-N[e])+p*(2*N[f]-N[d]-N[e]),G=(1<=t[a]?P[f]:P[a])-(1<=t[c]?P[f]:P[c]),K=N[a]+N[c]-2*N[f],K+=N[d]+N[e]-2*N[f],u=Ed(u+v+G,-10,10),hd[f]=N[f]+Ke*(-u+K),u=6*N[f]*(O[a]-O[c])+m*(2*O[f]-O[a]-O[c]),v=6*O[f]*(O[d]-O[e])+p*(2*O[f]-O[d]-O[e]),G=(1<=t[d]?P[f]:P[d])-(1<=t[e]?P[f]:P[e]),K=O[a]+O[c]-2*O[f],K+=O[d]+O[e]-2*O[f],u=Ed(u+v+G,-10,10),id[f]=O[f]+Ke*(-u+K),1<=t[c]&&0>hd[f]&&(hd[f]*=.9),1<=t[a]&&0<hd[f]&&(hd[f]*=.9),1<=t[e]&&0>id[f]&&(id[f]*=.9),1<=t[d]&&0<id[f]&&(id[f]*=.9));f=N;N=hd;hd=
-f;f=O;O=id;id=f}var Me=new Float32Array(151552),Fd=new Float32Array(151552),T=new Float32Array(151552),U=new Float32Array(151552),Gd=0;function Ne(){var a,c,b,d=new ha,e;for(b=c=0;280>c;c++,b+=16)for(a=0;496>a;a++,b++)d.x=-.5-a,d.y=-.5-c,e=Oe(d)+16,e=100/(e*e),T[b]=d.x*e,U[b]=d.y*e}
-function Pe(a,c){var b,d,e,f;e=4104;f=(c-8-1<<9)+(a-8-1);for(d=8;d<c;d++,e+=16){for(b=8;b<a;b++,e++,f--)Me[e]-=T[f],Fd[e]-=U[f];for(f++;504>b;b++,e++,f++)Me[e]+=T[f],Fd[e]-=U[f];f+=a+a-1025}for(f+=512;288>d;d++,e+=16){for(b=8;b<a;b++,e++,f--)Me[e]-=T[f],Fd[e]+=U[f];for(f++;504>b;b++,e++,f++)Me[e]+=T[f],Fd[e]+=U[f];f+=a+a-1}}
-function Qe(a,c){var b,d,e,f;e=4104;f=(c-8-1<<9)+(a-8-1);for(d=8;d<c;d++,e+=16){for(b=8;b<a;b++,e++,f--)Me[e]+=T[f],Fd[e]+=U[f];for(f++;504>b;b++,e++,f++)Me[e]-=T[f],Fd[e]+=U[f];f+=a+a-1025}for(f+=512;288>d;d++,e+=16){for(b=8;b<a;b++,e++,f--)Me[e]+=T[f],Fd[e]-=U[f];for(f++;504>b;b++,e++,f++)Me[e]-=T[f],Fd[e]-=U[f];f+=a+a-1}}
-function sc(){var a,c,b;for(b=151551;0<=b;b--)Me[b]=0,Fd[b]=va?1:0;Ne();c=10;for(b=258;288>c;c+=4,b+=4)for(a=10;504>a;a+=4,b++){if(2==t[b])Pe(a,c);else if(3==t[b])Qe(a,c);else continue;Gd++;Gd&63||(dd(12,12,80,12,0),M(L,12,12,"G-MAP "+Gd,0,6316128))}Gd=1;Hd()}function ze(a,c,b){Gd||Ne();a=(a<<2)+2;c=(c<<2)+2;0<b?Pe(a,c):Qe(a,c);Gd++;Gd&127||(dd(12,12,80,12,0),M(L,12,12,"G-MAP "+Gd,0,6316128))}
-function Hd(){if(Gd){Gd=0;var a;if(0==va){for(a=gd*r-1;0<=a&&2!=t[a]&&3!=t[a];a--);if(-1==a)for(a=151551;0<=a;a--)Me[a]=0,Fd[a]=0}var c=new ha;for(a=147455;4096<=a;a--)S(c,Me[a],Fd[a]),Oe(c),T[a]=c.x,U[a]=c.y}}var hc=0,Re=999,kd=64,jc=new Int32Array(Re),lc=new Int32Array(Re),kc=new Int32Array(Re),mc=new Int32Array(Re),Se=new Float32Array(Re),ic=new Int8Array(Re),Te=[16773360,16777200,15794160,15794175,15790335,16773375];
-function vc(a,c,b,d,e){if(hc>=Re)return-1;var f=null,g=null,m=!1,p=!1;0==a?(f=A[b],28==B[b]&&(m=!0)):1==a?f=w[b*Xb+1]:2==a&&(f=z[b]);0==c?(g=A[d],28==B[d]&&(p=!0)):1==c?g=w[d*Xb+1]:2==c&&(g=z[d]);m&&(D[b]=1);p&&(D[d]=1);m?f=4:(m=~~g.x-~~f.x,f=~~g.y-~~f.y,f=Math.sqrt(m*m+f*f));jc[hc]=a;lc[hc]=c;kc[hc]=b;mc[hc]=d;Se[hc]=f;ic[hc]=e;0==a&&yc[b]++;0==c&&yc[d]++;1==a&&pd[b]++;1==c&&pd[d]++;2==a&&rd[b]++;2==c&&rd[d]++;hc++;return hc-1}
-function Ue(a,c){for(var b=0;b<hc;b++)if(jc[b]==a&&kc[b]==c||lc[b]==a&&mc[b]==c)0==jc[b]&&28==B[kc[b]]&&(D[kc[b]]=2),0==lc[b]&&28==B[mc[b]]&&(D[mc[b]]=2),hc--,0==jc[b]&&yc[kc[b]]--,0==lc[b]&&yc[mc[b]]--,1==jc[b]&&pd[kc[b]]--,1==lc[b]&&pd[mc[b]]--,2==jc[b]&&rd[kc[b]]--,2==lc[b]&&rd[mc[b]]--,jc[b]=jc[hc],lc[b]=lc[hc],kc[b]=kc[hc],mc[b]=mc[hc],Se[b]=Se[hc],ic[b]=ic[hc],b--}function Ve(a,c,b){for(var d=0;d<hc;d++)jc[d]==a&&kc[d]==c&&(kc[d]=b),lc[d]==a&&mc[d]==c&&(mc[d]=b)}aa.fff=Ud;
-function Ud(){var a=new ha,c,b=null,d=null,e=null,f=null,g=1,m=1;kd++;for(var p=0;p<hc;p++){c=!1;0==jc[p]?(b=A[kc[p]],e=H[kc[p]],g=yc[kc[p]]&255,28==B[kc[p]]&&(c=!0)):1==jc[p]?(b=w[kc[p]*Xb+1],e=w[kc[p]*Xb+1],g=pd[kc[p]]&255):2==jc[p]&&(b=z[kc[p]],e=V[kc[p]],g=rd[kc[p]]&255);0==lc[p]?(d=A[mc[p]],f=H[mc[p]],m=yc[mc[p]]&255):1==lc[p]?(d=w[mc[p]*Xb+1],f=w[mc[p]*Xb+1],m=pd[mc[p]]&255):2==lc[p]&&(d=z[mc[p]],f=V[mc[p]],m=rd[mc[p]]&255);c&&(Nd(a,A[mc[p]],A[kc[p]]),We(a),Oe(a),Xe(a,.1),H[kc[p]].add(a),H[mc[p]].add(a));
-if(1==ic[p])Nd(a,d,b),We(a),Oe(a),Xe(a,.1),e.sub(a),f.add(a);else if(2==ic[p])Nd(a,d,b),We(a),Oe(a),Xe(a,.1),e.add(a),f.sub(a);else if(4==ic[p])continue;Nd(a,d,b);c||(1!=lc[p]&&a.add(f),1!=jc[p]&&a.sub(e));c=Oe(a);if(0!=c){if(3==ic[p]){var u=kd&255;128<=u&&(u=256-u);c=.5*(Se[p]*(.5+u/128)-c)}else c=.5*(Se[p]-c);e.x-=a.x*c/(.5*g+.5);e.y-=a.y*c/(.5*g+.5);f.x+=a.x*c/(.5*m+.5);f.y+=a.y*c/(.5*m+.5);1==jc[p]&&(e.x=Ed(e.x,4,508),e.y=Ed(e.y,4,292));1==lc[p]&&(f.x=Ed(f.x,4,508),f.y=Ed(f.y,4,292))}}}
-aa.fff=Ee;
-function Ee(){for(var a,c,b,d=null,e=null,f=0,g=0,m=0;m<hc;m++)0==jc[m]?(d=A[kc[m]],f=C[kc[m]]):1==jc[m]?(d=w[kc[m]*Xb+1],f=16769198):2==jc[m]&&(d=z[kc[m]],f=n[y[kc[m]]]),0==lc[m]?(e=A[mc[m]],g=C[mc[m]]):1==lc[m]?(e=w[mc[m]*Xb+1],g=16769198):2==lc[m]&&(e=z[mc[m]],g=n[y[mc[m]]]),a=(f>>16&255)+(g>>16&255)>>1,c=(f>>8&255)+(g>>8&255)>>1,b=(f&255)+(g&255)>>1,0!=Qa?1==Qa?Zd(d.x,d.y,e.x,e.y,14540253):2==Qa&&Zd(d.x,d.y,e.x,e.y,2236962):5!=ic[m]&&(10==la?(a=I((2989*a+5866*c+1145*b)/1E4),Zd(d.x,d.y,e.x,e.y,
-a<<16|a<<8|a)):14==la?Zd(d.x,d.y,e.x,e.y,0):Zd(d.x,d.y,e.x,e.y,a<<16|c<<8|b))}var fc=4,$d=40004,A=Array($d);for(ba=0;ba<$d;ba++)A[ba]=new ha;var H=Array($d);for(ba=0;ba<$d;ba++)H[ba]=new ha;
-var B=new Int8Array($d),D=new Int32Array($d),C=new Int32Array($d),F=new Int32Array(151552),E=new Int32Array($d),jd=Array(151552),Q=new Int16Array(151552),yc=new Uint8Array($d),X=[0,0,0,0,0,1,2,3,1,4,1,4,1,1,4,1,2,4,1,2,1,3,0,1,2,1,3,5,2,3,4,1,3,2,4,1,2,4,5,5,1,3,4,5,4,0,0,0,0,0,4,1,4],Ye=[0,0,0,0,0,10,25,5,20,25,20,40,10,20,0,20,25,100,40,40,50,50,0,10,100,10,25,5,25,0,10,10,5,0,25,10,25,0,10,10,50,5,50,5,0,0,0,0,0,0,0,10,25],Ze=[0,0,.9,.9,.9,.2,0,0,.2,.7,.2,.8,.2,0,.2,.5,0,.5,.3,0,.9,.2,0,0,0,.3,
-0,0,0,0,.9,.9,0,0,.8,.2,0,.9,.1,.1,.9,.9,.5,0,.9,0,0,0,0,0,.9,.9,.9],$e=[0,0,.9,.9,.9,.2,0,0,.2,.7,.2,1,.2,0,.2,.5,0,.5,.3,0,.9,.2,0,0,0,.3,0,0,1,0,.9,.9,0,0,.2,.2,0,.5,.1,.1,.9,.9,.5,0,.9,0,0,0,0,0,.9,.9,.9],af=[512,-1,-512,1],bf=[0,-1,0,1],cf=[1,0,-1,0],df=[-513,-512,-511,1,513,512,511,-1],ef=[-.7,0,.7,1,.7,0,-.7,-1],ff=[-.7,-1,-.7,0,.7,1,.7,0],gf=[-1,0,1,1,1,0,-1,-1],hf=[-1,-1,-1,0,1,1,1,0],jf=[-1025,-1024,-1023,-514,-513,-512,-511,-510,-2,-1,1,2,510,511,512,513,514,1023,1024,1025],kf=[-2049,-2048,
--2047,-1539,-1538,-1537,-1536,-1535,-1534,-1533,-1027,-1026,-1025,-1024,-1023,-1022,-1021,-516,-515,-514,-513,-512,-511,-510,-509,-508,-4,-3,-2,-1,1,2,3,4,508,509,510,511,512,513,514,515,516,1021,1022,1023,1024,1025,1026,1027,1533,1534,1535,1536,1537,1538,1539,2047,2048,2049],lf=[1,1,0,-1,-1,-1,0,1],mf=[0,-1,-1,-1,0,1,1,1],nf=[1,-511,-512,-513,-1,511,512,513],of=[-4096,-3587,-3585,-3583,-3581,-3076,-3074,-3072,-3070,-3068,-2565,-2563,-2561,-2559,-2557,-2555,-2054,-2052,-2050,-2048,-2046,-2044,-2042,
--1543,-1541,-1539,-1537,-1535,-1533,-1531,-1529,-1030,-1028,-1026,-1024,-1022,-1020,-1018,-519,-517,-515,-513,-511,-509,-507,-505,-8,-6,-4,-2,0,2,4,6,8,505,507,509,511,513,515,517,519,1018,1020,1022,1024,1026,1028,1030,1529,1531,1533,1535,1537,1539,1541,1543,2042,2044,2046,2048,2050,2052,2054,2555,2557,2559,2561,2563,2565,3068,3070,3072,3074,3076,3581,3583,3585,3587,4096];function J(a,c,b,d){28==B[a]&&Ue(0,a);B[a]=c;D[a]=b;C[a]=d}function pf(a,c){J(a,c,0,n[c])}
-function qc(a,c,b,d){if(fc>=$d||7>a||505<=a||7>c||289<=c)return-1;S(A[fc],a+.5,c+.5);S(H[fc],0,0);B[fc]=b;D[fc]=d;C[fc]=n[b];E[fc]=512*~~c+~~a;F[E[fc]]=fc;yc[fc]=0;fc++;return fc-1}function gc(a){if(4!=fc){F[E[a]]=0;fc--;for(var c=0;c<qf;c++)rf[c]==a?(qf--,rf[c]=rf[qf]):rf[c]==fc&&(rf[c]=a);Ue(0,a);fc!=a&&(A[a].set(A[fc]),H[a].set(H[fc]),B[a]=B[fc],D[a]=D[fc],C[a]=C[fc],yc[a]=yc[fc],E[a]=E[fc],Ve(0,fc,a),F[E[a]]=1==B[a]?1:a)}}var sf=1781,qf=0,rf=new Int32Array(sf);
-function tf(a,c){var b;b=A[a].x;A[a].x=A[c].x;A[c].x=b;b=A[a].y;A[a].y=A[c].y;A[c].y=b;b=F[E[a]];F[E[a]]=F[E[c]];F[E[c]]=b;b=E[a];E[a]=E[c];E[c]=b}function uf(a,c,b){F[E[a]]=0;S(A[a],c,b);E[a]=(b<<9)+~~c;F[E[a]]=a}function vf(a,c){F[E[a]]=0;var b=ye(c);3.8<b&&Xe(c,3.8/b);b=(A[a].y<<9)+~~(A[a].x+c.x);1>=F[b]&&(A[a].x+=c.x);b=(A[a].y+c.y<<9)+~~A[a].x;1>=F[b]&&(A[a].y+=c.y);E[a]=(A[a].y<<9)+~~A[a].x;F[E[a]]=a}var wf=new ha,xf=new ha,yf=new ha;
-function zf(a,c){var b=ye(c);3.8<b&&Xe(c,3.8/b);S(yf,T[E[a]],U[E[a]]);var b=Af(c,yf),d=xf,e=yf;d.x=e.x*b;d.y=e.y*b;Nd(wf,c,xf);b=(A[a].y+xf.y<<9)+~~(A[a].x+xf.x);1>=F[b]&&A[a].add(xf);b=(A[a].y+wf.y<<9)+~~(A[a].x+wf.x);1>=F[b]&&A[a].add(wf);E[a]=(A[a].y<<9)+~~A[a].x;F[E[a]]=a}
-var Bf=[0,0,0,0,0,.05,.1,-.1,.1,.1,.1,.1,.05,.1,0,.1,.1,.2,.1,.1,.2,.4,0,.05,.2,.3,.1,-.1,.1,0,.4,.4,0,.2,.1,.1,.1,.1,0,.1,.4,.1,.05,-.1,.4,0,0,0,0,0,.2,.08,.2],Cf=[0,0,0,0,0,.1,0,.5,.2,.2,.1,.2,0,.9,0,.1,0,.2,.2,0,.2,0,0,.1,0,0,.2,.1,0,0,.2,.2,0,0,0,.1,0,.2,0,0,0,.9,.1,.1,.2,0,0,0,0,0,.2,.05,.2],Df=[0,0,0,0,0,.5,.95,1,.5,.5,.5,1,.95,.1,0,.5,1,.8,.8,.95,.8,.1,0,.5,.95,.5,.5,1,1,0,.8,.8,0,.95,.5,.5,.95,.8,1,.5,.95,.8,.5,1,.8,0,0,0,0,0,.8,.95,.5];
-function Ef(a,c){H[a].x+=T[E[a]]*Bf[B[a]];H[a].y+=U[E[a]]*Bf[B[a]];c.set(H[a]);c.x+=N[Q[E[a]]];c.y+=O[Q[E[a]]];F[E[a]]=0;var b=I(ye(c)/4)+2;Xe(c,1/b);for(var d=0,e;d<b;d++)e=(A[a].y<<9)+~~(A[a].x+c.x),4>A[a].x+c.x||508<=A[a].x+c.x||(1>=F[e]?A[a].x+=c.x:(H[a].y*=Df[B[a]],H[a].x*=-Cf[B[a]],c.x*=-Cf[B[a]])),e=(A[a].y+c.y<<9)+~~A[a].x,4>A[a].y+c.y||292<=A[a].y+c.y||(1>=F[e]?A[a].y+=c.y:(H[a].x*=Df[B[a]],H[a].y*=-Cf[B[a]],c.y*=-Cf[B[a]]));E[a]=(A[a].y<<9)+~~A[a].x;F[E[a]]=a}aa.fff=Td;
-function Td(){var a,c=new ha;if(!ca&&!Sa){if(47==h&&yd||47==k&&Cd){a=new ha;qf=0;for(var b=4;b<fc&&!(sf<=qf);b++)1!=B[b]&&(a.x=da-I(A[b].x),a.y=ea-I(A[b].y),Ff(a)<ja*ja*7+1&&(rf[qf++]=b))}if(47==h&&Kd||47==k&&Ld)for(b=0;b<qf;b++)H[rf[b]].x+=.1*(da-A[rf[b]].x),H[rf[b]].y+=.1*(ea-A[rf[b]].y);else qf=0}for(a=4;a<fc;a++)a=16>=B[a]?a-Gf(a,c):27>=B[a]?a-Hf(a,c):34>=B[a]?a-If(a,c):44>=B[a]?a-Jf(a,c):a-Kf(a,c);if(1>sa)for(a=4;a<fc;a++)jd[E[a]]||gc(a--);else if(1==sa)for(a=4;a<fc;a++)if(!jd[E[a]]){a:{for(c=
-0;c<hc;c++)if(0==jc[c]&&kc[c]==a||0==lc[c]&&mc[c]==a){c=!0;break a}c=!1}c?gc(a--):8>A[a].x?(c=E[a]+496,1>=F[c]&&8<=A[a].y&&288>A[a].y?(A[a].x+=496,F[E[a]]=0,E[a]=c,F[c]=a):gc(a--)):504<=A[a].x?(c=E[a]-496,1>=F[c]&&8<=A[a].y&&288>A[a].y?(A[a].x-=496,F[E[a]]=0,E[a]=c,F[c]=a):gc(a--)):8>A[a].y?(c=E[a]+143360,1>=F[c]?(A[a].y+=280,F[E[a]]=0,E[a]=c,F[c]=a):gc(a--)):288<=A[a].y&&(c=E[a]-143360,1>=F[c]?(A[a].y-=280,F[E[a]]=0,E[a]=c,F[c]=a):gc(a--))}}aa.fff=Gf;
-function Gf(a,c){var b,d,e,f,g,m,p,u;if(5==B[a])if(0==yc[a]){S(c,N[Q[E[a]]],O[Q[E[a]]]);d=Lf(.4);c.x+=T[E[a]]*d;c.y+=U[E[a]]*d;if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.7),c.add(H[a]);vf(a,c)}else Ef(a,c);else if(6==B[a]){if(0==yc[a]){F[E[a]]=0;S(c,N[Q[E[a]]],O[Q[E[a]]]);b=(A[a].y+U[E[a]]<<9)+I(A[a].x+T[E[a]]);2<=B[F[b]]?(b=(A[a].y+T[E[a]]<<9)+I(A[a].x-U[E[a]]),1>=F[b]&&(d=Mf(.1,.2),H[a].x-=U[E[a]]*d,H[a].y+=T[E[a]]*d),b=(A[a].y-T[E[a]]<<9)+I(A[a].x+U[E[a]]),1>=F[b]&&(d=Mf(.1,.2),
-H[a].x+=U[E[a]]*d,H[a].y-=T[E[a]]*d),xe(.01)&&(A[a].x=~~A[a].x+.5,A[a].y=~~A[a].y+.5)):(d=Lf(1.5),c.x+=T[E[a]]*d,c.y+=U[E[a]]*d);if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.9),c.add(H[a]);0==U[E[a]]?vf(a,c):zf(a,c)}else Ef(a,c);d=Vb(8);b=F[E[a]+df[d]];1==X[B[b]]&&20!=B[b]||19==B[b]||24==B[b]||28==B[b]||36==B[b]?xe(.2)&&.3>=T[E[a]]*ef[d]+U[E[a]]*ff[d]&&tf(a,b):11==B[b]&&xe(.5)&&J(a,11,0,n[11]);d=Vb(20);b=F[E[a]+jf[d]];if(18==B[b])return J(b,19,0,n[19]),gc(a),1}else if(7==B[a]){if(0==
-yc[a]){if(1!=D[a]&&xe(.05)||1==D[a]&&xe(.2))return gc(a),1;d=Lf(.03);N[Q[E[a]]]-=T[E[a]]*d;O[Q[E[a]]]-=U[E[a]]*d;S(c,N[Q[E[a]]],O[Q[E[a]]]);d=Mf(-.5,.5);c.x+=U[E[a]]*d;c.y-=T[E[a]]*d;2==D[a]&&(Xe(H[a],.9),c.add(H[a]));vf(a,c)}else Ef(a,c);d=Vb(20);b=F[E[a]+jf[d]];if(4<=b)if(5==B[b])J(b,7,0,n[7]);else{if(6==B[b]||36==B[b])return gc(a),1;8==B[b]?xe(.5)&&J(b,7,0,n[7]):12==B[b]?J(b,6,0,n[6]):34==B[b]&&J(b,7,0,n[7])}}else if(8==B[a])if(0==D[a]){if(0==yc[a]){S(c,N[Q[E[a]]],O[Q[E[a]]]);d=Lf(.6);c.x+=T[E[a]]*
-d;c.y+=U[E[a]]*d;if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.8),c.add(H[a]);vf(a,c)}else Ef(a,c);if(1E3>$d-fc)return 0;b=(A[a].y+U[E[a]]<<9)+I(A[a].x+T[E[a]]);5==B[F[b]]&&(D[a]=1);34==B[F[b]]&&(D[a]=2);18==B[F[b]]&&(D[a]=3);9==B[F[b]]&&(D[a]=(D[F[b]]&15)+1)}else if(1==D[a]||2==D[a]){if(S(c,~~A[a].x+.5,~~A[a].y+.5),1==D[a]?d=Lf(1):d=1,c.x-=T[E[a]]*d,c.y-=U[E[a]]*d,d=Vb(3)-1,c.x+=U[E[a]]*d,c.y-=T[E[a]]*d,b=F[(c.y<<9)+I(c.x)],1>=b&&1>=F[(c.y+U[E[a]]<<9)+I(c.x+T[E[a]])]&&(e=~~A[a].x,
-f=~~A[a].y,uf(a,~~c.x,~~c.y),qc(e,f,9,D[a]-1)),xe(.05))return gc(a),1}else{if(3<=D[a]&&5>=D[a]){S(c,~~A[a].x+.5,~~A[a].y+.5);if(3==D[a]){if(xe(.1)&&(e=I(c.x-U[E[a]]),f=I(c.y+T[E[a]]),1>=F[(f<<9)+e]&&qc(e,f,8,4)),xe(.1)&&(e=I(c.x+U[E[a]]),f=I(c.y-T[E[a]]),1>=F[(f<<9)+e]&&qc(e,f,8,5)),xe(.05))return gc(a),1}else if(4==D[a]){if(c.x-=U[E[a]],c.y+=T[E[a]],xe(.15))return gc(a),1}else if(5==D[a]&&(c.x+=U[E[a]],c.y-=T[E[a]],xe(.15)))return gc(a),1;c.x-=T[E[a]];c.y-=U[E[a]];b=F[(c.y<<9)+~~c.x];if(1>=b){if(1<
-F[(c.y+T[E[a]]<<9)+I(c.x-U[E[a]])]||1<F[(c.y-T[E[a]]<<9)+I(c.x+U[E[a]])])return 0;e=~~A[a].x;f=~~A[a].y;uf(a,~~c.x,~~c.y);qc(e,f,9,2)}}}else if(9==B[a]){if(0==yc[a]){if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.3),c.set(H[a]),vf(a,c)}else Ef(a,c);if(16>D[a])if(d=Vb(20),b=B[F[E[a]+jf[d]]],7==b)xe(.5)&&(D[a]|=16);else if(21==b)D[a]|=16;else{if(6==b){if(1E3>$d-fc)return 0;d=Vb(8);1>=F[E[a]+df[d]]&&xe(.05)&&qc(~~A[a].x+gf[d],~~A[a].y+hf[d],8,0)}}else g=5,D[a]&15||(g=5),1==(D[a]&15)&&(g=
-34),2==(D[a]&15)&&(g=18),d=Vb(8),b=B[F[E[a]+df[d]]],1>=b?xe(.3)&&qc(~~A[a].x+gf[d],~~A[a].y+hf[d],7,1):6==b&&J(a,g,0,n[g]),xe(.005)&&J(a,g,0,n[g])}else if(10==B[a]){if(0==yc[a]){S(c,N[Q[E[a]]],O[Q[E[a]]]);d=Lf(.8);c.x+=T[E[a]]*d;c.y+=U[E[a]]*d;if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.8),c.add(H[a]);vf(a,c)}else Ef(a,c);d=Vb(20);b=B[F[E[a]+jf[d]]];if(3!=X[b])return 0;p=~~A[a].x;u=~~A[a].y;d=ue(p-8,8);b=ue(u-8,8);g=De(p+8,503);m=De(u+8,287);for(f=b;f<=m;f++)for(e=d;e<=g;e++)64<(e-
-p)*(e-p)+(f-u)*(f-u)||(b=(f+u>>1<<9)+(e+p>>1),1<=t[Q[b]]||(b=F[(f<<9)+e],4<=b&&10!=B[b]&&(20==B[b]&&J(b,18,0,n[18]),H[b].x+=e-p,H[b].y+=f-u)));p=Ed(p,12,499);u=Ed(u,12,283);d=(u>>2<<7)+(p>>2);0==t[b=d-r-1]&&(N[b]-=.4,O[b]-=.4);0==t[b=d-r]&&(O[b]-=.5);0==t[b=d-r+1]&&(N[b]+=.4,O[b]-=.4);0==t[b=d-1]&&(N[b]-=.5);0==t[b=d+1]&&(N[b]+=.5);0==t[b=d+r-1]&&(N[b]-=.4,O[b]+=.4);0==t[b=d+r]&&(O[b]+=.5);0==t[b=d+r+1]&&(N[b]+=.4,O[b]+=.4);J(a,7,0,n[7])}else if(1==B[a])xe(.9)&&(N[Q[E[a]]]+=H[a].x,O[Q[E[a]]]+=H[a].y),
-0==F[E[a]]&&(F[E[a]]=1);else if(11==B[a])0==yc[a]?(S(c,N[Q[E[a]]],O[Q[E[a]]]),1<Ff(c)&&xe(.5)&&J(a,12,0,n[12])):Ef(a,c),d=Vb(20),b=B[F[E[a]+jf[d]]],3==X[b]&&J(a,6,0,n[6]);else if(12==B[a]){if(0==yc[a]){S(c,N[Q[E[a]]],O[Q[E[a]]]);d=Lf(.3);c.x+=T[E[a]]*d;c.y+=U[E[a]]*d;if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.7),c.add(H[a]);vf(a,c)}else Ef(a,c);d=Vb(8);b=F[E[a]+df[d]];4<=b&&9!=B[b]&&12!=B[b]&&14!=B[b]&&34!=B[b]&&43!=B[b]&&(11==B[b]?J(a,11,0,n[11]):xe(.1)&&J(a,6,0,n[6]))}else if(13==
-B[a])0==yc[a]?(H[a].x+=.05*N[Q[E[a]]],H[a].y+=.05*O[Q[E[a]]],H[a].x+=.01*T[E[a]],H[a].y+=.01*U[E[a]],Xe(H[a],.999),c.set(H[a]),F[E[a]]=0,b=ye(c),3.8<b&&Xe(c,3.8/b),b=F[(A[a].y<<9)+I(A[a].x+c.x)],1>=b?A[a].x+=c.x:2==X[B[b]]?(H[b].x-=H[a].x,H[a].x*=.9,A[b].x=A[a].x,A[a].x+=c.x,E[b]=E[a],F[E[a]]=b):7==B[b]?tf(a,b):13==B[b]?(d=.9*H[a].x,H[a].x=.9*H[b].x,H[b].x=d):(H[a].x*=-Ze[B[b]],H[a].y*=$e[B[b]]),E[a]=(A[a].y<<9)+I(A[a].x),F[E[a]]=0,b=F[(A[a].y+c.y<<9)+I(A[a].x)],1>=b?A[a].y+=c.y:2==X[B[b]]?(H[b].y-=
-H[a].y,H[a].y*=.9,A[b].y=A[a].y,A[a].y+=c.y,E[b]=E[a],F[E[a]]=b):7==B[b]?tf(a,b):13==B[b]?0<H[a].y?(d=.45*H[a].y,H[a].y=-d,H[a].y+=H[b].y,H[b].y=d):(d=.45*H[b].y,H[b].y=-d,H[b].y+=H[a].y,H[a].y=d):(H[a].y*=-Ze[B[b]],H[a].x*=$e[B[b]]),E[a]=(A[a].y<<9)+I(A[a].x),F[E[a]]=a):Ef(a,c);else if(14==B[a])if(0!=yc[a]&&S(H[a],0,0),0==D[a])d=Vb(20),b=F[E[a]+jf[d]],4<=b&&(D[a]=14==B[b]?D[b]:B[b]);else{if(1E3>$d-fc)return 0;d=Vb(8);1>=F[E[a]+df[d]]&&xe(.1)&&qc(~~A[a].x+gf[d],~~A[a].y+hf[d],D[a],0)}if(15==B[a]){if(0==
-yc[a]){S(c,N[Q[E[a]]],O[Q[E[a]]]);d=Lf(.8);c.x+=T[E[a]]*d;c.y+=U[E[a]]*d;if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.9),c.add(H[a]);vf(a,c)}else Ef(a,c);D[a]&255||(D[a]=0!=Db[h]?Db[h]:0!=Db[k]?Db[k]:5);if(256>D[a])d=Vb(8),b=F[E[a]+df[d]],3==X[B[b]]&&(D[a]+=256);else if(512>D[a])H[a].x=50*-T[E[a]],H[a].y=50*-U[E[a]],D[a]+=256;else{if(12800>D[a])return D[a]+=256,0;if(xe(.95))return 0;if(1E3>$d-fc)return gc(a),1;for(d=0;8>d;d++)b=F[E[a]+df[d]],1>=b&&(b=qc(~~A[a].x+gf[d],~~A[a].y+hf[d],
-D[a]&255,0),0<=b&&(H[b].x+=20*ef[d],H[b].y+=20*ff[d]));gc(a);return 1}}else if(16==B[a]){if(0==yc[a]){F[E[a]]=0;S(c,N[Q[E[a]]],O[Q[E[a]]]);b=(A[a].y+U[E[a]]<<9)+I(A[a].x+T[E[a]]);2<=B[F[b]]?(b=(A[a].y+T[E[a]]<<9)+I(A[a].x-U[E[a]]),1>=F[b]&&(d=Mf(.1,.2),H[a].x-=U[E[a]]*d,H[a].y+=T[E[a]]*d),b=(A[a].y-T[E[a]]<<9)+I(A[a].x+U[E[a]]),1>=F[b]&&(d=Mf(.1,.2),H[a].x+=U[E[a]]*d,H[a].y-=T[E[a]]*d),xe(.01)&&(A[a].x=~~A[a].x+.5,A[a].y=~~A[a].y+.5)):(d=Lf(1.5),c.x+=T[E[a]]*d,c.y+=U[E[a]]*d);if(-.01>H[a].x||.01<
-H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.9),c.add(H[a]);0==U[E[a]]?vf(a,c):zf(a,c)}else Ef(a,c);d=Vb(8);b=F[E[a]+df[d]];1==X[B[b]]&&20!=B[b]||6==B[b]||19==B[b]||24==B[b]||36==B[b]?xe(.2)&&.3>=T[E[a]]*ef[d]+U[E[a]]*ff[d]&&tf(a,b):3==X[B[b]]&&(D[a]=1);if(1==D[a]&&(d=Vb(8),1>=F[E[a]+df[d]]&&qc(~~A[a].x+gf[d],~~A[a].y+hf[d],7,0),xe(.1)))return gc(a),1}return 0}aa.fff=Hf;
-function Hf(a,c){var b,d,e,f,g,m,p,u,v;if(17==B[a])if(0!=yc[a]&&Ef(a,c),0==D[a])e=Vb(8),b=F[E[a]+df[e]],3==X[B[b]]&&(D[a]=1);else{for(d=0;8>d;d++)b=F[E[a]+df[d]],17==B[b]&&(D[b]=1);var G=8;u=~~A[a].x;v=~~A[a].y;e=ue(u-G,8);d=ue(v-G,8);m=De(u+G,503);p=De(v+G,287);for(g=d;g<=p;g++)for(f=e;f<=m;f++)G*G<(f-u)*(f-u)+(g-v)*(g-v)||(d=(g+v>>1<<9)+(f+u>>1),1<=t[Q[d]]||(b=F[(g<<9)+f],4<=b&&(20==B[b]&&J(b,18,0,n[18]),H[b].x+=f-u,H[b].y+=g-v)));u=Ed(u,12,499);v=Ed(v,12,283);e=(v>>2<<7)+(u>>2);0==t[d=e-r-1]&&
-(N[d]-=.08,O[d]-=.08);0==t[d=e-r]&&(O[d]-=.1);0==t[d=e-r+1]&&(N[d]+=.1,O[d]-=.08);0==t[d=e-1]&&(N[d]-=.1);0==t[d=e+1]&&(N[d]+=.1);0==t[d=e+r-1]&&(N[d]-=.08,O[d]+=.08);0==t[d=e+r]&&(O[d]+=.1);0==t[d=e+r+1]&&(N[d]+=.08,O[d]+=.08);gc(a);return 1}else if(18==B[a])if(0==yc[a]){F[E[a]]=0;S(c,N[Q[E[a]]],O[Q[E[a]]]);d=Lf(1);c.x+=T[E[a]]*d;c.y+=U[E[a]]*d;if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.8),c.add(H[a]);b=~~A[a].x+.5;e=~~A[a].y+.5;d=(e+U[E[a]]<<9)+I(b+T[E[a]]);2<=B[F[d]]&&(xe(.5)?
-(d=(e+U[E[a]]+T[E[a]]<<9)+I(b+T[E[a]]-U[E[a]]),1>=F[d]&&(c.x-=.5*U[E[a]],c.y+=.5*T[E[a]])):(d=(e+U[E[a]]-T[E[a]]<<9)+I(b+T[E[a]]+U[E[a]]),1>=F[d]&&(c.x+=.5*U[E[a]],c.y-=.5*T[E[a]])));vf(a,c)}else Ef(a,c);else if(19==B[a]){if(0==yc[a]){F[E[a]]=0;S(c,N[Q[E[a]]],O[Q[E[a]]]);d=(A[a].y+U[E[a]]<<9)+I(A[a].x+T[E[a]]);2<=B[F[d]]?(d=(A[a].y+T[E[a]]<<9)+I(A[a].x-U[E[a]]),1>=F[d]&&(d=Lf(.05),H[a].x-=U[E[a]]*d,H[a].y+=T[E[a]]*d),d=(A[a].y-T[E[a]]<<9)+I(A[a].x+U[E[a]]),1>=F[d]&&(d=Lf(.05),H[a].x+=U[E[a]]*d,H[a].y-=
-T[E[a]]*d),xe(.01)&&(A[a].x=~~A[a].x+.5,A[a].y=~~A[a].y+.5)):(d=Lf(1.5),c.x+=T[E[a]]*d,c.y+=U[E[a]]*d);if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.9),c.add(H[a]);0==U[E[a]]?vf(a,c):zf(a,c)}else Ef(a,c);e=Vb(8);b=F[E[a]+df[e]];1==X[B[b]]&&20!=B[b]?xe(.2)&&.3>=T[E[a]]*ef[e]+U[E[a]]*ff[e]&&tf(a,b):3==X[B[b]]&&J(a,18,0,n[18])}else if(20==B[a])if(0==yc[a]){H[a].x+=.05*N[Q[E[a]]];H[a].y+=.05*O[Q[E[a]]];d=Lf(.12);H[a].x+=T[E[a]]*d;H[a].y+=U[E[a]]*d;Xe(H[a],.95);c.set(H[a]);d=ye(c);3.8<d&&
-Xe(c,3.8/d);F[E[a]]=0;b=F[(A[a].y<<9)+I(A[a].x+c.x)];if(1>=b)A[a].x+=c.x;else if(2==X[B[b]]||21==B[b])H[b].x-=H[a].x,H[a].x*=.5,A[b].x=A[a].x,A[a].x+=c.x,E[b]=E[a],F[E[a]]=b;else{if(5==B[b]||8==B[b]||10==B[b]||15==B[b]||25==B[b])H[b].x+=Lf(H[a].x);H[a].x*=.5}E[a]=(A[a].y<<9)+~~A[a].x;F[E[a]]=0;b=F[(A[a].y+c.y<<9)+I(A[a].x)];if(1>=b)A[a].y+=c.y;else if(2==X[B[b]]||21==B[b])H[b].y-=H[a].y,H[a].y*=.5,A[b].y=A[a].y,A[a].y+=c.y,E[b]=E[a],F[E[a]]=b;else{if(5==B[b]||8==B[b]||10==B[b]||15==B[b]||25==B[b])H[b].y+=
-Lf(H[a].y);H[a].y*=.5}E[a]=(A[a].y<<9)+~~A[a].x;F[E[a]]=a}else Ef(a,c);else if(21==B[a]){if(0==yc[a]){F[E[a]]=0;S(c,.1*N[Q[E[a]]],.1*O[Q[E[a]]]);d=(A[a].y+U[E[a]]<<9)+I(A[a].x+T[E[a]]);2<=B[F[d]]?(d=(A[a].y+T[E[a]]<<9)+I(A[a].x-U[E[a]]),1>=F[d]&&(d=Lf(.1),H[a].x-=U[E[a]]*d,H[a].y+=T[E[a]]*d),d=(A[a].y-T[E[a]]<<9)+I(A[a].x+U[E[a]]),1>=F[d]&&(d=Lf(.1),H[a].x+=U[E[a]]*d,H[a].y-=T[E[a]]*d),xe(.01)&&(A[a].x=~~A[a].x+.5,A[a].y=~~A[a].y+.5)):(d=Lf(2),c.x+=T[E[a]]*d,c.y+=U[E[a]]*d);if(-.01>H[a].x||.01<H[a].x||
--.01>H[a].y||.01<H[a].y)Xe(H[a],.9),c.add(H[a]);0==U[E[a]]?vf(a,c):zf(a,c)}else Ef(a,c);e=Vb(20);b=F[E[a]+jf[e]];4<=b&&(5==B[b]?J(b,7,0,n[7]):6==B[b]||28==B[b]?(J(a,20,0,n[20]),J(b,22,10,n[22])):8==B[b]?J(b,7,0,n[7]):13==B[b]?J(b,7,0,n[7]):18==B[b]?xe(.05)&&J(b,21,0,n[21]):20==B[b]?H[b].x+=Mf(-.1,.1):34==B[b]?J(b,7,0,n[7]):36==B[b]?(J(a,20,0,n[20]),J(b,35,0,n[35])):37==B[b]?xe(.5)&&J(b,21,0,n[21]):40==B[b]&&xe(.01)&&J(b,21,0,n[21]))}else if(22==B[a]){if(1>Lf(D[a]))return gc(a),1;c.set(H[a]);Xe(H[a],
-.7);vf(a,c)}else if(23==B[a]){if(0==yc[a]){S(c,N[Q[E[a]]],O[Q[E[a]]]);d=Lf(.4);c.x+=T[E[a]]*d;c.y+=U[E[a]]*d;if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.7),c.add(H[a]);vf(a,c)}else Ef(a,c);e=Vb(8);b=F[E[a]+df[e]];0==D[a]?4<=b&&23!=B[b]&&(D[a]=B[b]):4096>=D[a]?(4<=b&&(23==B[b]&&0!=D[b]||J(b,23,D[a]&255,n[23])),D[a]+=256):(D[a]+=256,24576<=D[a]&&J(a,D[a]&255,0,n[D[a]&255]))}else if(24==B[a]){if(0==yc[a]){F[E[a]]=0;S(c,N[Q[E[a]]],O[Q[E[a]]]);d=(A[a].y+U[E[a]]<<9)+I(A[a].x+T[E[a]]);2<=
-B[F[d]]?(d=(A[a].y+T[E[a]]<<9)+I(A[a].x-U[E[a]]),1>=F[d]&&(d=Mf(.1,.2),H[a].x-=U[E[a]]*d,H[a].y+=T[E[a]]*d),d=(A[a].y-T[E[a]]<<9)+I(A[a].x+U[E[a]]),1>=F[d]&&(d=Mf(.1,.2),H[a].x+=U[E[a]]*d,H[a].y-=T[E[a]]*d),xe(.01)&&(A[a].x=~~A[a].x+.5,A[a].y=~~A[a].y+.5)):(d=Lf(1.5),c.x+=T[E[a]]*d,c.y+=U[E[a]]*d);if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.9),c.add(H[a]);0==U[E[a]]?vf(a,c):zf(a,c)}else Ef(a,c);e=Vb(8);b=F[E[a]+df[e]];1==X[B[b]]&&20!=B[b]||19==B[b]?xe(.2)&&.3>=T[E[a]]*ef[e]+U[E[a]]*
-ff[e]&&tf(a,b):3==X[B[b]]&&(D[a]=1);if(0==D[a]&&10>ye(H[a]))return 0;G=8;u=~~A[a].x;v=~~A[a].y;e=ue(u-G,8);d=ue(v-G,8);m=De(u+G,503);p=De(v+G,287);for(g=d;g<=p;g++)for(f=e;f<=m;f++)G*G<(f-u)*(f-u)+(g-v)*(g-v)||(d=(g+v>>1<<9)+(f+u>>1),1<=t[Q[d]]||(b=F[(g<<9)+f],4<=b&&(20==B[b]&&J(b,18,0,n[18]),H[b].x+=f-u,H[b].y+=g-v)));u=Ed(u,12,499);v=Ed(v,12,283);e=(v>>2<<7)+(u>>2);0==t[d=e-r-1]&&(N[d]-=.4,O[d]-=.4);0==t[d=e-r]&&(O[d]-=.5);0==t[d=e-r+1]&&(N[d]+=.4,O[d]-=.4);0==t[d=e-1]&&(N[d]-=.5);0==t[d=e+1]&&
-(N[d]+=.5);0==t[d=e+r-1]&&(N[d]-=.4,O[d]+=.4);0==t[d=e+r]&&(O[d]+=.5);0==t[d=e+r+1]&&(N[d]+=.4,O[d]+=.4);J(a,7,0,n[7])}else if(25==B[a]){e=Vb(8);b=F[E[a]+df[e]];if(3==X[B[b]])return J(a,7,0,n[7]),0;if(0==D[a]){if(0==yc[a]){S(c,N[Q[E[a]]],O[Q[E[a]]]);d=Lf(.5);c.x+=T[E[a]]*d;c.y+=U[E[a]]*d;if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.9),c.add(H[a]);vf(a,c)}else Ef(a,c);e=Vb(4);b=F[E[a]+af[e]];4==X[B[b]]&&14!=B[b]&&52!=B[b]&&(D[a]=B[b]<<2|e)}else{if(1E3>$d-fc)return 0;e=D[a]&3;d=E[a]+
-af[e];b=F[d];if(1>=b)D[a]=D[a]&16777212|e+1&3,qc(d&511,d>>9,25,D[a]),J(a,D[a]>>2,0,n[D[a]>>2]);else{if(4<=b)return B[b]==D[a]>>2&&(D[a]=D[a]&16777212|e-1&3),J(b,25,D[a],n[25]),gc(a),1;D[a]=D[a]&16777212|e+1&3}}}else if(26==B[a]){if(0!=yc[a]&&Ef(a,c),e=Vb(20),b=F[E[a]+jf[e]],4<=b)if(5==B[b])J(b,7,0,n[7]);else{if(6==B[b]||28==B[b]||36==B[b])return gc(a),1;8==B[b]?J(b,7,0,n[7]):9==B[b]?J(b,26,0,n[26]):13==B[b]?J(b,7,0,n[7]):34==B[b]&&J(b,7,0,n[7])}}else if(27==B[a]){if(0==yc[a]){S(c,N[Q[E[a]]],O[Q[E[a]]]);
-d=Lf(-.1);c.x+=T[E[a]]*d;c.y+=U[E[a]]*d;if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.9),c.add(H[a]);vf(a,c)}else Ef(a,c);e=Vb(4);b=F[E[a]+af[e]];1==X[B[b]]||2==X[B[b]]?.3>=T[E[a]]*bf[e]+U[E[a]]*cf[e]&&tf(a,b):27==B[b]&&(H[a].x+=Mf(-.6,.6),H[a].y+=Mf(-.6,.6));if(0==D[a]){if(e=Vb(20),b=F[E[a]+jf[e]],3!=X[B[b]])return 0}else if(2>D[a])return D[a]++,0;G=8;u=~~A[a].x;v=~~A[a].y;e=ue(u-G,8);d=ue(v-G,8);m=De(u+G,503);p=De(v+G,287);for(g=d;g<=p;g++)for(f=e;f<=m;f++)G*G<(f-u)*(f-u)+(g-v)*(g-
-v)||(d=(g+v>>1<<9)+(f+u>>1),1<=t[Q[d]]||(b=F[(g<<9)+f],27==B[b]&&(D[b]=1),1>=b&&xe(.02)&&qc(f,g,7,0)));J(a,7,0,n[7])}return 0}aa.fff=If;
-function If(a,c){var b,d,e,f,g,m,p,u,v,G;if(28==B[a])if(0==D[a]){F[E[a]]=0;S(c,N[Q[E[a]]],O[Q[E[a]]]);f=(A[a].y+U[E[a]]<<9)+I(A[a].x+T[E[a]]);2<=B[F[f]]?(f=(A[a].y+T[E[a]]<<9)+I(A[a].x-U[E[a]]),1>=F[f]&&(e=Mf(.1,.2),H[a].x-=U[E[a]]*e,H[a].y+=T[E[a]]*e),f=(A[a].y-T[E[a]]<<9)+I(A[a].x+U[E[a]]),1>=F[f]&&(e=Mf(.1,.2),H[a].x+=U[E[a]]*e,H[a].y-=T[E[a]]*e),xe(.01)&&(A[a].x=~~A[a].x+.5,A[a].y=~~A[a].y+.5)):(e=Lf(1.5),c.x+=T[E[a]]*e,c.y+=U[E[a]]*e);if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],
-.9),c.add(H[a]);C[a]=n[28];if(10<Ff(c)&&3<=Re-hc){for(d=e=0;60>d;d++)b=F[E[a]+kf[d]],28==B[b]&&0==D[b]&&e++;if(2<=e){e=a;for(d=0;60>d&&!(b=F[E[a]+kf[d]],28==B[b]&&0==D[b]&&(vc(0,0,e,b,0),e=b,1>=Re-hc));d++);vc(0,0,e,a,0)}}0==U[E[a]]?vf(a,c):zf(a,c);e=Vb(8);b=F[E[a]+df[e]];if(1==X[B[b]]&&20!=B[b]||19==B[b]||24==B[b]||36==B[b])xe(.2)&&.3>=T[E[a]]*ef[e]+U[E[a]]*ff[e]&&tf(a,b);else if(11==B[b])xe(.5)&&J(a,11,0,n[11]);else if(16==B[b])return J(b,22,0,n[B[b]]),gc(a),1}else S(c,N[Q[E[a]]],O[Q[E[a]]]),Xe(H[a],
-.9),c.add(H[a]),vf(a,c),C[a]==n[28]&&(C[a]=Te[Vb(6)]),e=Vb(8),b=F[E[a]+df[e]],28==B[b]&&0==D[b]?xe(.2)&&.3>=T[E[a]]*ef[e]+U[E[a]]*ff[e]&&tf(a,b):2<=b&&28!=B[b]&&(Ue(0,a),D[a]=0),2==D[a]&&(Ue(0,a),D[a]=0);else if(29==B[a])if(e=D[a]>>12,p=D[a]>>10&3,(b=D[a]&1023)||(b=Q[E[a]]%1E3),b=73*b%955+44,p?1==p?b&1?(g=0,d=1,p=0):(g=-1,p=d=1):b&1?(g=0,d=1,p=0):(d=g=1,p=3):(p=b%3)?1==p?(d=g=1,p=3):(g=0,d=1,p=0):(g=-1,p=d=1),1==e?(m=g,g=-d,d=m):2==e?(g=-g,d=-d):3==e&&(m=g,g=d,d=-m),p=e<<12|p<<10|b,f=(A[a].y+d<<9)+
-I(A[a].x+g),b=F[f],1>=b)F[E[a]]=0,A[a].x+=g,A[a].y+=d,D[a]=p,E[a]=f,F[E[a]]=a;else if(29==B[b]){if(D[b]!=p)return gc(a),1}else{if(30==B[b])return J(b,30,e+1,n[29]),gc(a),1;if(40==B[b])return J(b,40,e+1,n[29]),gc(a),1;if(50==B[b])return 0==D[b]&&(D[b]=1),gc(a),1;if(43==B[b])tf(a,b);else{if(4<=b){var K=4;u=~~A[a].x;v=~~A[a].y;e=ue(u-K,8);f=ue(v-K,8);m=De(u+K,503);p=De(v+K,287);var W=u+Mf(-.5,.5),ta=v+Mf(-.5,.5);for(d=f;d<=p;d++)for(g=e;g<=m;g++)K*K<(g-u)*(g-u)+(d-v)*(d-v)||(b=F[(d<<9)+g],4<=b&&29!=
-B[b]&&(11==B[b]?J(b,12,0,n[12]):15==B[b]&&256>D[b]?D[b]+=512:16==B[b]&&(D[b]=1),H[b].x-=2*(g-W),H[b].y-=2*(d-ta)))}gc(a);return 1}}else if(30==B[a])if(0!=yc[a]&&Ef(a,c),0==D[a])e=Vb(20),b=F[E[a]+jf[e]],6==B[b]?xe(.02)&&J(a,5,0,n[5]):21==B[b]&&xe(.02)&&J(a,21,0,n[21]);else{e=Vb(4);b=F[E[a]+af[e]];11==B[b]?J(b,6,0,n[6]):15==B[b]&&256>D[b]&&(D[b]+=256);e=D[a]-1;for(d=0;4>d;d++)if(2!=d)if(b=F[E[a]+af[e+d&3]],30==B[b]){0==D[b]?(tf(a,b),D[a]=(e+d&3)+1):J(a,30,0,n[30]);break}else if(40==B[b]){J(b,40,(e+
-d&3)+1,n[29]);J(a,30,0,n[30]);break}else 37==B[b]&&0==D[b]?J(b,37,2,n[29]):50==B[b]&&0==D[b]&&(D[b]=1);4==d&&(1>=F[E[a]+af[e]]&&qc(~~A[a].x+bf[e],~~A[a].y+cf[e],29,e<<12),J(a,30,0,n[30]))}if(31==B[a]){0==yc[a]?(S(c,N[Q[E[a]]],O[Q[E[a]]]),H[a].x+=.05*T[E[a]],H[a].y+=.05*U[E[a]],(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)&&Xe(H[a],.95),c.add(H[a]),vf(a,c)):Ef(a,c);if(0!=D[a]){if(xe(.95))return 0;if(11==D[a])J(a,12,0,n[12]);else if(9==D[a])J(a,5,0,n[5]);else if(20==D[a])J(a,18,0,n[18]);else if(34==
-D[a])J(a,5,0,n[5]);else if(24==D[a])J(a,7,1,n[7]);else if(26==D[a])J(a,7,1,n[7]);else if(28==D[a])J(a,22,10,n[22]);else if(30==D[a])J(a,30,0,n[30]);else if(37==D[a])J(a,20,0,n[20]);else if(44==D[a])J(a,41,0,n[41]);else if(51==D[a])J(a,41,1,n[41]);else return gc(a),1;return 0}e=Vb(8);b=F[E[a]+df[e]];if(4>b||31==B[b]||14==B[b])return 0;G=B[b];K=8;u=~~A[a].x;v=~~A[a].y;e=ue(u-K,8);f=ue(v-K,8);m=De(u+K,503);p=De(v+K,287);W=u+Mf(-.5,.5);ta=v+Mf(-.5,.5);S(c,0,0);for(d=f;d<=p;d++)for(g=e;g<=m;g++)K*K<(g-
-u)*(g-u)+(d-v)*(d-v)||(b=F[(d<<9)+g],4<=b&&31!=B[b]&&(c.x+=W-g,c.y+=ta-d));Pd(c);for(d=f;d<=p;d++)for(g=e;g<=m;g++)K*K<(g-u)*(g-u)+(d-v)*(d-v)||(f=(d+v>>1<<9)+(g+u>>1),1<=t[Q[f]]||(b=F[(d<<9)+g],4<=b&&14!=B[b]&&(H[b].x+=c.x+(W-g),H[b].y+=c.y+(ta-d),31==B[b]&&0!=D[b]||J(b,31,G,n[31]))))}else if(32==B[a]){e=D[a]&15;g=D[a]>>4&15;p=D[a]>>8&255;g++;if(1==g)return D[a]=p<<8|g<<4|e,0;if(12<g)return 37==p?J(a,37,0,n[37]):50==p?J(a,50,0,C[a]):gc(a),1;if(8<g)return D[a]=p<<8|g<<4|e,0;if(!e)if(K=F[E[a]+nf[0]],
-32==B[K]&&(K=0),b=F[E[a]+nf[1]],32==B[b]&&(b=0),d=F[E[a]+nf[2]],32==B[d]&&(d=0),f=F[E[a]+nf[3]],32==B[f]&&(f=0),m=F[E[a]+nf[4]],32==B[m]&&(m=0),u=F[E[a]+nf[5]],32==B[u]&&(u=0),v=F[E[a]+nf[6]],32==B[v]&&(v=0),G=F[E[a]+nf[7]],32==B[G]&&(G=0),1<=f&&1<=m&&1<=u)e=1;else if(1<=u&&1<=v&&1<=G)e=3;else if(1<=G&&1<=K&&1<=b)e=5;else if(1<=b&&1<=d&&1<=f)e=7;else if(1<=u)e=2;else if(1<=G)e=4;else if(1<=b)e=6;else if(1<=f)e=8;else return D[a]=160|e,0;--e;b=F[E[a]+nf[e]];if(4<=b)if(32==B[b])for(d=2;4>=d;d++){if(b=
-F[E[a]+nf[e]*d],32!=B[b]){if(1>=b){if(1E3>$d-fc)break;f=qc(~~A[a].x+lf[e]*d,~~A[a].y+mf[e]*d,32,e+1);0<=f&&(C[f]=C[a])}break}}else if(30==B[b]||40==B[b]){b=F[E[a]+nf[e+1&7]];30!=B[b]&&40!=B[b]&&(b=0);d=F[E[a]+nf[e+2&7]];30!=B[d]&&40!=B[d]&&(d=0);f=F[E[a]+nf[e+3&7]];30!=B[f]&&40!=B[f]&&(f=0);m=F[E[a]+nf[e+4&7]];30!=B[m]&&40!=B[m]&&(m=0);u=F[E[a]+nf[e+5&7]];30!=B[u]&&40!=B[u]&&(u=0);v=F[E[a]+nf[e+6&7]];30!=B[v]&&40!=B[v]&&(v=0);G=F[E[a]+nf[e+7&7]];30!=B[G]&&40!=B[G]&&(G=0);K=F[E[a]+nf[e]+nf[e+1&7]];
-30!=B[K]&&40!=B[K]&&(K=0);W=F[E[a]+nf[e]+nf[e+2&7]];30!=B[W]&&40!=B[W]&&(W=0);ta=F[E[a]+nf[e]+nf[e+3&7]];30!=B[ta]&&40!=B[ta]&&(ta=0);var lb=F[E[a]+nf[e]+nf[e+5&7]];30!=B[lb]&&40!=B[lb]&&(lb=0);var tb=F[E[a]+nf[e]+nf[e+6&7]];30!=B[tb]&&40!=B[tb]&&(tb=0);var Va=F[E[a]+nf[e]+nf[e+7&7]];30!=B[Va]&&40!=B[Va]&&(Va=0);if(e&1){var pe=F[E[a]+nf[e]+nf[e+2&7]+nf[e+3&7]];30!=B[pe]&&40!=B[pe]&&(pe=0);var qe=F[E[a]+nf[e]+nf[e+6&7]+nf[e+5&7]];30!=B[qe]&&40!=B[qe]&&(qe=0);1<=G&&1<=u&&1>b&&1>m?e=e+1&7:1<=b&&1<=f&&
-1>m&&1>G?e=e-1&7:1<=b&&1<=v&&1<=G&&1>d&&1>u?e=e+3&7:1<=K&&1<=tb&&1>W&&1>ta&&1>lb?e=e+3&7:1<=W&&1<=lb&&1>ta&&1>pe?e=e+3&7:1<=b&&1<=d&&1<=G&&1>f&&1>v?e=e-3&7:1<=W&&1<=Va&&1>ta&&1>lb&&1>tb?e=e-3&7:1<=ta&&1<=tb&&1>lb&&1>qe?e=e-3&7:1<=G&&1>b?e=e+2&7:1<=b&&1>G&&(e=e-2&7)}else 1<=u&&1<=v&&1>b&&1>d?e=e+1&7:1<=d&&1<=f&&1>G&&1>v?e=e-1&7:1<=b&&1<=v&&1>d&&1>f&&1>u?e=e+3&7:1<=K&&1<=tb&&1>W&&1>ta&&1>lb?e=e+3&7:1<=d&&1<=G&&1>f&&1>u&&1>v?e=e-3&7:1<=W&&1<=Va&&1>ta&&1>lb&&1>tb?e=e-3&7:1<=v&&1>b&&1>d&&1>u?e=e+2&7:1<=
-d&&1>f&&1>u&&1>v&&(e=e-2&7)}else 5==B[b]||8==B[b]||9==B[b]||13==B[b]||25==B[b]||34==B[b]?J(b,7,0,n[7]):6==B[b]||16==B[b]||28==B[b]||33==B[b]||36==B[b]||43==B[b]?J(b,32,e+1,n[32]):37==B[b]?J(b,32,9472|e+1,n[32]):50==B[b]&&J(b,32,12800|e+1,C[b]);else 1>=b&&!(1E3>$d-fc)&&(f=qc(~~A[a].x+lf[e],~~A[a].y+mf[e],32,e+1),0<=f&&(C[f]=C[a]));D[a]=p<<8|g<<4|e+1}else if(33==B[a]){if(100<=D[a])return gc(a),1;if(0==yc[a]){F[E[a]]=0;S(c,N[Q[E[a]]],O[Q[E[a]]]);f=(A[a].y+U[E[a]]<<9)+I(A[a].x+T[E[a]]);2<=B[F[f]]?(f=
-(A[a].y+T[E[a]]<<9)+I(A[a].x-U[E[a]]),1>=F[f]&&(e=Lf(.2),H[a].x-=U[E[a]]*e,H[a].y+=T[E[a]]*e),f=(A[a].y-T[E[a]]<<9)+I(A[a].x+U[E[a]]),1>=F[f]&&(e=Lf(.2),H[a].x+=U[E[a]]*e,H[a].y-=T[E[a]]*e),xe(.01)&&(A[a].x=~~A[a].x+.5,A[a].y=~~A[a].y+.5)):(e=Lf(1.5),c.x+=T[E[a]]*e,c.y+=U[E[a]]*e);if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.9),c.add(H[a]);0==U[E[a]]?vf(a,c):zf(a,c)}else Ef(a,c);e=Vb(8);b=F[E[a]+df[e]];0!=Ye[B[b]]&&xe(.2)&&(D[a]=Ed(D[a]+Ye[B[b]],0,100),J(b,33,100,n[B[b]]))}else if(34==
-B[a])if(0==yc[a]){if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.3),c.set(H[a]),vf(a,c);if(1E3>$d-fc)return 0;if(0==D[a]&&(e=Vb(8),b=F[E[a]+df[e]],1>=b))for(d=0;8>d;d++)if(b=F[E[a]+df[e]+df[d]],4<=b&&34!=B[b]&&25!=B[b]){xe(.5)&&qc(~~A[a].x+gf[e],~~A[a].y+hf[e],34,0);break}1>=D[a]&&(W=~~A[a].x+.5+T[E[a]],ta=~~A[a].y+.5+U[E[a]],1>=F[(ta<<9)+I(W)]&&1>=F[(ta+U[E[a]]<<9)+I(W+T[E[a]])]&&1>=F[(ta+T[E[a]]<<9)+I(W-U[E[a]])]&&1>=F[(ta-T[E[a]]<<9)+I(W+U[E[a]])]&&xe(.2)&&qc(~~W,~~ta,34,1));1==D[a]&&
-xe(.04)&&(D[a]=2)}else Ef(a,c);return 0}aa.fff=Jf;
-function Jf(a,c){var b,d,e,f;if(35==B[a]){if(0==yc[a]){S(c,N[Q[E[a]]],O[Q[E[a]]]);b=Lf(.5);c.x+=T[E[a]]*b;c.y+=U[E[a]]*b;if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.7),c.add(H[a]);vf(a,c)}else Ef(a,c);e=Vb(8);b=F[E[a]+df[e]];if(6==B[b])return J(b,36,0,n[36]),gc(a),1;if(21==B[b]&&xe(.2))return gc(a),1}else if(36==B[a]){if(0==yc[a]){F[E[a]]=0;S(c,N[Q[E[a]]],O[Q[E[a]]]);f=(A[a].y+U[E[a]]<<9)+I(A[a].x+T[E[a]]);2<=B[F[f]]?(f=(A[a].y+T[E[a]]<<9)+I(A[a].x-U[E[a]]),1>=F[f]&&(b=Mf(.1,.2),
-H[a].x-=U[E[a]]*b,H[a].y+=T[E[a]]*b),f=(A[a].y-T[E[a]]<<9)+I(A[a].x+U[E[a]]),1>=F[f]&&(b=Mf(.1,.2),H[a].x+=U[E[a]]*b,H[a].y-=T[E[a]]*b),xe(.01)&&(A[a].x=~~A[a].x+.5,A[a].y=~~A[a].y+.5)):(b=Lf(1.5),c.x+=T[E[a]]*b,c.y+=U[E[a]]*b);if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.9),c.add(H[a]);0==U[E[a]]?vf(a,c):zf(a,c)}else Ef(a,c);e=Vb(20);b=F[E[a]+jf[e]];8!=B[b]&&9!=B[b]&&30!=B[b]||J(b,5,0,n[5]);e=Vb(8);b=F[E[a]+df[e]];1==X[B[b]]&&20!=B[b]||19==B[b]||24==B[b]?xe(.2)&&.3>=T[E[a]]*ef[e]+
-U[E[a]]*ff[e]&&tf(a,b):34==B[b]&&J(b,5,0,n[5])}else if(37==B[a])if(0==D[a])1<Ff(H[a])?D[a]=1:S(H[a],0,0);else if(1==D[a]){c.set(H[a]);var g=.5*Pd(c);for(d=1;6>d;d++)if(b=F[(A[a].y+.5+c.y*d<<9)+I(A[a].x+.5+c.x*d)],37==B[b])D[b]=1,H[b].x=.98*H[a].x,H[b].y=.98*H[a].y;else break;for(d=1;8>d;d+=2)if(b=F[E[a]+df[d]],37==B[b]&&1!=D[b]){D[b]=1;var m=Vb(8);H[b].x=ef[m]*g+.1*H[a].x;H[b].y=ff[m]*g+.1*H[a].y}1>g?J(a,20,0,n[20]):J(a,18,0,n[18])}else{if(2<=D[a]){if(2==D[a])for(d=1;8>d;d+=2)b=F[E[a]+df[d]],37==
-B[b]&&0==D[b]&&J(b,37,2,n[29]);D[a]++;22<D[a]&&J(a,37,0,n[37])}}else if(38==B[a]){if(1==D[a])return xe(.02)&&(D[a]=0,Xe(H[a],-1)),0;0==yc[a]?(S(c,N[Q[E[a]]],O[Q[E[a]]]),c.add(H[a]),vf(a,c)):Ef(a,c);Pd(H[a]);b=F[(~~A[a].y+.5+H[a].y<<9)+I(~~A[a].x+.5+H[a].x)];1<b&&(xe(.5)?S(H[a],H[a].y,-H[a].x):S(H[a],-H[a].y,H[a].x));e=Vb(8);b=F[E[a]+df[e]];if(4<=b)if(2==X[B[b]]).3>=T[E[a]]*ef[e]+U[E[a]]*ff[e]&&tf(a,b);else{if(8==B[b]||25==B[b]||39==B[b])return J(b,38,0,n[38]),H[b].set(H[a]),gc(a),1;9==B[b]?D[a]=1:
-3==X[B[b]]&&J(a,7,0,n[7])}S(c,0,0);var p=m=0,u=0,v=0;b=Ed(I(A[a].x+4*H[a].x),8,503);d=Ed(I(A[a].y+4*H[a].y),8,287);f=(d<<9)+b;for(d=0;101>d;d++)e=f+of[d],b=F[e],1>=b||(38==B[b]?(c.x+=H[b].x,c.y+=H[b].y,m++):9!=B[b]&&8!=B[b]&&25!=B[b]&&39!=B[b]&&(p+=e&511,u+=e>>9,v++));0<m&&Xe(c,1/m);H[a].x=.5*(H[a].x+c.x);H[a].y=.5*(H[a].y+c.y);0<v&&(p=p/v-A[a].x,u=u/v-A[a].y,b=H[a].y*p-H[a].x*u,0>b?S(c,H[a].y,-H[a].x):S(c,-H[a].y,H[a].x),H[a].x=.9*H[a].x+.1*c.x,H[a].y=.9*H[a].y+.1*c.y);H[a].x+=Mf(-.1,.1);H[a].y+=
-Mf(-.1,.1)}else if(39==B[a])if(m=D[a]>>8,g=D[a]&255,m){Pd(H[a]);b=F[(A[a].y+H[a].y<<9)+I(A[a].x+H[a].x)];2!=X[B[b]]&&(xe(.5)?S(H[a],H[a].y,-H[a].x):S(H[a],-H[a].y,H[a].x));Xe(H[a],.8);F[E[a]]=0;c.x=A[a].x+H[a].x;c.y=A[a].y;b=F[(c.y<<9)+~~c.x];1>=b?A[a].x=c.x:2==X[B[b]]&&(tf(a,b),A[a].set(c),B[b]!=g&&J(b,g,0,n[g]));c.x=A[a].x;c.y=A[a].y+H[a].y;b=F[(c.y<<9)+~~c.x];1>=b?A[a].y=c.y:2==X[B[b]]&&(tf(a,b),A[a].set(c),B[b]!=g&&J(b,g,0,n[g]));E[a]=(A[a].y<<9)+~~A[a].x;F[E[a]]=a;S(c,0,0);v=u=p=m=0;b=Ed(I(A[a].x+
-.5+4*H[a].x),8,503);d=Ed(I(A[a].y+.5+4*H[a].y),8,287);f=(d<<9)+b;for(d=0;101>d;d++)if(e=f+of[d],b=F[e],2!=X[B[b]]||B[b]!=g)39==B[b]&&D[a]==D[b]?(c.x+=H[b].x,c.y+=H[b].y,m++):(p+=e&511,u+=e>>9,v++);0<m&&Xe(c,1/m);H[a].x=.5*(H[a].x+c.x);H[a].y=.5*(H[a].y+c.y);0<v&&(p=p/v-A[a].x,u=u/v-A[a].y,b=H[a].y*p-H[a].x*u,0>b?S(c,H[a].y,-H[a].x):S(c,-H[a].y,H[a].x),H[a].x=.8*H[a].x+.2*c.x,H[a].y=.8*H[a].y+.2*c.y);H[a].x+=Mf(-.1,.1);H[a].y+=Mf(-.1,.1);e=Vb(8);b=F[E[a]+df[e]];1>=b?D[a]=0|g:3==X[B[b]]&&J(a,7,0,n[7])}else{if(0==
-yc[a]){S(c,N[Q[E[a]]],O[Q[E[a]]]);b=Lf(.5);c.x+=T[E[a]]*b;c.y+=U[E[a]]*b;if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.9),c.add(H[a]);vf(a,c)}else Ef(a,c);e=Vb(8);b=F[E[a]+df[e]];2==X[B[b]]?(g||(g=B[b],C[a]=0|~n[g]),D[a]=256|g):3==X[B[b]]&&J(a,7,0,n[7])}else if(40==B[a])if(0==D[a]){if(0==yc[a]){F[E[a]]=0;S(c,N[Q[E[a]]],O[Q[E[a]]]);f=(A[a].y+U[E[a]]<<9)+I(A[a].x+T[E[a]]);2<=B[F[f]]?(f=(A[a].y+T[E[a]]<<9)+I(A[a].x-U[E[a]]),1>=F[f]&&(b=Mf(.1,.2),H[a].x-=U[E[a]]*b,H[a].y+=T[E[a]]*b),f=
-(A[a].y-T[E[a]]<<9)+I(A[a].x+U[E[a]]),1>=F[f]&&(b=Mf(.1,.2),H[a].x+=U[E[a]]*b,H[a].y-=T[E[a]]*b),xe(.01)&&(A[a].x=~~A[a].x+.5,A[a].y=~~A[a].y+.5)):(b=Lf(1.5),c.x+=T[E[a]]*b,c.y+=U[E[a]]*b);if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.9),c.add(H[a]);0==U[E[a]]?vf(a,c):zf(a,c)}else Ef(a,c);e=Vb(8);b=F[E[a]+df[e]];(1==X[B[b]]&&40!=B[b]||2==X[B[b]])&&-.3<=T[E[a]]*ef[e]+U[E[a]]*ff[e]&&tf(a,b)}else{e=Vb(4);b=F[E[a]+af[e]];11==B[b]?J(b,6,0,n[6]):15==B[b]&&256>D[b]&&(D[b]+=256);m=D[a]-1;for(d=
-0;4>d;d++)if(2!=d)if(b=F[E[a]+af[m+d&3]],40==B[b]){0==D[b]?(tf(a,b),D[a]=(m+d&3)+1):J(a,40,0,n[40]);break}else if(30==B[b]){J(b,30,(m+d&3)+1,n[29]);J(a,40,0,n[40]);break}else 37==B[b]&&0==D[b]?J(b,37,2,n[29]):50==B[b]&&0==D[b]&&(D[b]=1);4==d&&(1>=F[E[a]+af[m]]&&qc(~~A[a].x+bf[m],~~A[a].y+cf[m],29,m<<12),J(a,40,0,n[40]))}else if(41==B[a]){if(0==yc[a]){if(xe(.15))return gc(a),1;H[a].x+=.1*N[Q[E[a]]];H[a].y+=.1*O[Q[E[a]]];H[a].x+=.02*T[E[a]];H[a].y+=.02*U[E[a]];if(2<=F[E[a]+1]||2<=F[E[a]+2])H[a].x-=
-Mf(.3,.6);if(2<=F[E[a]-1]||2<=F[E[a]-2])H[a].x+=Mf(.3,.6);if(2<=F[E[a]+512]||2<=F[E[a]+2048])H[a].y-=Mf(.3,.6);if(2<=F[E[a]-512]||2<=F[E[a]-2048])H[a].y+=Mf(.3,.6);Xe(H[a],.98);c.set(H[a]);vf(a,c)}else Ef(a,c);e=Vb(20);b=F[E[a]+jf[e]];if(5==B[b])J(b,7,0,n[7]);else if(6==B[b]||36==B[b]||28==B[b])return gc(a),1}else if(42==B[a])if(0!=yc[a]&&Ef(a,c),256>D[a])if(e=Vb(8),b=F[E[a]+df[e]],3==X[B[b]]&&41!=B[b])D[a]+=256;else if(6==B[b]||36==B[b])J(a,10,0,n[10]);else{if(16==B[b]||24==B[b]||28==B[b]){D[a]=
-B[b];16==B[b]&&(C[a]=6697762);24==B[b]&&(C[a]=4478242);28==B[b]&&(C[a]=6706500);for(d=0;8>d;d++)g=F[E[a]+df[d]],42==B[g]&&0==D[g]&&(D[g]=B[b],16==B[b]&&(C[g]=5583650),24==B[b]&&(C[g]=4473890),28==B[b]&&(C[g]=5588019));J(b,22,0,n[B[b]])}}else{if(D[a]+=256,768<=D[a]){b=D[a]&255;g=41;m=0;16==b?(g=7,m=0):24==b?(g=24,m=0):28==b&&(g=22,m=10);1>=F[E[a]-1]&&qc(~~A[a].x-1,~~A[a].y,g,m);1>=F[E[a]+1]&&qc(~~A[a].x+1,~~A[a].y,g,m);1>=F[E[a]-512]&&qc(~~A[a].x,~~A[a].y-1,g,m);1>=F[E[a]+512]&&qc(~~A[a].x,~~A[a].y+
-1,g,m);for(d=0;8>d;d++)b=F[E[a]+df[d]],4<=b&&(42==B[b]&&256>D[b]?D[b]+=256:15==B[b]&&256>D[b]?D[b]+=256:16==B[b]?D[b]=1:17==B[b]?D[b]=1:24==B[b]?D[b]=1:27==B[b]&&(D[b]=1));J(a,g,m,n[g])}}else if(43==B[a]){if(0==yc[a]){S(c,N[Q[E[a]]],O[Q[E[a]]]);b=Lf(-.15);c.x+=T[E[a]]*b;c.y+=U[E[a]]*b;if(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)Xe(H[a],.9),c.add(H[a]);vf(a,c)}else Ef(a,c);e=Vb(4);b=F[E[a]+af[e]];1==X[B[b]]||2==X[B[b]]?.3>=T[E[a]]*bf[e]+U[E[a]]*cf[e]&&tf(a,b):43==B[b]?(H[a].x+=Mf(-.3,.3),H[a].y+=
-Mf(-.3,.3)):9==B[b]?J(a,6,0,n[6]):11==B[b]?J(a,12,0,n[12]):17==B[b]?J(a,6,0,n[6]):26==B[b]?J(a,6,0,n[6]):30==B[b]?J(a,29,(e+2&3)<<12,n[29]):34==B[b]?J(a,6,0,n[6]):42==B[b]?J(a,6,0,n[6]):2==b&&J(a,6,0,n[6])}else if(44==B[a])if(0!=yc[a]&&Ef(a,c),C[a]==n[44]){if(e=Vb(4),b=F[E[a]+af[e]],2==X[B[b]]||21==B[b]||27==B[b]||40==B[b]||43==B[b])J(a,44,e+2&3,n[B[b]]),J(b,22,0,n[B[b]])}else{m=D[a]&3;for(d=0;4>d;d++)if(2!=d&&(b=F[E[a]+af[m+d&3]],44==B[b])){C[b]==n[44]?(tf(a,b),D[a]=m+d&3):C[a]=n[44];break}if(4==
-d){if(1>=F[E[a]+(af[m]<<1)]&&!(1E3>$d-fc))for(d=0;d<n.length;d++)if(C[a]==n[d]){qc(~~A[a].x+(bf[m]<<1),~~A[a].y+(cf[m]<<1),d,0);break}C[a]=n[44]}}return 0}aa.fff=Kf;
-function Kf(a,c){var b,d,e,f,g,m,p,u,v;if(50==B[a])if(0!=yc[a]&&Ef(a,c),0==D[a]){v=C[a]>>16&255;p=C[a]>>8&255;var G=C[a]&255;e=1;for(d=0;8>d;d++)b=F[E[a]+df[d]],32!=B[b]&&29!=B[b]&&4<=b&&(v+=C[b]>>16&255,p+=C[b]>>8&255,G+=C[b]&255,e++);1<e&&(C[a]=I(v/e)<<16|I(p/e)<<8|I(G/e))}else if(20<=D[a])v=I(8*(C[a]>>16&255)/9),p=I(8*(C[a]>>8&255)/9),G=I(8*(C[a]&255)/9),C[a]=v<<16|p<<8|G,D[a]++,30<=D[a]&&(D[a]=0);else{if(1<=D[a]){if(1==D[a])for(d=0;8>d;d++)b=F[E[a]+df[d]],50==B[b]&&0==D[b]&&(D[b]=1);v=C[a]>>16&
-255;p=C[a]>>8&255;G=C[a]&255;255>v&&255>p&&255>G&&(v=I(9*v/8)+1,255<v&&(v=255),p=I(9*p/8)+1,255<p&&(p=255),G=I(9*G/8)+1,255<G&&(G=255),C[a]=v<<16|p<<8|G);D[a]++}}else if(51==B[a])if(0==yc[a]?(S(c,N[Q[E[a]]],O[Q[E[a]]]),H[a].x+=.05*T[E[a]],H[a].y+=.05*U[E[a]],(-.01>H[a].x||.01<H[a].x||-.01>H[a].y||.01<H[a].y)&&Xe(H[a],.95),c.add(H[a]),vf(a,c)):Ef(a,c),0==D[a])e=Vb(8),b=F[E[a]+df[e]],3==X[B[b]]&&(D[a]=1);else{if(2<=D[a]){if(50>++D[a]||xe(.95))return 0;gc(a);return 1}if(1==D[a]){v=3;e=~~A[a].x;b=~~A[a].y;
-d=ue(e-v,8);p=ue(b-v,8);f=De(e+v,503);u=De(b+v,287);v=e+Mf(-.5,.5);G=b+Mf(-.5,.5);S(c,0,0);e=0;for(m=p;m<=u;m++)for(g=d;g<=f;g++)b=F[(m<<9)+g],2<=b&&(c.x+=v-g,c.y+=G-m,4<=b&&e++);Pd(c);Xe(c,I(e/2)+4);e=-1;for(m=p;m<=u;m++)for(g=d;g<=f;g++)b=F[(m<<9)+g],4<=b&&14!=B[b]&&!(51==B[b]&&1<D[b])&&(v=Mf(-1,1),H[b].x+=c.x+c.y*v,H[b].y+=c.y-c.x*v,-1==e?J(b,51,2,C[b]):(v=C[e]>>16&255,v+=C[b]>>16&255,v>>=1,p=C[e]>>8&255,p+=C[b]>>8&255,p>>=1,G=C[e]&255,G+=C[b]&255,G>>=1,J(b,51,2,v<<16|p<<8|G),e=vc(0,0,e,b,0),-1!=
-e&&(Se[e]=4)),e=b);D[a]=2}}else if(52==B[a]){0!=yc[a]&&Ef(a,c);2<=D[a]&&D[a]>>10!=(Rd&1)&&(D[a]&=1);u=D[a]>>2&255;D[a]&=1;g=8;for(d=0;d<g;d++)u&1<<d||(e=0==D[a]?d:2-d&7,b=F[E[a]+df[e]],4>b||52==B[b]||14==B[b]||32==B[b]||(f=0==D[a]?e+1&7:e-1&7,v=F[E[a]+df[f]],!(e&1||52!=B[v])))||(f=0==D[a]?e-1&7:e+1&7,v=F[E[a]+df[f]],1>=v&&(uf(b,A[b].x+gf[f]-gf[e],A[b].y+hf[f]-hf[e]),v=F[E[a]+df[f]+df[f]-df[e]],52==B[v]&&(2<=D[v]&&D[v]>>10!=(Rd&1)&&(D[v]&=1),D[v]=e&1?(Rd&1)<<10|D[v]&1020|1<<(d+2&7)+2|2|D[v]:(Rd&1)<<
-10|D[v]&1020|1<<(d+1&7)+2|2|D[v]),1==(e&1)&&(f=0==D[a]?e-2&7:e+2&7,v=F[E[a]+df[f]],52==B[v]&&(2<=D[v]&&D[v]>>10!=(Rd&1)&&(D[v]&=1),D[v]|=(Rd&1)<<10|D[v]&1020|1<<d+2|2)),d||(g=7)));C[a]=0==D[a]?6702131:3359829}return 0}var Zb=10,ac=20,bc=30,cc=40,Wb=0,ld=50,Xb=11,w=Array(ld*Xb);for(ba=0;ba<ld*Xb;ba++)w[ba]=new ha;var Y=Array(ld*Xb);for(ba=0;ba<ld*Xb;ba++)Y[ba]=new ha;var md=new Int32Array(ld*Xb),x=new Int32Array(ld),nd=new Int32Array(ld),$b=new Int32Array(ld),Nf=Array(ld);
-for(ba=0;ba<ld;ba++)Nf[ba]=new ha;var od=new Int32Array(ld),pd=new Uint8Array(ld),Of=[0,0],Pf=[0,0],Qf=[0,0],Rf=[0,0],Sf=[0,0],Tf=[0,0,.5,.5,.5,.5,.8,1,.5,.5,.5,1,.5,.5,.5,.5,.8,.5,.5,.8,.5,.5,1,.5,.8,.5,0,1,1,0,.5,.5,0,.8,.5,.5,.8,.9,.1,.1,1,.5,.5,1,.5,0,0,0,0,0,.5,.5,.2],Uf=[0,1,0,0,0,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,0,1,1,1,1,0,1,0,0,0,0,0,0,0,0,0];
-function oc(a,c,b,d){if(Wb!=ld){var e,f;if(45==b||46==b){for(e=f=0;e<Wb;e++)x[e]!=Zb&&x[e]!=ac||f++;if(2<=f||0!=d&&0==Uf[d])return;e=45==b?0:1;Rf[e]=48;Sf[e]=0}f=Wb*Xb;for(e=0;e<Xb;e++,f++)49==b?S(w[f],a,c):1==e?S(w[f],a,c):S(w[f],a+Lf(4),c+Lf(4)),Y[f].set(w[f]),md[f]=0;45==b?x[Wb]=Zb:46==b?x[Wb]=ac:47==b?x[Wb]=bc:49==b&&(x[Wb]=cc);nd[Wb]=0;$b[Wb]=d;S(Nf[Wb],0,0);od[Wb]=0;pd[Wb]=0;Wb++}}
-function Yb(a){if(Wb){Wb--;Ue(1,a);for(var c=a*Xb,b=Wb*Xb,d=0;d<Xb;d++,c++,b++)w[c].set(w[b]),Y[c].set(Y[b]),md[c]=md[b];x[a]=x[Wb];nd[a]=nd[Wb];$b[a]=$b[Wb];Nf[a].set(Nf[Wb]);od[a]=od[Wb];pd[a]=pd[Wb];Ve(1,Wb,a)}}function tc(a){var c,b;for(c=0;c<Wb;c++){b=c*Xb;if(x[c]==Zb||x[c]==ac)b=(Y[b+1].y<<9)+~~Y[b+1].x;else if(x[c]==bc||x[c]==bc+1)b=(Y[b+1].y<<9)+~~Y[b+1].x;else continue;if(b==a)return c}return-1}
-function Vf(a,c,b,d){var e=w[a].x-Y[a].x,f=w[a].y-Y[a].y;Y[a].set(w[a]);null==c?(c=(w[a].y<<9)+~~w[a].x,e+=T[c]*b,f+=U[c]*b):(e+=c.x*b,f+=c.y*b);w[a].x+=e*d;w[a].y+=f*d}function Wf(a,c,b,d,e){var f=new ha;Nd(f,w[c],w[a]);var g=Pd(f);0!=g&&(b-=g,d*=b,e*=b,w[a].x-=f.x*d,w[a].y-=f.y*d,w[c].x+=f.x*e,w[c].y+=f.y*e)}
-function Xf(a,c,b,d,e){var f=new ha;Nd(f,w[a],Y[a]);w[a].set(Y[a]);if(0!=b){var g=(w[a].y>>2<<7)+(w[a].x>>2);f.x+=N[g]*b;f.y+=O[g]*b}0==e?(b=ye(f)+1,8<=b?(Xe(f,3.8/b),b=2):4<=b?(Xe(f,.5),b=2):b=1):(b=I(ye(f)/3)+1,Xe(f,1/b));md[a]=0;if(1==d)Xe(f,b),w[a].add(f),w[a].x=Ed(w[a].x,4,507),w[a].y=Ed(w[a].y,4,291);else{d=new ha;e=new ha;null==c?(g=(w[a].y<<9)+~~w[a].x,S(e,T[g],U[g])):e.set(c);c=Af(e,f);Xe(e,c);d.set(f);d.sub(e);for(var m,p,g=0;g<b;g++){m=w[a].x+e.x;p=w[a].y+e.y;if(4>m||508<=m||4>p||292<=
-p){md[a]=-5;return}f=(p<<9)+~~m;1>=F[f]?S(w[a],m,p):2>=F[f]?(Xe(d,.5),md[a]=F[f]):(0>c?S(w[a],m,p):(Xe(d,Tf[B[F[f]]]),2==X[B[F[f]]]?S(w[a],m,p):52==B[F[f]]&&(m=~~m-~~w[a].x,p=~~p-~~w[a].y,0==D[F[f]]?(m||1!=p||--d.x,-1!=m||p||--d.y,m||-1!=p||(d.x+=1),1!=m||p||(d.y+=1)):(m||1!=p||(d.x+=1),-1!=m||p||(d.y+=1),m||-1!=p||--d.x,1!=m||p||--d.y))),md[a]=B[F[f]])}for(g=0;g<b;g++){m=w[a].x+d.x;p=w[a].y;if(4>m||508<=m||4>p||292<=p){md[a]=-5;break}f=(p<<9)+~~m;1>=F[f]?S(w[a],m,p):(2==X[B[F[f]]]&&S(w[a],m,p),md[a]=
-B[F[f]]);m=w[a].x;p=w[a].y+d.y;if(4>m||508<=m||4>p||292<=p){md[a]=-5;break}f=(p<<9)+~~m;1>=F[f]?S(w[a],m,p):(2==X[B[F[f]]]&&S(w[a],m,p),md[a]=B[F[f]])}}}function Yf(a,c){for(var b=0;a<c;a++){if(-5==md[a])return-5;7==md[a]&&-1<b?b=-1:21==md[a]&&-4<b?b=-4:26==md[a]&&-1<b?b=-1:29==md[a]&&-3<b?b=-3:32==md[a]&&-2<b?b=-2:33==md[a]&&-1<b?b=-1:41==md[a]&&-1<b?b=-1:0==md[a]||b||(b=1)}return b}
-function Zf(a,c,b){if(!ca&&!Sa){var d=new ha,e,f;if(0==od[a]){if(47==h&&yd||47==k&&Cd){e=400;for(var g=c;g<b;g++)d.x=da-Y[g].x,d.y=ea-Y[g].y,f=Ff(d),f<e&&(e=f,od[a]=g-c+1)}}else 47==h&&Kd||47==k&&Ld?(w[c+od[a]-1].x+=.1*(da-w[c+od[a]-1].x),w[c+od[a]-1].y+=.1*(ea-w[c+od[a]-1].y)):od[a]=0}}aa.fff=Vd;function Vd(){var a;for(a=0;a<Wb;a++)x[a]<=Zb+3?$f(a):x[a]<=ac+3?$f(a):ag(a)}
-function $f(a){var c,b,d,e,f,g=new ha,m=new ha,p=new ha;b=a*Xb;if(x[a]==Zb||x[a]==ac){var u=x[a]==Zb?0:1,v=x[a]==Zb?Hc[37]:Hc[65]|Hc[97],G=x[a]==Zb?Hc[39]:Hc[68]|Hc[100],K=x[a]==Zb?Hc[38]:Hc[87]|Hc[119],W=x[a]==Zb?Hc[40]:Hc[83]|Hc[115];nd[a]++;d=(Y[b+4].y<<9)+~~Y[b+4].x;e=(Y[b+5].y<<9)+~~Y[b+5].x;f=1<F[(~~Y[b+4].y+.5+U[d]<<9)+I(~~Y[b+4].x+.5+T[d])]?1:0;var ta=1<F[(~~Y[b+5].y+.5+U[e]<<9)+I(~~Y[b+5].x+.5+T[e])]?1:0;f||(f=1<F[d]?1:0);ta||(ta=1<F[e]?1:0);g.x=T[d]+T[e];g.y=U[d]+U[e];Oe(g);m.set(g);p.set(g);
-We(m);if(W&&38==$b[a])for(c=0;6>c;c++)Vf(b+c,p,.01,.997);else W&&11==$b[a]||(Vf(b+0,p,-.2,.995),Vf(b+1,p,-.1,.995),Vf(b+2,p,0,.995),Vf(b+3,p,0,.995),Vf(b+4,p,.3,.995),Vf(b+5,p,.3,.995));Zf(a,b,b+6);w[b].add(Nf[a]);Xe(Nf[a],.5);1<Of[u]?Of[u]--:0<Of[u]&&(1==f||1==ta)&&Of[u]--;0==Of[u]?G?(Of[u]=15,g.x=w[b+5].x-w[b+4].x,g.y=w[b+5].y-w[b+4].y,c=g.x*m.x+g.y*m.y,0<c?(w[b+2].x+=3.2*U[d]+3*-T[d]*.8,w[b+2].y+=3.2*-T[d]+3*-U[d]*.8):(w[b+3].x+=3.2*U[e]+3*-T[e]*.8,w[b+3].y+=3.2*-T[e]+3*-U[e]*.8),Qf[u]=1):v&&(Of[u]=
-15,g.x=w[b+5].x-w[b+4].x,g.y=w[b+5].y-w[b+4].y,c=g.x*m.x+g.y*m.y,0>c?(w[b+2].x+=3.2*-U[d]+3*-T[d]*.8,w[b+2].y+=3.2*T[d]+3*-U[d]*.8):(w[b+3].x+=3.2*-U[e]+3*-T[e]*.8,w[b+3].y+=3.2*T[e]+3*-U[e]*.8),Qf[u]=0):v?(g.x=w[b+1].x-Y[b+1].x,g.y=w[b+1].y-Y[b+1].y,c=g.x*m.x+g.y*m.y,0<c&&(w[b+1].x-=.2*m.x,w[b+1].y-=.2*m.y),Qf[u]=0):G&&(g.x=w[b+1].x-Y[b+1].x,g.y=w[b+1].y-Y[b+1].y,c=g.x*m.x+g.y*m.y,0>c&&(w[b+1].x+=.2*m.x,w[b+1].y+=.2*m.y),Qf[u]=1);1<Pf[u]&&Pf[u]--;0<Pf[u]&&(1==f||1==ta)&&Pf[u]--;0==Pf[u]&&K&&(Pf[u]=
-50,w[b+4].x-=6*p.x,w[b+4].y-=6*p.y,w[b+5].x-=6*p.x,w[b+5].y-=6*p.y);W&&11==$b[a]||(d=.5,Wf(b+0,b+1,4,d,d),Wf(b+1,b+2,4,d,d),Wf(b+1,b+3,4,d,d),Wf(b+2,b+4,5,d,d),Wf(b+3,b+5,5,d,d),Wf(b+2,b+3,5,.1,.1));d=.1;for(c=0;4>c;c++)Xf(b+c,p,d,1,0<od[a]?1:0);for(c=4;6>c;c++)Xf(b+c,p,d,0,0<od[a]?1:0);if(!W)for(f=-1;2>f;f++)for(e=-1;2>e;e++)d=F[(Y[b+0].y+f<<9)+(~~Y[b+0].x+e)],1==Uf[B[d]]&&($b[a]=B[d]);K&&(v||G)||!W||0==$b[a]||(e=~~w[b+0].x,f=~~w[b+0].y,24==$b[a]&&(e+=m.x*(0==Qf[u]?0:-0)+8*p.x,f+=m.y*(0==Qf[u]?0:
--0)+8*p.y,w[b+0].x+=m.x*(0==Qf[u]?-.5:.5)+-1*p.x,w[b+0].y+=m.y*(0==Qf[u]?-.5:.5)+-1*p.y),e=Ed(e,8,503),f=Ed(f,8,287),1==$b[a]?(d=(f>>2<<7)+(e>>2),0==t[d]&&(N[d]+=m.x*(0==Qf[u]?-1:1),O[d]+=m.y*(0==Qf[u]?-1:1))):11!=$b[a]&&38!=$b[a]&&0==F[512*f+e]&&(d=qc(e,f,$b[a],0),0<=d&&(7==$b[a]?(H[d].x=m.x*(0==Qf[u]?-7:7)+2.4*p.x,H[d].y=m.y*(0==Qf[u]?-7:7)+2.4*p.y,D[d]=2):13==$b[a]?(H[d].x=m.x*(0==Qf[u]?-20:20)+20*p.x,H[d].y=m.y*(0==Qf[u]?-20:20)+20*p.y):24==$b[a]?(H[d].x=m.x*(0==Qf[u]?20:-20),H[d].y=m.y*(0==Qf[u]?
-20:-20)):29==$b[a]?D[d]=0==Qf[u]?(I(4*-ve(p)/we-.5)&3)<<12:(I(4*-ve(p)/we-2.5)&3)<<12:32==$b[a]?D[d]=0==Qf[u]?(I(8*ve(p)/we+6.5)&7)+1:(I(8*ve(p)/we+2.5)&7)+1:(H[d].x=m.x*(0==Qf[u]?-20:20)+Mf(-1,1),H[d].y=m.y*(0==Qf[u]?-20:20)+Mf(-1,1)))));if(1==sa)for(m=4;5>=m;m++){if(f=e=0,8>w[b+m].x?(e=502,f=~~Y[b+m].y):504<=w[b+m].x?(e=10,f=~~Y[b+m].y):8>w[b+m].y?(e=~~Y[b+m].x,f=286):288<=w[b+m].y&&(e=~~Y[b+m].x,f=10),e+f)if(d=(f<<9)+e,1>=F[d]||2==X[B[F[d]]]){Ue(1,a);Nd(g,w[b+m],Y[b+m]);Pd(g);for(c=0;5>=c;c++)w[b+
-c].x=e+g.x+Mf(-.1,.1),w[b+c].y=f+g.y+Mf(-.1,.1),S(Y[b+c],e,f),md[b+c]=0;break}else w[b+m].set(Y[b+m]),md[b+m]=2,0<Pf[u]&&Pf[u]--,0<Of[u]&&Of[u]--}else-5==Yf(b,b+6)&&(x[a]=u?ac+2:Zb+2);0<Sf[u]&&Sf[u]--;b=Yf(b,b+6);0>b&&(Rf[u]+=b,Sf[u]=25);0>=Rf[u]&&(x[a]=u?ac+2:Zb+2)}else if(x[a]==Zb+2||x[a]==ac+2)w[b+10].set(w[b+5]),Y[b+10].set(Y[b+5]),w[b+9].set(w[b+4]),Y[b+9].set(Y[b+4]),w[b+8].set(w[b+3]),Y[b+8].set(Y[b+3]),w[b+7].set(w[b+3]),Y[b+7].set(Y[b+3]),w[b+6].set(w[b+2]),Y[b+6].set(Y[b+2]),w[b+5].set(w[b+
-2]),Y[b+5].set(Y[b+2]),w[b+4].set(w[b+1]),Y[b+4].set(Y[b+1]),w[b+3].set(w[b+1]),Y[b+3].set(Y[b+1]),w[b+2].set(w[b+1]),Y[b+2].set(Y[b+1]),w[b+1].set(w[b+0]),Y[b+1].set(Y[b+0]),w[b+0].set(w[b+0]),Y[b+0].set(Y[b+0]),--Nf[a].y,nd[a]=0,x[a]++;else if(x[a]==Zb+3||x[a]==ac+3){nd[a]++;for(c=0;11>c;c++)Vf(b+c,null,.1,.999),w[b+c].add(Nf[a]);Xe(Nf[a],.5);d=.5;u=(150-nd[a])/150;Wf(b+1,b+2,4*u,d,d);Wf(b+3,b+5,4*u,d,d);Wf(b+4,b+7,4*u,d,d);Wf(b+6,b+9,5*u,d,d);Wf(b+8,b+10,5*u,d,d);d=.1;for(c=0;11>c;c++)Xf(b+c,null,
-d,0,0);150<nd[a]&&Yb(a--)}}aa.fff=ag;
-function ag(a){var c,b,d,e,f,g=new ha;f=new ha;e=new ha;b=a*Xb;if(x[a]==bc||x[a]==bc+1){nd[a]++;d=(Y[b+4].y<<9)+~~Y[b+4].x;c=(Y[b+5].y<<9)+~~Y[b+5].x;g.x=T[d]+T[c];g.y=U[d]+U[c];Oe(g);f.set(g);e.set(g);We(f);x[a]==bc?(Vf(b+0,e,-.2,.995),Vf(b+1,e,-.1,.995),Vf(b+2,e,0,.995),Vf(b+3,e,0,.995),Vf(b+4,e,.3,.995),Vf(b+5,e,.3,.995)):(Vf(b+0,e,.1,.995),Vf(b+1,e,.1,.995),Vf(b+2,e,.1,.995),Vf(b+3,e,.1,.995),Vf(b+4,e,.1,.995),Vf(b+5,e,.1,.995));Zf(a,b,b+6);w[b].add(Nf[a]);Xe(Nf[a],.5);if(x[a]==bc){g.x=w[b+5].x-
-w[b+4].x;g.y=w[b+5].y-w[b+4].y;f=g.x*f.x+g.y*f.y;if(0!=md[b+4]&&0!=md[b+5]){var m=Vb(100);5>m?0<f?(w[b+4].x+=4*U[d]+4*-T[d],w[b+4].y+=4*-T[d]+4*-U[d]):(w[b+5].x+=4*U[c]+4*-T[c],w[b+5].y+=4*-T[c]+4*-U[c]):10>m&&(0>f?(w[b+4].x+=4*-U[d]+4*-T[d],w[b+4].y+=4*T[d]+4*-U[d]):(w[b+5].x+=4*-U[c]+4*-T[c],w[b+5].y+=4*T[c]+4*-U[c]))}else 0!=md[b+4]?xe(.02)&&(f=Mf(-4,4),w[b+4].x+=U[d]*f+4*-T[d],w[b+4].y+=-T[d]*f+4*-U[d]):0!=md[b+5]&&xe(.02)&&(f=Mf(-4,4),w[b+5].x+=U[c]*f+4*-T[c],w[b+5].y+=-T[c]*f+4*-U[c]);for(c=
-0;c<Wb;c++)a==c||x[c]!=bc&&x[c]!=bc+1&&x[c]!=Zb&&x[c]!=ac||(d=c*Xb,f=Md(w[b+4].x-w[d].x),m=Md(w[b+4].y-w[d].y),4>=f&&4>=m&&(Nf[c].x+=1*(w[b+4].x-Y[b+4].x),Nf[c].y+=2*(w[b+4].y-Y[b+4].y),x[c]==bc&&(x[c]=bc+1),nd[c]=0,x[c]==Zb&&(Rf[0]-=8,Sf[0]=25),x[c]==ac&&(Rf[1]-=8,Sf[1]=25)),f=Md(w[b+5].x-w[d].x),m=Md(w[b+5].y-w[d].y),4>=f&&4>=m&&(Nf[c].x+=1*(w[b+5].x-Y[b+5].x),Nf[c].y+=2*(w[b+5].y-Y[b+5].y),x[c]==bc&&(x[c]=bc+1),nd[c]=0,x[c]==Zb&&(Rf[0]-=8,Sf[0]=25),x[c]==ac&&(Rf[1]-=8,Sf[1]=25)))}else 10<nd[a]&&
-(0!=md[b+4]||0!=md[b+5])&&xe(.1)&&(x[a]=bc,nd[a]=0);f=.5;Wf(b+0,b+1,4,f,f);Wf(b+1,b+2,4,f,f);Wf(b+1,b+3,4,f,f);Wf(b+2,b+4,5,f,f);Wf(b+3,b+5,5,f,f);Wf(b+2,b+3,5,.1,.1);d=.1;for(c=0;4>c;c++)Xf(b+c,e,d,1,0<od[a]?1:0);for(c=4;6>c;c++)Xf(b+c,e,d,0,0<od[a]?1:0);x[a]==bc&&(0!=Yf(b,b+6)?nd[a]=0:50<nd[a]&&(x[a]=bc+1));if(1==sa)for(c=4;5>=c;c++){if(f=e=0,8>w[b+c].x?(e=502,f=~~Y[b+c].y):504<=w[b+c].x?(e=10,f=~~Y[b+c].y):8>w[b+c].y?(e=~~Y[b+c].x,f=286):288<=w[b+c].y&&(e=~~Y[b+c].x,f=10),e+f)if(d=(f<<9)+e,1>=
-F[d]||2==X[B[F[d]]]){Ue(1,a);Nd(g,w[b+c],Y[b+c]);Pd(g);for(c=0;5>=c;c++)w[b+c].x=e+g.x+Mf(-.1,.1),w[b+c].y=f+g.y+Mf(-.1,.1),S(Y[b+c],e,f),md[b+c]=0;break}else w[b+c].set(Y[b+c]),md[b+c]=2}else-5==Yf(b,b+6)&&(x[a]=bc+2);0>Yf(b,b+6)&&(x[a]=bc+2)}else if(x[a]==bc+2)w[b+10].set(w[b+5]),Y[b+10].set(Y[b+5]),w[b+9].set(w[b+4]),Y[b+9].set(Y[b+4]),w[b+8].set(w[b+3]),Y[b+8].set(Y[b+3]),w[b+7].set(w[b+3]),Y[b+7].set(Y[b+3]),w[b+6].set(w[b+2]),Y[b+6].set(Y[b+2]),w[b+5].set(w[b+2]),Y[b+5].set(Y[b+2]),w[b+4].set(w[b+
-1]),Y[b+4].set(Y[b+1]),w[b+3].set(w[b+1]),Y[b+3].set(Y[b+1]),w[b+2].set(w[b+1]),Y[b+2].set(Y[b+1]),w[b+1].set(w[b+0]),Y[b+1].set(Y[b+0]),w[b+0].set(w[b+0]),Y[b+0].set(Y[b+0]),--Nf[a].y,nd[a]=0,x[a]=bc+3;else if(x[a]==bc+3){nd[a]++;for(c=0;11>c;c++)Vf(b+c,null,.1,.999),w[b+c].add(Nf[a]);Xe(Nf[a],.5);f=.5;g=(150-nd[a])/150;Wf(b+1,b+2,4*g,f,f);Wf(b+3,b+5,4*g,f,f);Wf(b+4,b+7,4*g,f,f);Wf(b+6,b+9,5*g,f,f);Wf(b+8,b+10,5*g,f,f);d=.1;for(c=0;11>c;c++)Xf(b+c,null,d,0,0);150<nd[a]&&Yb(a--)}else if(x[a]==cc)if(0==
-md[b]){for(c=0;c<Wb;c++)if(!(w[b].x+8<w[c*Xb].x||w[c*Xb].x<w[b].x-4||w[b].y+8<w[c*Xb].y||w[c*Xb].y<w[b].y-4))if(x[c]==Zb||x[c]==ac){for(g=0;g<Wb;g++)x[g]==cc&&md[g*Xb]==Zb&&(md[g*Xb]=0);md[b]=Zb;$b[a]=$b[c]}else x[c]==bc&&(md[b]=x[c],$b[a]=$b[c]);for(c=0;c<dc;c++)0==y[c]||w[b].x+8<z[c].x||z[c].x<w[b].x-4||w[b].y+8<z[c].y||z[c].y<w[b].y-4||(md[b]=3,$b[a]=y[c])}else if(e=~~w[b+0].x,f=~~w[b+0].y,md[b]==Zb){if(xe(.1)){d=45;for(c=0;c<Wb;c++)x[c]==Zb&&(d=46);oc(e,f,d,$b[a])}}else md[b]==bc?xe(.01)&&oc(e,
-f,47,0):3==md[b]&&xe(.01)&&pc(e+2,f+2,$b[a])}aa.fff=Fe;
-function Fe(){var a,c,b,d,e,f=[-1023,-1022,-510,2,514,1026,1025,1024,1023,1022,510,-2,-514,-1026,-1025,-1024],g=[-1023,-510,2,514,1025,1024,1023,510,-2,-514,-1025,-1024],m=[-511,1,513,512,511,-1,-513,-512],p=[1,512,-1,-512],u=16769198,v=16777215,G=52224,K=10027008;14==la&&(G=v=u=0,K=13421772);for(b=a=0;a<Wb;a++,b+=Xb){if(x[a]<=ac+3){if(x[a]!=Zb+3&&x[a]!=ac+3)Zd(w[b+1].x,w[b+1].y,w[b+2].x,w[b+2].y,v),Zd(w[b+1].x,w[b+1].y,w[b+3].x,w[b+3].y,v),Zd(w[b+2].x,w[b+2].y,w[b+4].x,w[b+4].y,v),Zd(w[b+3].x,w[b+
-3].y,w[b+5].x,w[b+5].y,v),e=x[a]<=Zb+3?f:g;else{Zd(w[b+3].x,w[b+3].y,w[b+5].x,w[b+5].y,v);if(140<nd[a])continue;Zd(w[b+4].x,w[b+4].y,w[b+7].x,w[b+7].y,v);if(135<nd[a])continue;Zd(w[b+6].x,w[b+6].y,w[b+9].x,w[b+9].y,v);if(130<nd[a])continue;Zd(w[b+8].x,w[b+8].y,w[b+10].x,w[b+10].y,v);if(125<nd[a])continue;e=x[a]<=Zb+3?m:p}d=0==n[$b[a]]?u:n[$b[a]];14==la&&(d=0);var W=0,ta=0;x[a]==Zb&&(W=Rf[0],ta=Sf[0]);x[a]==ac&&(W=Rf[1],ta=Sf[1]);var lb=e.length;for(c=0;c<lb;c++){var tb=(w[b].y<<9)+~~w[b].x+e[c];jd[tb]&&
-(q[tb]=0<ta?lb-I(W*lb/48)<=c?G:K:q[tb]==d?0:d)}if(12==la)for(c=I(Ed(w[b+0].x,8,503)),W=I(Ed(w[b+0].y,8,283)),e=W-4;e<=W+4;e+=4)for(d=c-4;d<=c+4;d+=4)Ab[(e<<9)+d]=536870911}else if(x[a]<=bc+2)Zd(w[b+0].x,w[b+0].y,w[b+1].x,w[b+1].y,u),Zd(w[b+1].x,w[b+1].y,w[b+2].x,w[b+2].y,v),Zd(w[b+1].x,w[b+1].y,w[b+3].x,w[b+3].y,v),Zd(w[b+2].x,w[b+2].y,w[b+4].x,w[b+4].y,v),Zd(w[b+3].x,w[b+3].y,w[b+5].x,w[b+5].y,v),dd(w[b+0].x-1,w[b+0].y-1,3,3,u);else if(x[a]<=bc+3){Zd(w[b+1].x,w[b+1].y,w[b+2].x,w[b+2].y,v);if(145<
-nd[a])continue;Zd(w[b+3].x,w[b+3].y,w[b+5].x,w[b+5].y,v);if(140<nd[a])continue;Zd(w[b+4].x,w[b+4].y,w[b+7].x,w[b+7].y,v);if(135<nd[a])continue;Zd(w[b+6].x,w[b+6].y,w[b+9].x,w[b+9].y,v);if(130<nd[a])continue;Zd(w[b+8].x,w[b+8].y,w[b+10].x,w[b+10].y,v);if(125<nd[a])continue;dd(w[b+0].x-1,w[b+0].y-1,2,2,u)}else x[a]<=cc&&(d=9465872,14==la&&(d=0),md[b]==Zb?(Zd(w[b].x,w[b].y,w[b].x,w[b].y+3,d),Zd(w[b].x,w[b].y,w[b].x+2,w[b].y,d),Zd(w[b].x,w[b].y+2,w[b].x+2,w[b].y+2,d),Zd(w[b].x+3,w[b].y,w[b].x+3,w[b].y+
-2,d)):md[b]==bc?(Zd(w[b].x,w[b].y,w[b].x,w[b].y+3,d),Zd(w[b].x,w[b].y,w[b].x+3,w[b].y,d),Zd(w[b].x,w[b].y+2,w[b].x+2,w[b].y+2,d)):3==md[b]?(Zd(w[b].x+1,w[b].y,w[b].x+2,w[b].y,d),Zd(w[b].x,w[b].y+1,w[b].x,w[b].y+2,d),Zd(w[b].x+3,w[b].y+1,w[b].x+3,w[b].y+2,d),Zd(w[b].x+1,w[b].y+3,w[b].x+2,w[b].y+3,d)):dd(w[b].x,w[b].y,4,4,d));if(x[a]<=bc+3&&13==la)for(c=0;6>c;c++)d=I(Ed(w[b+c].x,8,503)),e=I(Ed(w[b+c].y,8,287)),Ab[(e<<9)+d]=3E3}}var dc=50,z=Array(dc);for(ba=0;ba<dc;ba++)z[ba]=new ha;var V=Array(dc);
-for(ba=0;ba<dc;ba++)V[ba]=new ha;var y=new Int32Array(dc),R=new Int32Array(dc),qd=new Int32Array(dc),rd=new Uint8Array(dc),bg;function pc(a,c,b){for(var d=0;d<dc;d++)if(0==y[d]){S(z[d],a+.5,c+.5);S(V[d],0,0);y[d]=b;R[d]=0;qd[d]=0;rd[d]=0;break}}function ec(a){y[a]=0;Ue(2,a)}function uc(a){var c,b;for(c=0;c<dc;c++)if(0!=y[c]&&(b=(z[c].y<<9)+~~z[c].x,b==a))return c;return-1}
-var Ae=[-513,-512,-511,-1,0,1,511,512,513,-1025,-1024,-1023,1023,1024,1025,-514,-2,510,-510,2,514,-1537,-1536,-1535,1535,1536,1537,-515,-3,509,-509,3,515,-1026,-1022,1022,1026],cg=[-.7,0,.7,-1,0,1,-.7,0,.7,-.44,0,.44,-.44,0,.44,-.89,-1,-.89,.89,1,.89,-.31,0,.31,-.31,0,.31,-.94,-1,-.94,.94,1,.94,-.7,.7,-.7,.7],dg=[-.7,-1,-.7,0,0,0,.7,1,.7,-.89,-1,-.89,.89,1,.89,-.44,0,.44,-.44,0,.44,-.94,-1,-.94,.94,1,.94,-.31,0,.31,-.31,0,.31,-.7,-.7,.7,.7],eg=[-1,0,1,-1,0,1,-1,0,1,-1,0,1,-1,0,1,-2,-2,-2,2,2,2,-1,
-0,1,-1,0,1,-3,-3,-3,3,3,3,-2,2,-2,2],fg=[-1,-1,-1,0,0,0,1,1,1,-2,-2,-2,2,2,2,-1,0,1,-1,0,1,-3,-3,-3,3,3,3,-1,0,1,-1,0,1,-2,-2,2,2],gg=[0,.1,0,0,0,.1,.1,-.03,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,0,.1,.1,.1,.1,-.01,.1,.1,.2,.1,.1,.1,.1,.1,.1,.1,.05,.1,.2,.1,.1,-.02,.1,0,0,0,0,0,.1,.1,.1],hg=[0,0,0,0,0,.5,.4,.5,.5,.4,.4,.3,.4,.3,.3,.3,0,.2,.2,.3,.1,0,0,.5,.3,.5,.3,.5,.4,0,0,.1,0,.4,.4,.5,.4,.2,.5,.5,0,.5,.2,.5,0,0,0,0,0,0,.2,.1,0],ig=[0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1];aa.fff=Wd;
-function Wd(){var a,c,b,d,e=new ha;for(a=0;a<dc;a++)if(0!=y[a])if(0==ig[y[a]])ec(a);else{b=(z[a].y<<9)+~~z[a].x;for(c=0;21>c;c++)3==F[b+Ae[c]]&&(F[b+Ae[c]]=0);var f=T[b]*gg[y[a]],g=U[b]*gg[y[a]];V[a].x+=f;V[a].y+=g;var m=hg[y[a]];if(0!=m){var p=(z[a].y>>2<<7)+(z[a].x>>2);V[a].x+=N[p]*m;V[a].y+=O[p]*m;100<Ff(V[a])&&Xe(V[a],.9+.1*(1-m))}p=a;if(0==qd[p]){if(47==h&&yd||47==k&&Cd){var m=da-z[p].x,u=ea-z[p].y;400>m*m+u*u&&(qd[p]=1)}}else 47==h&&Kd||47==k&&Ld?(V[p].x+=.05*(da-z[p].x),V[p].y+=.05*(ea-z[p].y),
-Xe(V[p],.9)):qd[p]=0;for(m=0;m<Wb;m++)if(x[m]==bc||x[m]==bc+1||x[m]==Zb||x[m]==ac)for(p=m*Xb,u=4;5>=u;u++){var v=Md(w[p+u].y-z[a].y);9>=Md(w[p+u].x-z[a].x)&&9>=v&&(V[a].x+=.1*(w[p+u].x-Y[p+u].x),V[a].y+=.2*(w[p+u].y-Y[p+u].y))}bg=p=0;for(var m=I(jg(V[a])/2)+1,u=1/m,G,K,v=0;v<m;v++){G=z[a].x+V[a].x*u;K=z[a].y+V[a].y*u;if(4>G||508<=G||4>K||292<=K){ec(a);break}1==sa&&(8>G?(1>=F[(K<<9)+I(G+496)]?(z[a].x+=496,V[a].x*=.8,Ue(2,a)):V[a].x*=-.8,G=z[a].x+V[a].x*u):504<=G&&(1>=F[(K<<9)+I(G-496)]?(z[a].x-=496,
-V[a].x*=.8,Ue(2,a)):V[a].x*=-.8,G=z[a].x+V[a].x*u),8>K?(1>=F[(K+280<<9)+~~G]?(z[a].y+=280,V[a].y*=.8,Ue(2,a)):V[a].y*=-.8,K=z[a].y+V[a].y*u):288<=K&&(1>=F[(K-280<<9)+~~G]?(z[a].y-=280,V[a].y*=.5,Ue(2,a)):V[a].y*=-.8,K=z[a].y+V[a].y*u));if(4>G||508<=G||4>K||292<=K){ec(a);break}b=(K<<9)+~~G;d=0;S(e,0,0);for(c=0;37>c;c++){var W=F[b+Ae[c]];1>=W||(p=B[W],1==kg(a,c,p,W)||2==X[p]&&2==X[y[a]]&&y[a]!=p||2==X[p]&&2!=X[y[a]]||5==X[p]&&5!=X[y[a]]||7==p||29==p||(52==p&&(0==D[W]?(22==c&&(e.x+=1),25==c&&--e.x,28==
-c&&--e.y,31==c&&(e.y+=1)):(22==c&&--e.x,25==c&&(e.x+=1),28==c&&(e.y+=1),31==c&&--e.y)),e.x-=cg[c],e.y-=dg[c],d++))}d?(Oe(e),V[a].x-=f,V[a].y-=g,c=.999*jg(V[a]),b=Af(e,V[a]),0>b&&(Xe(e,-b),V[a].add(e),Xe(V[a],.9),Xe(e,.1),V[a].add(e),Oe(V[a]),Xe(V[a],c)),z[a].x+=V[a].x*u,z[a].y+=V[a].y*u,V[a].x+=f,V[a].y+=g):(z[a].x=G,z[a].y=K);if(4>z[a].x||508<=z[a].x||4>z[a].y||292<=z[a].y){ec(a);break}b=(z[a].y<<9)+~~z[a].x;d=0;S(e,0,0);for(c=0;21>c;c++)W=F[b+Ae[c]],1>=W||2==X[B[W]]&&2==X[y[a]]&&y[a]!=B[W]||2==
-X[B[W]]&&2!=X[y[a]]||5==X[B[W]]&&5!=X[y[a]]||32==B[W]&&2==X[y[a]]||32==B[W]&&40==y[a]||7==B[W]||29==B[W]||(e.x-=cg[c],e.y-=dg[c],d++);d&&(Oe(e),z[a].add(e))}if(4>z[a].x||508<=z[a].x||4>z[a].y||292<=z[a].y)ec(a);else if(lg(a,p),0!=y[a])for(bg&&(y[a]=bg,R[a]=0),b=(z[a].y<<9)+~~z[a].x,c=0;21>c;c++)1>=F[b+Ae[c]]&&(F[b+Ae[c]]=3)}}aa.fff=kg;
-function kg(a,c,b,d){if(5!=y[a])if(6==y[a])if(7==b)gc(d);else if(9==b)pf(d,8);else if(11==b)bg=11;else if(12==b)bg=12;else if(18==b)pf(d,19);else{if(21==b)return 1;if(26==b)gc(d);else if(30==b)xe(.1)&&pf(d,5);else{if(32==b)return 1;35==b?(20<=++R[a]&&(bg=36),gc(d)):41==b?gc(d):42==b&&pf(d,10)}}else if(11==y[a])6==b?pf(d,11):11==b?R[a]=0:12==b?R[a]=0:7==b?20<=++R[a]&&(bg=6):21==b?bg=6:26==b?20<=++R[a]&&(bg=6):32==b?20<=++R[a]&&(bg=6):41==b&&20<=++R[a]&&(bg=6);else if(12==y[a])6==b?pf(d,12):7==b?bg=
-6:21==b?bg=6:26==b?bg=6:32==b?bg=6:41==b&&(bg=6);else if(36==y[a])if(6==b)R[a]=0;else if(8==b)pf(d,5);else if(9==b)pf(d,5);else if(30==b)pf(d,5);else if(34==b)pf(d,5);else if(42==b)pf(d,10);else if(7==b)20<=++R[a]&&(bg=35),gc(d);else if(21==b)bg=35;else if(26==b)20<=++R[a]&&(bg=35),gc(d);else{if(32==b)return 20<=++R[a]&&(bg=35),1;41==b&&(20<=++R[a]&&(bg=35),gc(d))}else if(35==y[a])if(6==b)bg=36;else{if(21==b)return 1}else if(7==y[a])5==b?pf(d,7):8==b?pf(d,7):9==b?pf(d,7):10==b?pf(d,7):11==b?pf(d,
-6):12==b?pf(d,6):15==b?15==B[d]&&256>D[d]&&(D[d]+=256):16==b?pf(d,7):17==b?pf(d,7):24==b?pf(d,7):25==b?pf(d,7):27==b?pf(d,7):34==b?pf(d,7):38==b?pf(d,7):39==b?pf(d,7):42==b&&pf(d,7);else if(8==y[a])5==b||18==b||34==b?1==R[a]?bg=9:pf(d,8):6==b&&(R[a]=1);else if(9==y[a])8==b?D[d]=1:16==b&&(R[a]=1);else if(16==y[a]){if(21==b)return 1;if(28==b)gc(d);else{if(32==b)return 1;42==b&&J(d,42,16,5583650)}}else if(28==y[a])if(11==b)bg=11;else if(16==b)gc(d);else{if(21==b)return 1;if(26==b)gc(d);else{if(32==b)return 1;
-41==b?gc(d):42==b&&J(d,42,28,5588019)}}else if(14==y[a]){if(0==R[a]&&4<=d&&(R[a]=b),32==b)return 1}else if(23==y[a])0==R[a]&&4<=d?R[a]=b:0!=R[a]&&4<=d&&J(d,R[a],0,n[R[a]]);else if(24==y[a])42==b&&J(d,42,24,4473890);else if(33==y[a]){if(0==Ye[b]&&14!=b||gc(d),32==b)return 1}else if(38==y[a])8!=b&&25!=b&&39!=b||gc(d),9==b&&Xe(V[a],.9);else if(29==y[a])36==b?J(d,29,0,n[29]):30==b?(0==eg[c]&&0<fg[c]&&J(d,30,1,n[29]),0>eg[c]&&0==fg[c]&&J(d,30,2,n[29]),0==eg[c]&&0>fg[c]&&J(d,30,3,n[29]),0<eg[c]&&0==fg[c]&&
-J(d,30,4,n[29])):40==b?(0==eg[c]&&0<fg[c]&&J(d,40,1,n[29]),0>eg[c]&&0==fg[c]&&J(d,40,2,n[29]),0==eg[c]&&0>fg[c]&&J(d,40,3,n[29]),0<eg[c]&&0==fg[c]&&J(d,40,4,n[29])):50==b&&0==D[d]&&(D[d]=1);else if(18==y[a])6==b?bg=19:21==b&&(bg=21);else if(19==y[a])if(7==b)20<=++R[a]&&(bg=18),gc(d);else if(21==b)bg=18;else if(26==b)20<=++R[a]&&(bg=18);else{if(32==b)return 20<=++R[a]&&(bg=18),1;41==b&&(20<=++R[a]&&(bg=18),gc(d))}else if(20==y[a])if(20==b)10<Ff(V[a])&&(b=~~z[a].x+Vb(5)-2,d=~~z[a].y+Vb(5)-2,a=F[(d<<
-9)+b],1>=a&&qc(b,d,41,0));else{if(41==b)return 1}else if(21==y[a])6==b?(20<=++R[a]&&(bg=30),J(d,22,10,n[22])):28==b?(20<=++R[a]&&(bg=37),J(d,22,10,n[22])):36==b?(20<=++R[a]&&(bg=20),J(d,35,0,n[35])):19==b?(20<=++R[a]&&(bg=18),J(d,18,0,n[18])):21==b&&(R[a]=0),5==b?J(d,7,0,n[7]):8==b?J(d,7,0,n[7]):9==b?J(d,7,0,n[7]):10==b?J(d,7,0,n[7]):11==b?J(d,6,0,n[6]):12==b?J(d,6,0,n[6]):13==b?J(d,7,0,n[7]):15==b?15==B[d]&&256>D[d]&&(D[d]+=256):16==b?J(d,7,0,n[7]):17==b?J(d,7,0,n[7]):24==b?J(d,7,0,n[7]):25==b?J(d,
-7,0,n[7]):27==b?J(d,7,0,n[7]):34==b?J(d,7,0,n[7]):38==b?J(d,7,0,n[7]):39==b?J(d,7,0,n[7]):42==b&&J(d,7,0,n[7]);else if(30==y[a])if(6==b)R[a]=0;else if(21==b)20<=++R[a]&&(bg=21);else if(30==b)10<Ff(V[a])&&(b=~~z[a].x+Vb(5)-2,d=~~z[a].y+Vb(5)-2,a=F[(d<<9)+b],1>=a&&qc(b,d,41,0));else{if(32==b||41==b)return 1}else if(37==y[a])if(6==b)R[a]=0;else if(21==b)20<=++R[a]&&(bg=21);else{if(32==b)return 1}else if(26==y[a])5==b?J(d,7,0,n[7]):8==b?J(d,7,0,n[7]):9==b?J(d,26,0,n[26]):10==b?J(d,7,0,n[7]):11==b?J(d,
-6,0,n[6]):12==b?J(d,6,0,n[6]):13==b?J(d,7,0,n[7]):15==b?15==B[d]&&256>D[d]&&(D[d]+=256):16==b?J(d,7,0,n[7]):17==b?J(d,7,0,n[7]):24==b?J(d,7,0,n[7]):25==b?J(d,7,0,n[7]):27==b?J(d,7,0,n[7]):34==b?J(d,7,0,n[7]):38==b?J(d,7,0,n[7]):39==b?J(d,7,0,n[7]):42==b?J(d,7,0,n[7]):43==b&&J(d,6,0,n[6]);else if(42==y[a])16==b?R[a]=16:24==b?R[a]=24:28==b&&(R[a]=28);else if(43==y[a])if(9==b)bg=6;else if(11==b)bg=12;else if(17==b)bg=6;else if(26==b)bg=6;else if(30==b)bg=29;else if(34==b)bg=6;else if(42==b)bg=6;else{if(32==
-b)return 1}else if(44==y[a]){if(0==R[a])6==b?R[a]=6:16==b?R[a]=16:19==b?R[a]=19:21==b?R[a]=21:24==b?R[a]=24:27==b?R[a]=27:28==b?R[a]=28:33==b?R[a]=33:36==b?R[a]=36:40==b?R[a]=40:43==b&&(R[a]=43);else{c=R[a]&255;var e=R[a]>>8;b==c&&(R[a]=e+1<<8|c,gc(d))}if(21==b||32==b)return 1}else if(13==y[a])13==b&&(H[d].x+=cg[c],H[d].y+=dg[c]);else if(25==y[a])4==X[b]&&14!=b&&J(d,25,0,n[25]);else if(32==y[a])if(30==b||40==b)b=(z[a].y<<9)+~~z[a].x,21<=c&&23>=c&&1>=F[b+Ae[c+3]]&&qc(~~z[a].x+eg[c+3],~~z[a].y+fg[c+
-3],32,7),24<=c&&26>=c&&1>=F[b+Ae[c-3]]&&qc(~~z[a].x+eg[c-3],~~z[a].y+fg[c-3],32,3),27<=c&&29>=c&&1>=F[b+Ae[c+3]]&&qc(~~z[a].x+eg[c+3],~~z[a].y+fg[c+3],32,1),30<=c&&32>=c&&1>=F[b+Ae[c-3]]&&qc(~~z[a].x+eg[c-3],~~z[a].y+fg[c-3],32,5);else if(11==b)J(d,6,0,n[6]);else{if(37==b)return 1}else if(34==y[a])8==b?D[d]=2:18!=b&&20!=b&&44!=b||J(d,34,0,n[34]);else if(40==y[a])if(6==b)R[a]=0;else if(21==b)20<=++R[a]&&(bg=21);else if(29==b)21<=c&&23>=c&&(D[d]=8192|D[d]&4095),24<=c&&26>=c&&(D[d]=0|D[d]&4095),27<=
-c&&29>=c&&(D[d]=4096|D[d]&4095),30<=c&&32>=c&&(D[d]=12288|D[d]&4095);else{if(32==b)return 21<=c&&23>=c&&(D[d]=D[d]&65520|3),24<=c&&26>=c&&(D[d]=D[d]&65520|7),27<=c&&29>=c&&(D[d]=D[d]&65520|5),30<=c&&32>=c&&(D[d]=D[d]&65520|1),33==c&&(D[d]=D[d]&65520|4),34==c&&(D[d]=D[d]&65520|2),35==c&&(D[d]=D[d]&65520|6),36==c&&(D[d]=D[d]&65520|8),1}else if(41==y[a]){if(41==b)return 1;0!=X[b]&&2<Ff(V[a])&&(b=~~z[a].x+Vb(2),d=~~z[a].y,0>V[a].x&&(b+=2),0<V[a].x&&(b-=3),a=F[(d<<9)+b],1>=a&&qc(b,d,41,0))}else if(50==
-y[a])if(29!=b&&30!=b&&40!=b||0==R[a]){if(32==b)return 0!=R[a]&&(C[d]=R[a]),1;50==b?0!=R[a]&&(C[d]=R[a]):4<=d&&(R[a]=n[b])}else 0!=D[d]&&(b=R[a]>>16&255,d=R[a]>>8&255,c=R[a]&255,384>b+d+c&&(b=I(9*b/7+1),255<b&&(b=255),d=I(9*d/7+1),255<d&&(d=255),c=I(9*c/7+1),255<c&&(c=255),R[a]=b<<16|d<<8|c));else if(52==y[a]&&0!=X[b]&&52!=b&&14!=b&&32!=b){a=8;13==b&&(a=1);if(31==b||51==b)a=4;if(24==b||28==b)a=16;9<=c&&11>=c&&(H[d].y=a);21<=c&&23>=c&&(H[d].y=a);12<=c&&14>=c&&(H[d].y=-a);24<=c&&26>=c&&(H[d].y=-a);15<=
-c&&17>=c&&(H[d].x=a);27<=c&&29>=c&&(H[d].x=a);18<=c&&20>=c&&(H[d].x=-a);30<=c&&32>=c&&(H[d].x=-a)}return 0}aa.fff=lg;
-function lg(a,c){var b,d,e=new ha;d=(z[a].y<<9)+~~z[a].x;5==y[a]?2==X[c]?Z(a,d,0,5,0,.5*V[a].x,.5*V[a].y,.5):3==X[c]&&Z(a,d,0,7,0,.5*V[a].x,.5*V[a].y,.5):6==y[a]?21!=c&&29!=c&&33!=c||Z(a,d,0,6,0,0,0,0):11==y[a]?(b=Ff(V[a]),(29==c||33==c||(2==c||20==c||30==c||31==c||50==c)&&25<b)&&Z(a,d,0,12,0,V[a].x,V[a].y,.1*-b)):12==y[a]?(b=Ff(V[a]),(29==c||33==c||(2==c||20==c||30==c||31==c||50==c)&&25<b)&&Z(a,d,0,12,0,V[a].x,V[a].y,0)):36==y[a]?29!=c&&33!=c||Z(a,d,0,36,0,0,0,0):35==y[a]?21!=c&&29!=c&&33!=c||Z(a,
-d,0,35,0,0,0,0):7==y[a]&&(6!=c&&19!=c&&28!=c&&36!=c&&33!=c||Z(a,d,0,7,0,0,0,0));8==y[a]&&(33==c?Z(a,d,0,8,0,.5*V[a].x,.5*V[a].y,.5):41!=c&&3==X[c]&&Z(a,d,0,7,0,.5*V[a].x,.5*V[a].y,.5));if(9==y[a])26==c?Z(a,d,0,26,0,0,0,0):33==c?Z(a,d,0,9,0,0,0,0):29==c?Z(a,d,0,5,0,0,0,1):41!=c&&(3==X[c]&&1==R[a]?Z(a,d,0,9,0,0,0,0):3==X[c]&&Z(a,d,0,7,0,0,0,0));else if(10==y[a])if(2==X[c])Z(a,d,0,10,0,0,0,0);else{if(3==X[c]){for(b=0;37>b;b++)if(1>=F[d+Ae[b]]){var f=qc(~~z[a].x+eg[b],~~z[a].y+fg[b],7,2);if(0<f){var g=
-Lf(4);H[f].x+=V[a].x*g+cg[b]*g;H[f].y+=V[a].y*g+dg[b]*g}}ec(a)}}else if(16==y[a])if(3==X[c]){for(b=9;21>b;b++)1>=F[d+Ae[b]]&&xe(.5)&&qc(~~z[a].x+eg[b],~~z[a].y+fg[b],7,0);xe(.01)&&Z(a,d,0,16,0,0,0,0)}else 33==c&&Z(a,d,0,16,0,0,0,0);else if(28==y[a])21!=c&&29!=c&&33!=c||Z(a,d,0,28,0,0,0,0);else if(1==y[a])d=(z[a].y>>2<<7)+(z[a].x>>2),S(e,V[a].x,V[a].y),Oe(e),N[d]+=e.x,O[d]+=e.y;else if(14==y[a]){if(0!=R[a]&&!(1E3>$d-fc)){b=~~z[a].x;g=~~z[a].y;if(1==X[R[a]]||21==R[a]||9==R[a]||11==R[a]||34==R[a]||42==
-R[a]||50==R[a])b=I(z[a].x+4*T[d]),g=I(z[a].y+4*U[d]);else if(7==R[a]||27==R[a])b=I(z[a].x-4*T[d]),g=I(z[a].y-4*U[d]);else if(41==R[a]||26==R[a])e.set(V[a]),Pd(e),b=I(z[a].x-4*e.x),g=I(z[a].y-4*e.y);d=0;32==R[a]&&(d=128);1>=F[(g<<9)+b]&&qc(b,g,R[a],d)}}else if(17==y[a]||24==y[a])if(3==X[c]){d=8;for(var m=~~z[a].x,p=~~z[a].y,u=ue(m-d,8),f=ue(p-d,8),v=De(m+d,503),G=De(p+d,287),K,g=f;g<=G;g++)for(b=u;b<=v;b++)d*d<(b-m)*(b-m)+(g-p)*(g-p)||(f=(g+p>>1<<9)+(b+m>>1),1<=t[Q[f]]||(K=F[(g<<9)+b],4<=K&&(20==B[K]&&
-J(K,18,0,n[18]),H[K].x+=2*(b-m),H[K].y+=2*(g-p)),1>=K&&24==y[a]&&qc(b,g,7,0)));m=Ed(m,12,499);p=Ed(p,12,283);d=(p>>2<<7)+(m>>2);m=5;0==t[f=d-r-1]&&(N[f]-=.4*m,O[f]-=.4*m);0==t[f=d-r]&&(O[f]-=.5*m);0==t[f=d-r+1]&&(N[f]+=.4*m,O[f]-=.4*m);0==t[f=d-1]&&(N[f]-=.5*m);0==t[f=d+1]&&(N[f]+=.5*m);0==t[f=d+r-1]&&(N[f]-=.4*m,O[f]+=.4*m);0==t[f=d+r]&&(O[f]+=.5*m);0==t[f=d+r+1]&&(N[f]+=.4*m,O[f]+=.4*m);ec(a)}else 33==c&&Z(a,d,0,y[a],0,0,0,0);else if(27==y[a])3==X[c]?(Z(a,d,0,27,0,0,0,1),2>R[a]&&(R[a]++,y[a]=27)):
-33==c&&Z(a,d,0,27,0,0,0,0);else if(31==y[a]){if(0<X[c]&&31!=c){d=8;m=~~z[a].x;p=~~z[a].y;u=ue(m-d,8);f=ue(p-d,8);v=De(m+d,503);G=De(p+d,287);S(e,0,0);for(g=f;g<=G;g++)for(b=u;b<=v;b++)d*d<(b-m)*(b-m)+(g-p)*(g-p)||(K=F[(g<<9)+b],4<=K&&(e.x+=m-b,e.y+=p-g));Pd(e);for(g=f;g<=G;g++)for(b=u;b<=v;b++)d*d<(b-m)*(b-m)+(g-p)*(g-p)||(f=(g+p>>1<<9)+(b+m>>1),1<=t[Q[f]]||(K=F[(g<<9)+b],4<=K&&(31==B[K]&&0!=D[K]||J(K,31,B[K],n[31]),H[K].x+=.5*e.x+.5*(m-b),H[K].y+=.5*e.y+.5*(p-g))));ec(a)}}else if(38==y[a])3==X[c]?
-Z(a,d,0,7,0,.5*V[a].x,.5*V[a].y,.5):33==c&&Z(a,d,0,38,0,0,0,0);else if(39==y[a])3==X[c]?Z(a,d,0,7,0,.5*V[a].x,.5*V[a].y,.5):2!=X[c]&&38!=c||Z(a,d,0,39,0,0,0,0);else if(18==y[a])29!=c&&33!=c||Z(a,d,0,18,0,0,0,0);else if(19==y[a])29!=c&&33!=c||Z(a,d,0,19,0,0,0,0);else if(20==y[a])b=Ff(V[a]),(2==c||30==c||31==c||50==c)&&45<b?y[a]=18:33==c&&Z(a,d,0,20,0,0,0,0);else if(30==y[a])36==c?Z(a,d,1,5,0,0,0,0):29==c?Z(a,d,2,30,0,0,0,0):32==c?Z(a,d,1,30,0,0,0,0):33==c&&Z(a,d,0,30,0,0,0,0);else if(37==y[a])b=Ff(V[a]),
-(2==c||20==c||30==c||31==c)&&25<b?Z(a,d,0,20,0,0,0,.05*b):29==c?Z(a,d,1,37,0,0,0,0):32==c?Z(a,d,2,37,0,0,0,0):33==c&&Z(a,d,0,37,0,0,0,0);else if(26==y[a])6==c&&Z(a,d,0,26,0,0,0,0),19==c?Z(a,d,0,26,0,0,0,0):28==c?Z(a,d,0,26,0,0,0,0):36==c?Z(a,d,0,26,0,0,0,0):29==c?Z(a,d,0,7,0,0,0,0):33==c&&Z(a,d,0,26,0,0,0,0);else if(42==y[a])3==X[c]?16==R[a]?Z(a,d,2,7,0,0,0,0):24==R[a]?Z(a,d,0,24,0,0,0,1):28==R[a]?Z(a,d,0,22,10,0,0,1):Z(a,d,0,41,0,0,0,0):6==c?Z(a,d,0,10,0,0,0,0):36==c?Z(a,d,0,10,0,0,0,0):33==c&&Z(a,
-d,0,42,0,0,0,0);else if(43==y[a])33==c&&Z(a,d,0,43,0,0,0,0);else if(44==y[a])0==R[a]||1E3>$d-fc||(e.set(V[a]),Pd(e),Xe(e,4),b=I(z[a].x-e.x),g=I(z[a].y-e.y),K=F[(g<<9)+b],1>=K&&(m=R[a]&255,e=R[a]>>8,0<e&&(qc(b,g,m,0),R[a]=e-1<<8|m)));else if(13==y[a])29==c?Z(a,d,0,13,0,0,0,1):32==c?Z(a,d,0,13,0,0,0,2):41!=c&&(3==X[c]?Z(a,d,0,7,0,0,0,0):33==c&&Z(a,d,0,13,0,0,0,2));else if(15==y[a])if(0==R[a])3==X[c]?(V[a].x-=5*T[d],V[a].y-=5*U[d],R[a]=1):33==c&&Z(a,d,0,15,0,0,0,0);else{if(R[a]++,50<R[a]){if(!(1E3>$d-
-fc))for(e=Vb(6),0==e?e=16711680|Vb(256)<<8:1==e?e=65280|Vb(256)<<16:2==e?e=65280|Vb(256):3==e?e=255|Vb(256)<<8:4==e?e=255|Vb(256)<<16:5==e&&(e=16711680|Vb(256)),b=9;37>b;b++)1>=F[d+Ae[b]]&&(g=qc(~~z[a].x+eg[b],~~z[a].y+fg[b],7,2),0<g&&(H[g].x+=5*cg[b],H[g].y+=5*dg[b],C[g]=e));ec(a)}}else 25==y[a]?3==X[c]?Z(a,d,0,7,0,0,0,0):33==c&&Z(a,d,0,25,0,0,0,0):32==y[a]?33==c&&Z(a,d,0,32,0,0,0,0):34==y[a]?36==c?Z(a,d,0,5,0,0,0,0):29==c?Z(a,d,0,34,0,0,0,0):41!=c&&(3==X[c]?Z(a,d,0,7,0,0,0,0):33==c&&Z(a,d,0,34,
-0,0,0,0)):40==y[a]?33==c&&Z(a,d,0,40,0,0,0,0):41==y[a]?6==c?Z(a,d,2,41,0,0,0,0):28==c?Z(a,d,2,41,0,0,0,0):36==c?Z(a,d,2,41,0,0,0,0):29==c?Z(a,d,2,41,0,0,0,0):33==c&&Z(a,d,2,41,0,0,0,0):51==y[a]?0!=X[c]&&(b=F[d-1024-2],g=F[d-1024+2],e=F[d+1026],d=F[d+1024-2],1>=b&&(b=qc(~~z[a].x-2,~~z[a].y-2,c,0)),1>=g&&(g=qc(~~z[a].x+2,~~z[a].y-2,c,0)),1>=e&&(e=qc(~~z[a].x+2,~~z[a].y+2,c,0)),1>=d&&(d=qc(~~z[a].x-2,~~z[a].y+2,c,0)),0<b&&H[b].set(V[a]),0<g&&H[g].set(V[a]),0<e&&H[e].set(V[a]),0<d&&H[d].set(V[a]),4<=
-b&&4<=g&&vc(0,0,b,g,0),4<=g&&4<=e&&vc(0,0,g,e,0),4<=e&&4<=d&&vc(0,0,e,d,0),4<=d&&4<=b&&vc(0,0,d,b,0),4<=b&&4<=e&&vc(0,0,b,e,5),4<=g&&4<=d&&vc(0,0,g,d,5),ec(a)):52==y[a]&&33==c&&Z(a,d,2,52,0,0,0,0)}function Z(a,c,b,d,e,f,g,m){if(0==b){for(b=9;21>b;b++){var p=F[c+Ae[b]];1>=p&&(p=qc(~~z[a].x+eg[b],~~z[a].y+fg[b],d,e),0<p&&(H[p].x+=f+cg[b]*m,H[p].y+=g+dg[b]*m))}ec(a)}else if(1==b||2==b){for(b=1==b?9:0;21>b;b++)p=F[c+Ae[b]],1>=p?qc(~~z[a].x+eg[b],~~z[a].y+fg[b],d,e):4<=p&&J(p,d,e,n[d]);ec(a)}}aa.fff=Ge;
-function Ge(){var a,c,b,d;for(a=0;a<dc;a++)if(0!=y[a]){d=n[y[a]];50==y[a]&&0!=R[a]&&(d=R[a]);14==la&&(d=0);b=(z[a].y<<9)+~~z[a].x;for(c=9;21>c;c++)q[b+Ae[c]]=q[b+Ae[c]]==d?0:d;if(288>z[a].y)if(12==la){if(7==y[a]||21==y[a]||26==y[a]||29==y[a]||32==y[a]||41==y[a])Ab[b]=255E3}else 13==la&&(Ab[b]=2*Hb[y[a]])}}var Uc=document,Ec=Uc.getElementById("cv"),mg=Ec.getContext("2d"),ng=mg.createImageData(512,430),og=new Uint32Array(ng.data.buffer),pg=aa.console,$c=String.fromCharCode,Yc=setTimeout,qg=location.hostname;
-aa.fff=rg;function rg(a,c,b,d,e,f,g){try{Ec=Uc.getElementById("cv"),mg=Ec.getContext("2d"),mg.putImageData(a,c,b,d,e,f,g)}catch(m){}}aa.fff=Cc;function Cc(a){try{pg.log(a)}catch(c){}}aa.Init=Bc;var Dc=$c(68,65,78,45,66,65,76,76,46,106,112,32,40,67,41,32,50,48,49,49,32,104,97,53,53,105,105),Rc=$c(46,47,100,97,116,97,47),be=$c(102,112,115),Vc=$c(99,97,110,118,97,115),Wc=$c(50,100),sg=0,tg=$c(100,97,110,45,98,97,108,108,46,106,112),q=new Int32Array(220160);
-function fd(){if(ug){ug(fd);vg++;wg=Date.now();var a=I(60*(wg-xg)/1E3+.5);if(0>a||60<=a)vg=0,ae=yg,yg=0,xg=wg,a=0;else if(a==zg)return;yg++;zg=a}yd=0==Kd&&1==Ag;Id=1==Kd&&0==Ag;Cd=0==Ld&&1==Bg;Jd=1==Ld&&0==Bg;Kd=Ag;Ld=Bg;xd=!(Id|Kd|Jd|Ld);Dd=yd?1:Cd?-1:0;Ag?Cg++:Cg=0;Be=Bd;Ce=wd;Bd=Dg;wd=Eg;for(a=0;256>a;a++)Fc[a]=Gc[a],Gc[a]=!1,Jc[a]=0==Ic[a]&&1==Hc[a],Kc[a]=1==Ic[a]&&0==Hc[a],Ic[a]=Hc[a];Oc=Oc+I(1024*Math.random())&1023;Pc=I(512*Math.random())|1;ud();for(var c=11==sg?220160:0,a=0;a<c;a++)og[a]=
-4278190080|(q[a]&255)<<16|q[a]&65280|q[a]>>16&255;rg(ng,-8,-8,8,8,496,422);ug||Yc(fd,Zc())}var vd=1;function Sc(){if(qg.length!=tg.length)return!0;for(vd=0;sg<qg.length;sg++)if(qg[sg]!=tg[sg])return!0;return!1}var ug=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame,vg=0,zg=0,yg=0,ae=0,Fg=20,wg=Date.now(),xg=wg,Gg=wg+Fg,Hg=wg,Rd=0;
-function Zc(){wg=Date.now();var a=Ed(Gg-wg,5,Fg);yg++;Gg+=Fg;if(wg+a>=Hg||wg<xg)ae=yg,yg=0,Gg=wg+Fg,Hg=wg+1E3;xg=wg;return a}var Qc=0;function mb(){this.a=0;this.l="";this.m=this.c=this.j=this.f=this.i=this.b=this.g=this.h=0}function Xc(a,c,b){a.h=c;a.g=b;for(c=0;16>c;c++);a.b=new Int32Array(a.h*a.g)}function ce(a,c){te(a,c,"sans-serif",0,14)}
-function te(a,c,b,d,e){a.i||(a.i=1,Xc(a,512,128),a.j=Uc.createElement(Vc),a.j.width=a.h,a.j.height=a.g,a.c=a.j.getContext(Wc));var f=c+b+d+e;if(a.m!=f){a.m=f;a.c.fillStyle="#000000";a.c.fillRect(0,0,a.h,a.g);f="";d&2&&(f+="italic ");d&1&&(f+="bold ");a.c.font=f+(e+"px ")+b;a.c.fillStyle="#ffffff";a.c.fillText(c,0,e);b=a.c.getImageData(0,0,a.h,a.g).data;c=0;for(d=b.length;c<d;c+=4)a.b[c>>2]=1<=b[c+0]?16777215:-1;for(c=b=a.f=0;b<a.g;b++)for(d=0;d<a.h;d++,c++)16777215==a.b[c]&&a.f<=d&&(a.f=d+1)}}
-var Ig=[[0,2,0,0,1,0,0,2,2,1,1,1,2,1,2,0,0,0,0,0,0,0,0,0,0,0,2,2,0,1,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,1,1,0,2,0,0,0,0,0,0,0,0,2,0,0,2,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,3,1,0],[0,1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0]],Jg=[[0,1,1,0,0,0,0,2,1,2,0,0,2,1,2,0,0,0,0,0,0,0,0,0,0,0,2,2,0,1,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,1,0,2,1,0,2,0,0,0,0,0,0,0,0,2,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,1,0],[0,1,0,0,0,0,0,1,0,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0]],L=new Kg;function Kg(){this.g=new mb;this.f=this.a=this.i=this.c=0}
-function M(a,c,b,d,e,f){var g,m,p,u,v,G,K,W=512-a.c,ta=a.g.h-a.c,lb=-1<e?16777215:1,tb=-1<f?0:1,Va=d.length;for(g=0;g<Va;g++,c+=a.c+a.a)if(v=d.charCodeAt(g)-32){96<=v&&(v=31);0!=a.f&&(c-=Ig[a.f-1][v]);G=v*a.c;u=512*b+c;for(p=0;p<a.i;p++,u+=W,G+=ta)for(m=0;m<a.c;m++,u++,G++)K=a.g.b[G],K==lb?q[u]=e:K==tb&&(q[u]=f);0!=a.f&&(c-=Jg[a.f-1][v])}a.a=0;a.f=0}function ee(a,c,b,d){var e=L;a-=b.length*(e.c+e.a)-e.a>>1;c-=e.i>>1;M(e,a,c,b,d,0)}function ed(a,c,b,d,e,f){var g=L;g.a=f;M(g,a,c,b,d,e);g.a=0}
-var Lg=0;function Zd(a,c,b,d,e){var f=~~b-~~a,g=~~d-~~c,m=ue(ue(Md(f),Md(g)),1),f=I((f<<8)/m),g=I((g<<8)/m);a=(a<<8)+127;c=(c<<8)+127;for(var p=0;p<=m;p++,a+=f,c+=g)b=a>>8,d=c>>8,0>b||512<=b||0>d||430<=d||(q[(d<<9)+b]=e)}function ge(a,c,b,d){var e=18;b--;e--;Zd(a,c,a+b,c,d);Zd(a,c+e,a+b,c+e,d);Zd(a,c,a,c+e,d);Zd(a+b,c,a+b,c+e,d)}
-function dd(a,c,b,d,e){var f,g;b=512<a+b?512:~~(a+b);a=0>a?0:~~a;f=512*(0>c?0:~~c)+a;g=512-(b-a);b=f+b-a;d=512*(430<c+d?430:~~(c+d));if(Lg)for(;f<d;f+=g,b+=512)for(;f<b;f++){a=q[f];c=e>>24&255;var m=Lg,p=0,u=0,v=0;1==m?(m=a>>16&255,p=(((e>>16&255)-m)*c>>8)+m,m=a>>8&255,u=(((e>>8&255)-m)*c>>8)+m,m=a&255,v=(((e&255)-m)*c>>8)+m):2==m?(p=((e>>16&255)*c>>8)+(a>>16&255),255<p&&(p=255),u=((e>>8&255)*c>>8)+(a>>8&255),255<u&&(u=255),v=((e&255)*c>>8)+(a&255),255<v&&(v=255)):3==m?(p=(a>>16&255)-((e>>16&255)*
-c>>8),0>p&&(p=0),u=(a>>8&255)-((e>>8&255)*c>>8),0>u&&(u=0),v=(a&255)-((e&255)*c>>8),0>v&&(v=0)):4==m?(p=(e>>16&255)*(a>>16&255)>>8,u=(e>>8&255)*(a>>8&255)>>8,v=(e&255)*(a&255)>>8):5==m?(m=a>>16&255,p=m+((e>>16&255)*m*c>>16),255<p&&(p=255),m=a>>8&255,u=m+((e>>8&255)*m*c>>16),255<u&&(u=255),m=a&255,v=m+((e&255)*m*c>>16),255<v&&(v=255)):6==m&&(m=a>>16&255,p=m+(c-(2*m*c>>8)),m=a>>8&255,u=m+(c-(2*m*c>>8)),m=a&255,v=m+(c-(2*m*c>>8)));q[f]=p<<16|u<<8|v}else for(;f<d;f+=g,b+=512)for(;f<b;f++)q[f]=e}
-function Yd(a,c,b,d,e){var f=8,g=496,m=496>>ma,p,u;if(0!=g&&0!=c)for(m=~~((m<<8)/g),e=~~((e<<8)/c),b<<=8,d<<=8,0>f&&(b+=m*-f),0>a&&(d+=e*-a),g=512<f+g?512:~~(f+g),f=0>f?0:~~f,p=512*(0>a?0:~~a)+f,u=512-(g-f),g=p+g-f,c=512*(430<a+c?430:~~(a+c));p<c;p+=u,g+=512,d+=e)for(a=((d>>8)*Bb.h<<8)+b;p<g;p++,a+=m)f=Bb.b[a>>8],q[p]=f}
-function ie(a,c,b,d,e,f,g,m){var p,u,v,G,K;f=I((f<<8)/d);g=I((g<<8)/e);u=p=0;0>c&&(p+=f*-c);0>b&&(u+=g*-b);d=512<c+d?512:I(c+d);e=430<b+e?430:I(b+e);c=0>c?0:I(c);b=0>b?0:I(b);for(var W=m>>16&255,ta=m>>8&255,lb=m&255,tb,Va;b<e;b++,u+=g)for(v=512*b+c,G=((u>>8)*a.h<<8)+p,m=c;m<d;m++,v++,G+=f)K=a.b[G>>8],-1!=K&&(tb=W*(K>>16&255)>>8,Va=ta*(K>>8&255)>>8,K=lb*(K&255)>>8,q[v]=tb<<16|Va<<8|K)}function fe(a){var c=nb.f;ie(nb,256-(c>>1),a-8,c,16,nb.f,16,0)}var Od=new ha;aa.full_screen=Mg;
-function Mg(){Uc.fullscreenEnabled&&(Uc.fullscreenElement?Uc.exitFullscreen():Ec.requestFullscreen())}var yd=!1,Id=!1,Kd=!1,Ag=!1,Cd=!1,Jd=!1,Ld=!1,Bg=!1,xd=!1,Dd=0,Cg=0,Bd=0,wd=0,Be=0,Ce=0,Dg=0,Eg=0,Ng=0;function Ad(a,c,b,d){return Bd<a||a+b<=Bd||wd<c||c+d<=wd?!1:!0}function Og(a){var c=Ec.getBoundingClientRect(),b=c.right-c.left,d=c.bottom-c.top,e=De(b/496,d/422),d=I(d/2-422*e/2);Dg=I((a.clientX-c.left-I(b/2-496*e/2))/e);Eg=I((a.clientY-c.top-d)/e)}Uc.onmousemove=Og;
-Uc.onmousedown=function(a){Og(a);Pg=!1;if(!(0>Dg||496<=Dg||0>Eg||422<=Eg)&&(Pg=!0,0==a.button&&(Ag=!0),2==a.button&&(Bg=!0),Pg))return!1};Uc.onmouseup=function(a){Og(a);0==a.button&&(Ag=!1);2==a.button&&(Bg=!1)};Uc.oncontextmenu=function(){if(Pg)return!1};
-function Qg(a){var c=Ec.getBoundingClientRect(),b=c.right-c.left,d=c.bottom-c.top,e=De(b/496,d/422),b=I(b/2-496*e/2),d=I(d/2-422*e/2);a=a.touches;Ng=a.length;1==Ng?(Dg=I((a[0].clientX-c.left-b)/e),Eg=I((a[0].clientY-c.top-d)/e)):2==Ng&&(Dg=I((a[0].clientX-c.left-b)/e),Eg=I((a[0].clientY-c.top-d)/e))}Ec.ontouchstart=function(a){Qg(a);Ag=!0;1<Ng&&(Bg=!0);Bd=Be=Dg;wd=Ce=Eg;return!1};Ec.ontouchmove=function(a){Qg(a);return!1};Ec.ontouchend=function(a){Qg(a);1>Ng&&(Ag=!1);return Bg=!1};
-Ec.ontouchcancel=function(){Ng=0;Bg=Ag=!1};var Fc=Array(256),Gc=Array(256),Hc=Array(256),Ic=Array(256),Jc=Array(256),Kc=Array(256),Lc=Array(256),Mc=Array(256);Uc.onkeydown=function(a){var c=a.keyCode;65<=c&90>=c?a.shiftKey||(c+=32):c=a.shiftKey?Mc[c]:Lc[c];0<=c&&256>c&&(Hc[c]=!0,Gc[c]=!0);if(0!=c&&Pg)return!1};Uc.onkeyup=function(a){var c=a.keyCode;65<=c&90>=c?a.shiftKey||(c+=32):c=a.shiftKey?Mc[c]:Lc[c];0<=c&&256>c&&(Hc[c]=!1);if(0!=c&&Pg)return!1};var Pg=!1;
-function he(a,c){var b=null;try{b=prompt(a,c)}catch(d){}return b}var cd=Array(100),bd=0,Rg=$c(80,79,83,84),de=$c(38,98,61),je=$c(38,99,61),ke=$c(38,100,61),le=$c(38,101,61),me=$c(38,102,61),ne=$c(38,103,61),oe=$c(38,104,61);$c(38,105,61);var re=$c(38,106,61),se=$c(38,107,61);$c(111,107);
-var Tc=$c(69,82,82,79,82),Sg=$c(61),Tg=$c(10),Ug=$c(67,111,110,116,101,110,116,45,84,121,112,101),Vg=$c(97,112,112,108,105,99,97,116,105,111,110,47,120,45,119,119,119,45,102,111,114,109,45,117,114,108,101,110,99,111,100,101,100);
-function ad(a,c){for(var b=bd=0;100>b;b++)cd[b]="";try{var d=new XMLHttpRequest;d.onreadystatechange=function(){if(4==d.readyState)if(200==d.status){var a,b,c=0,m=d.responseText.length;for(a=0;a<m;a++)if(b=d.responseText[a],b==Sg){for(a+=1;a<m;a++){b=d.responseText[a];if(b==Tg)break;cd[c]+=b}c++}else for(;a<m&&d.responseText[a]!=Tg;a++);bd=1}else bd=-1};d.open(Rg,a,!1);d.setRequestHeader(Ug,Vg);d.send(c)}catch(e){bd=-2}}function ha(){this.y=this.x=0}
-ha.prototype.set=function(a){this.x=a.x;this.y=a.y;return this};function S(a,c,b){a.x=c;a.y=b}ha.prototype.add=function(a){this.x+=a.x;this.y+=a.y;return this};ha.prototype.sub=function(a){this.x-=a.x;this.y-=a.y;return this};function Nd(a,c,b){a.x=c.x-b.x;a.y=c.y-b.y}function Xe(a,c){a.x*=c;a.y*=c}function Af(a,c){return a.x*c.x+a.y*c.y}function We(a){var c=a.x;a.x=a.y;a.y=-c}function ye(a){return Math.sqrt(a.x*a.x+a.y*a.y)}function Ff(a){return a.x*a.x+a.y*a.y}
-function jg(a){return Math.sqrt(a.x*a.x+a.y*a.y)}function Pd(a){var c=ye(a);if(0==c)return 0;a.x/=c;a.y/=c;return c}function Oe(a){var c=jg(a);if(0==c)return 0;a.x/=c;a.y/=c;return c}function ve(a){var c=Math.acos(a.x/Math.sqrt(a.x*a.x+a.y*a.y));0<a.y&&(c=we-c);return c}var Nc=new Float32Array(1024),Oc=0,Pc=0;function Lf(a){Oc+=Pc;Oc&=1023;return Nc[Oc]*a}function Mf(a,c){Oc+=Pc;Oc&=1023;return Nc[Oc]*(c-a)+a}function xe(a){Oc+=Pc;Oc&=1023;return Nc[Oc]<a?!0:!1}
-function Vb(a){Oc+=Pc;Oc&=1023;return~~(Nc[Oc]*a)}var rc=3.1415927,we=6.2831855;function Md(a){return 0>a?-a:a}function ue(a,c){return a>c?a:c}function De(a,c){return a<c?a:c}function Ed(a,c,b){return a<c?c:a>b?b:a}function zd(a,c){return 0>a?c:a>c?0:a}function I(a){return Math.floor(a)};
+var aa = 0,
+    screenWidth = 512,
+    screenHeight = 430,
+    da, ea = 0,
+    fa = 45,
+    ga = false,
+    ha = 4,
+    ia = 2 * ha,
+    ja = 2 * ha,
+    ka = ia,
+    la = ja,
+    na = new Vector,
+    oa = 2,
+    pa = 0,
+    backgroundDrawType = 2,
+    ra = 0,
+    sa = 0,
+    ta = 0,
+    ua = 0,
+    isStopped = 0,
+    wa = 0,
+    xa = 0,
+    ya = 0,
+    isGravityOn = true,
+    Aa = 0,
+    Ba = 0,
+    Da = 0,
+    Ea = 0,
+    Fa = 0,
+    Ga = 0,
+    Ha = 8,
+    Ia = 8,
+    Ja = 8,
+    Ka = 8,
+    La = new Int8Array(138880),
+    Ma = new Int8Array(138880),
+    Na = new Int32Array(500),
+    Oa = new Int32Array(500),
+    Pa = new Int32Array(500),
+    Qa = new Int32Array(500),
+    Ra = new Int8Array(500),
+    Sa = 0,
+    Ta = 0,
+    Ua = -1,
+    Va = 0,
+    isMinimapActive = 0,
+    Xa = -1,
+    Ya = 29,
+    arrayOfTypesOfElementInThisPosition = new Uint8Array(Ya + 277760 + 7E3),
+    Za = 0,
+    $a, ab, bb = [0, 0, 0, 0, 0, 0, 0, 0],
+    cb = true,
+    db = 0,
+    eb = "",
+    fb = 0,
+    gb = "",
+    hb =
+    0,
+    ib = "",
+    jb = 0,
+    kb = 0,
+    lb = 0,
+    mb = 0,
+    nb = 0,
+    ob = 0,
+    pb = 0,
+    rb = new ImageHandler,
+    sb = "",
+    tb = "",
+    vb = new ImageHandler,
+    wb, xb, yb = 0,
+    zb = 0,
+    Ab = 0,
+    fontsText = ["sans-serif", "serif", "monospace", "setFont ->"],
+    fontFormat = ["PLAIN", "BOLD", "ITALIC", "BOLD&ITALIC"],
+    fontSizeArray = [12, 14, 16, 18, 20, 24, 30, 36, 48, 60, 72],
+    Eb = new Int32Array(289 * screenWidth),
+    imageHandlerForScreen = new ImageHandler,
+    Gb = 1,
+    Hb = 2,
+    Ib = 3,
+    Jb = 0,
+    l = 1,
+    Kb = 2,
+    Lb = 3,
+    p = 4,
+    Mb = 0,
+    Nb = 1,
+    Ob = 2,
+    Qb = 3,
+    Rb = 4,
+    Sb = 5,
+    q = 6,
+    r = 7,
+    Tb = 8,
+    Ub = 9,
+    Vb = 10,
+    Wb = 11,
+    Xb = 12,
+    Yb = 13,
+    Zb = 14,
+    ac = 15,
+    bc = 16,
+    cc = 17,
+    dc = 18,
+    ec = 19,
+    fc = 20,
+    gc = 21,
+    hc = 22,
+    ic = 23,
+    jc = 24,
+    kc = 25,
+    lc = 26,
+    mc = 27,
+    nc = 28,
+    oc = 29,
+    pc = 30,
+    qc = 31,
+    rc = 32,
+    sc = 33,
+    tc = 34,
+    uc =
+    35,
+    vc = 36,
+    wc = 37,
+    xc = 38,
+    yc = 39,
+    zc = 40,
+    Ac = 41,
+    Bc = 42,
+    Cc = 43,
+    Dc = 44,
+    Ec = 45,
+    Fc = 46,
+    fighterId = 47,
+    Hc = 48,
+    cloneId = 49,
+    Jc = 50,
+    Kc = 51,
+    Lc = 52,
+    numberOfTypesOfElements = 40,
+    Nc = [5, 6, 7, 8, 10, 1, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 50, 51, 52, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    Oc = [5, 6, 7, 8, 10, 0, 12, 13, 0, 0, 16, 0, 18, 19, 20, 21, 23, 24, 25, 7, 27, 28, 0, 0, 31, 32, 33, 0, 35, 0, 38, 39, 40, 41, 0, 43, 0, 0, 51, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    Pc = [5, 6, 7, 8, 10, 1, 11, 13, 0, 15, 16, 0, 18,
+        19, 20, 21, 23, 24, 25, 0, 27, 28, 29, 0, 31, 32, 33, 0, 35, 0, 38, 39, 40, 41, 0, 43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+    ],
+    Qc = [0, 6, 7, 8, 10, 1, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 50, 51, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    s = [0, 8421631, 6316128, 4210752, 12632256, 15908203, 4210943, 16728128, 9486400, 8409120, 11567184, 13684991, 16777215, 16728224, 9465872, 16750950, 8400928, 16777164, 16764006, 6697728, 8421504, 16737843,
+        14737632, 8388736, 4486912, 12615872, 16752672, 13408665, 15790320, 16776992, 4210752, 6710784, 13369344, 13434624, 47872, 16777215, 3381759, 65793, 8417360, 13158, 11184810, 16763955, 4469538, 13421772, 13107, 15908203, 15908203, 15908203, 15908203, 9465872, 3355443, 6706500, 6702131, 0
+    ],
+    Rc = Array(s.length),
+    Sc = [0, 0, 0, 0, 0, 0, 0, 5E3, 500, 500, 0, -1E3, -500, 0, 0, 0, 0, 0, 0, 0, 0, 1E4, 0, 0, 0, 1500, 4E3, 500, 0, 2E3, 0, 0, 5500, 0, 500, 0, 0, 0, 2E3, 2E3, 0, 3E3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1E3, 0],
+    Tc = [
+        [],
+        [6316128, 6316128, 6316128, 6316128, 6316128, 6316128, 6316128, 6316128, 6316128,
+            6316128, 6316128, 6316128, 6316128, 6316128, 6316128, 6316128
+        ],
+        [0, 0, 0, 0, 0, 4210752, 4210752, 0, 0, 4210752, 4210752, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 12632256, 12632256, 0, 0, 12632256, 12632256, 0, 0, 0, 0, 0],
+        []
+    ],
+    chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.*".split(""),
+    arrayComOsOffsetsDosChars = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 62, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0, 0, 0, 0, 0, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 0, 0, 0, 0, 0, 0, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 0, 0, 0, 0, 0];
+window.GameSave = gameSave;
+
+function gameSave(a) {
+    if (0 == a.length || 0 != db) return "";
+    saveGameFromScreen();
+    Yc(1);
+    for (var c = a = 0; c < eb.length; c++) a += eb.charCodeAt(c) * ((c & 15) + 1);
+    return a = eb + chars[a & 63]
+}
+var Zc = "";
+window.GameLoad = gameLoad;
+
+function gameLoad(a) {
+    if (5 < a.length) {
+        for (var c = 0, b = 0; b < a.length - 1; b++) {
+            c += a.charCodeAt(b) * ((b & 15) + 1);
+        }
+        if ((c & 63) != arrayComOsOffsetsDosChars[a.charCodeAt(a.length - 1)]) return -1;
+        Zc = a.substring(0, a.length - 1);
+        return 0
+    }
+    0 == a.length && 0 != Zc.length && (eb = Zc, Zc = "", ad(1), loadGameToScreen());
+    return -1
+}
+var cd = 0,
+    dd = 0;
+
+function ed(a) {
+    var c, b;
+    0 > oa && 9 < oa && (v = null);
+    0 == a ? b = dd : dd = b = customRandom(1024);
+    b += (ea | 1) * (b & 15 | 1);
+    b += (fa | 1) * (b & 15 | 1);
+    b += (oa | 1) * (b & 15 | 1);
+    b += (backgroundDrawType | 1) * (b & 15 | 1);
+    b += (ra | 1) * (b & 15 | 1);
+    b += (isStopped | 1) * (b & 15 | 1);
+    b += (wa | 1) * (b & 15 | 1);
+    b += (xa | 1) * (b & 15 | 1);
+    b += (Aa | 1) * (b & 15 | 1);
+    b += (Xa | 1) * (b & 15 | 1);
+    b += (Ya | 1) * (b & 15 | 1);
+    for (c = 0; c < ab.length; c++) b += (ab.charCodeAt(c) | 1) * (b & 15 | 1);
+    for (c = 0; 8 > c; c++) b += (bb[c] | 1) * (b & 15 | 1);
+    b += (cb ? 1 : 2) * (b & 15 | 1);
+    b += (db | 1) * (b & 15 | 1);
+    b += (kb | 1) * (b & 15 | 1);
+    b += (lb | 1) * (b & 15 | 1);
+    b += (mb | 1) * (b & 15 | 1);
+    b += (nb | 1) * (b & 15 | 1);
+    0 == a ? cd != (b ^ 16777215) &&
+        (v = null) : cd = b ^ 16777215
+}
+
+function saveGameFromScreen() {
+    var a, c, b, d, e;
+    for (a = Ya + 277760 + 7E3 - 1; 0 <= a; a--) arrayOfTypesOfElementInThisPosition[a] = 0;
+    for (b = 0; 280 > b; b++)
+        for (c = 0; 496 > c; c++) d = ((b >> 2) + 2) * w + (c >> 2) + 2, e = Ya + 496 * b + c, 0 != x[d] && (x[d] == Gb ? arrayOfTypesOfElementInThisPosition[e] = Ob : x[d] == Hb ? arrayOfTypesOfElementInThisPosition[e] = Qb : x[d] == Ib && (arrayOfTypesOfElementInThisPosition[e] = Rb));
+    for (a = 0; a < counterStickman; a++) d = a * hd, c = ~~stickManBodyPoints[d + 4].x - 8, b = ~~stickManBodyPoints[d + 4].y - 8, 0 > c || 496 <= c ? id(a--) : 0 > b || 280 <= b ? id(a--) : (c = c >> 2 << 2, b = b >> 2 << 2, e = Ya + 496 * b + c, 0 != arrayOfTypesOfElementInThisPosition[e] ? id(a--) : z[a] == jd ? (arrayOfTypesOfElementInThisPosition[e] = Ec, arrayOfTypesOfElementInThisPosition[e + 138880] = kd[a]) : z[a] == ld ? (arrayOfTypesOfElementInThisPosition[e] = Fc, arrayOfTypesOfElementInThisPosition[e + 138880] = kd[a]) : z[a] == md ? (arrayOfTypesOfElementInThisPosition[e] = fighterId, arrayOfTypesOfElementInThisPosition[e + 138880] = 0) : z[a] == md + 1 ? (arrayOfTypesOfElementInThisPosition[e] = fighterId, arrayOfTypesOfElementInThisPosition[e + 138880] = 0) : z[a] == nd ? (arrayOfTypesOfElementInThisPosition[e] =
+        cloneId, arrayOfTypesOfElementInThisPosition[e + 138880] = 0) : id(a--));
+    for (a = 0; a < od; a++) 0 != A[a] && (c = ~~B[a].x - 8, b = ~~B[a].y - 8, 0 > c || 496 <= c ? pd(a) : 0 > b || 280 <= b ? pd(a) : (e = Ya + 496 * b + c, 0 != arrayOfTypesOfElementInThisPosition[e] ? pd(a) : (arrayOfTypesOfElementInThisPosition[e] = Hc, arrayOfTypesOfElementInThisPosition[e + 138880] = A[a])));
+    for (a = p; a < qd; a++) c = ~~C[a].x - 8, b = ~~C[a].y - 8, 0 > c || 496 <= c ? rd(a--) : 0 > b || 280 <= b ? rd(a--) : D[a] == hc && E[a] != s[hc] ? rd(a--) : (e = Ya + 496 * b + c, 0 != arrayOfTypesOfElementInThisPosition[e] ? rd(a--) : (arrayOfTypesOfElementInThisPosition[e] = D[a], D[a] == Nb ? arrayOfTypesOfElementInThisPosition[e + 138880] = G[a] : D[a] == ac ? arrayOfTypesOfElementInThisPosition[e + 138880] = G[a] & 255 : D[a] == Lc && (arrayOfTypesOfElementInThisPosition[e + 138880] = G[a] & 1)));
+    Za = Ya + 138880;
+    d = Ya;
+    for (e = Ya + 138880; d < e; d++)
+        if (arrayOfTypesOfElementInThisPosition[d] == Nb || arrayOfTypesOfElementInThisPosition[d] == ac || arrayOfTypesOfElementInThisPosition[d] == Ec || arrayOfTypesOfElementInThisPosition[d] == Fc ||
+            arrayOfTypesOfElementInThisPosition[d] == fighterId || arrayOfTypesOfElementInThisPosition[d] == Hc || arrayOfTypesOfElementInThisPosition[d] == cloneId || arrayOfTypesOfElementInThisPosition[d] == Lc) arrayOfTypesOfElementInThisPosition[Za++] = arrayOfTypesOfElementInThisPosition[d + 138880];
+    for (a = 0; a < sd; a++) arrayOfTypesOfElementInThisPosition[Za] = td[a], 0 == ud[a] ? (arrayOfTypesOfElementInThisPosition[Za + 1 * sd] = H[vd[a]] >> 16 & 255, arrayOfTypesOfElementInThisPosition[Za + 2 * sd] = H[vd[a]] >> 8 & 255, arrayOfTypesOfElementInThisPosition[Za + 3 * sd] = H[vd[a]] & 255) : 1 == ud[a] ? (c = ~~stickManBodyPoints[vd[a] * hd + 4].x, b = ~~stickManBodyPoints[vd[a] * hd + 4].y, c = c >> 2 << 2, b = b >> 2 << 2, e = 0 + 512 * b + c, arrayOfTypesOfElementInThisPosition[Za + 1 * sd] = e >> 16 & 255, arrayOfTypesOfElementInThisPosition[Za + 2 * sd] = e >> 8 & 255, arrayOfTypesOfElementInThisPosition[Za + 3 * sd] = e & 255) : 2 == ud[a] && (c = ~~B[vd[a]].x, b = ~~B[vd[a]].y, e = 0 + 512 * b + c, arrayOfTypesOfElementInThisPosition[Za + 1 * sd] = e >> 16 & 255, arrayOfTypesOfElementInThisPosition[Za + 2 * sd] = e >> 8 & 255, arrayOfTypesOfElementInThisPosition[Za + 3 * sd] = e & 255), 0 == wd[a] ? (arrayOfTypesOfElementInThisPosition[Za + 4 * sd] = H[xd[a]] >> 16 & 255, arrayOfTypesOfElementInThisPosition[Za + 5 * sd] = H[xd[a]] >> 8 & 255, arrayOfTypesOfElementInThisPosition[Za +
+        6 * sd] = H[xd[a]] & 255) : 1 == wd[a] ? (c = ~~stickManBodyPoints[xd[a] * hd + 4].x, b = ~~stickManBodyPoints[xd[a] * hd + 4].y, c = c >> 2 << 2, b = b >> 2 << 2, e = 0 + 512 * b + c, arrayOfTypesOfElementInThisPosition[Za + 4 * sd] = e >> 16 & 255, arrayOfTypesOfElementInThisPosition[Za + 5 * sd] = e >> 8 & 255, arrayOfTypesOfElementInThisPosition[Za + 6 * sd] = e & 255) : 2 == wd[a] && (c = ~~B[xd[a]].x, b = ~~B[xd[a]].y, e = 0 + 512 * b + c, arrayOfTypesOfElementInThisPosition[Za + 4 * sd] = e >> 16 & 255, arrayOfTypesOfElementInThisPosition[Za + 5 * sd] = e >> 8 & 255, arrayOfTypesOfElementInThisPosition[Za + 6 * sd] = e & 255), Za++;
+    Za += 6 * sd;
+    ob = nb
+}
+
+function Yc(a) {
+    var c, b;
+    if (0 == a) {
+        var d = new Uint8Array(8680),
+            e = new Uint8Array(768),
+            f, g;
+        for (c = 0; c < d.length; c++) d[c] = 0;
+        for (c = 0; c < od; c++) 0 != A[c] && (f = ~~B[c].x - 8, g = ~~B[c].y - 8, 0 > f || 496 <= f || 0 > g || 280 <= g || (f >>= 2, g >>= 2, d[124 * g + f] = Hc));
+        for (g = c = 0; 280 > g; g += 4)
+            for (f = 0; 496 > f; f += 4) 0 == d[c] && (b = Ya + 496 * g + f, 0 == arrayOfTypesOfElementInThisPosition[b] && (b += 497), d[c] = arrayOfTypesOfElementInThisPosition[b]), 12 == backgroundDrawType ? d[c] != r && d[c] != gc && d[c] != lc && d[c] != oc && d[c] != rc && d[c] != Ac && (d[c] = 0) : 14 == backgroundDrawType && (d[c] = 0 == d[c] ? Xb : 0), c++;
+        g = s;
+        10 == backgroundDrawType && (g = Rc);
+        f = new Int32Array(256);
+        for (c = 0; 256 > c; c++) f[c] = 0;
+        for (c = 0; c < d.length; c++) f[d[c]]++;
+        var m = jb = 0;
+        for (b = 0; 256 > b; b++)
+            if (0 != f[b]) {
+                e[jb++] = g[b] >> 16 & 255;
+                e[jb++] = g[b] >> 8 & 255;
+                e[jb++] = g[b] & 255;
+                for (c = 0; c < d.length; c++) d[c] == b && (d[c] = m);
+                m++
+            } 16 == backgroundDrawType && (e[0] = (s[Nc[ea]] >> 16 & 255) + (s[Nc[fa]] >> 16 & 255) >> 1 & 255, e[1] = (s[Nc[ea]] >> 8 & 255) + (s[Nc[fa]] >> 8 & 255) >> 1 & 255, e[2] = (s[Nc[ea]] & 255) + (s[Nc[fa]] & 255) >> 1 & 255);
+        gb = "";
+        hb = d.length;
+        for (c = 0; c < hb;) {
+            b = d[c++];
+            for (f = 0; c < hb && 255 != f && b == d[c]; c++) f++;
+            gb += String.fromCharCode(b);
+            gb += String.fromCharCode(f)
+        }
+        hb = gb.length;
+        gb = window.btoa(gb);
+        ib = "";
+        for (c = 0; c < jb; c++) ib += String.fromCharCode(e[c]);
+        ib = window.btoa(ib)
+    }
+    b = 0;
+    arrayOfTypesOfElementInThisPosition[b++] = 0;
+    arrayOfTypesOfElementInThisPosition[b++] = 0;
+    for (c = arrayOfTypesOfElementInThisPosition[b++] = 0; 8 > c; c++) arrayOfTypesOfElementInThisPosition[b++] = bb[c];
+    arrayOfTypesOfElementInThisPosition[b++] = ob & 255;
+    arrayOfTypesOfElementInThisPosition[b++] = ob >> 8;
+    arrayOfTypesOfElementInThisPosition[b++] = Nc[ea];
+    arrayOfTypesOfElementInThisPosition[b++] = Nc[fa];
+    arrayOfTypesOfElementInThisPosition[b++] = oa;
+    arrayOfTypesOfElementInThisPosition[b++] = backgroundDrawType;
+    arrayOfTypesOfElementInThisPosition[b++] = wa;
+    arrayOfTypesOfElementInThisPosition[b++] = xa;
+    arrayOfTypesOfElementInThisPosition[b++] = isGravityOn ? 0 : 1;
+    arrayOfTypesOfElementInThisPosition[b++] = ya;
+    for (c = 0; 8 > c; c++) arrayOfTypesOfElementInThisPosition[b++] = 0;
+    if (0 == a)
+        for (pb = 0, c = Ya; c < Ya + 138880; c++) 0 < arrayOfTypesOfElementInThisPosition[c] && (pb += c & 255);
+    b = 0;
+    for (c = 3; c < Za; c++) b = 128 > arrayOfTypesOfElementInThisPosition[c] ? b + arrayOfTypesOfElementInThisPosition[c] * ((c & 15) + 1) : b + (arrayOfTypesOfElementInThisPosition[c] - 256) * ((c & 15) + 1);
+    arrayOfTypesOfElementInThisPosition[1] = b & 255;
+    arrayOfTypesOfElementInThisPosition[2] = b >> 8 & 255;
+    e = [];
+    for (c = d = 0; c < Za;) {
+        b = arrayOfTypesOfElementInThisPosition[c++];
+        for (f = 0; c < Za && 255 != f && b == arrayOfTypesOfElementInThisPosition[c]; c++) f++;
+        e[d++] = b;
+        e[d++] = f
+    }
+    if (1 == a) {
+        var n = [],
+            t = 0;
+        f = Array(4096);
+        g = 1;
+        for (c = 0; c < d;) {
+            var m = 0,
+                u = 1;
+            if (c < d - 1)
+                for (var F = 1; F < g; F++)
+                    if (f[F].length == u) {
+                        for (b = 0; b < u && f[F][b] == e[c + b]; b++);
+                        if (b == u && (m = F, u++, c + u >= d)) break
+                    } n[t++] = m >> 8;
+            n[t++] = m & 255;
+            n[t++] = e[c + u - 1];
+            if (4096 > g) {
+                f[g] = Array(u);
+                for (b = 0; b < u; b++) f[g][b] = e[c + b];
+                g++
+            }
+            c += u
+        }
+    }
+    0 == a ? (a = e, fb = d) : (a = n, fb = t);
+    eb = "";
+    for (c = 0; c < fb; c++) eb += String.fromCharCode(a[c]);
+    eb = window.btoa(eb)
+}
+
+function ad(a) {
+    var c, b = window.atob(eb),
+        d = [];
+    fb = b.length;
+    for (c = 0; c < fb; c++) d[c] = b.charCodeAt(c);
+    if (1 == a) {
+        var b = [],
+            e = 0,
+            f = Array(4096),
+            g = 1;
+        for (c = 0; c < fb;) {
+            var m = 0,
+                n = 1,
+                m = d[c++] << 8,
+                m = m + d[c++];
+            if (0 < m) {
+                for (a = 0; a < f[m].length; a++) b[e++] = f[m][a];
+                n = 1 + f[m].length
+            }
+            b[e++] = d[c++];
+            if (4096 > g) {
+                f[g] = Array(n);
+                for (a = 0; a < n; a++) f[g][a] = b[e - n + a];
+                g++
+            }
+        }
+        d = b;
+        fb = e
+    }
+    for (c = Za = 0; c < fb;)
+        for (b = d[c++], e = d[c++], arrayOfTypesOfElementInThisPosition[Za++] = b, a = 0; a < e; a++) arrayOfTypesOfElementInThisPosition[Za++] = b;
+    if (0 != Za) {
+        d = 0;
+        for (c = 3; c < Za; c++) d = 128 > arrayOfTypesOfElementInThisPosition[c] ? d + arrayOfTypesOfElementInThisPosition[c] * ((c & 15) + 1) : d + (arrayOfTypesOfElementInThisPosition[c] - 256) * ((c & 15) + 1);
+        if (arrayOfTypesOfElementInThisPosition[1] != (d & 255)) Za =
+            0;
+        else if (arrayOfTypesOfElementInThisPosition[2] != (d >> 8 & 255)) Za = 0;
+        else {
+            a = 0;
+            a++;
+            a++;
+            a++;
+            for (c = 0; 8 > c; c++) arrayOfTypesOfElementInThisPosition[a++] != bb[c] && (kb = 2, mb = 6);
+            ob = arrayOfTypesOfElementInThisPosition[a++];
+            ob += arrayOfTypesOfElementInThisPosition[a++] << 8;
+            if (0 != arrayOfTypesOfElementInThisPosition[a])
+                for (c = 0; c < Nc.length; c++) arrayOfTypesOfElementInThisPosition[a] == Nc[c] && (ea = c);
+            a++;
+            if (0 != arrayOfTypesOfElementInThisPosition[a])
+                for (c = 0; c < Nc.length; c++) arrayOfTypesOfElementInThisPosition[a] == Nc[c] && (fa = c);
+            a++;
+            oa = arrayOfTypesOfElementInThisPosition[a++];
+            backgroundDrawType = arrayOfTypesOfElementInThisPosition[a++];
+            wa = arrayOfTypesOfElementInThisPosition[a++];
+            xa = arrayOfTypesOfElementInThisPosition[a++];
+            isGravityOn = 0 == arrayOfTypesOfElementInThisPosition[a++] ? true : false;
+            ya = arrayOfTypesOfElementInThisPosition[a++]
+        }
+    }
+}
+
+// Called whenever user click on "LOAD" button
+function loadGameToScreen() {
+    reset(1);
+    if (0 != Za) {
+        e = Ya + 138880;
+        ycoord = 8;
+        for (d = Ya; ycoord < 288; ycoord++) {
+            for (xcoord = 8; xcoord < 504; xcoord++, d++) {
+                if (0 != arrayOfTypesOfElementInThisPosition[d]) {
+                    if( arrayOfTypesOfElementInThisPosition[d] == Ob ) {
+                        x[(ycoord >> 2) * w + (xcoord >> 2)] = Gb;
+                        I[ycoord * screenWidth + xcoord] = Kb;
+                    } else if( arrayOfTypesOfElementInThisPosition[d] == Qb ) {
+                        x[(ycoord >> 2) * w + (xcoord >> 2)] = Hb;
+                        I[ycoord * screenWidth + xcoord] = Kb;
+                    } else if ( arrayOfTypesOfElementInThisPosition[d] == Rb ) {
+                        x[(ycoord >> 2) * w + (xcoord >> 2)] = Ib;
+                        I[ycoord * screenWidth + xcoord] = Kb;
+                    } else if ( arrayOfTypesOfElementInThisPosition[d] == Ec ) {
+                        createFighterPlayerClone(xcoord, ycoord, Ec, arrayOfTypesOfElementInThisPosition[e++])
+                    } else if( arrayOfTypesOfElementInThisPosition[d] == Fc ) {
+                        createFighterPlayerClone(xcoord, ycoord, Fc, arrayOfTypesOfElementInThisPosition[e++])
+                    } else if ( arrayOfTypesOfElementInThisPosition[d] == fighterId) {
+                        createFighterPlayerClone(xcoord, ycoord, fighterId, 0);
+                        e++;
+                    } else if( arrayOfTypesOfElementInThisPosition[d] == Hc) {
+                        Ad(xcoord, ycoord, arrayOfTypesOfElementInThisPosition[e++])
+                    } else if( arrayOfTypesOfElementInThisPosition[d] == cloneId ) {
+                        createFighterPlayerClone(xcoord, ycoord, cloneId, 0);
+                        e++;
+                    } else {
+                        a = Bd(xcoord, ycoord, arrayOfTypesOfElementInThisPosition[d], 0)
+                        if(arrayOfTypesOfElementInThisPosition[d] == Nb) {
+                            J[a].x = 0.01 * Math.cos(arrayOfTypesOfElementInThisPosition[e] * PI / 32);
+                            J[a].y = 0.01 * -Math.sin(arrayOfTypesOfElementInThisPosition[e] * PI / 32);
+                            G[a] = arrayOfTypesOfElementInThisPosition[e];
+                            e++;
+                            I[ycoord * screenWidth + xcoord] = l
+                        } else if( arrayOfTypesOfElementInThisPosition[d] == ac ) {
+                            G[a] = arrayOfTypesOfElementInThisPosition[e++]
+                        } else {
+                            if( arrayOfTypesOfElementInThisPosition[d] == Lc ) {
+                                G[a] = arrayOfTypesOfElementInThisPosition[e++];
+                                E[a] = 0 == G[a] ? 6702131 : 3359829;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        Dd();
+        c = new Vector;
+        var f;
+        for (a = p; a < qd; a++) f = p + floor(Math.random() * (qd - p)), c.set(C[a]), C[a].set(C[f]), C[f].set(c), c.set(J[a]), J[a].set(J[f]), J[f].set(c), b = D[a], D[a] = D[f], D[f] = b, b = G[a], G[a] = G[f], G[f] = b, b = E[a], E[a] = E[f], E[f] = b, b = H[a], H[a] = H[f], H[f] = b, I[H[a]] = D[a] == Nb ? l : a, I[H[f]] = D[f] == Nb ? l : f;
+        f = floor((Za - e) / 7);
+        for (a = e; a < e + f; a++) {
+            c = (arrayOfTypesOfElementInThisPosition[a + 1 * f] & 255) << 16 | (arrayOfTypesOfElementInThisPosition[a + 2 * f] & 255) << 8 | arrayOfTypesOfElementInThisPosition[a + 3 * f] & 255;
+            b = (arrayOfTypesOfElementInThisPosition[a + 4 * f] & 255) << 16 | (arrayOfTypesOfElementInThisPosition[a + 5 * f] & 255) << 8 | arrayOfTypesOfElementInThisPosition[a + 6 * f] & 255;
+            var g = 0,
+                m = d = 0,
+                n = 0;
+            d = Ya + 496 * ((c >> 9) - 8) + ((c & 511) - 8);
+            g = arrayOfTypesOfElementInThisPosition[d] == Ec ? 1 : arrayOfTypesOfElementInThisPosition[d] == Fc ? 1 : arrayOfTypesOfElementInThisPosition[d] == fighterId ? 1 : arrayOfTypesOfElementInThisPosition[d] == Hc ? 2 : 0;
+            d = Ya + 496 * ((b >> 9) - 8) + ((b & 511) - 8);
+            d = arrayOfTypesOfElementInThisPosition[d] == Ec ? 1 : arrayOfTypesOfElementInThisPosition[d] == Fc ? 1 : arrayOfTypesOfElementInThisPosition[d] == fighterId ? 1 : arrayOfTypesOfElementInThisPosition[d] == Hc ? 2 : 0;
+            0 == g ? m = I[c] : 1 == g ? m = Ed(c) : 2 == g && (m = Fd(c));
+            0 == d ? n = I[b] : 1 == d ? n = Ed(b) : 2 == d && (n = Fd(b));
+            Gd(g, d, m, n, arrayOfTypesOfElementInThisPosition[a + 0 * f])
+        }
+        nb = ob
+    }
+}
+
+
+function Hd() {
+    var i;
+    var a;
+    var alpha;
+    i = 0;
+    for (; 138880 > i; i++) {
+        La[i] = 0;
+        Ma[i] = 0;
+    }
+    i = 0;
+    for (; i < qd; i++) {
+        a = ~~C[i].x - 8;
+        alpha = ~~C[i].y - 8;
+        if (!(0 > a || 496 <= a || 0 > alpha || 280 <= alpha)) {
+            a = 496 * alpha + a;
+            La[a] = D[i];
+            if (D[i] == Nb) {
+                Ma[a] = G[i];
+            } else {
+                if (D[i] == ac) {
+                    Ma[a] = G[i] & 255;
+                } else {
+                    if (D[i] == Lc) {
+                        Ma[a] = G[i] & 1;
+                    }
+                }
+            }
+        }
+    }
+    if (Ha > Ja) {
+        a = Ha;
+        Ha = Ja;
+        Ja = a;
+    }
+    if (Ia > Ka) {
+        alpha = Ia;
+        Ia = Ka;
+        Ka = alpha;
+    }
+    i = Sa = 0;
+    for (; i < sd && 500 > Sa; i++) {
+        if (!(0 != ud[i] || 0 != wd[i] || ~~C[vd[i]].x < Ha || Ja < ~~C[vd[i]].x || ~~C[vd[i]].y < Ia || Ka < ~~C[vd[i]].y || ~~C[xd[i]].x < Ha || Ja < ~~C[xd[i]].x || ~~C[xd[i]].y < Ia || Ka < ~~C[xd[i]].y)) {
+            Na[Sa] = ~~C[vd[i]].x - Ha;
+            Oa[Sa] = ~~C[vd[i]].y - Ia;
+            Pa[Sa] = ~~C[xd[i]].x - Ha;
+            Qa[Sa] = ~~C[xd[i]].y - Ia;
+            Ra[Sa] = td[i];
+            Sa++;
+        }
+    }
+}
+
+function Id() {
+    var i;
+    var t;
+    var k;
+    var p;
+    var prefix = ia - floor((Ja - Ha) / 2) - Ha;
+    var ret = ja - floor((Ka - Ia) / 2) - Ia;
+    k = Ia - 8;
+    for (; k <= Ka - 8; k++) {
+        if (!(0 > ret + k || 280 <= ret + k)) {
+            t = Ha - 8;
+            for (; t <= Ja - 8; t++) {
+                if (!(0 > prefix + t || 496 <= prefix + t)) {
+                    p = 496 * k + t;
+                    if (0 != La[p] && I[(ret + k + 8) * screenWidth + (prefix + t + 8)] == Jb) {
+                        i = Bd(prefix + t + 8, ret + k + 8, La[p], 0);
+                        if (0 <= i) {
+                            if (La[p] == Nb) {
+                                J[i].x = 0.01 * Math.cos(Ma[p] * PI / 32);
+                                J[i].y = 0.01 * -Math.sin(Ma[p] * PI / 32);
+                                G[i] = Ma[p];
+                                I[(ret + k + 8) * screenWidth + (prefix + t + 8)] = l;
+                            } else {
+                                if (La[p] == ac) {
+                                    G[i] = Ma[p];
+                                } else {
+                                    if (La[p] == Lc) {
+                                        G[i] = Ma[p];
+                                        E[i] = 0 == G[i] ? 6702131 : 3359829;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    prefix = ia - floor((Ja - Ha) / 2);
+    ret = ja - floor((Ka - Ia) / 2);
+    i = 0;
+    for (; i < Sa; i++) {
+        if (!(8 > prefix + Na[i] || 504 <= prefix + Na[i] || 8 > ret + Oa[i] || 288 <= ret + Oa[i] || 8 > prefix + Pa[i] || 504 <= prefix + Pa[i] || 8 > ret + Qa[i] || 288 <= ret + Qa[i])) {
+            t = I[(ret + Oa[i]) * screenWidth + prefix + Na[i]];
+            k = I[(ret + Qa[i]) * screenWidth + prefix + Pa[i]];
+            if (t >= p && k >= p && t != k && 255 != (Jd[t] & 255) && 255 != (Jd[k] & 255)) {
+                Gd(0, 0, t, k, Ra[i]);
+            }
+        }
+    }
+};
+
+function Kd(a, c, b, d) {
+    for (var e = a;;)
+        if (D[I[e]] == c) L(I[e], b, d, s[b]), e--;
+        else break;
+    e++;
+    for (var f = a + 1;;)
+        if (D[I[f]] == c) L(I[f], b, d, s[b]), f++;
+        else break;
+    f--;
+    for (a = e; a <= f; a++) D[I[a - screenWidth]] == c && Kd(a - screenWidth, c, b, d), D[I[a + screenWidth]] == c && Kd(a + screenWidth, c, b, d)
+}
+var loadingPhase = 0;
+
+function startScript(a, c, b, d) {
+    if (0 == loadingPhase) {
+        $a = null != a ? a : "";
+        ab = null != c ? c : "";
+        for (a = 0; 8 > a && a < ab.length; a++) bb[a] = ab.charCodeAt(a);
+        cb = 0 == b ? true : false;
+        db = null != d ? d : 0;
+        logOnConsole('Created by ha55ii, deobfuscated by Elieder Sousa');
+        canvasElement.width = screenWidth;
+        canvasElement.height = screenHeight;
+        canvasElement.width = 496;
+        canvasElement.height = 422;
+        for (b = 0; 256 > b; b++) {
+            Qd[b] = false;
+            Rd[b] = false;
+            Sd[b] = false;
+            Td[b] = false;
+            Ud[b] = false;
+            Vd[b] = false;
+            Wd[b] = 0;
+            Xd[b] = 0;
+        }
+        for (b = 0; 10 > b; b++) Wd[48 + b] = 48 + b;
+        for (b = 0; 9 > b; b++) Xd[49 + b] = 33 + b;
+        for (b = 0; 4 > b; b++) Wd[37 + b] = 37 + b;
+        for (b = 0; 4 > b; b++) Xd[37 + b] = 37 + b;
+        Wd[13] = Xd[13] = 13;
+        Wd[16] = Xd[16] = 16;
+        Wd[17] = Xd[17] = 17;
+        Wd[18] = Xd[18] = 18;
+        Wd[32] = Xd[32] = 32;
+        Wd[186] = 58;
+        Xd[186] = 42;
+        Wd[187] = 59;
+        Xd[187] = 43;
+        Wd[188] = 44;
+        Xd[188] = 60;
+        Wd[189] = 45;
+        Xd[189] = 61;
+        Wd[190] = 46;
+        Xd[190] = 62;
+        Wd[191] = 47;
+        Xd[191] = 63;
+        Wd[192] = 64;
+        Xd[192] = 96;
+        Wd[219] = 91;
+        Xd[219] = 123;
+        Wd[220] = 92;
+        Xd[220] = 124;
+        Wd[221] = 93;
+        Xd[221] = 125;
+        Wd[222] = 94;
+        Xd[222] = 126;
+        Wd[226] = 92;
+        Xd[226] = 95;
+        Wd[58] = 58;
+        Xd[58] = 42;
+        Wd[59] = 59;
+        Xd[59] = 43;
+        Wd[173] = 45;
+        Xd[173] = 61;
+        Wd[64] = 64;
+        Xd[64] = 96;
+        Wd[160] = 94;
+        Xd[160] = 126;
+        for (b = 0; 1024 > b; b++) Yd[b] = b / 1024;
+        for (b = 0; 1024 > b; b++) {
+            d = floor(1024 * Math.random());
+            a = Yd[b];
+            Yd[b] = Yd[d];
+            Yd[d] = a;
+        }
+        Zd = floor(1024 * Math.random()) & 1023;
+        $d = floor(512 * Math.random()) | 1;
+        for (b = 0; b < screenWidth * screenHeight; b++) v[b] = 0;
+        for (b = 0; b < screenWidth * screenHeight * 4; b++) ae[b] = 255;
+        fontImage.m("font.gif", 8, 12);
+        securityCheck() ? loadingPhase-- : loadingPhase++
+    }
+    if (1 == loadingPhase) {
+        b = fontImage.l;
+        if (0 == b.j && b.img.complete) {
+            ce--;
+            d = b.img.width;
+            a = b.img.height;
+            if (0 == d || 0 == a) throw delete b.img, b.file = "", "ERROR";
+            c = document.createElement("canvas");
+            c.width = d;
+            c.height = a;
+            c = c.getContext("2d");
+            c.drawImage(b.img, 0, 0);
+            c = c.getImageData(0, 0, d, a).data;
+            he(b, d, a);
+            d = 0;
+            for (a = c.length; d < a; d += 4) {
+                b.a[d >> 2] = 0 == c[d + 3] ? -1 : c[d + 0] << 16 | c[d + 1] << 8 | c[d + 2];
+            }
+            delete b.img;
+            b.j = 1
+        }
+        0 != ce ? setTimeout(startScript, je()) : loadingPhase++
+    }
+    if (2 == loadingPhase) {
+        if (0 == ab.length) {
+            kb = 2;
+            mb = 1;
+        } else {
+            if(0 != db) {
+                kb = 2;
+                mb = 3;
+            }
+        }
+        reset(0);
+        saveGameFromScreen();
+        0 < db && (b = "/score/dust2.php?a=", b += db, AjaxRequest(b, ""), 1 == me && "ok" == ne[0] ? (eb = ne[1], ad(0), 0 < Za ? (loadGameToScreen(), lb = 1) : lb = 2) : lb = 2, isStopped = 1);
+        ed(1);
+        for (a = 0; a < s.length; a++) b = floor((2989 * (s[a] >> 16 & 255) + 5866 * (s[a] >> 8 & 255) + 1145 * (s[a] & 255)) / 1E4), Rc[a] = b << 16 | b << 8 | b;
+        oe(0, 0, screenWidth, screenHeight, 4210752);
+        drawTextUsingImage(fontImage, 13, 291, "POWDER", 15908203, 0);
+        drawTextUsingImage(fontImage, 13, 305, "WATER", 4210943, 0);
+        drawTextUsingImage(fontImage, 13, 319, "FIRE", 16728128, 0);
+        drawTextUsingImage(fontImage, 13, 333, "SEED", 9486400, 0);
+        drawCompositeTextUsingImage(13, 347, "G-POWDER", -1, 0, -2);
+        drawCompositeTextUsingImage(13, 347, "G-POWDER", 11567184, -1, -2);
+        drawCompositeTextUsingImage(13, 361, "FAN", 8421631, 0, -1);
+        drawTextUsingImage(fontImage, 13, 375, "ICE", 13684991, 0);
+        drawTextUsingImage(fontImage, 13, 389, "S-BALL", 16728224, 0);
+        drawTextUsingImage(fontImage, 13, 403, "CLONE", 9465872, 0);
+        drawCompositeTextUsingImage(68, 291, "F-WORKS", 16750950, 0, -1);
+        drawTextUsingImage(fontImage, 68, 305, "OIL", 8400928, 0);
+        drawTextUsingImage(fontImage, 68, 319, "C-4", 16777164, 0);
+        drawTextUsingImage(fontImage, 68, 333, "SAND", 16764006, 0);
+        drawTextUsingImage(fontImage, 68, 347, "MUD", 6697728, 0);
+        drawTextUsingImage(fontImage, 68, 361, "STONE", 8421504, 0);
+        drawTextUsingImage(fontImage, 68, 375, "LAVA", 16737843, 0);
+        drawTextUsingImage(fontImage, 68, 389, "VIRUS", 8388736, 0);
+        drawTextUsingImage(fontImage, 68, 403, "NITRO", 4486912, 0);
+        drawTextUsingImage(fontImage, 123, 291, "ANT", 12615872, 0);
+        drawTextUsingImage(fontImage, 123, 305, "TORCH", 16752672, 0);
+        drawTextUsingImage(fontImage, 123, 319, "GAS", 13408665, 0);
+        drawTextUsingImage(fontImage, 123, 333, "SOAPY", 15790320, 0);
+        drawCompositeTextUsingImage(123, 347, "THUNDER", 16776992, 0, -1);
+        drawTextUsingImage(fontImage, 123, 361, "METAL", 4210752, 0);
+        drawTextUsingImage(fontImage, 123, 375, "BOMB", 6710784, 0);
+        drawTextUsingImage(fontImage, 123, 389, "LASER", 13369344, 0);
+        drawTextUsingImage(fontImage, 123, 403, "ACID", 13434624, 0);
+        drawTextUsingImage(fontImage, 178, 291, "VINE", 47872, 0);
+        drawTextUsingImage(fontImage, 178, 305, "SALT", 16777215, 0);
+        drawTextUsingImage(fontImage, 178, 319, "GLASS", 4210752, 0);
+        drawTextUsingImage(fontImage, 178, 333, "BIRD", 8417360, 0);
+        drawTextUsingImage(fontImage, 178, 347, "FISH", 13158, 0);
+        drawCompositeTextUsingImage(178, 361, "MERCURY", 11184810, 0, -1);
+        drawTextUsingImage(fontImage, 178, 375, "SPARK", 16763955, 0);
+        drawTextUsingImage(fontImage, 178, 389, "FUSE", 4469538, 0);
+        drawTextUsingImage(fontImage, 178, 403, "CLOUD", 13421772, 0);
+        drawTextUsingImage(fontImage, 233, 291, "PUMP", 13107, 0);
+        drawCompositeTextUsingImage(233, 305, "CRYSTAL", 3355443, 0, -1);
+        drawTextUsingImage(fontImage, 233, 319, "JBOMB", 6706500, 0);
+        drawCompositeTextUsingImage(233, 333, "Conveyer", -1, 0, -2);
+        drawCompositeTextUsingImage(233, 333, "Conv    ", 6702131, -1, -2);
+        drawCompositeTextUsingImage(233, 333, "    eyer", 3359829, -1, -2);
+        drawTextUsingImage(fontImage, 288, 291, "WIND", 8421631, 0);
+        drawCompositeTextUsingImage(288, 305, "CYCLONE", 8421631, 0, -1);
+        drawTextUsingImage(fontImage, 288, 319, "DRAG", 16777215, 0);
+        drawTextUsingImage(fontImage, 288, 347, "PLAYER", 15908203, 0);
+        drawCompositeTextUsingImage(288, 361, "FIGHTER", 15908203, 0, -1);
+        drawTextUsingImage(fontImage, 288, 375, "BALL", 15908203, 0);
+        drawTextUsingImage(fontImage, 288, 389, "CREATE", 9465872, 0);
+        drawTextUsingImage(fontImage, 343, 291, "BLOCK", 8421504, 0);
+        drawTextUsingImage(fontImage, 343, 305, "ERASE", 8421504, 0);
+        drawTextUsingImage(fontImage, 343, 319, "CLEAR", 16777215, 0);
+        drawTextUsingImage(fontImage, 343, 333, "BH", 0, 8421504);
+        drawTextUsingImage(fontImage, 343, 347, "WH", 4210752, 12632256);
+        drawCompositeTextUsingImage(343, 403, "MiniMap", 16752800, 0, -1);
+        drawTextUsingImage(fontImage, 398, 305, "TEXT", 16777215, 0);
+        drawCompositeTextUsingImage(397, 319, "Copy", -1, 0, -2);
+        drawCompositeTextUsingImage(397, 319, "Copy", 16777215, -1, -2);
+        drawCompositeTextUsingImage(421, 319, "Paste", -1, 0, -3);
+        drawCompositeTextUsingImage(421, 319, "Paste", 16777215, -1, -3);
+        drawCompositeTextUsingImage(398, 333, "PEN", 16777215, 0, -1);
+        drawCompositeTextUsingImage(398, 347, "PEN-S ", 16777215, 0, -1);
+        drawCompositeTextUsingImage(398, 361, "SCALE", 16777215, 0, -1);
+        drawCompositeTextUsingImage(398, 375, "|", 16777215, 0, -1);
+        drawCompositeTextUsingImage(398, 389, "SPEEDx", 16777215, 0, -1);
+        drawCompositeTextUsingImage(397, 403, "Start", -1, 0, -3);
+        drawCompositeTextUsingImage(397, 403, "Start", 16777215, -1, -3);
+        drawCompositeTextUsingImage(423, 403, "Stop", -1, 0, -2);
+        drawCompositeTextUsingImage(423, 403, "Stop", 16777215, -1, -2);
+        drawTextUsingImage(fontImage, 453, 291, "UPLOAD", 16752800, 0);
+        drawTextUsingImage(fontImage, 453, 305, "SAVE", 16752800, 0);
+        drawTextUsingImage(fontImage, 453, 319, "LOAD", 16752800, 0);
+        drawTextUsingImage(fontImage, 453, 347, "G-", -1, 0);
+        drawCompositeTextUsingImage(453, 361, "SIDE-", -1, 0, -3);
+        drawCompositeTextUsingImage(453, 361, "SIDE-", 16777215, -1, -3);
+        drawCompositeTextUsingImage(453, 375, "BG-", -1, 0, -2);
+        drawCompositeTextUsingImage(453, 375, "BG-", 16777215, -1, -2);
+        drawTextUsingImage(fontImage, 453, 389, "GRID", 8388608, 0);
+        drawTextUsingImage(fontImage, 453, 403, "RESET", 16777215, 0);
+        drawTextUsingImage(fontImage, 69, 417, "x    y", -1, 0);
+        drawTextUsingImage(fontImage, 153, 417, "dot", -1, 0);
+        drawTextUsingImage(fontImage, 230, 417, "j", -1, 0);
+        drawTextUsingImage(fontImage, 285, 417, "Created by ha55ii", -1, 0);
+        he(imageHandlerForScreen, screenWidth, screenHeight);
+        for (a = 0; a < screenWidth * screenHeight; a++) imageHandlerForScreen.a[a] = v[a] & 16777215;
+        for (b = screenWidth * screenHeight - 1; 0 <= b; b--) v[b] = 0;
+        loop()
+    }
+}
+
+function reset(a) {
+    var c, b, d;
+    for (d = b = 0; b < re; b++)
+        for (c = 0; c < w; c++, d++) x[d] = 0, P[d] = 0, Q[d] = 0, se[d] = 0, te[d] = 0, ue[d] = 0;
+    Dd();
+    qd = p;
+    for (c = 0; c < 296 * screenWidth; c++) I[c] = Jb;
+    for (b = 0; 296 > b; b++)
+        for (c = 0; c < screenWidth; c++) ve[b * screenWidth + c] = 8 > c || screenWidth - 8 <= c || 8 > b || 288 <= b ? false : true, R[b * screenWidth + c] = (b >> 2) * w + (c >> 2);
+    D[0] = Mb;
+    D[1] = Nb;
+    D[2] = Ob;
+    D[3] = Hc;
+    sd = 0;
+    we = 64;
+    for (c = counterStickman = 0; c < maxStickmanNumber * hd; c++) ye[c] = 0;
+    for (c = 0; c < maxStickmanNumber; c++) z[c] = 0;
+    for (c = 0; c < maxStickmanNumber; c++) ze[c] = 0;
+    for (c = 0; c < maxStickmanNumber; c++) kd[c] = 0;
+    for (c = 0; c < maxStickmanNumber; c++) Ae[c] = 0;
+    for (c = 0; c < maxStickmanNumber; c++) Be[c] = 0;
+    for (c = 0; c < od; c++) A[c] = 0;
+    for (c = 0; c < od; c++) S[c] = 0;
+    for (c = 0; c <
+        od; c++) Ce[c] = 0;
+    for (c = 0; c < od; c++) De[c] = 0;
+    if (0 == a) {
+        for (a = 2; a < Ee; a++) x[2 * w + a] = Gb;
+        for (a = 2; a < Ee; a++) x[(re - 3) * w + a] = Gb;
+        for (c = 2; c < Fe; c++) x[c * w + 2] = Gb;
+        for (c = 2; c < Fe; c++) x[c * w + w - 3] = Gb
+    }
+    for (c = 8; 288 > c; c++)
+        for (a = 8; 504 > a; a++) x[(c >> 2) * w + (a >> 2)] >= Gb && (I[c * screenWidth + a] = Kb);
+    nb = 0
+}
+
+
+function Ge() {
+    if (0 < He) He++;
+    else {
+        d = new Vector;
+        ed(0);
+        gameSave("");
+        gameLoad("");
+        280 <= Ie && (Je || Ke) && false == ga ? ga = true : 280 > Ie && (Je || Ke) && true == ga && (ga = false);
+        
+        Je && 0 == Xa && (Qd[48] ? oa = 0 : Qd[49] ? oa = 1 : Qd[50] ? oa = 2 : Qd[51] ? oa = 3 : Qd[52] ? oa = 4 : Qd[53] ? oa = 5 : Qd[54] ? oa = 6 : Qd[55] ? oa = 7 : Qd[56] ? oa = 8 : Qd[57] ? oa = 9 : Qd[32] ? isStopped = returnBetween0_MAX(isStopped + 1, 1) : Qd[10] || Qd[13] ? isStopped = 1 : Qd[108] ? (loadGameToScreen(), pa = -10) : Qd[106] && (Va = returnBetween0_MAX(Va + 1, 3)));
+        f = 13;
+        g = 291;
+        if (Me(f - 4 - 8, g - 1 - 8, 495, 126) && ga && 0 == Xa)
+            if (e = floor((Ne - (f - 4 - 8)) / 55), c = floor((Ie - (g - 1 - 8)) / 14), c = 9 * e + c, 5 == c) {
+                if( Ke ) {
+                    if( 5 == ea ) {
+                        Fa = returnBetween0_MAX(Fa + 8, 56);
+                        ea = c; 
+                    } else {
+                        if ( Oe ) {
+                            if( 5 == fa ) {
+                                Fa = returnBetween0_MAX(Fa - 8, 56);
+                                fa = c;
+                            }
+                        }
+                    }
+                }
+                
+            } else if (40 != c && 41 != c && 42 != c && 43 != c && 44 != c && 48 != c)
+            if (53 == c) Ke ? (53 == ea && (Ta = returnBetween0_MAX(Ta + 1, 5)), ea = c) : Oe && (53 == fa && (Ta = returnBetween0_MAX(Ta - 1, 5)), fa = c);
+            else if (59 != c && 60 != c && 61 != c)
+            if (62 == c) isMinimapActive = returnBetween0_MAX(isMinimapActive + Pe, 1);
+            else if (63 != c)
+            if (65 == c) Ke && (65 == ea && (Ga = 1 - Ga), ea = c), Oe && (65 == fa && (Ga = 1 - Ga), fa = c);
+            else if (66 == c) Aa = returnBetween0_MAX(Aa + Pe, 3);
+        else if (67 == c) oa = returnBetween0_MAX(oa + Pe, 9);
+        else if (68 == c) {
+            if (0 == ra && (Ke || Oe))
+                for (b = 288 * screenWidth - 1; 4096 <= b; b--) imageHandlerForScreen.a[b] = v[b];
+            Ke ? (68 == ea && 4 > ra ? (ra++, sa += 496 >> ra >> 1, ta += 280 >> ra >> 1) : 68 == ea && (ra = 0),
+                ea = c) : Oe && (68 == fa && 0 < ra ? (sa -= 496 >> ra >> 1, ta -= 280 >> ra >> 1, ra--) : 68 == fa && (ra = 4, sa += 248 - (496 >> ra >> 1) - 1, ta += 140 - (280 >> ra >> 1) - 2), fa = c);
+            sa = minInsideRange(sa, 0, 496 - (496 >> ra));
+            ta = minInsideRange(ta, 0, 280 - [280, 140, 70, 35, 18][ra]);
+            if (0 == ra && (Ke || Oe))
+                for (b = 288 * screenWidth - 1; 4096 <= b; b--) v[b] = imageHandlerForScreen.a[b]
+        } else if (69 == c) ua = returnBetween0_MAX(ua + Pe, 1);
+        else if (70 == c) wa = returnBetween0_MAX(wa + Pe, 3);
+        else if (71 == c) isStopped = returnBetween0_MAX(isStopped + Pe, 1);
+        else if (72 == c) 0 != Pe && (Xa = 1);
+        else if (73 == c) {
+            if (Ke || Oe) saveGameFromScreen(), pa = 10
+        } else if (74 == c) 0 != Pe && (loadGameToScreen(), pa = -10);
+        else if (75 != c)
+            if (76 == c) {
+                // Manipula o click no botão de ligar e desligar a gravidade
+                if (0 != Pe) {
+                    isGravityOn = isGravityOn ? false : true;
+                    for (b = 288 * screenWidth - 1; 4096 <= b; b--) Re[b] += isGravityOn ? 1 : -1;
+                    Se = 1;
+                    setGravity()
+                }
+            } else if (77 == c) {
+            if (xa = returnBetween0_MAX(xa + Pe, 1), 0 != Pe)
+                if (0 == xa) {
+                    for (a = 2; a < Ee; a++) P[128 + a] = 0, P[9216 + a] = 0, Q[128 + a] = 0, Q[9216 + a] = 0, se[128 + a] = 0, se[9216 + a] = 0, te[128 + a] = 0, te[9216 + a] = 0, ue[128 + a] = 0, ue[9216 + a] = 0;
+                    for (c = 256; c < Fe << 7; c += w) P[c + 1] = 0, P[c + Ee] = 0, Q[c + 1] = 0, Q[c + Ee] = 0, se[c + 1] = 0, se[c + Ee] = 0, te[c + 1] = 0, te[c + Ee] = 0, ue[c + 1] = 0, ue[c + Ee] = 0
+                } else if (1 == xa) {
+                for (a = 2; a < Ee; a++) P[128 + a] = P[9088 + a], P[9216 + a] = P[256 + a], Q[128 + a] = Q[9088 + a], Q[9216 + a] = Q[256 + a], se[128 + a] = se[9088 + a], se[9216 + a] = se[256 + a], te[128 + a] =
+                    te[9088 + a], te[9216 + a] = te[256 + a], ue[128 + a] = ue[9088 + a], ue[9216 + a] = ue[256 + a];
+                for (c = 256; c < Fe << 7; c += w) P[c + 1] = P[c + Ee - 1], P[c + Ee] = P[c + 2], Q[c + 1] = Q[c + Ee - 1], Q[c + Ee] = Q[c + 2], se[c + 1] = se[c + Ee - 1], se[c + Ee] = se[c + 2], te[c + 1] = te[c + Ee - 1], te[c + Ee] = te[c + 2], ue[c + 1] = ue[c + Ee - 1], ue[c + Ee] = ue[c + 2]
+            }
+        } else if (78 == c) {
+            if (backgroundDrawType = returnBetween0_MAX(backgroundDrawType + Pe, 16), 0 != Pe)
+                for (a = 0; a < Eb.length; a++) Eb[a] = 0
+        } else if(79 == c) {
+            ya = returnBetween0_MAX(ya + Pe, 9)
+        } else if (80 == c) {
+            if(0 != Pe) reset(0)
+        } else if(Ke) {
+            ea = c
+        } else { 
+            Oe && (fa = c);
+        }
+        if (!ga && 0 == Xa) {
+            ka = ia;
+            la = ja;
+            ia = minInsideRange(Ne + 2 * ha, 2 * ha, ha * (w - 2) - 1);
+            ja = minInsideRange(Ie + 2 * ha, 2 * ha, ha * (re - 2) - 1);
+            0 < ra &&
+                (ia = 2 * ha + floor(sa) + (Ne >> ra), ja = 2 * ha + floor(ta) + (Ie >> ra), ia = minInsideRange(ia, 2 * ha, ha * (w - 2) - 1), ja = minInsideRange(ja, 2 * ha, ha * (re - 2) - 1));
+            Ke && (ka = ia, la = ja);
+            if (1 == Aa)
+                if (Ke || Oe) Da = ia, Ea = ja;
+                else {
+                    if (trueAfterMouseUpButOnlyForOneTick || Ve) ka = Da, la = Ea
+                }
+            else if (2 == Aa && (We || Xe)) {
+                if (Ke || Oe) Ba = 0;
+                0 == Ba && (abs(ia - ka) > abs(ja - la) ? Ba = 1 : abs(ia - ka) < abs(ja - la) ? Ba = 2 : (ia = ka, ja = la));
+                1 == Ba ? ja = la : 2 == Ba && (ia = ka)
+            }
+            setToVector(d, ia, ja);
+            setToVector(na, ka - 5 * na.x, la - 5 * na.y);
+            c = na;
+            e = 5;
+            b = a = 0.5;
+            vectorSub($e, d, c);
+            e -= normalize($e);
+            a *= e;
+            b *= e;
+            d.x += $e.x * a;
+            d.y += $e.y * a;
+            c.x -= $e.x * b;
+            c.y -= $e.y * b;
+            vectorSub(na, d, na);
+            normalize(na);
+            bf(0);
+            bf(1);
+            if (Ke || Oe) nb = minInsideRange(nb + 1,
+                0, 65535)
+        }
+        
+        ed(1);
+        c = [1, 2, 4, 8];
+        for (d = 0; d < c[wa] && (1 != isStopped || Je && 0 == Xa && Qd[10] | Qd[13]); d++) cf++, df(), ef(), ff(), processStickman(), hf();
+        if (0 != ra && 0 != ua)
+            for (b = 288 * screenWidth - 1; 4096 <= b; b--) v[b] = imageHandlerForScreen.a[b];
+        handlesDrawingMethods();
+        if (0 != ra) {
+            for (b = 288 * screenWidth - 1; 4096 <= b; b--) imageHandlerForScreen.a[b] = v[b];
+            e = 8 + floor(sa);
+            c = 8 + floor(ta);
+            3 >= ra ? kf(8, 280, e, c, 280 >> ra) : 4 == ra && (kf(8, 272, e, c, 17), kf(280, 8, e, c + 17, 1))
+        }
+        d = screenWidth * screenHeight;
+        for (b = 288 * screenWidth; b < d; b++) v[b] = imageHandlerForScreen.a[b];
+        if (Me(f - 4 - 8, g - 1 - 8, 495, 126) && ga && 0 == Xa)
+            for (e = floor((Ne - (f - 4 - 8)) / 55), c = floor((Ie - (g - 1 - 8)) / 14), d = f - 4 + 55 * e, a = g - 1 + 14 * c, c = 55, e = 13, c = d + c > screenWidth ? screenWidth : ~~(d + c), e = a + e > screenHeight ? screenHeight : ~~(a +
+                    e), d = 0 > d ? 0 : ~~d, a = (0 > a ? 0 : ~~a) * screenWidth + d, b = screenWidth - (c - d), c = a + c - d, e *= screenWidth; a < e; a += b, c += screenWidth)
+                for (; a < c; a++) 4210752 == (v[a] & 16777215) && (v[a] = 4194304);
+        ga && lf(8, 288, 504, 288, 6684672);
+        drawCompositeTextUsingImage(f + 0 - 2, g + 70, "    " + floor(360 * Fa / 64) + "'", 8421631, 0, -1);
+        drawCompositeTextUsingImage(f + 275, g + 112, "JOINT-n J-left J-right J-scale J-none J-blind".split(" ")[Ta], 15908203, 0, -1);
+        1 == isMinimapActive && drawCompositeTextUsingImage(f + 330, g + 112, "MiniMap", 16777215, 16711680, -1);
+        0 == Ga ? drawCompositeTextUsingImage(f + 385 - 1, g + 28, "Copy", 16728128, -1, -2) : drawCompositeTextUsingImage(f + 385 + 23, g + 28, "Paste", 16728128, -1, -3);
+        
+        pen_paint_type = ["free", "line", "lock", "paint"];
+        3 > Aa ? drawCompositeTextUsingImage(f + 385 + 1, g + 42, "   " + pen_paint_type[Aa],
+            16777215, 0, -1) : drawCompositeTextUsingImage(f + 385 + 4, g + 42, "   " + pen_paint_type[Aa], 16777215, 0, -2);
+            
+        drawCompositeTextUsingImage(f + 385, g + 56, "      " + oa, 16777215, 0, -1);
+        
+        drawCompositeTextUsingImage(f + 385, g + 70, "      " + ["x1", "x2", "x4", "x8", "16"][ra], 16777215, 0, -2);
+        
+        drawCompositeTextUsingImage(f + 385, g + 84, " " + ["normal", "exact"][ua], 16777215, 0, -1);
+        
+        drawCompositeTextUsingImage(f + 385, g + 98, "       " + (1 << wa), 16777215, 0, -2);
+        
+        if( isStopped == 0 ) {
+            drawCompositeTextUsingImage(f + 385 - 1, g + 112, "Start", 16728128, -1, -3);
+        } else {
+            drawCompositeTextUsingImage(f + 385 + 25, g + 112, "Stop", 16728128, -1, -2);
+        }
+        
+        if (kb == 2) {
+            drawTextUsingImage(fontImage, f + 440, g + 0, "UPLOAD", 5259328, 3158064);
+        }
+        0 < pa && (pa--, 1 < pa && drawTextUsingImage(fontImage, f + 440, g + 14, "SAVE", 16777215, 16711680));
+        0 > pa && (pa++, -1 > pa && drawTextUsingImage(fontImage, f + 440, g + 28, "LOAD",
+            16777215, 16711680));
+        drawTextUsingImage(fontImage, f + 440, g + 56, isGravityOn ? "  on" : "  off", -1, 0);
+        
+        side_off_loop = ["OFF", "LOOP"];
+        drawCompositeTextUsingImage(f + 440 + 25, g + 70, side_off_loop[xa], -1, 0, -2);
+        drawCompositeTextUsingImage(f + 440 + 25, g + 70, side_off_loop[xa], 16777215, -1, -2);
+        
+        backgroundDrawTypesArray = "non air line blur g-map shade aura light toon mesh gray track dark TG silet mosaic color ".split(" ");
+        if( backgroundDrawType == 15 ) {
+            drawCompositeTextUsingImage(f + 440 + 3, g + 84, "   " + backgroundDrawTypesArray[backgroundDrawType], -1, 0, -3);
+            drawCompositeTextUsingImage(f + 440 + 3, g + 84, "   " + backgroundDrawTypesArray[backgroundDrawType], 16777215, -1, -3);
+        } else {
+            drawCompositeTextUsingImage(f + 440, g + 84, "   " + backgroundDrawTypesArray[backgroundDrawType], -1, 0, -2);
+            drawCompositeTextUsingImage(f + 440, g + 84, "   " + backgroundDrawTypesArray[backgroundDrawType], 16777215, -1, -2);
+        }
+        
+        drawTextUsingImage(fontImage, f + 440, g + 98, "     " + ya, 8388608, 0);
+        
+        oe(f - 4 + 55 * floor(ea / 9), g + 1 + ea % 9 * 14, 3, 4, 16711680);
+        
+        oe(f - 4 + 55 * floor(fa / 9), g + 6 + fa % 9 * 14, 3, 4, 255);
+        
+        drawTextUsingImage(fontImage, f + 56, g + 126, " " + (ia - 8), -1, 0);
+        
+        drawTextUsingImage(fontImage, f + 56, g + 126, "      " + (ja - 8), -1, 0);
+        
+        drawTextUsingImage(fontImage, f + 140, g + 126, "   " + (mf - qd), -1, 0);
+        
+        0 == Va ? drawTextUsingImage(fontImage, f + 217, g + 126, " " + sd, -1, 0) : 1 == Va ? drawTextUsingImage(fontImage, f + 217, g + 126, " " + sd, -1, 14540253) : 2 == Va ? drawTextUsingImage(fontImage, f + 217, g + 126, " " + sd, -1, 2236962) : 3 == Va && drawTextUsingImage(fontImage, f + 217, g + 126, " " + sd, 0, -1);
+        f += 0;
+        g += 126;
+        drawTextUsingImage(fontImage, f, g, nf + "fps" , -1, 0);
+        1 == aa && (drawTextUsingImage(fontImage, f + 48, g + 0, pf + "sl", 16777215, 0), drawTextUsingImage(fontImage, f + 96, g + 0, qf + "aps", 16777215, 0));
+        if (1 == isMinimapActive) {
+            f = 13;
+            g = 291;
+            166 > Ne && ga && (f = 178);
+            oe(f, g, 124, 70, 0);
+            for (b = a = 0; a < counterStickman; a++, b += hd) e = floor(stickManBodyPoints[b + 4].x) -
+                8, c = floor(stickManBodyPoints[b + 4].y) - 8, 0 > e || 496 <= e || 0 > c || 280 <= c || (e >>= 2, c >>= 2, d = 512 * (g + c) + (f + e), z[a] == jd ? v[d] = Ec : z[a] == ld ? v[d] = Fc : z[a] == md ? v[d] = fighterId : z[a] == md + 1 ? v[d] = fighterId : z[a] == nd && (v[d] = cloneId));
+            for (a = 0; a < od; a++) 0 != A[a] && (e = floor(B[a].x) - 8, c = floor(B[a].y) - 8, 0 > e || 496 <= e || 0 > c || 280 <= c || (e >>= 2, c >>= 2, d = 512 * (g + c) + (f + e), v[d] = Hc));
+            for (c = 0; 70 > c; c++)
+                for (e = 0; 124 > e; e++) b = (c + 2) * w + (e + 2), d = 2048 * (c + 2) + 4 * (e + 2), a = v[512 * (g + c) + (f + e)], 0 == a && (x[b] == Gb ? a = Ob : x[b] == Hb ? a = Qb : x[b] == Ib ? a = Rb : (a = D[I[d]], a == Hc && (a = 0), 0 == a && (a = D[I[d + 512 + 1]]), a == Hc && (a = 0))), d = s, 10 ==
+                    backgroundDrawType ? d = Rc : 12 == backgroundDrawType ? a != r && a != gc && a != lc && a != oc && a != rc && a != Ac && (a = 0) : 14 == backgroundDrawType && (a = 0 == a ? Xb : 0), v[512 * (g + c) + (f + e)] = d[a], 16 == backgroundDrawType && 0 == a && (d = (s[Nc[ea]] & 255) + (s[Nc[fa]] & 255) >> 1, v[512 * (g + c) + (f + e)] = (s[Nc[ea]] >> 16 & 255) + (s[Nc[fa]] >> 16 & 255) >> 1 << 16 | (s[Nc[ea]] >> 8 & 255) + (s[Nc[fa]] >> 8 & 255) >> 1 << 8 | d)
+        }
+        ed(0); - 1 == Xa && Xa++;
+        1 == lb ? (cb ? rf(rb, "\u30af\u30ea\u30c3\u30af\u3067\u518d\u751f\u3001\uff2c\uff2f\uff21\uff24\u3067\u518d\u30b9\u30bf\u30fc\u30c8") : rf(rb, "Click to play, LOAD to restart."), lb = 0, Xa = 10) : 2 == lb && (cb ? rf(rb, "\u30a8\u30e9\u30fc") :
+            rf(rb, "Error"), lb = 0, Xa = 10);
+        1 == Xa && (ra = 0, 0 == kb && (g = "/score/dust2.php?a=", g += $a, g += "&b=" + (cb ? "0" : "1"), AjaxRequest(g, ""), 1 == me && "ok" == ne[0] ? kb = 1 : (kb = 2, mb = "err1" == ne[0] ? 1 : "err2" == ne[0] ? 2 : "err3" == ne[0] ? 3 : "err4" == ne[0] ? 4 : "err5" == ne[0] ? 5 : 0)), Xa++);
+        if (2 == Xa) 1 == kb ? 10 > nb ? cb ? rf(rb, "\u3082\u3046\u5c11\u3057\u4f5c\u308a\u8fbc\u3093\u3067\u4e0b\u3055\u3044\u3002") : rf(rb, "Please carefully created.") : cb ? rf(rb, "\u30bf\u30a4\u30c8\u30eb\u3092\u8a18\u5165\u3057\u3066\uff2f\uff2b\u3092\u62bc\u3057\u3066\u4e0b\u3055\u3044") :
+            rf(rb, "Enter the title and click OK.") : 2 == kb && (cb ? 1 == mb ? rf(rb, "\u30e6\u30fc\u30b6\u30fc\u767b\u9332\u304c\u5fc5\u8981\u3067\u3059") : 2 == mb ? rf(rb, "1\u65e5\u306b1\u56de\u306e\u307f\u3067\u3059") : 3 == mb ? rf(rb, "\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9\u30c7\u30fc\u30bf") : 4 == mb ? rf(rb, "\u904e\u53bb12\u6642\u9593\u306e\u4f5c\u54c1\u6570\u304c50\u4ef6\u306b\u9054\u3057\u305f\u70ba\uff71\uff6f\uff8c\uff9f\u51fa\u6765\u307e\u305b\u3093") : 5 == mb ? rf(rb, "\u8a00\u8a9e\u30a8\u30e9\u30fc") : 6 == mb ? rf(rb, "\u4f5c\u8005\u306e\u307f\u3067\u3059") :
+                rf(rb, "\u30a2\u30c3\u30d7\u30ed\u30fc\u30c9\u51fa\u6765\u307e\u305b\u3093") : 1 == mb ? rf(rb, "User registration is required.") : 2 == mb ? rf(rb, "1 time in 1 days only.") : 3 == mb ? rf(rb, "Download data.") : 4 == mb ? rf(rb, "Reached 50 posts in 12 hours. Cannot upload.") : 5 == mb ? rf(rb, "Language error.") : 6 == mb ? rf(rb, "Author only.") : rf(rb, "Cannot upload.")), Xa++;
+        else if (3 == Xa) {
+            oe(96, 100, 320, 100, 8421504);
+            tf(256, 114, "UPLOAD", 16752800);
+            uf(135);
+            if (1 == kb && 10 <= nb && (oe(140, 150, 232, 16, 16777215), vf(139, 149, 234, 0), Me(132, 142, 232, 16) &&
+                    (vf(139, 149, 234, 16711680), trueAfterMouseUpButOnlyForOneTick && (g = callPrompt("Text", sb), null != g && (sb = g))), rf(vb, sb), xf(vb, 141, 150, 230, 16, 230, 16, 0), d = Me(200, 172, 16, 12), tf(216, 186, "OK", d ? 16711680 : 16777215), d && trueAfterMouseUpButOnlyForOneTick))
+                if (2 > sb.length) cb ? rf(rb, "\u30bf\u30a4\u30c8\u30eb\u3092\uff12\u6587\u5b57\u4ee5\u4e0a\u8a18\u5165\u3057\u3066\u4e0b\u3055\u3044") : rf(rb, "The title must be longer than 2 characters.");
+                else {
+                    g = sb;
+                    f = 0;
+                    c = g.length;
+                    for (d = 0; d < c; d++) e = g.charCodeAt(d), f = 0 <= e && 128 >= e || 65377 <= e && 65439 >= e ? f + 1 : f + 2;
+                    20 < f ? cb ? rf(rb, "\u30bf\u30a4\u30c8\u30eb\u3092\uff11\uff10\u6587\u5b57\u4ee5\u4e0b\u3067\u8a18\u5165\u3057\u3066\u4e0b\u3055\u3044") :
+                        rf(rb, "The title must be shorter than 20 characters.") : Xa++
+                } d = Me(264, 172, 48, 12);
+            tf(296, 186, "CANCEL", d ? 16711680 : 16777215);
+            d && trueAfterMouseUpButOnlyForOneTick && (Xa = 5)
+        } else if (4 == Xa) {
+            sb = encodeURIComponent(sb);
+            if (0 == sb.length) {
+                Xa = 3;
+                cb ? rf(rb, "\u30a8\u30e9\u30fc") : rf(rb, "Error");
+                ed(1);
+                return
+            }
+            saveGameFromScreen();
+            Yc(0);
+            g = "/score/dust2.php?a=";
+            g += $a;
+            g += "&b=" + (cb ? "0" : "1");
+            g += "&c=" + fb;
+            g += "&d=" + hb;
+            g += "&e=" + jb;
+            g += "&f=" + ob;
+            g += "&g=" + pb;
+            g += "&screenWidth=" + sb;
+            f = "i=" + eb;
+            f += "&j=" + gb;
+            f += "&k=" + ib;
+            AjaxRequest(g, f);
+            kb = 2;
+            Xa++
+        } else if (5 == Xa) Xa = 0;
+        else if (10 == Xa)
+            if (oe(128,
+                    288, 256, 70, 6291456), oe(132, 292, 248, 62, 6316128), tf(256, 302, "DOWNLOAD", 16752800), uf(323), 248 > Ne ? (tf(226, 345, "START", 16711680), tf(286, 345, "STOP", 16777215)) : (tf(226, 345, "START", 16777215), tf(286, 345, "STOP", 16711680)), trueAfterMouseUpButOnlyForOneTick) Xa = 0, isStopped = 248 > Ne ? 0 : 1;
+            else {
+                if (Sd[37] || Sd[39]) Xa = 0, isStopped = Sd[37] ? 0 : 1
+            }
+        else if (20 == Xa) sb = "", Xa++;
+        else if (21 == Xa) {
+            oe(136, 289, 240, 99, 8421504);
+            oe(140, 297, 232, 16, 16777215);
+            vf(139, 296, 234, 0);
+            Me(132, 289, 232, 16) && (vf(139, 296, 234, 16711680), trueAfterMouseUpButOnlyForOneTick && (g = callPrompt("Text", sb), null != g && (sb = g)));
+            drawTextUsingImage(fontImage, 141, 300, sb.substr(0, 28),
+                16777215, 0);
+            3 == yb && (oe(288, 320, 84, 16, 16777215), vf(287, 319, 86, 0), Me(280, 312, 84, 16) && (vf(287, 319, 86, 16711680), trueAfterMouseUpButOnlyForOneTick && (g = callPrompt("setFont", tb), null != g && (tb = g))), drawTextUsingImage(fontImage, 289, 323, tb.substr(0, 10), 16777215, 0));
+            a = -1;
+            128 <= Ne && 268 > Ne && 314 <= Ie && 362 > Ie && (a = floor((Ie - 314) / 16), 0 == a && 0 != Pe && (yb = returnBetween0_MAX(yb + Pe, 5)), 1 == a && 0 != Pe && (zb = returnBetween0_MAX(zb + Pe, 3)), 2 == a && 0 != Pe && (Ab = returnBetween0_MAX(Ab + Pe, 10)));
+            drawTextUsingImage(fontImage, 140, 322, "font :" + fontsText[yb], 0 == a ? 16711680 : 16777215, 0);
+            drawTextUsingImage(fontImage, 140, 338, "style:" + fontFormat[zb], 1 == a ? 16711680 : 16777215, 0);
+            drawTextUsingImage(fontImage, 140, 354, "size :" + fontSizeArray[Ab], 2 == a ? 16711680 : 16777215, 0);
+            a = -1;
+            128 <= Ne && 368 > Ne && 362 <= Ie && 380 > Ie && (a = 248 > Ne ? 0 : 1, Ke && (0 == a ? Xa++ : Xa = 23));
+            drawTextUsingImage(fontImage, 206, 372, "OK", 0 == a ? 16711680 : 16777215, 0);
+            drawTextUsingImage(fontImage, 256, 372, "CANCEL", 1 == a ? 16711680 : 16777215, 0);
+            g = fontsText[yb];
+            3 == yb && (g = tb);
+            If(vb, sb, g, zb, fontSizeArray[Ab]);
+            g = Sb;
+            0 != Nc[ea] ? g = Nc[ea] : 0 != Nc[fa] && (g = Nc[fa]);
+            if (g == wc || g == Ob || g == Qb || g == Rb) g = Sb;
+            xf(vb, wb, xb, vb.f, 128, vb.f, 128, s[g])
+        } else if (22 == Xa) {
+            g = "palavras ofensivas aqui separadas por espaços** \u30bb\u30c3\u30af\u30b9 \u30a8\u30c3\u30c1 \u3061\u3093\u3053 \u30c1\u30f3\u30b3 \u307e\u3093\u3053 \u30de\u30f3\u30b3 \u539f\u7206 \u539f\u5b50\u7206 \u6838 \u88ab\u7206 \u6b7b \u6bba \u7968 \u8a55 \u62cd\u624b \u4eba\u6c17 \u53c2\u52a0 \u30a2\u30f3\u30b1\u30fc\u30c8 \u524a\u9664 \u6d88\u53bb ttp www. .com .jp".split(" ");
+            f = "";
+            for (a = 0; a < sb.length; a++) c = sb[a], " " != c && "\u3000" != c && (f += c);
+            f = f.toLowerCase();
+            for (a = 0; a < g.length && !(0 <= f.indexOf(g[a])); a++);
+            if (a != g.length) {
+                Xa = 23;
+                return
+            }
+            g = fontsText[yb];
+            3 == yb && (g = tb);
+            If(vb, sb, g, zb, fontSizeArray[Ab]);
+            g = Sb;
+            0 != Nc[ea] ? g = Nc[ea] : 0 != Nc[fa] && (g = Nc[fa]);
+            if (g == wc || g == Ob || g == Qb || g == Rb) g = Sb;
+            for (c = 0; 128 > c && !(288 <= xb + c); c++)
+                for (e = 0; 496 > e && !(504 <= wb + e); e++) - 1 != vb.a[c * vb.b + e] && I[(xb + c) * screenWidth + (wb + e)] == Jb && (b = Bd(wb + e, xb + c, g, 0), 0 <= b && g == Nb && (J[b].x = 0.01 * Math.cos(Fa * PI / 32), J[b].y = 0.01 * -Math.sin(Fa * PI / 32), G[b] = Fa, I[(xb +
+                    c) * screenWidth + (wb + e)] = l));
+            Xa++
+        } else 23 == Xa && (Xa = 0);
+        ed(1)
+    }
+}
+
+function bf(a) {
+    var c, b, d, e, f;
+    e = new Vector;
+    var elementType = 0 == a ? ea : fa,
+    m = 0 == a ? Ke : Oe;
+    b = 0 == a ? trueAfterMouseUpButOnlyForOneTick : Ve;
+    f = 0 == a ? We : Xe;
+    if (elementType < numberOfTypesOfElements) {
+        if (1 == Aa && (f = 0 == a ? trueAfterMouseUpButOnlyForOneTick : Ve), f) {
+            var m = ia - ka,
+                n = ja - la;
+            if (!(1 >= oa && 1 == isStopped && 1 >= ra && 0 == m && 0 == n && 3 != Aa)) {
+                var t = max(max(abs(m), abs(n)), 1),
+                    m = floor((m << 8) / t),
+                    n = floor((n << 8) / t),
+                    u = (ka << 8) + 127,
+                    F = (la << 8) + 127;
+                for (c = 0; c <= t; c++, u += m, F += n) {
+                    var M = oa + 0,
+                        $ = (u >> 8) - M;
+                    b = (F >> 8) - M;
+                    var Ca = $ + 2 * M,
+                        Pb = b + 2 * M;
+                    8 > $ && ($ = 8);
+                    8 > b && (b = 8);
+                    Ca > screenWidth - 8 - 1 && (Ca = screenWidth - 8 - 1);
+                    287 < Pb && (Pb = 287);
+                    d = b * screenWidth + $;
+                    var $b = screenWidth - (Ca - $ + 1);
+                    for (f = b; f <= Pb; f++, d += $b)
+                        for (e = $; e <= Ca; e++, d++)
+                            if (!(M *
+                                    M + 1 < (e - (u >> 8)) * (e - (u >> 8)) + (f - (F >> 8)) * (f - (F >> 8))))
+                                if (3 == Aa) {
+                                    b = 0 != Nc[elementType] ? Nc[elementType] : Sb;
+                                    var ub = 0;
+                                    b != Nb && (b == ac ? ub = 0 != Oc[ea] ? Oc[ea] : 0 != Oc[fa] ? Oc[fa] : Sb : b == rc ? (ub = floor(8 * getAngle(na) / TWOPI + 0.5) & 7, ub += 1) : b == Lc && (ub = 0 == a ? 0 : 1), I[d] >= p && D[I[d]] != b && Kd(d, D[I[d]], b, ub))
+                                } else I[d] == Jb && (ub = Nc[elementType], (0 == a && Xe && fa < numberOfTypesOfElements || 1 == a && We && ea < numberOfTypesOfElements) && customRandomBoolean(0.5) && (ub = Nc[0 == a ? fa : ea]), b = Bd(e, f, ub, 0), 0 > b || (ub == Nb ? (J[b].x = 0.01 * Math.cos(Fa * PI / 32), J[b].y = 0.01 * -Math.sin(Fa * PI / 32), G[b] = Fa, I[d] = l) : ub == ac ? G[b] = 0 != Oc[ea] ? Oc[ea] : 0 != Oc[fa] ? Oc[fa] : Sb : ub == rc ? (ub = floor(8 *
+                                    getAngle(na) / TWOPI + 0.5) & 7, G[b] = ub + 1) : ub == Lc && (G[b] = 0 == a ? 0 : 1, E[b] = 0 == a ? 6702131 : 3359829)))
+                }
+            }
+        }
+    } else if (45 == elementType) {
+        b = (ja >> 2) * w + (ia >> 2);
+        if(f && 0 == x[b]) {
+            P[b] += na.x * (oa + 1);
+            Q[b] += na.y * (oa + 1);
+            setToVector(e, P[b], Q[b]);
+            if(10 < vectorLength2(e) && 1 == isStopped) {
+                normalize(e);
+                P[b] = 10 * e.x;
+                Q[b] = 10 * e.y;
+            } 
+        };
+    } else if (46 == elementType) f && (b = (ja >> 2) * w + (ia >> 2), d = oa + 1, 0 == a ? (0 == x[b - w] && (P[b - w] += d, Q[b - w] += d), 0 == x[b + 1] && (P[b + 1] -= d, Q[b + 1] += d), 0 == x[b + w] && (P[b + w] -= d, Q[b + w] -= d), 0 == x[b - 1] && (P[b - 1] += d, Q[b - 1] -= d), 0 == x[b - w + 1] && (P[b - w + 1] += d, Q[b - w + 1] += d), 0 == x[b + w + 1] && (P[b + w + 1] -= d, Q[b + w + 1] += d), 0 == x[b + w -
+        1] && (P[b + w - 1] -= d, Q[b + w - 1] -= d), 0 == x[b - w - 1] && (P[b - w - 1] += d, Q[b - w - 1] -= d)) : (0 == x[b - w] && (P[b - w] -= d, Q[b - w] += d), 0 == x[b - 1] && (P[b - 1] += d, Q[b - 1] += d), 0 == x[b + w] && (P[b + w] += d, Q[b + w] -= d), 0 == x[b + 1] && (P[b + 1] -= d, Q[b + 1] -= d), 0 == x[b - w - 1] && (P[b - w - 1] -= d, Q[b - w - 1] += d), 0 == x[b + w - 1] && (P[b + w - 1] += d, Q[b + w - 1] += d), 0 == x[b + w + 1] && (P[b + w + 1] += d, Q[b + w + 1] -= d), 0 == x[b - w + 1] && (P[b - w + 1] -= d, Q[b - w + 1] -= d)));
+    else if (49 == elementType || 50 == elementType || 52 == elementType) {
+        if (e = ia, f = ja >> 2 << 2, b = (ja >> 2 << 7) + (ia >> 2), m && 0 == x[b])
+            if (49 == elementType) {
+                b = Ec;
+                for (a = 0; a < counterStickman; a++) z[a] == jd && (b = Fc);
+                d = 0 !=
+                    Pc[ea] ? Pc[ea] : 0 != Pc[fa] ? Pc[fa] : 0;
+                createFighterPlayerClone(e, f, b, d)
+            } else if(50 == elementType) {
+                createFighterPlayerClone(e, f, fighterId, 0);
+                createFighterPlayerClone(e, f, fighterId, 0);
+                createFighterPlayerClone(e, f, fighterId, 0);
+                createFighterPlayerClone(e, f, fighterId, 0);
+                createFighterPlayerClone(e, f, fighterId, 0);
+                createFighterPlayerClone(e, f, fighterId, 0);
+                createFighterPlayerClone(e, f, fighterId, 0);
+                createFighterPlayerClone(e, f, fighterId, 0);
+                createFighterPlayerClone(e, f, fighterId, 0);
+                createFighterPlayerClone(e, f, fighterId, 0);
+                createFighterPlayerClone(e, f, fighterId, 0);
+                createFighterPlayerClone(e, f, fighterId, 0);
+            } else if(52 == elementType) {
+                createFighterPlayerClone(e, f, cloneId, 0);
+            }
+    } else if (51 == elementType) b = (ja >> 2 << 7) + (ia >> 2), m && 0 == x[b] && (d = 0 != Qc[ea] ? Qc[ea] : 0 != Qc[fa] ? Qc[fa] : Sb, Ad(ia, ja, d));
+    else if (53 == elementType) {
+        if (m) {
+            g = [0, -1, -512, 1, 512, -513, -511, 513, 511, -2, -1024, 2, 1024, 510, -514, -1025, -1023, -510, 514, 1025, 1023, -3, -1026, -1536, -1022, 3, 1026, 1536, 1022, 509, -515, -1537, -1535, -509, 515, 1537, 1535];
+            u = t = n = m = 0;
+            b = ja * screenWidth + ia;
+            for (a = 0; 37 > a; a++)
+                if (e = Ed(b + g[a]), f = Fd(b + g[a]), -1 != e ? (n = 1, u = e, 255 == (Be[e] & 255) && (e = -1)) : -1 != f ? (n = 2, u =
+                        f, e = 0, 255 == (De[f] & 255) && (e = -1)) : I[b + g[a]] >= p && (n = 0, u = I[b + g[a]], e = 0, 255 == (Jd[I[b + g[a]]] & 255) && (e = -1)), -1 != e) {
+                    -1 == Ua ? Ua = b + g[a] : (e = Ed(Ua), f = Fd(Ua), -1 != e ? (m = 1, t = e, 255 == (Be[e] & 255) && (e = -1)) : -1 != f ? (m = 2, t = f, e = 0, 255 == (De[f] & 255) && (e = -1)) : I[Ua] >= p && (m = 0, t = I[Ua], e = 0, 255 == (Jd[I[Ua]] & 255) && (e = -1)), -1 != e && b + g[a] != Ua && Gd(m, n, t, u, Ta), Ua = -1);
+                    break
+                } 37 == a && (Ua = -1)
+        }
+    } else if (54 == elementType || 55 == elementType || 56 == elementType || 57 == elementType || 58 == elementType) {
+        if (1 == Aa && (f = 0 == a ? trueAfterMouseUpButOnlyForOneTick : Ve), f) {
+            c = oa;
+            56 != elementType && 0 == oa && (c = 1);
+            m = floor(ia / ha) - floor(ka / ha);
+            n = floor(ja / ha) - floor(la / ha);
+            t = max(max(abs(m), abs(n)),
+                1);
+            m = floor((m << 8) / t);
+            n = floor((n << 8) / t);
+            u = (floor(ka / ha) << 8) - 127;
+            F = (floor(la / ha) << 8) - 127;
+            for (a = 0; a <= t; a++, u += m, F += n)
+                for (d = (u >> 8) - floor(c / 2), M = (F >> 8) - floor(c / 2), $ = d + c / 2 + 0.5, Ca = M + c / 2 + 0.5, f = M; f <= M + c; f++)
+                    for (e = d; e <= d + c; e++) 2 > e || Ee <= e || 2 > f || Fe <= f || (e - $) * (e - $) + (f - Ca) * (f - Ca) > floor(c * c / 4) || (b = f * w + e, 54 == elementType ? 0 == x[b] && (x[b] = Gb, P[b] = Q[b] = se[b] = te[b] = ue[b] = 0) : 55 == elementType ? (x[b] == Hb ? Of(e, f, -1) : x[b] == Ib && Of(e, f, 1), x[b] = -2) : 56 == elementType ? 0 == x[b] && (x[b] = -2, P[b] = Q[b] = se[b] = te[b] = ue[b] = 0) : 57 == elementType ? 0 == x[b] && (x[b] = Hb, P[b] = Q[b] = se[b] = te[b] = ue[b] = 0, Of(e, f, 1)) : 58 == elementType && 0 ==
+                        x[b] && (x[b] = Ib, P[b] = Q[b] = se[b] = te[b] = ue[b] = 0, Of(e, f, -1)));
+            setGravity();
+            if (56 == elementType && 0 == oa)
+                for (m = ia - ka, n = ja - la, t = max(max(abs(m), abs(n)), 1), m = floor((m << 8) / t), n = floor((n << 8) / t), u = (ka << 8) + 127, F = (la << 8) + 127, a = 0; a <= t; a++, u += m, F += n)
+                    for (b = p; b < qd; b++) u >> 8 == floor(C[b].x) && F >> 8 == floor(C[b].y) && rd(b--);
+            if (54 == elementType || 56 == elementType || 57 == elementType || 58 == elementType)
+                for (a = p; a < qd; a++) 0 != x[(C[a].y >> 2) * w + (C[a].x >> 2)] && rd(a--);
+            if (54 == elementType || 55 == elementType || 57 == elementType || 58 == elementType) {
+                for (a = 0; a < counterStickman; a++)
+                    if (z[a] == jd || z[a] == ld || z[a] == md || z[a] == md + 1 || z[a] == nd)
+                        for (c = 4; 6 > c; c++)
+                            if (b = (stickManBodyPoints[a * hd + c].y >> 2 << 7) + (stickManBodyPoints[a * hd + c].x >>
+                                    2), 0 != x[b]) {
+                                id(a--);
+                                break
+                            } for (a = 0; a < od; a++)
+                    if (0 != A[a] && (b = (B[a].y >> 2 << 7) + (B[a].x >> 2), 0 != x[b])) {
+                        b = (B[a].y << 9) + floor(B[a].x);
+                        for (c = 0; 21 > c; c++) I[b + Pf[c]] == Lb && (I[b + Pf[c]] = Jb);
+                        pd(a)
+                    }
+            }
+            if (55 == elementType || 56 == elementType)
+                for (f = 2; f <= Fe; f++)
+                    for (e = 2; e <= Ee; e++) b = f * w + e, -2 == x[b] && (x[b] = 0);
+            b = 8 * screenWidth + 8;
+            for (f = 8; 288 > f; f++, b += 16)
+                for (e = 8; 504 > e; e++, b++) d = (f >> 2) * w + (e >> 2), 0 == x[d] && I[b] == Kb ? I[b] = Jb : x[d] >= Gb && (I[b] = Kb)
+        }
+    } else 64 == elementType ? (wb = ia, xb = ja - 14, m && (Xa = 20)) : 65 == elementType ? m ? 0 == Ga ? (Ha = Ja = ia, Ia = Ka = ja) : 1 == isStopped && 1 >= ra && Ha == Ja && Ia == Ka || Id() : b && 0 == Ga ? Hd() : f && 0 ==
+        Ga && (Ja = ia, Ka = ja) : 68 == elementType && f && (sa -= (Ne - Qf) / (1 << ra), ta -= (Ie - Rf) / (1 << ra), sa = minInsideRange(sa, 0, 496 - (496 >> ra)), ta = minInsideRange(ta, 0, 280 - [280, 140, 70, 35, 18][ra]))
+}
+
+
+function handlesDrawingMethods() {
+    var a, c, b, d, e, f, g, m, n, t = new Vector,
+        u = [1, 1, 1, screenWidth - 3, 1, 1, 1, screenWidth - 3, 1, 1, 1, screenWidth - 3, 1, 1, 1, screenWidth - 3];
+    if (0 == backgroundDrawType)
+        for (a = 288 * screenWidth; 4096 < a; a--) v[a] = 0;
+    else if (1 == backgroundDrawType || 2 == backgroundDrawType)
+        for (b = 2, d = 258; b < Fe; b++, d += 4)
+            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (g = 0 < ue[d] ? floor(min(10 * ue[d], 96)) : 0, m = 0 > ue[d] ? floor(min(-10 * ue[d], 96)) : 0, oe(c << 2, b << 2, ha, ha, 0 | g << 8 | m));
+    else if (3 == backgroundDrawType) {
+        for (a = 288 * screenWidth; 4096 < a; a--) {
+            if (0 == x[R[a]]) {
+                f = 230 * (v[a] >> 16 & 255) >> 8;
+                g = 230 * (v[a] >> 8 & 255) >> 8;
+                m = 230 * (v[a] & 255) >> 8;
+                v[a] = f << 16 | g << 8 | m;
+            }
+        }
+    } else if (4 == backgroundDrawType)
+        for (d = 4104, b = 8; 288 > b; b++, d += 16)
+            for (c = 8; 504 > c; c++, d++) t.x =
+                U[d + (503 == c ? 0 : 1)] - U[d - (8 == c ? 0 : 1)], t.y = V[d + (287 == b ? 0 : 512)] - V[d - (8 == b ? 0 : 512)], f = floor(512 * (t.x + t.y)), v[d] = 0 >= f ? min(-f, 255) : min(f, 255) << 8;
+    else if (5 == backgroundDrawType) {
+        for (b = 8; 288 > b; b++) {
+            d = (b << 9) + 8;
+            for (c = 8; 503 > c; c++, d++) f = (v[d] >> 16 & 255) + (v[d + 1] >> 16 & 255) >> 1, g = (v[d] >> 8 & 255) + (v[d + 1] >> 8 & 255) >> 1, m = (v[d] & 255) + (v[d + 1] & 255) >> 1, v[d] = f << 16 | g << 8 | m;
+            for (c = 503; 8 < c; c--, d--) f = (v[d] >> 16 & 255) + (v[d - 1] >> 16 & 255) >> 1, g = (v[d] >> 8 & 255) + (v[d - 1] >> 8 & 255) >> 1, m = (v[d] & 255) + (v[d - 1] & 255) >> 1, v[d] = f << 16 | g << 8 | m
+        }
+        for (c = 8; 504 > c; c++) {
+            d = 4096 + c;
+            for (b = 8; 287 > b; b++,
+                d += screenWidth) f = (v[d] >> 16 & 255) + (v[d + screenWidth] >> 16 & 255) >> 1, g = (v[d] >> 8 & 255) + (v[d + screenWidth] >> 8 & 255) >> 1, m = (v[d] & 255) + (v[d + screenWidth] & 255) >> 1, v[d] = f << 16 | g << 8 | m;
+            for (b = 287; 8 < b; b--, d -= screenWidth) f = (v[d] >> 16 & 255) + (v[d - screenWidth] >> 16 & 255) >> 1, g = (v[d] >> 8 & 255) + (v[d - screenWidth] >> 8 & 255) >> 1, m = (v[d] & 255) + (v[d - screenWidth] & 255) >> 1, v[d] = f << 16 | g << 8 | m
+        }
+    } else if (6 == backgroundDrawType) {
+        var F, M, $;
+        b = 2;
+        for (d = 258; b < Fe; b++, d += 4)
+            for (c = 2; c < Ee; c++, d++)
+                if (m = abs(P[d]), f = abs(Q[d]), 0 != m || 0 != f)
+                    for (g = 1 / (m + f), n = floor(m * g * 258), F = floor(f * g * 258), M = 0 > P[d] ? -1 : 1, $ = 0 > Q[d] ? -screenWidth : screenWidth, e = (b << 11) + (c << 2), a = 0; 16 > a; a++) f = (Eb[e + M] >> 16 & 255) + ((v[e] >>
+                        16 & 255) * n >> 8), 255 < f && (f = 255), g = (Eb[e + M] >> 8 & 255) + ((v[e] >> 8 & 255) * n >> 8), 255 < g && (g = 255), m = (Eb[e + M] & 255) + ((v[e] & 255) * n >> 8), 255 < m && (m = 255), Eb[e + M] = f << 16 | g << 8 | m, f = (Eb[e + $] >> 16 & 255) + ((v[e] >> 16 & 255) * F >> 8), 255 < f && (f = 255), g = (Eb[e + $] >> 8 & 255) + ((v[e] >> 8 & 255) * F >> 8), 255 < g && (g = 255), m = (Eb[e + $] & 255) + ((v[e] & 255) * F >> 8), 255 < m && (m = 255), Eb[e + $] = f << 16 | g << 8 | m, e += u[a];
+        for (a = 288 * screenWidth; 4096 < a; a--) 0 == x[R[a]] && (v[a] = Eb[a], Eb[a] = 0)
+    } else if (7 == backgroundDrawType)
+        for (a = 288 * screenWidth; 4096 < a; a--) 0 == x[R[a]] && (f = 220 * (v[a] >> 16 & 255) >> 8, g = 220 * (v[a] >> 8 & 255) >> 8, m = 220 *
+            (v[a] & 255) >> 8, v[a] = f << 16 | g << 8 | m);
+    else if (8 == backgroundDrawType) {
+        for (a = 289 * screenWidth; 3584 < a; a--) I[a] == Kb ? v[a] = 6316128 : I[a] == Lb ? v[a] = 0 : I[a] == l ? v[a] = 8421631 : I[a] == Jb ? v[a] = I[a + 1] >= p ? E[I[a + 1]] : I[a - 1] >= p ? E[I[a - 1]] : I[a + screenWidth] >= p ? E[I[a + screenWidth]] : I[a - screenWidth] >= p ? E[I[a - screenWidth]] : I[a + screenWidth + 1] >= p ? E[I[a + screenWidth + 1]] : I[a + screenWidth - 1] >= p ? E[I[a + screenWidth - 1]] : I[a - screenWidth + 1] >= p ? E[I[a - screenWidth + 1]] : I[a - screenWidth - 1] >= p ? E[I[a - screenWidth - 1]] : 0 : I[a] >= p && (v[a] = E[I[a]]);
+        for (a = 288 * screenWidth; 4096 < a; a--) 0 == v[a] && (0 != v[a + 1] && 15658734 != v[a + 1] ? v[a] = 15658734 : 0 != v[a - 1] && 15658734 != v[a - 1] ? v[a] = 15658734 : 0 != v[a + screenWidth] && 15658734 != v[a + screenWidth] ? v[a] = 15658734 :
+            0 != v[a - screenWidth] && 15658734 != v[a - screenWidth] && (v[a] = 15658734))
+    } else if (9 == backgroundDrawType)
+        for (a = 288 * screenWidth; 4096 <= a; a--) v[a] = 0;
+    else if (10 == backgroundDrawType)
+        for (b = 2, d = 258; b < Fe; b++, d += 4)
+            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (f = 0, 0 < ue[d] && (f = floor(min(10 * ue[d], 72))), 0 > ue[d] && (f = floor(min(-10 * ue[d], 24))), oe(c << 2, b << 2, ha, ha, f << 16 | f << 8 | f));
+    else if (11 == backgroundDrawType)
+        for (b = 2, d = 258; b < Fe; b++, d += 4)
+            for (c = 2; c < Ee; c++, d++) {
+                if (0 == x[d] && (n = 256 - floor(min(abs(ue[d]), 32)), 256 != n))
+                    for (e = (b << 11) + (c << 2), a = 0; 16 > a; a++) f = (v[e] >> 16 & 255) * n >> 8, g = (v[e] >> 8 & 255) * n >> 8, m = (v[e] & 255) * n >> 8, v[e] = f << 16 | g << 8 | m, e += u[a]
+            } else if (12 ==
+                backgroundDrawType)
+                for (a = 288 * screenWidth; 4096 < a; a--) v[a] = 0, Eb[a] = I[a] < p ? floor(8 * Eb[a] / 9) : D[I[a]] == r ? 25500 : D[I[a]] == gc ? 25500 : D[I[a]] == lc ? 255E3 : D[I[a]] == oc ? 255E3 : D[I[a]] == rc ? 25500 : D[I[a]] == wc && E[I[a]] == s[oc] ? 255E3 : D[I[a]] == Ac ? 25500 : D[I[a]] == Jc && 0 != G[I[a]] ? 255E3 : floor(8 * Eb[a] / 9);
+            else if (13 == backgroundDrawType) {
+        for (a = 0; a < qd; a++) Eb[H[a]] = Sc[D[a]];
+        for (b = 8; 288 > b; b++) {
+            d = (b << 9) + 8;
+            for (c = 8; 503 > c; c++, d++) Eb[d] = Eb[d + 1] = Eb[d] + Eb[d + 1] >> 1;
+            for (c = 503; 8 < c; c--, d--) Eb[d] = Eb[d - 1] = Eb[d] + Eb[d - 1] >> 1
+        }
+        for (c = 8; 504 > c; c++) {
+            d = 4096 + c;
+            for (b = 8; 287 > b; b++, d += screenWidth) Eb[d] = Eb[d + screenWidth] = Eb[d] +
+                Eb[d + screenWidth] >> 1;
+            for (b = 287; 8 < b; b--, d -= screenWidth) Eb[d] = Eb[d - screenWidth] = Eb[d] + Eb[d - screenWidth] >> 1
+        }
+        for (a = 288 * screenWidth; 4096 < a; a--) n = Eb[a], 0 > n ? (f = -n >> 3, g = 0, m = -n >> 2) : 1024 > n ? (g = f = 0, m = n >> 2) : 2048 > n ? (f = 0, g = n - 1024 >> 2, m = 255) : 3072 > n ? (f = 0, g = 255, m = 255 - (n - 2048 >> 2)) : 4096 > n ? (f = n - 3072 >> 2, g = 255, m = 0) : 6144 > n ? (f = 255, g = 255 - (n - 4096 >> 3), m = 0) : (f = 255, g = n - 6144 >> 3, 255 < g && (g = 255), m = n - 6144 >> 3, 255 < m && (m = 255)), v[a] = f << 16 | g << 8 | m
+    } else if (15 == backgroundDrawType)
+        for (a = 288 * screenWidth; 4096 < a; a--) v[a] = 0;
+    else if (16 == backgroundDrawType)
+        for (f = (s[Nc[ea]] >> 16 & 255) + (s[Nc[fa]] >> 16 & 255) >> 1, g = (s[Nc[ea]] >> 8 & 255) + (s[Nc[fa]] >>
+                8 & 255) >> 1, m = (s[Nc[ea]] & 255) + (s[Nc[fa]] & 255) >> 1, d = 0 | f << 16 | g << 8 | m, a = 288 * screenWidth; 4096 < a; a--) v[a] = d;
+    b = 2;
+    for (d = 258; b < Fe; b++, d += 4)
+        for (c = 2; c < Ee; c++, d++)
+            if (0 != x[d])
+                for (e = (b << 11) + (c << 2), a = 0; 16 > a; a++) v[e] = Tc[x[d]][a], e += u[a];
+    if (2 == backgroundDrawType)
+        for (b = 2, d = 258; b < Fe; b++, d += 4)
+            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (setToVector(t, P[d], Q[d]), f = floor(10 * normalize(t)), 2 > f || (48 < f && (f = 48), a = (c << 2) + 2, n = (b << 2) + 2, lf(a, n, a + t.x * f, n + t.y * f, 0 | f << 17)));
+    else if (9 == backgroundDrawType)
+        for (b = 2, d = 258; b < Fe; b++, d += 4)
+            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (setToVector(t, P[d], Q[d]), a = vectorLength2(t), 0.2 > a || (g = floor(min(16 * a, 80)),
+                f = 0, 0 < ue[d] && (f = floor(min(ue[d] * a, 80))), m = 0, 0 > ue[d] && (m = floor(min(-ue[d] * a, 80))), a = (c << 2) + 5 * P[d], n = (b << 2) + 5 * Q[d], e = (c + 1 << 2) + 5 * P[d + 1], F = (b << 2) + 5 * Q[d + 1], lf(a, n, e, F, f << 16 | g << 8 | m), e = (c << 2) + 5 * P[d + w], F = (b + 1 << 2) + 5 * Q[d + w], lf(a, n, e, F, f << 16 | g << 8 | m)));
+    else if (14 == backgroundDrawType)
+        for (a = 288 * screenWidth; 4096 < a; a--) I[a] == Jb ? (f = 255 - (255 - (v[a] >> 16 & 255) >> 1), g = 255 - (255 - (v[a] >> 8 & 255) >> 1), m = 255 - (255 - (v[a] & 255) >> 1), v[a] = f << 16 | g << 8 | m) : I[a] < Lb && (v[a] = 0);
+    if (2 <= ya) {
+        c = [0, 0, 124, 62, 32, 20, 16, 12, 8, 4];
+        t = [0, 0, 70, 35, 32, 20, 16, 12, 8, 4];
+        g = [0, 0, 0, 0, -8, 8, 8, -4, 0, 0];
+        f = [0,
+            0, 0, 0, 12, 0, -4, -4, 0, 0
+        ];
+        for (a = 0; 496 > a; a += c[ya])
+            for (b = 0, d = 8 * screenWidth + 8 + a + g[ya]; 280 > b; b++, d += screenWidth) 6316128 != v[d] && (v[d] = 3355443);
+        for (a = 0; 280 > a; a += t[ya])
+            for (c = 0, d = (8 + a + f[ya]) * screenWidth + 8; 496 > c; c++, d++) 6316128 != v[d] && (v[d] = 3355443)
+    }
+    if (1 <= ya) {
+        b = 0;
+        for (d = 8 * screenWidth + 256; 280 > b; b++, d += screenWidth) 6316128 != v[d] && (v[d] = 4194304);
+        c = 0;
+        for (d = 148 * screenWidth + 8; 496 > c; c++, d++) 6316128 != v[d] && (v[d] = 4194304)
+    }
+    if (7 == backgroundDrawType)
+        for (a = p; a < qd; a++) f = ((E[a] & 16711680) >> 18) + (v[H[a]] >> 16 & 255), 255 < f && (f = 255), g = ((E[a] & 65280) >> 10) + (v[H[a]] >> 8 & 255), 255 < g && (g = 255), m = ((E[a] & 255) >> 2) + (v[H[a]] &
+            255), 255 < m && (m = 255), v[H[a]] = f << 16 | g << 8 | m;
+    else if (8 != backgroundDrawType)
+        if (10 == backgroundDrawType)
+            for (a = p; a < qd; a++) v[H[a]] = Rc[D[a]];
+        else if (14 == backgroundDrawType)
+        for (a = p; a < qd; a++) f = (v[H[a]] >> 16 & 255) - (255 - (E[a] >> 16 & 255) + 10), 0 > f && (f = 0), g = (v[H[a]] >> 8 & 255) - (255 - (E[a] >> 8 & 255) + 10), 0 > g && (g = 0), m = (v[H[a]] & 255) - (255 - (E[a] & 255) + 10), 0 > m && (m = 0), v[H[a]] = f << 16 | g << 8 | m;
+    else if (16 == backgroundDrawType)
+        for (a = p; a < qd; a++) v[H[a]] = v[H[a]] == E[a] ? 0 : E[a];
+    else
+        for (a = p; a < qd; a++) v[H[a]] = E[a];
+    Tf();
+    Uf();
+    Vf();
+    if (12 == backgroundDrawType) {
+        for (b = 8; 288 > b; b++) {
+            d = (b << 9) + 8;
+            for (c = 8; 503 > c; c++, d++) Eb[d] = Eb[d] + Eb[d + 1] >>
+                1;
+            for (c = 503; 8 < c; c--, d--) Eb[d] = Eb[d] + Eb[d - 1] >> 1
+        }
+        for (c = 8; 504 > c; c++) {
+            d = 4096 + c;
+            for (b = 8; 287 > b; b++, d += screenWidth) Eb[d] = Eb[d] + Eb[d + screenWidth] >> 1;
+            for (b = 287; 8 < b; b--, d -= screenWidth) Eb[d] = Eb[d] + Eb[d - screenWidth] >> 1
+        }
+        for (a = 288 * screenWidth; 4096 < a; a--) 1 > Eb[a] ? v[a] = 0 : (n = min(Eb[a], 255), f = (v[a] >> 16 & 255) * n >> 8, g = (v[a] >> 8 & 255) * n >> 8, m = (v[a] & 255) * n >> 8, v[a] = f << 16 | g << 8 | m)
+    } else if (15 == backgroundDrawType)
+        for (b = 2, d = 258; b < Fe; b++, d += 4)
+            for (c = 2; c < Ee; c++, d++) {
+                n = m = g = f = 0;
+                e = (b << 11) + (c << 2);
+                for (a = 0; 16 > a; a++) 0 != v[e] && (f += v[e] >> 16 & 255, g += v[e] >> 8 & 255, m += v[e] & 255, n++), e += u[a];
+                if (0 != n)
+                    for (f = floor(f / n), g = floor(g /
+                            n), m = floor(m / n), e = (b << 11) + (c << 2), a = 0; 16 > a; a++) v[e] = 3 > a || 4 == a || 8 == a ? min(f + 48, 255) << 16 | min(g + 48, 255) << 8 | min(m + 48, 255) : 12 < a || 7 == a || 11 == a ? max(f - 32, 0) << 16 | max(g - 32, 0) << 8 | max(m - 32, 0) : f << 16 | g << 8 | m, e += u[a]
+            }
+    Wf()
+}
+var Xf = [0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 3],
+    Yf = [
+        [],
+        [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4],
+        [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+        [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 4, 4, 4, 4],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 4, 4, 4, 4],
+        [1, 1, 1, 1, 1, 1,
+            1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 4, 4, 4, 4
+        ],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2, 2, 2, 2, 3, 3, 3, 3, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 4, 4, 4, 4, 1, 1, 1, 1, 4, 4, 4, 4],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2, 2, 2, 2, 3,
+            3, 3, 3, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 4, 4, 4, 4, 1, 1, 1, 1, 4, 4, 4, 4
+        ],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2, 2, 2, 2, 3, 3, 3, 3, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 4, 4, 4, 4, 1, 1, 1, 1, 4, 4, 4, 4],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 2,
+            2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4, 4
+        ]
+    ];
+
+
+function Wf() {
+    var a, c, b, d, e, f = false;
+    if (54 == ea || 55 == ea || 56 == ea || 57 == ea || 58 == ea) f = true;
+    var g = false;
+    if (54 == fa || 55 == fa || 56 == fa || 57 == fa || 58 == fa) g = true;
+    if (!ga && 0 == Xa) {
+        if (f || g) {
+            var m = oa;
+            f && 56 != ea && 0 == oa && (m = 1);
+            g && 56 != fa && 0 == oa && (m = 1);
+            e = 4210752;
+            f && (e |= 16711680);
+            g && (e |= 255);
+            b = (ja >> 2) - floor(m / 2);
+            c = ((ia >> 2) - floor(m / 2) + Xf[m]) * ha;
+            b = (b + 0) * ha;
+            for (a = 0; a < Yf[m].length; a++) d = minInsideRange(b, 0, 288) * screenWidth + minInsideRange(c, 0, screenWidth - 1), v[d] = e, 1 == Yf[m][a] && c++, 2 == Yf[m][a] && b++, 3 == Yf[m][a] && c--, 4 == Yf[m][a] && b--
+        }
+        if (45 == ea || 45 == fa || 25 == ea || 25 == fa) {
+            e = 4210752;
+            if (45 == ea || 25 ==
+                ea) e |= 16711680;
+            if (45 == fa || 25 == fa) e |= 255;
+            lf(ia + 0.5, ja + 0.5, ia + 0.5 + 30 * na.x, ja + 0.5 + 30 * na.y, e)
+        }
+        if (5 == ea || 5 == fa) e = 4210752, 5 == ea && (e |= 16711680), 5 == fa && (e |= 255), lf(ia + 0.5, ja + 0.5, ia + 0.5 + 20 * Math.cos(Fa * PI / 32), ja + 0.5 - 20 * Math.sin(Fa * PI / 32), e);
+        1 == Aa && (We && (ea < numberOfTypesOfElements || f) || Xe && (fa < numberOfTypesOfElements || g)) && lf(Da, Ea, ia, ja, 16711680);
+        if (64 == ea || 64 == fa) e = 4210752, 64 == ea && (e |= 16711680), 64 == fa && (e |= 255), lf(wb, xb, wb, xb + 13, e), lf(wb, xb, wb + 200, xb, e), lf(wb, xb + 13, wb + 200, xb + 13, e);
+        if (65 == ea || 65 == fa)
+            if (0 == Ga) {
+                if (65 == ea && We || 65 == fa && Xe) lf(Ha, Ia, Ja,
+                    Ia, 16761024), lf(Ha, Ka, Ja, Ka, 16761024), lf(Ha, Ia, Ha, Ka, 16761024), lf(Ja, Ia, Ja, Ka, 16761024)
+            } else c = ia - floor((Ja - Ha) / 2), b = ja - floor((Ka - Ia) / 2), e = Ja - Ha, a = Ka - Ia, lf(c, b, c + e, b, 12632319), lf(c, b + a, c + e, b + a, 12632319), lf(c, b, c, b + a, 12632319), lf(c + e, b, c + e, b + a, 12632319);
+        if (53 == ea || 53 == fa) {
+            e = 4210752;
+            53 == ea && (e |= 16711680);
+            53 == fa && (e |= 255);
+            f = [0, -1, -512, 1, 512, -513, -511, 513, 511, -2, -1024, 2, 1024, 510, -514, -1025, -1023, -510, 514, 1025, 1023, -3, -1026, -1536, -1022, 3, 1026, 1536, 1022, 509, -515, -1537, -1535, -509, 515, 1537, 1535];
+            c = ia;
+            b = ja;
+            d = ja * screenWidth +
+                ia;
+            for (a = 0; 37 > a; a++)
+                if (-1 != Ed(d + f[a]) || -1 != Fd(d + f[a]) || I[d + f[a]] >= p) {
+                    c = d + f[a] & 511;
+                    b = floor((d + f[a]) / 512);
+                    break
+                } - 1 != Ua ? lf(Ua & 511, Ua / 512, c, b, e) : lf(c, b, ia, ja, e)
+        }
+    }
+}
+var Zf = 0.01,
+    $f = 1 / Zf,
+    w = 128,
+    re = 74,
+    Ee = w - 2,
+    Fe = re - 2,
+    x = new Int8Array(re * w),
+    ag = new Float32Array(re * w),
+    bg = new Float32Array(re * w),
+    cg = new Float32Array(re * w),
+    dg = new Float32Array(re * w),
+    P = ag,
+    Q = bg,
+    se = cg,
+    te = dg,
+    ue = new Float32Array(re * w);
+
+
+function df() {
+    var a, c, b, d, e, f, g;
+    if (1 == xa) {
+        for (a = 2; a < Ee; a++) P[128 + a] = P[9088 + a], P[9216 + a] = P[256 + a], Q[128 + a] = Q[9088 + a], Q[9216 + a] = Q[256 + a];
+        for (b = 256; b < Fe << 7; b += w) P[b + 1] = P[b + Ee - 1], P[b + Ee] = P[b + 2], Q[b + 1] = Q[b + Ee - 1], Q[b + Ee] = Q[b + 2]
+    }
+    b = 2;
+    f = 258;
+    for (g = f + 124; b < Fe; b++, f += 4, g += w)
+        for (; f < g; f++) 1 <= x[f] || (ue[f] *= 0.9, ue[f] -= (P[f + 1] - P[f - 1] + Q[f + w] - Q[f - w]) * $f);
+    for (a = 0; 2 > a; a++) {
+        b = 2;
+        for (f = 257; b < Fe; b++, f += 128) {
+            1 == xa && (ue[f + 125] = 0.5 * (ue[f] + ue[f + 1]));
+            for (c = 1; c < Ee; c++, f++) 1 <= x[f] || 1 <= x[f + 1] || (ue[f] = 0.5 * (ue[f] + ue[f + 1]));
+            for (c = Ee; 2 <=
+                c; c--, f--) 1 <= x[f] || 1 <= x[f - 1] || (ue[f] = 0.5 * (ue[f] + ue[f - 1]))
+        }
+        c = 2;
+        for (f = 130; c < Ee; c++, f++) {
+            for (b = 1; b < Fe; b++, f += 128) 1 <= x[f] || 1 <= x[f + w] || (ue[f] = 0.5 * (ue[f] + ue[f + w]));
+            for (b = Fe; 2 <= b; b--, f -= 128) 1 <= x[f] || 1 <= x[f - w] || (ue[f] = 0.5 * (ue[f] + ue[f - w]))
+        }
+    }
+    if (1 == xa) {
+        for (a = 2; a < Ee; a++) ue[128 + a] = ue[9088 + a], ue[9216 + a] = ue[256 + a];
+        for (b = 256; b < Fe << 7; b += w) ue[b + 1] = ue[b + Ee - 1], ue[b + Ee] = ue[b + 2]
+    }
+    var m, n, t, u, F, M;
+    b = 2;
+    f = 258;
+    for (g = f + 124; b < Fe; b++, f += 4, g += w)
+        for (; f < g; f++) 1 <= x[f] || (a = f + 1, c = f - 1, d = f + w, e = f - w, m = 3 * abs(P[f]), n = 3 * abs(Q[f]), t = 6 * P[f] * (P[a] -
+                P[c]) + m * (2 * P[f] - P[a] - P[c]), u = 6 * Q[f] * (P[d] - P[e]) + n * (2 * P[f] - P[d] - P[e]), F = (1 <= x[a] ? ue[f] : ue[a]) - (1 <= x[c] ? ue[f] : ue[c]), M = P[a] + P[c] - 2 * P[f], M += P[d] + P[e] - 2 * P[f], t = minInsideRange(t + u + F, -10, 10), se[f] = P[f] + Zf * (-t + M), t = 6 * P[f] * (Q[a] - Q[c]) + m * (2 * Q[f] - Q[a] - Q[c]), u = 6 * Q[f] * (Q[d] - Q[e]) + n * (2 * Q[f] - Q[d] - Q[e]), F = (1 <= x[d] ? ue[f] : ue[d]) - (1 <= x[e] ? ue[f] : ue[e]), M = Q[a] + Q[c] - 2 * Q[f], M += Q[d] + Q[e] - 2 * Q[f], t = minInsideRange(t + u + F, -10, 10), te[f] = Q[f] + Zf * (-t + M), 1 <= x[c] && 0 > se[f] && (se[f] *= 0.9), 1 <= x[a] && 0 < se[f] && (se[f] *= 0.9), 1 <= x[e] && 0 > te[f] && (te[f] *= 0.9), 1 <= x[d] &&
+            0 < te[f] && (te[f] *= 0.9));
+    f = P;
+    P = se;
+    se = f;
+    f = Q;
+    Q = te;
+    te = f
+}
+var eg = new Float32Array(296 * screenWidth),
+    Re = new Float32Array(296 * screenWidth),
+    U = new Float32Array(296 * screenWidth),
+    V = new Float32Array(296 * screenWidth),
+    Se = 0;
+
+function fg() {
+    var a, c, b, d = new Vector,
+        e;
+    for (b = c = 0; 280 > c; c++, b += 16)
+        for (a = 0; 496 > a; a++, b++) d.x = -0.5 - a, d.y = -0.5 - c, e = normalize2(d) + 16, e = 100 / (e * e), U[b] = d.x * e, V[b] = d.y * e
+}
+
+function hg(a, c) {
+    var b, d, e, f;
+    e = 4104;
+    f = (c - 8 - 1 << 9) + (a - 8 - 1);
+    for (d = 8; d < c; d++, e += 16) {
+        for (b = 8; b < a; b++, e++, f--) eg[e] -= U[f], Re[e] -= V[f];
+        for (f++; 504 > b; b++, e++, f++) eg[e] += U[f], Re[e] -= V[f];
+        f += a + a - 1025
+    }
+    for (f += 512; 288 > d; d++, e += 16) {
+        for (b = 8; b < a; b++, e++, f--) eg[e] -= U[f], Re[e] += V[f];
+        for (f++; 504 > b; b++, e++, f++) eg[e] += U[f], Re[e] += V[f];
+        f += a + a - 1
+    }
+}
+
+function ig(a, c) {
+    var b, d, e, f;
+    e = 4104;
+    f = (c - 8 - 1 << 9) + (a - 8 - 1);
+    for (d = 8; d < c; d++, e += 16) {
+        for (b = 8; b < a; b++, e++, f--) eg[e] += U[f], Re[e] += V[f];
+        for (f++; 504 > b; b++, e++, f++) eg[e] -= U[f], Re[e] += V[f];
+        f += a + a - 1025
+    }
+    for (f += 512; 288 > d; d++, e += 16) {
+        for (b = 8; b < a; b++, e++, f--) eg[e] += U[f], Re[e] -= V[f];
+        for (f++; 504 > b; b++, e++, f++) eg[e] -= U[f], Re[e] -= V[f];
+        f += a + a - 1
+    }
+}
+
+function Dd() {
+    var a, c, b;
+    for (b = 296 * screenWidth - 1; 0 <= b; b--) eg[b] = 0, Re[b] = isGravityOn ? 1 : 0;
+    fg();
+    c = 10;
+    for (b = 258; 288 > c; c += 4, b += 4)
+        for (a = 10; 504 > a; a += 4, b++) {
+            if (x[b] == Hb) hg(a, c);
+            else if (x[b] == Ib) ig(a, c);
+            else continue;
+            Se++;
+            0 == (Se & 63) && (oe(12, 12, 80, 12, 0), drawTextUsingImage(fontImage, 12, 12, "G-MAP " + Se, 0, 6316128))
+        }
+    Se = 1;
+    setGravity()
+}
+
+function Of(a, c, b) {
+    0 == Se && fg();
+    a = (a << 2) + 2;
+    c = (c << 2) + 2;
+    0 < b ? hg(a, c) : ig(a, c);
+    Se++;
+    0 == (Se & 127) && (oe(12, 12, 80, 12, 0), drawTextUsingImage(fontImage, 12, 12, "G-MAP " + Se, 0, 6316128))
+}
+
+function setGravity() {
+    if (0 != Se) {
+        Se = 0;
+        var a;
+        if (isGravityOn == 0) {
+            for (a = re * w - 1; 0 <= a && x[a] != Hb && x[a] != Ib; a--);
+            if (-1 == a)
+                for (a = 296 * screenWidth - 1; 0 <= a; a--) eg[a] = 0, Re[a] = 0
+        }
+        var c = new Vector;
+        for (a = 288 * screenWidth - 1; 4096 <= a; a--) {
+            setToVector(c, eg[a], Re[a]);
+            normalize2(c);
+            U[a] = c.x;
+            V[a] = c.y;
+        }
+    }
+}
+var sd = 0,
+    jg = 999,
+    we = 64,
+    ud = new Int32Array(jg),
+    wd = new Int32Array(jg),
+    vd = new Int32Array(jg),
+    xd = new Int32Array(jg),
+    kg = new Float32Array(jg),
+    td = new Int8Array(jg),
+    lg = [16773360, 16777200, 15794160, 15794175, 15790335, 16773375];
+
+function Gd(a, c, b, d, e) {
+    if (sd >= jg) return -1;
+    var f = null,
+        g = null,
+        m = false,
+        n = false;
+    0 == a ? (f = C[b], D[b] == nc && (m = true)) : 1 == a ? f = stickManBodyPoints[b * hd + 1] : 2 == a && (f = B[b]);
+    0 == c ? (g = C[d], D[d] == nc && (n = true)) : 1 == c ? g = stickManBodyPoints[d * hd + 1] : 2 == c && (g = B[d]);
+    m && (G[b] = 1);
+    n && (G[d] = 1);
+    m ? f = 4 : (m = ~~g.x - ~~f.x, f = ~~g.y - ~~f.y, f = Math.sqrt(m * m + f * f));
+    ud[sd] = a;
+    wd[sd] = c;
+    vd[sd] = b;
+    xd[sd] = d;
+    kg[sd] = f;
+    td[sd] = e;
+    0 == a && Jd[b]++;
+    0 == c && Jd[d]++;
+    1 == a && Be[b]++;
+    1 == c && Be[d]++;
+    2 == a && De[b]++;
+    2 == c && De[d]++;
+    sd++;
+    return sd - 1
+}
+
+function mg(a, c) {
+    for (var b = 0; b < sd; b++)
+        if (ud[b] == a && vd[b] == c || wd[b] == a && xd[b] == c) 0 == ud[b] && D[vd[b]] == nc && (G[vd[b]] = 2), 0 == wd[b] && D[xd[b]] == nc && (G[xd[b]] = 2), sd--, 0 == ud[b] && Jd[vd[b]]--, 0 == wd[b] && Jd[xd[b]]--, 1 == ud[b] && Be[vd[b]]--, 1 == wd[b] && Be[xd[b]]--, 2 == ud[b] && De[vd[b]]--, 2 == wd[b] && De[xd[b]]--, ud[b] = ud[sd], wd[b] = wd[sd], vd[b] = vd[sd], xd[b] = xd[sd], kg[b] = kg[sd], td[b] = td[sd], b--
+}
+
+function ng(a, c, b) {
+    for (var d = 0; d < sd; d++) ud[d] == a && vd[d] == c && (vd[d] = b), wd[d] == a && xd[d] == c && (xd[d] = b)
+}
+
+
+function ff() {
+    var a = new Vector,
+        c, b = null,
+        d = null,
+        e = null,
+        f = null,
+        g = 1,
+        m = 1;
+    c = false;
+    we++;
+    for (var n = 0; n < sd; n++) {
+        c = false;
+        0 == ud[n] ? (b = C[vd[n]], e = J[vd[n]], g = Jd[vd[n]] & 255, D[vd[n]] == nc && (c = true)) : 1 == ud[n] ? (b = stickManBodyPoints[vd[n] * hd + 1], e = stickManBodyPoints[vd[n] * hd + 1], g = Be[vd[n]] & 255) : 2 == ud[n] && (b = B[vd[n]], e = W[vd[n]], g = De[vd[n]] & 255);
+        0 == wd[n] ? (d = C[xd[n]], f = J[xd[n]], m = Jd[xd[n]] & 255) : 1 == wd[n] ? (d = stickManBodyPoints[xd[n] * hd + 1], f = stickManBodyPoints[xd[n] * hd + 1], m = Be[xd[n]] & 255) : 2 == wd[n] && (d = B[xd[n]], f = W[xd[n]], m = De[xd[n]] & 255);
+        c && (vectorSub(a, C[xd[n]], C[vd[n]]), rotatePointAroundCenter90Degrees(a), normalize2(a), vectorScale(a, 0.1), J[vd[n]].add(a),
+            J[xd[n]].add(a));
+        if (1 == td[n]) vectorSub(a, d, b), rotatePointAroundCenter90Degrees(a), normalize2(a), vectorScale(a, 0.1), e.sub(a), f.add(a);
+        else if (2 == td[n]) vectorSub(a, d, b), rotatePointAroundCenter90Degrees(a), normalize2(a), vectorScale(a, 0.1), e.add(a), f.sub(a);
+        else if (4 == td[n]) continue;
+        vectorSub(a, d, b);
+        c || (1 != wd[n] && a.add(f), 1 != ud[n] && a.sub(e));
+        c = normalize2(a);
+        if (0 != c) {
+            if (3 == td[n]) {
+                var t = we & 255;
+                128 <= t && (t = 256 - t);
+                c = 0.5 * (kg[n] * (0.5 + t / 128) - c)
+            } else c = 0.5 * (kg[n] - c);
+            e.x -= a.x * c / (0.5 * g + 0.5);
+            e.y -= a.y * c / (0.5 * g + 0.5);
+            f.x += a.x * c / (0.5 * m + 0.5);
+            f.y += a.y * c / (0.5 * m + 0.5);
+            1 == ud[n] && (e.x = minInsideRange(e.x, 4, 508), e.y = minInsideRange(e.y, 4, 292));
+            1 == wd[n] && (f.x = minInsideRange(f.x, 4, 508),
+                f.y = minInsideRange(f.y, 4, 292))
+        }
+    }
+}
+
+
+function Tf() {
+    for (var a, c, b, d = null, e = null, f = 0, g = 0, m = 0; m < sd; m++) 0 == ud[m] ? (d = C[vd[m]], f = E[vd[m]]) : 1 == ud[m] ? (d = stickManBodyPoints[vd[m] * hd + 1], f = 16769198) : 2 == ud[m] && (d = B[vd[m]], f = s[A[vd[m]]]), 0 == wd[m] ? (e = C[xd[m]], g = E[xd[m]]) : 1 == wd[m] ? (e = stickManBodyPoints[xd[m] * hd + 1], g = 16769198) : 2 == wd[m] && (e = B[xd[m]], g = s[A[xd[m]]]), a = (f >> 16 & 255) + (g >> 16 & 255) >> 1, c = (f >> 8 & 255) + (g >> 8 & 255) >> 1, b = (f & 255) + (g & 255) >> 1, 0 != Va ? 1 == Va ? lf(d.x, d.y, e.x, e.y, 14540253) : 2 == Va && lf(d.x, d.y, e.x, e.y, 2236962) : 5 != td[m] && (10 == backgroundDrawType ? (a = floor((2989 * a + 5866 * c + 1145 * b) / 1E4), lf(d.x, d.y, e.x, e.y,
+        a << 16 | a << 8 | a)) : 14 == backgroundDrawType ? lf(d.x, d.y, e.x, e.y, 0) : lf(d.x, d.y, e.x, e.y, a << 16 | c << 8 | b))
+}
+var qd = p,
+    mf = p + 4E4,
+    C = Array(mf);
+for (da = 0; da < mf; da++) C[da] = new Vector;
+var J = Array(mf);
+for (da = 0; da < mf; da++) J[da] = new Vector;
+var D = new Int8Array(mf),
+    G = new Int32Array(mf),
+    E = new Int32Array(mf),
+    I = new Int32Array(296 * screenWidth),
+    H = new Int32Array(mf),
+    ve = Array(296 * screenWidth),
+    R = new Int16Array(296 * screenWidth),
+    Jd = new Uint8Array(mf),
+    X = [0, 0, 0, 0, 0, 1, 2, 3, 1, 4, 1, 4, 1, 1, 4, 1, 2, 4, 1, 2, 1, 3, 0, 1, 2, 1, 3, 5, 2, 3, 4, 1, 3, 2, 4, 1, 2, 4, 5, 5, 1, 3, 4, 5, 4, 0, 0, 0, 0, 0, 4, 1, 4],
+    qg = [0, 0, 0, 0, 0, 10, 25, 5, 20, 25, 20, 40, 10, 20, 0, 20, 25, 100, 40, 40, 50, 50, 0, 10, 100, 10, 25, 5, 25, 0, 10, 10, 5, 0, 25, 10, 25, 0, 10, 10, 50, 5, 50, 5, 0, 0, 0, 0, 0, 0, 0, 10, 25],
+    rg = [0, 0, 0.9, 0.9, 0.9, 0.2, 0, 0, 0.2, 0.7, 0.2, 0.8, 0.2, 0, 0.2, 0.5, 0, 0.5, 0.3, 0, 0.9,
+        0.2, 0, 0, 0, 0.3, 0, 0, 0, 0, 0.9, 0.9, 0, 0, 0.8, 0.2, 0, 0.9, 0.1, 0.1, 0.9, 0.9, 0.5, 0, 0.9, 0, 0, 0, 0, 0, 0.9, 0.9, 0.9
+    ],
+    sg = [0, 0, 0.9, 0.9, 0.9, 0.2, 0, 0, 0.2, 0.7, 0.2, 1, 0.2, 0, 0.2, 0.5, 0, 0.5, 0.3, 0, 0.9, 0.2, 0, 0, 0, 0.3, 0, 0, 1, 0, 0.9, 0.9, 0, 0, 0.2, 0.2, 0, 0.5, 0.1, 0.1, 0.9, 0.9, 0.5, 0, 0.9, 0, 0, 0, 0, 0, 0.9, 0.9, 0.9],
+    tg = [512, -1, -512, 1],
+    ug = [0, -1, 0, 1],
+    vg = [1, 0, -1, 0],
+    wg = [-513, -512, -511, 1, 513, 512, 511, -1],
+    xg = [-0.7, 0, 0.7, 1, 0.7, 0, -0.7, -1],
+    yg = [-0.7, -1, -0.7, 0, 0.7, 1, 0.7, 0],
+    zg = [-1, 0, 1, 1, 1, 0, -1, -1],
+    Ag = [-1, -1, -1, 0, 1, 1, 1, 0],
+    Bg = [-1025, -1024, -1023, -514, -513, -512, -511,
+        -510, -2, -1, 1, 2, 510, 511, 512, 513, 514, 1023, 1024, 1025
+    ],
+    Cg = [-2049, -2048, -2047, -1539, -1538, -1537, -1536, -1535, -1534, -1533, -1027, -1026, -1025, -1024, -1023, -1022, -1021, -516, -515, -514, -513, -512, -511, -510, -509, -508, -4, -3, -2, -1, 1, 2, 3, 4, 508, 509, 510, 511, 512, 513, 514, 515, 516, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1533, 1534, 1535, 1536, 1537, 1538, 1539, 2047, 2048, 2049],
+    Dg = [1, 1, 0, -1, -1, -1, 0, 1],
+    Eg = [0, -1, -1, -1, 0, 1, 1, 1],
+    Fg = [1, -511, -512, -513, -1, 511, 512, 513],
+    Gg = [-4096, -3587, -3585, -3583, -3581, -3076, -3074, -3072, -3070, -3068, -2565, -2563,
+        -2561, -2559, -2557, -2555, -2054, -2052, -2050, -2048, -2046, -2044, -2042, -1543, -1541, -1539, -1537, -1535, -1533, -1531, -1529, -1030, -1028, -1026, -1024, -1022, -1020, -1018, -519, -517, -515, -513, -511, -509, -507, -505, -8, -6, -4, -2, 0, 2, 4, 6, 8, 505, 507, 509, 511, 513, 515, 517, 519, 1018, 1020, 1022, 1024, 1026, 1028, 1030, 1529, 1531, 1533, 1535, 1537, 1539, 1541, 1543, 2042, 2044, 2046, 2048, 2050, 2052, 2054, 2555, 2557, 2559, 2561, 2563, 2565, 3068, 3070, 3072, 3074, 3076, 3581, 3583, 3585, 3587, 4096
+    ];
+
+function L(a, c, b, d) {
+    D[a] == nc && mg(0, a);
+    D[a] = c;
+    G[a] = b;
+    E[a] = d
+}
+
+function Hg(a, c) {
+    L(a, c, 0, s[c])
+}
+
+function Bd(a, c, b, d) {
+    if (qd >= mf || 7 > a || 505 <= a || 7 > c || 289 <= c) return -1;
+    setToVector(C[qd], a + 0.5, c + 0.5);
+    setToVector(J[qd], 0, 0);
+    D[qd] = b;
+    G[qd] = d;
+    E[qd] = s[b];
+    H[qd] = ~~c * screenWidth + ~~a;
+    I[H[qd]] = qd;
+    Jd[qd] = 0;
+    qd++;
+    return qd - 1
+}
+
+function rd(a) {
+    if (qd != p) {
+        I[H[a]] = Jb;
+        qd--;
+        for (var c = 0; c < Ig; c++) Jg[c] == a ? (Ig--, Jg[c] = Jg[Ig]) : Jg[c] == qd && (Jg[c] = a);
+        mg(0, a);
+        qd != a && (C[a].set(C[qd]), J[a].set(J[qd]), D[a] = D[qd], G[a] = G[qd], E[a] = E[qd], Jd[a] = Jd[qd], H[a] = H[qd], ng(0, qd, a), I[H[a]] = D[a] == Nb ? l : a)
+    }
+}
+var Kg = 1781,
+    Ig = 0,
+    Jg = new Int32Array(Kg);
+
+function Lg(a, c) {
+    var b;
+    b = C[a].x;
+    C[a].x = C[c].x;
+    C[c].x = b;
+    b = C[a].y;
+    C[a].y = C[c].y;
+    C[c].y = b;
+    b = I[H[a]];
+    I[H[a]] = I[H[c]];
+    I[H[c]] = b;
+    b = H[a];
+    H[a] = H[c];
+    H[c] = b
+}
+
+function Mg(a, c, b) {
+    I[H[a]] = Jb;
+    setToVector(C[a], c, b);
+    H[a] = (b << 9) + ~~c;
+    I[H[a]] = a
+}
+
+function Ng(a, c) {
+    I[H[a]] = Jb;
+    var b = vectorLength2(c);
+    3.8 < b && vectorScale(c, 3.8 / b);
+    b = (C[a].y << 9) + ~~(C[a].x + c.x);
+    I[b] <= l && (C[a].x += c.x);
+    b = (C[a].y + c.y << 9) + ~~C[a].x;
+    I[b] <= l && (C[a].y += c.y);
+    H[a] = (C[a].y << 9) + ~~C[a].x;
+    I[H[a]] = a
+}
+var Og = new Vector,
+    Pg = new Vector,
+    Qg = new Vector;
+
+function Rg(a, c) {
+    var b = vectorLength2(c);
+    3.8 < b && vectorScale(c, 3.8 / b);
+    setToVector(Qg, U[H[a]], V[H[a]]);
+    var b = c.x * Qg.x + c.y * Qg.y,
+        d = Pg,
+        e = Qg;
+    d.x = e.x * b;
+    d.y = e.y * b;
+    vectorSub(Og, c, Pg);
+    b = (C[a].y + Pg.y << 9) + ~~(C[a].x + Pg.x);
+    I[b] <= l && C[a].add(Pg);
+    b = (C[a].y + Og.y << 9) + ~~(C[a].x + Og.x);
+    I[b] <= l && C[a].add(Og);
+    H[a] = (C[a].y << 9) + ~~C[a].x;
+    I[H[a]] = a
+}
+var Sg = [0, 0, 0, 0, 0, 0.05, 0.1, -0.1, 0.1, 0.1, 0.1, 0.1, 0.05, 0.1, 0, 0.1, 0.1, 0.2, 0.1, 0.1, 0.2, 0.4, 0, 0.05, 0.2, 0.3, 0.1, -0.1, 0.1, 0, 0.4, 0.4, 0, 0.2, 0.1, 0.1, 0.1, 0.1, 0, 0.1, 0.4, 0.1, 0.05, -0.1, 0.4, 0, 0, 0, 0, 0, 0.2, 0.08, 0.2],
+    Tg = [0, 0, 0, 0, 0, 0.1, 0, 0.5, 0.2, 0.2, 0.1, 0.2, 0, 0.9, 0, 0.1, 0, 0.2, 0.2, 0, 0.2, 0, 0, 0.1, 0, 0, 0.2, 0.1, 0, 0, 0.2, 0.2, 0, 0, 0, 0.1, 0, 0.2, 0, 0, 0, 0.9, 0.1, 0.1, 0.2, 0, 0, 0, 0, 0, 0.2, 0.05, 0.2],
+    Ug = [0, 0, 0, 0, 0, 0.5, 0.95, 1, 0.5, 0.5, 0.5, 1, 0.95, 0.1, 0, 0.5, 1, 0.8, 0.8, 0.95, 0.8, 0.1, 0, 0.5, 0.95, 0.5, 0.5, 1, 1, 0, 0.8, 0.8, 0, 0.95, 0.5, 0.5, 0.95, 0.8, 1, 0.5,
+        0.95, 0.8, 0.5, 1, 0.8, 0, 0, 0, 0, 0, 0.8, 0.95, 0.5
+    ];
+
+function Vg(a, c) {
+    J[a].x += U[H[a]] * Sg[D[a]];
+    J[a].y += V[H[a]] * Sg[D[a]];
+    c.set(J[a]);
+    c.x += P[R[H[a]]];
+    c.y += Q[R[H[a]]];
+    I[H[a]] = Jb;
+    var b = floor(vectorLength2(c) / 4) + 2;
+    vectorScale(c, 1 / b);
+    for (var d = 0, e; d < b; d++) e = (C[a].y << 9) + ~~(C[a].x + c.x), 4 > C[a].x + c.x || 508 <= C[a].x + c.x || (I[e] <= l ? C[a].x += c.x : (J[a].y *= Ug[D[a]], J[a].x *= -Tg[D[a]], c.x *= -Tg[D[a]])), e = (C[a].y + c.y << 9) + ~~C[a].x, 4 > C[a].y + c.y || 292 <= C[a].y + c.y || (I[e] <= l ? C[a].y += c.y : (J[a].x *= Ug[D[a]], J[a].y *= -Tg[D[a]], c.y *= -Tg[D[a]]));
+    H[a] = (C[a].y << 9) + ~~C[a].x;
+    I[H[a]] = a
+}
+
+
+function ef() {
+    var a, c = new Vector;
+    if (!ga && 0 == Xa) {
+        if (47 == ea && Ke || 47 == fa && Oe) {
+            a = new Vector;
+            Ig = 0;
+            for (var b = p; b < qd && !(Kg <= Ig); b++) D[b] != Nb && (a.x = ia - floor(C[b].x), a.y = ja - floor(C[b].y), fastLength(a) < oa * oa * 7 + 1 && (Jg[Ig++] = b))
+        }
+        if (47 == ea && We || 47 == fa && Xe)
+            for (b = 0; b < Ig; b++) J[Jg[b]].x += 0.1 * (ia - C[Jg[b]].x), J[Jg[b]].y += 0.1 * (ja - C[Jg[b]].y);
+        else Ig = 0
+    }
+    for (a = p; a < qd; a++) a = D[a] <= bc ? a - Xg(a, c) : D[a] <= mc ? a - Yg(a, c) : D[a] <= tc ? a - Zg(a, c) : D[a] <= Dc ? a - $g(a, c) : a - ah(a, c);
+    if (1 > xa)
+        for (a = p; a < qd; a++) ve[H[a]] || rd(a--);
+    else if (1 == xa)
+        for (a = p; a < qd; a++)
+            if (!ve[H[a]]) {
+                a: {
+                    for (c =
+                        0; c < sd; c++)
+                        if (0 == ud[c] && vd[c] == a || 0 == wd[c] && xd[c] == a) {
+                            c = true;
+                            break a
+                        } c = false
+                }
+                c ? rd(a--) : 8 > C[a].x ? (c = H[a] + 496, I[c] <= l && 8 <= C[a].y && 288 > C[a].y ? (C[a].x += 496, I[H[a]] = Jb, H[a] = c, I[c] = a) : rd(a--)) : 504 <= C[a].x ? (c = H[a] - 496, I[c] <= l && 8 <= C[a].y && 288 > C[a].y ? (C[a].x -= 496, I[H[a]] = Jb, H[a] = c, I[c] = a) : rd(a--)) : 8 > C[a].y ? (c = H[a] + 280 * screenWidth, I[c] <= l ? (C[a].y += 280, I[H[a]] = Jb, H[a] = c, I[c] = a) : rd(a--)) : 288 <= C[a].y && (c = H[a] - 280 * screenWidth, I[c] <= l ? (C[a].y -= 280, I[H[a]] = Jb, H[a] = c, I[c] = a) : rd(a--))
+            }
+}
+
+
+function Xg(a, c) {
+    var b, d, e, f, g, m, n, t;
+    if (D[a] == Sb)
+        if (0 == Jd[a]) {
+            setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+            d = customRandom2(0.4);
+            c.x += U[H[a]] * d;
+            c.y += V[H[a]] * d;
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.7), c.add(J[a]);
+            Ng(a, c)
+        } else Vg(a, c);
+    else if (D[a] == q) {
+        if (0 == Jd[a]) {
+            I[H[a]] = Jb;
+            setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+            b = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
+            D[I[b]] >= Ob ? (b = (C[a].y + U[H[a]] << 9) + floor(C[a].x - V[H[a]]), I[b] <= l && (d = customRandomBetween(0.1, 0.2), J[a].x -= V[H[a]] * d, J[a].y += U[H[a]] * d), b = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[b] <= l &&
+                (d = customRandomBetween(0.1, 0.2), J[a].x += V[H[a]] * d, J[a].y -= U[H[a]] * d), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (d = customRandom2(1.5), c.x += U[H[a]] * d, c.y += V[H[a]] * d);
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
+            0 == V[H[a]] ? Ng(a, c) : Rg(a, c)
+        } else Vg(a, c);
+        d = customRandom(8);
+        b = I[H[a] + wg[d]];
+        1 == X[D[b]] && D[b] != fc || D[b] == ec || D[b] == jc || D[b] == nc || D[b] == vc ? customRandomBoolean(0.2) && 0.3 >= U[H[a]] * xg[d] + V[H[a]] * yg[d] && Lg(a, b) : D[b] == Wb && customRandomBoolean(0.5) && L(a, Wb, 0, s[Wb]);
+        d = customRandom(20);
+        b = I[H[a] + Bg[d]];
+        if (D[b] == dc) return L(b, ec, 0, s[ec]), rd(a),
+            1
+    } else if (D[a] == r) {
+        if (0 == Jd[a]) {
+            if (1 != G[a] && customRandomBoolean(0.05) || 1 == G[a] && customRandomBoolean(0.2)) return rd(a), 1;
+            d = customRandom2(0.03);
+            P[R[H[a]]] -= U[H[a]] * d;
+            Q[R[H[a]]] -= V[H[a]] * d;
+            setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+            d = customRandomBetween(-0.5, 0.5);
+            c.x += V[H[a]] * d;
+            c.y -= U[H[a]] * d;
+            2 == G[a] && (vectorScale(J[a], 0.9), c.add(J[a]));
+            Ng(a, c)
+        } else Vg(a, c);
+        d = customRandom(20);
+        b = I[H[a] + Bg[d]];
+        if (b >= p)
+            if (D[b] == Sb) L(b, r, 0, s[r]);
+            else {
+                if (D[b] == q || D[b] == vc) return rd(a), 1;
+                D[b] == Tb ? customRandomBoolean(0.5) && L(b, r, 0, s[r]) : D[b] == Xb ? L(b, q, 0, s[q]) : D[b] == tc && L(b, r, 0, s[r])
+            }
+    } else if (D[a] == Tb)
+        if (0 == G[a]) {
+            if (0 == Jd[a]) {
+                setToVector(c, P[R[H[a]]],
+                    Q[R[H[a]]]);
+                d = customRandom2(0.6);
+                c.x += U[H[a]] * d;
+                c.y += V[H[a]] * d;
+                if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.8), c.add(J[a]);
+                Ng(a, c)
+            } else Vg(a, c);
+            if (1E3 > mf - qd) return 0;
+            b = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
+            D[I[b]] == Sb && (G[a] = 1);
+            D[I[b]] == tc && (G[a] = 2);
+            D[I[b]] == dc && (G[a] = 3);
+            D[I[b]] == Ub && (G[a] = (G[I[b]] & 15) + 1)
+        } else if (1 == G[a] || 2 == G[a]) {
+        if (setToVector(c, ~~C[a].x + 0.5, ~~C[a].y + 0.5), d = 1 == G[a] ? customRandom2(1) : 1, c.x -= U[H[a]] * d, c.y -= V[H[a]] * d, d = customRandom(3) - 1, c.x += V[H[a]] * d, c.y -= U[H[a]] * d, b = I[(c.y << 9) + floor(c.x)], b <= l && I[(c.y + V[H[a]] <<
+                9) + floor(c.x + U[H[a]])] <= l && (e = ~~C[a].x, f = ~~C[a].y, Mg(a, ~~c.x, ~~c.y), Bd(e, f, Ub, G[a] - 1)), customRandomBoolean(0.05)) return rd(a), 1
+    } else {
+        if (3 <= G[a] && 5 >= G[a]) {
+            setToVector(c, ~~C[a].x + 0.5, ~~C[a].y + 0.5);
+            if (3 == G[a]) {
+                if (customRandomBoolean(0.1) && (e = floor(c.x - V[H[a]]), f = floor(c.y + U[H[a]]), I[(f << 9) + e] <= l && Bd(e, f, Tb, 4)), customRandomBoolean(0.1) && (e = floor(c.x + V[H[a]]), f = floor(c.y - U[H[a]]), I[(f << 9) + e] <= l && Bd(e, f, Tb, 5)), customRandomBoolean(0.05)) return rd(a), 1
+            } else if (4 == G[a]) {
+                if (c.x -= V[H[a]], c.y += U[H[a]], customRandomBoolean(0.15)) return rd(a), 1
+            } else if (5 == G[a] && (c.x += V[H[a]], c.y -= U[H[a]], customRandomBoolean(0.15))) return rd(a), 1;
+            c.x -= U[H[a]];
+            c.y -= V[H[a]];
+            b = I[(c.y << 9) + ~~c.x];
+            if (b <= l) {
+                if (I[(c.y + U[H[a]] << 9) + floor(c.x - V[H[a]])] > l || I[(c.y - U[H[a]] << 9) + floor(c.x + V[H[a]])] > l) return 0;
+                e = ~~C[a].x;
+                f = ~~C[a].y;
+                Mg(a, ~~c.x, ~~c.y);
+                Bd(e, f, Ub, 2)
+            }
+        }
+    } else if (D[a] == Ub) {
+        if (0 == Jd[a]) {
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.3), c.set(J[a]), Ng(a, c)
+        } else Vg(a, c);
+        if (16 > G[a])
+            if (d = customRandom(20), b = D[I[H[a] + Bg[d]]], b == r) customRandomBoolean(0.5) && (G[a] |= 16);
+            else if (b == gc) G[a] |= 16;
+        else {
+            if (b == q) {
+                if (1E3 > mf - qd) return 0;
+                d = customRandom(8);
+                I[H[a] + wg[d]] <= l && customRandomBoolean(0.05) && Bd(~~C[a].x + zg[d], ~~C[a].y +
+                    Ag[d], Tb, 0)
+            }
+        } else g = Sb, 0 == (G[a] & 15) && (g = Sb), 1 == (G[a] & 15) && (g = tc), 2 == (G[a] & 15) && (g = dc), d = customRandom(8), b = D[I[H[a] + wg[d]]], b <= l ? customRandomBoolean(0.3) && Bd(~~C[a].x + zg[d], ~~C[a].y + Ag[d], r, 1) : b == q && L(a, g, 0, s[g]), customRandomBoolean(0.005) && L(a, g, 0, s[g])
+    } else if (D[a] == Vb) {
+        if (0 == Jd[a]) {
+            setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+            d = customRandom2(0.8);
+            c.x += U[H[a]] * d;
+            c.y += V[H[a]] * d;
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.8), c.add(J[a]);
+            Ng(a, c)
+        } else Vg(a, c);
+        d = customRandom(20);
+        b = D[I[H[a] + Bg[d]]];
+        if (3 != X[b]) return 0;
+        n = ~~C[a].x;
+        t = ~~C[a].y;
+        d = max(n - 8, 8);
+        b = max(t - 8,
+            8);
+        g = min(n + 8, 503);
+        m = min(t + 8, 287);
+        for (f = b; f <= m; f++)
+            for (e = d; e <= g; e++) 64 < (e - n) * (e - n) + (f - t) * (f - t) || (b = (f + t >> 1 << 9) + (e + n >> 1), 1 <= x[R[b]] || (b = I[(f << 9) + e], b >= p && D[b] != Vb && (D[b] == fc && L(b, dc, 0, s[dc]), J[b].x += e - n, J[b].y += f - t)));
+        n = minInsideRange(n, 12, 499);
+        t = minInsideRange(t, 12, 283);
+        d = (t >> 2 << 7) + (n >> 2);
+        0 == x[b = d - w - 1] && (P[b] -= 0.4, Q[b] -= 0.4);
+        0 == x[b = d - w] && (Q[b] -= 0.5);
+        0 == x[b = d - w + 1] && (P[b] += 0.4, Q[b] -= 0.4);
+        0 == x[b = d - 1] && (P[b] -= 0.5);
+        0 == x[b = d + 1] && (P[b] += 0.5);
+        0 == x[b = d + w - 1] && (P[b] -= 0.4, Q[b] += 0.4);
+        0 == x[b = d + w] && (Q[b] += 0.5);
+        0 == x[b = d + w + 1] && (P[b] += 0.4, Q[b] +=
+            0.4);
+        L(a, r, 0, s[r])
+    } else if (D[a] == Nb) customRandomBoolean(0.9) && (P[R[H[a]]] += J[a].x, Q[R[H[a]]] += J[a].y), I[H[a]] == Jb && (I[H[a]] = l);
+    else if (D[a] == Wb) 0 == Jd[a] ? (setToVector(c, P[R[H[a]]], Q[R[H[a]]]), 1 < fastLength(c) && customRandomBoolean(0.5) && L(a, Xb, 0, s[Xb])) : Vg(a, c), d = customRandom(20), b = D[I[H[a] + Bg[d]]], 3 == X[b] && L(a, q, 0, s[q]);
+    else if (D[a] == Xb) {
+        if (0 == Jd[a]) {
+            setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+            d = customRandom2(0.3);
+            c.x += U[H[a]] * d;
+            c.y += V[H[a]] * d;
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.7), c.add(J[a]);
+            Ng(a, c)
+        } else Vg(a, c);
+        d = customRandom(8);
+        b = I[H[a] + wg[d]];
+        b >= p && D[b] != Ub && D[b] !=
+            Xb && D[b] != Zb && D[b] != tc && D[b] != Cc && (D[b] == Wb ? L(a, Wb, 0, s[Wb]) : customRandomBoolean(0.1) && L(a, q, 0, s[q]))
+    } else if (D[a] == Yb) 0 == Jd[a] ? (J[a].x += 0.05 * P[R[H[a]]], J[a].y += 0.05 * Q[R[H[a]]], J[a].x += 0.01 * U[H[a]], J[a].y += 0.01 * V[H[a]], vectorScale(J[a], 0.999), c.set(J[a]), I[H[a]] = Jb, b = vectorLength2(c), 3.8 < b && vectorScale(c, 3.8 / b), b = I[(C[a].y << 9) + floor(C[a].x + c.x)], b <= l ? C[a].x += c.x : 2 == X[D[b]] ? (J[b].x -= J[a].x, J[a].x *= 0.9, C[b].x = C[a].x, C[a].x += c.x, H[b] = H[a], I[H[a]] = b) : D[b] == r ? Lg(a, b) : D[b] == Yb ? (d = 0.9 * J[a].x, J[a].x = 0.9 * J[b].x, J[b].x = d) : (J[a].x *= -rg[D[b]], J[a].y *= sg[D[b]]),
+        H[a] = (C[a].y << 9) + floor(C[a].x), I[H[a]] = Jb, b = I[(C[a].y + c.y << 9) + floor(C[a].x)], b <= l ? C[a].y += c.y : 2 == X[D[b]] ? (J[b].y -= J[a].y, J[a].y *= 0.9, C[b].y = C[a].y, C[a].y += c.y, H[b] = H[a], I[H[a]] = b) : D[b] == r ? Lg(a, b) : D[b] == Yb ? 0 < J[a].y ? (d = 0.45 * J[a].y, J[a].y = -d, J[a].y += J[b].y, J[b].y = d) : (d = 0.45 * J[b].y, J[b].y = -d, J[b].y += J[a].y, J[a].y = d) : (J[a].y *= -rg[D[b]], J[a].x *= sg[D[b]]), H[a] = (C[a].y << 9) + floor(C[a].x), I[H[a]] = a) : Vg(a, c);
+    else if (D[a] == Zb)
+        if (0 != Jd[a] && setToVector(J[a], 0, 0), 0 == G[a]) d = customRandom(20), b = I[H[a] + Bg[d]], b >= p && (G[a] = D[b] == Zb ? G[b] : D[b]);
+        else {
+            if (1E3 >
+                mf - qd) return 0;
+            d = customRandom(8);
+            I[H[a] + wg[d]] <= l && customRandomBoolean(0.1) && Bd(~~C[a].x + zg[d], ~~C[a].y + Ag[d], G[a], 0)
+        } if (D[a] == ac) {
+        if (0 == Jd[a]) {
+            setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+            d = customRandom2(0.8);
+            c.x += U[H[a]] * d;
+            c.y += V[H[a]] * d;
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
+            Ng(a, c)
+        } else Vg(a, c);
+        0 == (G[a] & 255) && (G[a] = 0 != Oc[ea] ? Oc[ea] : 0 != Oc[fa] ? Oc[fa] : Sb);
+        if (256 > G[a]) d = customRandom(8), b = I[H[a] + wg[d]], 3 == X[D[b]] && (G[a] += 256);
+        else if (512 > G[a]) J[a].x = 50 * -U[H[a]], J[a].y = 50 * -V[H[a]], G[a] += 256;
+        else {
+            if (12800 > G[a]) return G[a] +=
+                256, 0;
+            if (customRandomBoolean(0.95)) return 0;
+            if (1E3 > mf - qd) return rd(a), 1;
+            for (d = 0; 8 > d; d++) b = I[H[a] + wg[d]], b <= l && (b = Bd(~~C[a].x + zg[d], ~~C[a].y + Ag[d], G[a] & 255, 0), 0 <= b && (J[b].x += 20 * xg[d], J[b].y += 20 * yg[d]));
+            rd(a);
+            return 1
+        }
+    } else if (D[a] == bc) {
+        if (0 == Jd[a]) {
+            I[H[a]] = Jb;
+            setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+            b = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
+            D[I[b]] >= Ob ? (b = (C[a].y + U[H[a]] << 9) + floor(C[a].x - V[H[a]]), I[b] <= l && (d = customRandomBetween(0.1, 0.2), J[a].x -= V[H[a]] * d, J[a].y += U[H[a]] * d), b = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[b] <= l && (d = customRandomBetween(0.1, 0.2), J[a].x += V[H[a]] *
+                d, J[a].y -= U[H[a]] * d), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (d = customRandom2(1.5), c.x += U[H[a]] * d, c.y += V[H[a]] * d);
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
+            0 == V[H[a]] ? Ng(a, c) : Rg(a, c)
+        } else Vg(a, c);
+        d = customRandom(8);
+        b = I[H[a] + wg[d]];
+        1 == X[D[b]] && D[b] != fc || D[b] == q || D[b] == ec || D[b] == jc || D[b] == vc ? customRandomBoolean(0.2) && 0.3 >= U[H[a]] * xg[d] + V[H[a]] * yg[d] && Lg(a, b) : 3 == X[D[b]] && (G[a] = 1);
+        if (1 == G[a] && (d = customRandom(8), I[H[a] + wg[d]] <= l && Bd(~~C[a].x + zg[d], ~~C[a].y + Ag[d], r, 0), customRandomBoolean(0.1))) return rd(a), 1
+    }
+    return 0
+}
+
+
+function Yg(a, c) {
+    var b, d, e, f, g, m, n, t, u;
+    if (D[a] == cc)
+        if (0 != Jd[a] && Vg(a, c), 0 == G[a]) e = customRandom(8), b = I[H[a] + wg[e]], 3 == X[D[b]] && (G[a] = 1);
+        else {
+            for (d = 0; 8 > d; d++) b = I[H[a] + wg[d]], D[b] == cc && (G[b] = 1);
+            var F = 8;
+            t = ~~C[a].x;
+            u = ~~C[a].y;
+            e = max(t - F, 8);
+            d = max(u - F, 8);
+            m = min(t + F, 503);
+            n = min(u + F, 287);
+            for (g = d; g <= n; g++)
+                for (f = e; f <= m; f++) F * F < (f - t) * (f - t) + (g - u) * (g - u) || (d = (g + u >> 1 << 9) + (f + t >> 1), 1 <= x[R[d]] || (b = I[(g << 9) + f], b >= p && (D[b] == fc && L(b, dc, 0, s[dc]), J[b].x += f - t, J[b].y += g - u)));
+            t = minInsideRange(t, 12, 499);
+            u = minInsideRange(u, 12, 283);
+            e = (u >> 2 << 7) + (t >> 2);
+            0 == x[d = e - w - 1] &&
+                (P[d] -= 0.08, Q[d] -= 0.08);
+            0 == x[d = e - w] && (Q[d] -= 0.1);
+            0 == x[d = e - w + 1] && (P[d] += 0.1, Q[d] -= 0.08);
+            0 == x[d = e - 1] && (P[d] -= 0.1);
+            0 == x[d = e + 1] && (P[d] += 0.1);
+            0 == x[d = e + w - 1] && (P[d] -= 0.08, Q[d] += 0.08);
+            0 == x[d = e + w] && (Q[d] += 0.1);
+            0 == x[d = e + w + 1] && (P[d] += 0.08, Q[d] += 0.08);
+            rd(a);
+            return 1
+        }
+    else if (D[a] == dc)
+        if (0 == Jd[a]) {
+            I[H[a]] = Jb;
+            setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+            d = customRandom2(1);
+            c.x += U[H[a]] * d;
+            c.y += V[H[a]] * d;
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.8), c.add(J[a]);
+            b = ~~C[a].x + 0.5;
+            e = ~~C[a].y + 0.5;
+            d = (e + V[H[a]] << 9) + floor(b + U[H[a]]);
+            D[I[d]] >= Ob && (customRandomBoolean(0.5) ? (d = (e + V[H[a]] + U[H[a]] << 9) + floor(b + U[H[a]] - V[H[a]]), I[d] <= l && (c.x -= 0.5 * V[H[a]], c.y += 0.5 * U[H[a]])) : (d = (e + V[H[a]] - U[H[a]] << 9) + floor(b + U[H[a]] + V[H[a]]), I[d] <= l && (c.x += 0.5 * V[H[a]], c.y -= 0.5 * U[H[a]])));
+            Ng(a, c)
+        } else Vg(a, c);
+    else if (D[a] == ec) {
+        if (0 == Jd[a]) {
+            I[H[a]] = Jb;
+            setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+            d = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
+            D[I[d]] >= Ob ? (d = (C[a].y + U[H[a]] << 9) + floor(C[a].x - V[H[a]]), I[d] <= l && (d = customRandom2(0.05), J[a].x -= V[H[a]] * d, J[a].y += U[H[a]] * d), d = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[d] <= l && (d =
+                customRandom2(0.05), J[a].x += V[H[a]] * d, J[a].y -= U[H[a]] * d), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (d = customRandom2(1.5), c.x += U[H[a]] * d, c.y += V[H[a]] * d);
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
+            0 == V[H[a]] ? Ng(a, c) : Rg(a, c)
+        } else Vg(a, c);
+        e = customRandom(8);
+        b = I[H[a] + wg[e]];
+        1 == X[D[b]] && D[b] != fc ? customRandomBoolean(0.2) && 0.3 >= U[H[a]] * xg[e] + V[H[a]] * yg[e] && Lg(a, b) : 3 == X[D[b]] && L(a, dc, 0, s[dc])
+    } else if (D[a] == fc)
+        if (0 == Jd[a]) {
+            J[a].x += 0.05 * P[R[H[a]]];
+            J[a].y += 0.05 * Q[R[H[a]]];
+            d = customRandom2(0.12);
+            J[a].x += U[H[a]] * d;
+            J[a].y +=
+                V[H[a]] * d;
+            vectorScale(J[a], 0.95);
+            c.set(J[a]);
+            d = vectorLength2(c);
+            3.8 < d && vectorScale(c, 3.8 / d);
+            I[H[a]] = Jb;
+            b = I[(C[a].y << 9) + floor(C[a].x + c.x)];
+            if (b <= l) C[a].x += c.x;
+            else if (2 == X[D[b]] || D[b] == gc) J[b].x -= J[a].x, J[a].x *= 0.5, C[b].x = C[a].x, C[a].x += c.x, H[b] = H[a], I[H[a]] = b;
+            else {
+                if (D[b] == Sb || D[b] == Tb || D[b] == Vb || D[b] == ac || D[b] == kc) J[b].x += customRandom2(J[a].x);
+                J[a].x *= 0.5
+            }
+            H[a] = (C[a].y << 9) + ~~C[a].x;
+            I[H[a]] = Jb;
+            b = I[(C[a].y + c.y << 9) + floor(C[a].x)];
+            if (b <= l) C[a].y += c.y;
+            else if (2 == X[D[b]] || D[b] == gc) J[b].y -= J[a].y, J[a].y *= 0.5, C[b].y = C[a].y, C[a].y += c.y, H[b] = H[a], I[H[a]] =
+                b;
+            else {
+                if (D[b] == Sb || D[b] == Tb || D[b] == Vb || D[b] == ac || D[b] == kc) J[b].y += customRandom2(J[a].y);
+                J[a].y *= 0.5
+            }
+            H[a] = (C[a].y << 9) + ~~C[a].x;
+            I[H[a]] = a
+        } else Vg(a, c);
+    else if (D[a] == gc) {
+        if (0 == Jd[a]) {
+            I[H[a]] = Jb;
+            setToVector(c, 0.1 * P[R[H[a]]], 0.1 * Q[R[H[a]]]);
+            d = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
+            D[I[d]] >= Ob ? (d = (C[a].y + U[H[a]] << 9) + floor(C[a].x - V[H[a]]), I[d] <= l && (d = customRandom2(0.1), J[a].x -= V[H[a]] * d, J[a].y += U[H[a]] * d), d = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[d] <= l && (d = customRandom2(0.1), J[a].x += V[H[a]] * d, J[a].y -= U[H[a]] * d), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (d = customRandom2(2), c.x += U[H[a]] * d, c.y += V[H[a]] * d);
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
+            0 == V[H[a]] ? Ng(a, c) : Rg(a, c)
+        } else Vg(a, c);
+        e = customRandom(20);
+        b = I[H[a] + Bg[e]];
+        b >= p && (D[b] == Sb ? L(b, r, 0, s[r]) : D[b] == q || D[b] == nc ? (L(a, fc, 0, s[fc]), L(b, hc, 10, s[hc])) : D[b] == Tb ? L(b, r, 0, s[r]) : D[b] == Yb ? L(b, r, 0, s[r]) : D[b] == dc ? customRandomBoolean(0.05) && L(b, gc, 0, s[gc]) : D[b] == fc ? J[b].x += customRandomBetween(-0.1, 0.1) : D[b] == tc ? L(b, r, 0, s[r]) : D[b] == vc ? (L(a, fc, 0, s[fc]), L(b, uc, 0, s[uc])) : D[b] == wc ? customRandomBoolean(0.5) && L(b, gc, 0, s[gc]) : D[b] ==
+            zc && customRandomBoolean(0.01) && L(b, gc, 0, s[gc]))
+    } else if (D[a] == hc) {
+        if (1 > customRandom2(G[a])) return rd(a), 1;
+        c.set(J[a]);
+        vectorScale(J[a], 0.7);
+        Ng(a, c)
+    } else if (D[a] == ic) {
+        if (0 == Jd[a]) {
+            setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+            d = customRandom2(0.4);
+            c.x += U[H[a]] * d;
+            c.y += V[H[a]] * d;
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.7), c.add(J[a]);
+            Ng(a, c)
+        } else Vg(a, c);
+        e = customRandom(8);
+        b = I[H[a] + wg[e]];
+        0 == G[a] ? b >= p && D[b] != ic && (G[a] = D[b]) : 4096 >= G[a] ? (b >= p && (D[b] == ic && 0 != G[b] || L(b, ic, G[a] & 255, s[ic])), G[a] += 256) : (G[a] += 256, 24576 <= G[a] && L(a, G[a] & 255, 0, s[G[a] & 255]))
+    } else if (D[a] ==
+        jc) {
+        if (0 == Jd[a]) {
+            I[H[a]] = Jb;
+            setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+            d = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
+            D[I[d]] >= Ob ? (d = (C[a].y + U[H[a]] << 9) + floor(C[a].x - V[H[a]]), I[d] <= l && (d = customRandomBetween(0.1, 0.2), J[a].x -= V[H[a]] * d, J[a].y += U[H[a]] * d), d = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[d] <= l && (d = customRandomBetween(0.1, 0.2), J[a].x += V[H[a]] * d, J[a].y -= U[H[a]] * d), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (d = customRandom2(1.5), c.x += U[H[a]] * d, c.y += V[H[a]] * d);
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
+            0 == V[H[a]] ? Ng(a,
+                c) : Rg(a, c)
+        } else Vg(a, c);
+        e = customRandom(8);
+        b = I[H[a] + wg[e]];
+        1 == X[D[b]] && D[b] != fc || D[b] == ec ? customRandomBoolean(0.2) && 0.3 >= U[H[a]] * xg[e] + V[H[a]] * yg[e] && Lg(a, b) : 3 == X[D[b]] && (G[a] = 1);
+        if (0 == G[a] && 10 > vectorLength2(J[a])) return 0;
+        F = 8;
+        t = ~~C[a].x;
+        u = ~~C[a].y;
+        e = max(t - F, 8);
+        d = max(u - F, 8);
+        m = min(t + F, 503);
+        n = min(u + F, 287);
+        for (g = d; g <= n; g++)
+            for (f = e; f <= m; f++) F * F < (f - t) * (f - t) + (g - u) * (g - u) || (d = (g + u >> 1 << 9) + (f + t >> 1), 1 <= x[R[d]] || (b = I[(g << 9) + f], b >= p && (D[b] == fc && L(b, dc, 0, s[dc]), J[b].x += f - t, J[b].y += g - u)));
+        t = minInsideRange(t, 12, 499);
+        u = minInsideRange(u, 12, 283);
+        e = (u >> 2 << 7) + (t >> 2);
+        0 == x[d = e - w - 1] && (P[d] -=
+            0.4, Q[d] -= 0.4);
+        0 == x[d = e - w] && (Q[d] -= 0.5);
+        0 == x[d = e - w + 1] && (P[d] += 0.4, Q[d] -= 0.4);
+        0 == x[d = e - 1] && (P[d] -= 0.5);
+        0 == x[d = e + 1] && (P[d] += 0.5);
+        0 == x[d = e + w - 1] && (P[d] -= 0.4, Q[d] += 0.4);
+        0 == x[d = e + w] && (Q[d] += 0.5);
+        0 == x[d = e + w + 1] && (P[d] += 0.4, Q[d] += 0.4);
+        L(a, r, 0, s[r])
+    } else if (D[a] == kc) {
+        e = customRandom(8);
+        b = I[H[a] + wg[e]];
+        if (3 == X[D[b]]) return L(a, r, 0, s[r]), 0;
+        if (0 == G[a]) {
+            if (0 == Jd[a]) {
+                setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+                d = customRandom2(0.5);
+                c.x += U[H[a]] * d;
+                c.y += V[H[a]] * d;
+                if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
+                Ng(a, c)
+            } else Vg(a,
+                c);
+            e = customRandom(4);
+            b = I[H[a] + tg[e]];
+            4 == X[D[b]] && D[b] != Zb && D[b] != Lc && (G[a] = D[b] << 2 | e)
+        } else {
+            if (1E3 > mf - qd) return 0;
+            e = G[a] & 3;
+            d = H[a] + tg[e];
+            b = I[d];
+            if (b <= l) G[a] = G[a] & 16777212 | e + 1 & 3, Bd(d & 511, d >> 9, kc, G[a]), L(a, G[a] >> 2, 0, s[G[a] >> 2]);
+            else {
+                if (b >= p) return D[b] == G[a] >> 2 && (G[a] = G[a] & 16777212 | e - 1 & 3), L(b, kc, G[a], s[kc]), rd(a), 1;
+                G[a] = G[a] & 16777212 | e + 1 & 3
+            }
+        }
+    } else if (D[a] == lc) {
+        if (0 != Jd[a] && Vg(a, c), e = customRandom(20), b = I[H[a] + Bg[e]], b >= p)
+            if (D[b] == Sb) L(b, r, 0, s[r]);
+            else {
+                if (D[b] == q || D[b] == nc || D[b] == vc) return rd(a), 1;
+                D[b] == Tb ? L(b, r, 0, s[r]) : D[b] ==
+                    Ub ? L(b, lc, 0, s[lc]) : D[b] == Yb ? L(b, r, 0, s[r]) : D[b] == tc && L(b, r, 0, s[r])
+            }
+    } else if (D[a] == mc) {
+        if (0 == Jd[a]) {
+            setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+            d = customRandom2(-0.1);
+            c.x += U[H[a]] * d;
+            c.y += V[H[a]] * d;
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
+            Ng(a, c)
+        } else Vg(a, c);
+        e = customRandom(4);
+        b = I[H[a] + tg[e]];
+        1 == X[D[b]] || 2 == X[D[b]] ? 0.3 >= U[H[a]] * ug[e] + V[H[a]] * vg[e] && Lg(a, b) : D[b] == mc && (J[a].x += customRandomBetween(-0.6, 0.6), J[a].y += customRandomBetween(-0.6, 0.6));
+        if (0 == G[a]) {
+            if (e = customRandom(20), b = I[H[a] + Bg[e]], 3 != X[D[b]]) return 0
+        } else if (2 > G[a]) return G[a]++, 0;
+        F = 8;
+        t = ~~C[a].x;
+        u = ~~C[a].y;
+        e = max(t - F, 8);
+        d = max(u - F, 8);
+        m = min(t + F, 503);
+        n = min(u + F, 287);
+        for (g = d; g <= n; g++)
+            for (f = e; f <= m; f++) F * F < (f - t) * (f - t) + (g - u) * (g - u) || (d = (g + u >> 1 << 9) + (f + t >> 1), 1 <= x[R[d]] || (b = I[(g << 9) + f], D[b] == mc && (G[b] = 1), b <= l && customRandomBoolean(0.02) && Bd(f, g, r, 0)));
+        L(a, r, 0, s[r])
+    }
+    return 0
+}
+
+
+function Zg(a, c) {
+    var b, d, e, f, g, m, n, t, u, F;
+    if (D[a] == nc)
+        if (0 == G[a]) {
+            I[H[a]] = Jb;
+            setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+            f = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
+            D[I[f]] >= Ob ? (f = (C[a].y + U[H[a]] << 9) + floor(C[a].x - V[H[a]]), I[f] <= l && (e = customRandomBetween(0.1, 0.2), J[a].x -= V[H[a]] * e, J[a].y += U[H[a]] * e), f = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[f] <= l && (e = customRandomBetween(0.1, 0.2), J[a].x += V[H[a]] * e, J[a].y -= U[H[a]] * e), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (e = customRandom2(1.5), c.x += U[H[a]] * e, c.y += V[H[a]] * e);
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 <
+                J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
+            E[a] = s[nc];
+            if (10 < fastLength(c) && 3 <= jg - sd) {
+                for (d = e = 0; 60 > d; d++) b = I[H[a] + Cg[d]], D[b] == nc && 0 == G[b] && e++;
+                if (2 <= e) {
+                    e = a;
+                    for (d = 0; 60 > d && !(b = I[H[a] + Cg[d]], D[b] == nc && 0 == G[b] && (Gd(0, 0, e, b, 0), e = b, 1 >= jg - sd)); d++);
+                    Gd(0, 0, e, a, 0)
+                }
+            }
+            0 == V[H[a]] ? Ng(a, c) : Rg(a, c);
+            e = customRandom(8);
+            b = I[H[a] + wg[e]];
+            if (1 == X[D[b]] && D[b] != fc || D[b] == ec || D[b] == jc || D[b] == vc) customRandomBoolean(0.2) && 0.3 >= U[H[a]] * xg[e] + V[H[a]] * yg[e] && Lg(a, b);
+            else if (D[b] == Wb) customRandomBoolean(0.5) && L(a, Wb, 0, s[Wb]);
+            else if (D[b] == bc) return L(b, hc, 0, s[D[b]]), rd(a), 1
+        } else setToVector(c, P[R[H[a]]],
+            Q[R[H[a]]]), vectorScale(J[a], 0.9), c.add(J[a]), Ng(a, c), E[a] == s[nc] && (E[a] = lg[customRandom(6)]), e = customRandom(8), b = I[H[a] + wg[e]], D[b] == nc && 0 == G[b] ? customRandomBoolean(0.2) && 0.3 >= U[H[a]] * xg[e] + V[H[a]] * yg[e] && Lg(a, b) : Kb <= b && D[b] != nc && (mg(0, a), G[a] = 0), 2 == G[a] && (mg(0, a), G[a] = 0);
+    else if (D[a] == oc)
+        if (e = G[a] >> 12, n = G[a] >> 10 & 3, b = G[a] & 1023, 0 == b && (b = R[H[a]] % 1E3), b = 73 * b % 955 + 44, 0 == n ? (n = b % 3, 0 == n ? (g = -1, n = d = 1) : 1 == n ? (d = g = 1, n = 3) : (g = 0, d = 1, n = 0)) : 1 == n ? 0 == (b & 1) ? (g = -1, n = d = 1) : (g = 0, d = 1, n = 0) : 0 == (b & 1) ? (d = g = 1, n = 3) : (g = 0, d = 1, n = 0), 1 == e ? (m = g, g = -d, d = m) : 2 == e ? (g = -g, d = -d) : 3 == e &&
+            (m = g, g = d, d = -m), n = e << 12 | n << 10 | b, f = (C[a].y + d << 9) + floor(C[a].x + g), b = I[f], b <= l) I[H[a]] = Jb, C[a].x += g, C[a].y += d, G[a] = n, H[a] = f, I[H[a]] = a;
+        else if (D[b] == oc) {
+        if (G[b] != n) return rd(a), 1
+    } else {
+        if (D[b] == pc) return L(b, pc, e + 1, s[oc]), rd(a), 1;
+        if (D[b] == zc) return L(b, zc, e + 1, s[oc]), rd(a), 1;
+        if (D[b] == Jc) return 0 == G[b] && (G[b] = 1), rd(a), 1;
+        if (D[b] == Cc) Lg(a, b);
+        else {
+            if (p <= b) {
+                var M = 4;
+                t = ~~C[a].x;
+                u = ~~C[a].y;
+                e = max(t - M, 8);
+                f = max(u - M, 8);
+                m = min(t + M, 503);
+                n = min(u + M, 287);
+                var $ = t + customRandomBetween(-0.5, 0.5),
+                    Ca = u + customRandomBetween(-0.5, 0.5);
+                for (d = f; d <= n; d++)
+                    for (g = e; g <= m; g++) M *
+                        M < (g - t) * (g - t) + (d - u) * (d - u) || (b = I[(d << 9) + g], b >= p && D[b] != oc && (D[b] == Wb ? L(b, Xb, 0, s[Xb]) : D[b] == ac && 256 > G[b] ? G[b] += 512 : D[b] == bc && (G[b] = 1), J[b].x -= 2 * (g - $), J[b].y -= 2 * (d - Ca)))
+            }
+            rd(a);
+            return 1
+        }
+    } else if (D[a] == pc)
+        if (0 != Jd[a] && Vg(a, c), 0 == G[a]) e = customRandom(20), b = I[H[a] + Bg[e]], D[b] == q ? customRandomBoolean(0.02) && L(a, Sb, 0, s[Sb]) : D[b] == gc && customRandomBoolean(0.02) && L(a, gc, 0, s[gc]);
+        else {
+            e = customRandom(4);
+            b = I[H[a] + tg[e]];
+            D[b] == Wb ? L(b, q, 0, s[q]) : D[b] == ac && 256 > G[b] && (G[b] += 256);
+            e = G[a] - 1;
+            for (d = 0; 4 > d; d++)
+                if (2 != d)
+                    if (b = I[H[a] + tg[e + d & 3]], D[b] == pc) {
+                        0 == G[b] ? (Lg(a, b), G[a] = (e + d &
+                            3) + 1) : L(a, pc, 0, s[pc]);
+                        break
+                    } else if (D[b] == zc) {
+                L(b, zc, (e + d & 3) + 1, s[oc]);
+                L(a, pc, 0, s[pc]);
+                break
+            } else D[b] == wc && 0 == G[b] ? L(b, wc, 2, s[oc]) : D[b] == Jc && 0 == G[b] && (G[b] = 1);
+            4 == d && (I[H[a] + tg[e]] <= l && Bd(~~C[a].x + ug[e], ~~C[a].y + vg[e], oc, e << 12), L(a, pc, 0, s[pc]))
+        } if (D[a] == qc) {
+        0 == Jd[a] ? (setToVector(c, P[R[H[a]]], Q[R[H[a]]]), J[a].x += 0.05 * U[H[a]], J[a].y += 0.05 * V[H[a]], (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) && vectorScale(J[a], 0.95), c.add(J[a]), Ng(a, c)) : Vg(a, c);
+        if (0 != G[a]) {
+            if (customRandomBoolean(0.95)) return 0;
+            if (G[a] == Wb) L(a, Xb, 0, s[Xb]);
+            else if (G[a] ==
+                Ub) L(a, Sb, 0, s[Sb]);
+            else if (G[a] == fc) L(a, dc, 0, s[dc]);
+            else if (G[a] == tc) L(a, Sb, 0, s[Sb]);
+            else if (G[a] == jc) L(a, r, 1, s[r]);
+            else if (G[a] == lc) L(a, r, 1, s[r]);
+            else if (G[a] == nc) L(a, hc, 10, s[hc]);
+            else if (G[a] == pc) L(a, pc, 0, s[pc]);
+            else if (G[a] == wc) L(a, fc, 0, s[fc]);
+            else if (G[a] == Dc) L(a, Ac, 0, s[Ac]);
+            else if (G[a] == Kc) L(a, Ac, 1, s[Ac]);
+            else return rd(a), 1;
+            return 0
+        }
+        e = customRandom(8);
+        b = I[H[a] + wg[e]];
+        if (b < p || D[b] == qc || D[b] == Zb) return 0;
+        F = D[b];
+        M = 8;
+        t = ~~C[a].x;
+        u = ~~C[a].y;
+        e = max(t - M, 8);
+        f = max(u - M, 8);
+        m = min(t + M, 503);
+        n = min(u + M, 287);
+        $ = t + customRandomBetween(-0.5, 0.5);
+        Ca = u + customRandomBetween(-0.5, 0.5);
+        setToVector(c, 0, 0);
+        for (d = f; d <= n; d++)
+            for (g = e; g <= m; g++) M * M < (g - t) * (g - t) + (d - u) * (d - u) || (b = I[(d << 9) + g], p <= b && D[b] != qc && (c.x += $ - g, c.y += Ca - d));
+        normalize(c);
+        for (d = f; d <= n; d++)
+            for (g = e; g <= m; g++) M * M < (g - t) * (g - t) + (d - u) * (d - u) || (f = (d + u >> 1 << 9) + (g + t >> 1), 1 <= x[R[f]] || (b = I[(d << 9) + g], p <= b && D[b] != Zb && (J[b].x += c.x + ($ - g), J[b].y += c.y + (Ca - d), D[b] == qc && 0 != G[b] || L(b, qc, F, s[qc]))))
+    } else if (D[a] == rc) {
+        e = G[a] & 15;
+        g = G[a] >> 4 & 15;
+        n = G[a] >> 8 & 255;
+        g++;
+        if (1 == g) return G[a] = n << 8 | g << 4 | e, 0;
+        if (12 < g) return n == wc ? L(a, wc, 0, s[wc]) : n == Jc ? L(a, Jc, 0, E[a]) :
+            rd(a), 1;
+        if (8 < g) return G[a] = n << 8 | g << 4 | e, 0;
+        if (0 == e)
+            if (M = I[H[a] + Fg[0]], D[M] == rc && (M = 0), b = I[H[a] + Fg[1]], D[b] == rc && (b = 0), d = I[H[a] + Fg[2]], D[d] == rc && (d = 0), f = I[H[a] + Fg[3]], D[f] == rc && (f = 0), m = I[H[a] + Fg[4]], D[m] == rc && (m = 0), t = I[H[a] + Fg[5]], D[t] == rc && (t = 0), u = I[H[a] + Fg[6]], D[u] == rc && (u = 0), F = I[H[a] + Fg[7]], D[F] == rc && (F = 0), 1 <= f && 1 <= m && 1 <= t) e = 1;
+            else if (1 <= t && 1 <= u && 1 <= F) e = 3;
+        else if (1 <= F && 1 <= M && 1 <= b) e = 5;
+        else if (1 <= b && 1 <= d && 1 <= f) e = 7;
+        else if (1 <= t) e = 2;
+        else if (1 <= F) e = 4;
+        else if (1 <= b) e = 6;
+        else if (1 <= f) e = 8;
+        else return G[a] =
+            160 | e, 0;
+        e -= 1;
+        b = I[H[a] + Fg[e]];
+        if (p <= b)
+            if (D[b] == rc)
+                for (d = 2; 4 >= d; d++) {
+                    if (b = I[H[a] + Fg[e] * d], D[b] != rc) {
+                        if (b <= l) {
+                            if (1E3 > mf - qd) break;
+                            f = Bd(~~C[a].x + Dg[e] * d, ~~C[a].y + Eg[e] * d, rc, e + 1);
+                            0 <= f && (E[f] = E[a])
+                        }
+                        break
+                    }
+                } else if (D[b] == pc || D[b] == zc) {
+                    b = I[H[a] + Fg[e + 1 & 7]];
+                    D[b] != pc && D[b] != zc && (b = 0);
+                    d = I[H[a] + Fg[e + 2 & 7]];
+                    D[d] != pc && D[d] != zc && (d = 0);
+                    f = I[H[a] + Fg[e + 3 & 7]];
+                    D[f] != pc && D[f] != zc && (f = 0);
+                    m = I[H[a] + Fg[e + 4 & 7]];
+                    D[m] != pc && D[m] != zc && (m = 0);
+                    t = I[H[a] + Fg[e + 5 & 7]];
+                    D[t] != pc && D[t] != zc && (t = 0);
+                    u = I[H[a] + Fg[e + 6 & 7]];
+                    D[u] != pc && D[u] != zc && (u = 0);
+                    F = I[H[a] + Fg[e + 7 & 7]];
+                    D[F] != pc && D[F] != zc && (F = 0);
+                    M = I[H[a] + Fg[e] + Fg[e + 1 & 7]];
+                    D[M] != pc && D[M] != zc && (M = 0);
+                    $ = I[H[a] + Fg[e] + Fg[e + 2 & 7]];
+                    D[$] != pc && D[$] != zc && ($ = 0);
+                    Ca = I[H[a] + Fg[e] + Fg[e + 3 & 7]];
+                    D[Ca] != pc && D[Ca] != zc && (Ca = 0);
+                    var Pb = I[H[a] + Fg[e] + Fg[e + 5 & 7]];
+                    D[Pb] != pc && D[Pb] != zc && (Pb = 0);
+                    var $b = I[H[a] + Fg[e] + Fg[e + 6 & 7]];
+                    D[$b] != pc && D[$b] != zc && ($b = 0);
+                    var ub = I[H[a] + Fg[e] + Fg[e + 7 & 7]];
+                    D[ub] != pc && D[ub] != zc && (ub = 0);
+                    if (0 == (e & 1)) 1 <= t && 1 <= u && 1 > b && 1 > d ? e = e + 1 & 7 : 1 <= d && 1 <= f && 1 > F && 1 > u ? e = e - 1 & 7 : 1 <= b && 1 <= u && 1 > d && 1 > f && 1 > t ? e = e + 3 & 7 : 1 <= M && 1 <= $b &&
+                        1 > $ && 1 > Ca && 1 > Pb ? e = e + 3 & 7 : 1 <= d && 1 <= F && 1 > f && 1 > t && 1 > u ? e = e - 3 & 7 : 1 <= $ && 1 <= ub && 1 > Ca && 1 > Pb && 1 > $b ? e = e - 3 & 7 : 1 <= u && 1 > b && 1 > d && 1 > t ? e = e + 2 & 7 : 1 <= d && 1 > f && 1 > t && 1 > u && (e = e - 2 & 7);
+                    else {
+                        var Df = I[H[a] + Fg[e] + Fg[e + 2 & 7] + Fg[e + 3 & 7]];
+                        D[Df] != pc && D[Df] != zc && (Df = 0);
+                        var Ef = I[H[a] + Fg[e] + Fg[e + 6 & 7] + Fg[e + 5 & 7]];
+                        D[Ef] != pc && D[Ef] != zc && (Ef = 0);
+                        1 <= F && 1 <= t && 1 > b && 1 > m ? e = e + 1 & 7 : 1 <= b && 1 <= f && 1 > m && 1 > F ? e = e - 1 & 7 : 1 <= b && 1 <= u && 1 <= F && 1 > d && 1 > t ? e = e + 3 & 7 : 1 <= M && 1 <= $b && 1 > $ && 1 > Ca && 1 > Pb ? e = e + 3 & 7 : 1 <= $ && 1 <= Pb && 1 > Ca && 1 > Df ? e = e + 3 & 7 : 1 <= b && 1 <= d && 1 <= F && 1 > f && 1 > u ? e = e - 3 & 7 : 1 <= $ &&
+                            1 <= ub && 1 > Ca && 1 > Pb && 1 > $b ? e = e - 3 & 7 : 1 <= Ca && 1 <= $b && 1 > Pb && 1 > Ef ? e = e - 3 & 7 : 1 <= F && 1 > b ? e = e + 2 & 7 : 1 <= b && 1 > F && (e = e - 2 & 7)
+                    }
+                } else D[b] == Sb || D[b] == Tb || D[b] == Ub || D[b] == Yb || D[b] == kc || D[b] == tc ? L(b, r, 0, s[r]) : D[b] == q || D[b] == bc || D[b] == nc || D[b] == sc || D[b] == vc || D[b] == Cc ? L(b, rc, e + 1, s[rc]) : D[b] == wc ? L(b, rc, wc << 8 | e + 1, s[rc]) : D[b] == Jc && L(b, rc, Jc << 8 | e + 1, E[b]);
+        else b <= l && !(1E3 > mf - qd) && (f = Bd(~~C[a].x + Dg[e], ~~C[a].y + Eg[e], rc, e + 1), 0 <= f && (E[f] = E[a]));
+        G[a] = n << 8 | g << 4 | e + 1
+    } else if (D[a] == sc) {
+        if (100 <= G[a]) return rd(a), 1;
+        if (0 == Jd[a]) {
+            I[H[a]] = Jb;
+            setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+            f = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
+            D[I[f]] >= Ob ? (f = (C[a].y + U[H[a]] << 9) + floor(C[a].x - V[H[a]]), I[f] <= l && (e = customRandom2(0.2), J[a].x -= V[H[a]] * e, J[a].y += U[H[a]] * e), f = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[f] <= l && (e = customRandom2(0.2), J[a].x += V[H[a]] * e, J[a].y -= U[H[a]] * e), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (e = customRandom2(1.5), c.x += U[H[a]] * e, c.y += V[H[a]] * e);
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
+            0 == V[H[a]] ? Ng(a, c) : Rg(a, c)
+        } else Vg(a, c);
+        e = customRandom(8);
+        b = I[H[a] +
+            wg[e]];
+        0 != qg[D[b]] && customRandomBoolean(0.2) && (G[a] = minInsideRange(G[a] + qg[D[b]], 0, 100), L(b, sc, 100, s[D[b]]))
+    } else if (D[a] == tc)
+        if (0 == Jd[a]) {
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.3), c.set(J[a]), Ng(a, c);
+            if (1E3 > mf - qd) return 0;
+            if (0 == G[a] && (e = customRandom(8), b = I[H[a] + wg[e]], b <= l))
+                for (d = 0; 8 > d; d++)
+                    if (b = I[H[a] + wg[e] + wg[d]], p <= b && D[b] != tc && D[b] != kc) {
+                        customRandomBoolean(0.5) && Bd(~~C[a].x + zg[e], ~~C[a].y + Ag[e], tc, 0);
+                        break
+                    } 1 >= G[a] && ($ = ~~C[a].x + 0.5 + U[H[a]], Ca = ~~C[a].y + 0.5 + V[H[a]], I[(Ca << 9) + floor($)] <= l && I[(Ca + V[H[a]] << 9) + floor($ + U[H[a]])] <= l && I[(Ca +
+                U[H[a]] << 9) + floor($ - V[H[a]])] <= l && I[(Ca - U[H[a]] << 9) + floor($ + V[H[a]])] <= l && customRandomBoolean(0.2) && Bd(~~$, ~~Ca, tc, 1));
+            1 == G[a] && customRandomBoolean(0.04) && (G[a] = 2)
+        } else Vg(a, c);
+    return 0
+}
+
+
+function $g(a, c) {
+    var b, d, e, f;
+    if (D[a] == uc) {
+        if (0 == Jd[a]) {
+            setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+            b = customRandom2(0.5);
+            c.x += U[H[a]] * b;
+            c.y += V[H[a]] * b;
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.7), c.add(J[a]);
+            Ng(a, c)
+        } else Vg(a, c);
+        e = customRandom(8);
+        b = I[H[a] + wg[e]];
+        if (D[b] == q) return L(b, vc, 0, s[vc]), rd(a), 1;
+        if (D[b] == gc && customRandomBoolean(0.2)) return rd(a), 1
+    } else if (D[a] == vc) {
+        if (0 == Jd[a]) {
+            I[H[a]] = Jb;
+            setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+            f = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
+            D[I[f]] >= Ob ? (f = (C[a].y + U[H[a]] << 9) + floor(C[a].x - V[H[a]]), I[f] <= l && (b = customRandomBetween(0.1,
+                0.2), J[a].x -= V[H[a]] * b, J[a].y += U[H[a]] * b), f = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[f] <= l && (b = customRandomBetween(0.1, 0.2), J[a].x += V[H[a]] * b, J[a].y -= U[H[a]] * b), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (b = customRandom2(1.5), c.x += U[H[a]] * b, c.y += V[H[a]] * b);
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
+            0 == V[H[a]] ? Ng(a, c) : Rg(a, c)
+        } else Vg(a, c);
+        e = customRandom(20);
+        b = I[H[a] + Bg[e]];
+        D[b] != Tb && D[b] != Ub && D[b] != pc || L(b, Sb, 0, s[Sb]);
+        e = customRandom(8);
+        b = I[H[a] + wg[e]];
+        1 == X[D[b]] && D[b] != fc || D[b] == ec || D[b] == jc ? customRandomBoolean(0.2) &&
+            0.3 >= U[H[a]] * xg[e] + V[H[a]] * yg[e] && Lg(a, b) : D[b] == tc && L(b, Sb, 0, s[Sb])
+    } else if (D[a] == wc)
+        if (0 == G[a]) 1 < fastLength(J[a]) ? G[a] = 1 : setToVector(J[a], 0, 0);
+        else if (1 == G[a]) {
+        c.set(J[a]);
+        var g = 0.5 * normalize(c);
+        for (d = 1; 6 > d; d++)
+            if (b = I[(C[a].y + 0.5 + c.y * d << 9) + floor(C[a].x + 0.5 + c.x * d)], D[b] == wc) G[b] = 1, J[b].x = 0.98 * J[a].x, J[b].y = 0.98 * J[a].y;
+            else break;
+        for (d = 1; 8 > d; d += 2)
+            if (b = I[H[a] + wg[d]], D[b] == wc && 1 != G[b]) {
+                G[b] = 1;
+                var m = customRandom(8);
+                J[b].x = xg[m] * g + 0.1 * J[a].x;
+                J[b].y = yg[m] * g + 0.1 * J[a].y
+            } 1 > g ? L(a, fc, 0, s[fc]) : L(a, dc, 0, s[dc])
+    } else {
+        if (2 <= G[a]) {
+            if (2 == G[a])
+                for (d = 1; 8 >
+                    d; d += 2) b = I[H[a] + wg[d]], D[b] == wc && 0 == G[b] && L(b, wc, 2, s[oc]);
+            G[a]++;
+            22 < G[a] && L(a, wc, 0, s[wc])
+        }
+    } else if (D[a] == xc) {
+        if (1 == G[a]) return customRandomBoolean(0.02) && (G[a] = 0, vectorScale(J[a], -1)), 0;
+        0 == Jd[a] ? (setToVector(c, P[R[H[a]]], Q[R[H[a]]]), c.add(J[a]), Ng(a, c)) : Vg(a, c);
+        normalize(J[a]);
+        b = I[(~~C[a].y + 0.5 + J[a].y << 9) + floor(~~C[a].x + 0.5 + J[a].x)];
+        l < b && (customRandomBoolean(0.5) ? setToVector(J[a], J[a].y, -J[a].x) : setToVector(J[a], -J[a].y, J[a].x));
+        e = customRandom(8);
+        b = I[H[a] + wg[e]];
+        if (p <= b)
+            if (2 == X[D[b]]) 0.3 >= U[H[a]] * xg[e] + V[H[a]] * yg[e] && Lg(a, b);
+            else {
+                if (D[b] == Tb || D[b] == kc || D[b] == yc) return L(b, xc, 0, s[xc]), J[b].set(J[a]),
+                    rd(a), 1;
+                D[b] == Ub ? G[a] = 1 : 3 == X[D[b]] && L(a, r, 0, s[r])
+            } setToVector(c, 0, 0);
+        var n = m = 0,
+            t = 0,
+            u = 0;
+        b = minInsideRange(floor(C[a].x + 4 * J[a].x), 8, 503);
+        d = minInsideRange(floor(C[a].y + 4 * J[a].y), 8, 287);
+        f = (d << 9) + b;
+        for (d = 0; 101 > d; d++) e = f + Gg[d], b = I[e], b <= l || (D[b] == xc ? (c.x += J[b].x, c.y += J[b].y, m++) : D[b] != Ub && D[b] != Tb && D[b] != kc && D[b] != yc && (n += e & 511, t += e >> 9, u++));
+        0 < m && vectorScale(c, 1 / m);
+        J[a].x = 0.5 * (J[a].x + c.x);
+        J[a].y = 0.5 * (J[a].y + c.y);
+        0 < u && (n = n / u - C[a].x, t = t / u - C[a].y, b = J[a].y * n - J[a].x * t, 0 > b ? setToVector(c, J[a].y, -J[a].x) : setToVector(c, -J[a].y, J[a].x), J[a].x = 0.9 * J[a].x + 0.1 * c.x, J[a].y = 0.9 * J[a].y + 0.1 *
+            c.y);
+        J[a].x += customRandomBetween(-0.1, 0.1);
+        J[a].y += customRandomBetween(-0.1, 0.1)
+    } else if (D[a] == yc)
+        if (m = G[a] >> 8, g = G[a] & 255, 0 == m) {
+            if (0 == Jd[a]) {
+                setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+                b = customRandom2(0.5);
+                c.x += U[H[a]] * b;
+                c.y += V[H[a]] * b;
+                if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
+                Ng(a, c)
+            } else Vg(a, c);
+            e = customRandom(8);
+            b = I[H[a] + wg[e]];
+            2 == X[D[b]] ? (0 == g && (g = D[b], E[a] = 0 | ~s[g]), G[a] = 256 | g) : 3 == X[D[b]] && L(a, r, 0, s[r])
+        } else {
+            normalize(J[a]);
+            b = I[(C[a].y + J[a].y << 9) + floor(C[a].x + J[a].x)];
+            2 != X[D[b]] && (customRandomBoolean(0.5) ? setToVector(J[a], J[a].y, -J[a].x) : setToVector(J[a], -J[a].y, J[a].x));
+            vectorScale(J[a], 0.8);
+            I[H[a]] = Jb;
+            c.x = C[a].x + J[a].x;
+            c.y = C[a].y;
+            b = I[(c.y << 9) + ~~c.x];
+            b <= l ? C[a].x = c.x : 2 == X[D[b]] && (Lg(a, b), C[a].set(c), D[b] != g && L(b, g, 0, s[g]));
+            c.x = C[a].x;
+            c.y = C[a].y + J[a].y;
+            b = I[(c.y << 9) + ~~c.x];
+            b <= l ? C[a].y = c.y : 2 == X[D[b]] && (Lg(a, b), C[a].set(c), D[b] != g && L(b, g, 0, s[g]));
+            H[a] = (C[a].y << 9) + ~~C[a].x;
+            I[H[a]] = a;
+            setToVector(c, 0, 0);
+            u = t = n = m = 0;
+            b = minInsideRange(floor(C[a].x + 0.5 + 4 * J[a].x), 8, 503);
+            d = minInsideRange(floor(C[a].y + 0.5 + 4 * J[a].y), 8, 287);
+            f = (d << 9) + b;
+            for (d = 0; 101 > d; d++)
+                if (e = f + Gg[d], b = I[e], 2 != X[D[b]] || D[b] != g) D[b] == yc && G[a] == G[b] ? (c.x += J[b].x, c.y +=
+                    J[b].y, m++) : (n += e & 511, t += e >> 9, u++);
+            0 < m && vectorScale(c, 1 / m);
+            J[a].x = 0.5 * (J[a].x + c.x);
+            J[a].y = 0.5 * (J[a].y + c.y);
+            0 < u && (n = n / u - C[a].x, t = t / u - C[a].y, b = J[a].y * n - J[a].x * t, 0 > b ? setToVector(c, J[a].y, -J[a].x) : setToVector(c, -J[a].y, J[a].x), J[a].x = 0.8 * J[a].x + 0.2 * c.x, J[a].y = 0.8 * J[a].y + 0.2 * c.y);
+            J[a].x += customRandomBetween(-0.1, 0.1);
+            J[a].y += customRandomBetween(-0.1, 0.1);
+            e = customRandom(8);
+            b = I[H[a] + wg[e]];
+            b <= l ? G[a] = 0 | g : 3 == X[D[b]] && L(a, r, 0, s[r])
+        }
+    else if (D[a] == zc)
+        if (0 == G[a]) {
+            if (0 == Jd[a]) {
+                I[H[a]] = Jb;
+                setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+                f = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
+                D[I[f]] >= Ob ? (f = (C[a].y + U[H[a]] <<
+                    9) + floor(C[a].x - V[H[a]]), I[f] <= l && (b = customRandomBetween(0.1, 0.2), J[a].x -= V[H[a]] * b, J[a].y += U[H[a]] * b), f = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[f] <= l && (b = customRandomBetween(0.1, 0.2), J[a].x += V[H[a]] * b, J[a].y -= U[H[a]] * b), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (b = customRandom2(1.5), c.x += U[H[a]] * b, c.y += V[H[a]] * b);
+                if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
+                0 == V[H[a]] ? Ng(a, c) : Rg(a, c)
+            } else Vg(a, c);
+            e = customRandom(8);
+            b = I[H[a] + wg[e]];
+            (1 == X[D[b]] && D[b] != zc || 2 == X[D[b]]) && -0.3 <= U[H[a]] * xg[e] + V[H[a]] * yg[e] && Lg(a, b)
+        } else {
+            e =
+                customRandom(4);
+            b = I[H[a] + tg[e]];
+            D[b] == Wb ? L(b, q, 0, s[q]) : D[b] == ac && 256 > G[b] && (G[b] += 256);
+            m = G[a] - 1;
+            for (d = 0; 4 > d; d++)
+                if (2 != d)
+                    if (b = I[H[a] + tg[m + d & 3]], D[b] == zc) {
+                        0 == G[b] ? (Lg(a, b), G[a] = (m + d & 3) + 1) : L(a, zc, 0, s[zc]);
+                        break
+                    } else if (D[b] == pc) {
+                L(b, pc, (m + d & 3) + 1, s[oc]);
+                L(a, zc, 0, s[zc]);
+                break
+            } else D[b] == wc && 0 == G[b] ? L(b, wc, 2, s[oc]) : D[b] == Jc && 0 == G[b] && (G[b] = 1);
+            4 == d && (I[H[a] + tg[m]] <= l && Bd(~~C[a].x + ug[m], ~~C[a].y + vg[m], oc, m << 12), L(a, zc, 0, s[zc]))
+        }
+    else if (D[a] == Ac) {
+        if (0 == Jd[a]) {
+            if (customRandomBoolean(0.15)) return rd(a), 1;
+            J[a].x += 0.1 * P[R[H[a]]];
+            J[a].y +=
+                0.1 * Q[R[H[a]]];
+            J[a].x += 0.02 * U[H[a]];
+            J[a].y += 0.02 * V[H[a]];
+            if (Kb <= I[H[a] + 1] || Kb <= I[H[a] + 2]) J[a].x -= customRandomBetween(0.3, 0.6);
+            if (Kb <= I[H[a] - 1] || Kb <= I[H[a] - 2]) J[a].x += customRandomBetween(0.3, 0.6);
+            if (Kb <= I[H[a] + screenWidth] || Kb <= I[H[a] + (screenWidth << 2)]) J[a].y -= customRandomBetween(0.3, 0.6);
+            if (Kb <= I[H[a] - screenWidth] || Kb <= I[H[a] - (screenWidth << 2)]) J[a].y += customRandomBetween(0.3, 0.6);
+            vectorScale(J[a], 0.98);
+            c.set(J[a]);
+            Ng(a, c)
+        } else Vg(a, c);
+        e = customRandom(20);
+        b = I[H[a] + Bg[e]];
+        if (D[b] == Sb) L(b, r, 0, s[r]);
+        else if (D[b] == q || D[b] == vc || D[b] == nc) return rd(a), 1
+    } else if (D[a] == Bc)
+        if (0 != Jd[a] && Vg(a, c), 256 > G[a])
+            if (e = customRandom(8), b = I[H[a] + wg[e]], 3 ==
+                X[D[b]] && D[b] != Ac) G[a] += 256;
+            else if (D[b] == q || D[b] == vc) L(a, Vb, 0, s[Vb]);
+    else {
+        if (D[b] == bc || D[b] == jc || D[b] == nc) {
+            G[a] = D[b];
+            D[b] == bc && (E[a] = 6697762);
+            D[b] == jc && (E[a] = 4478242);
+            D[b] == nc && (E[a] = 6706500);
+            for (d = 0; 8 > d; d++) g = I[H[a] + wg[d]], D[g] == Bc && 0 == G[g] && (G[g] = D[b], D[b] == bc && (E[g] = 5583650), D[b] == jc && (E[g] = 4473890), D[b] == nc && (E[g] = 5588019));
+            L(b, hc, 0, s[D[b]])
+        }
+    } else {
+        if (G[a] += 256, 768 <= G[a]) {
+            b = G[a] & 255;
+            g = Ac;
+            m = 0;
+            b == bc ? (g = r, m = 0) : b == jc ? (g = jc, m = 0) : b == nc && (g = hc, m = 10);
+            I[H[a] - 1] <= l && Bd(~~C[a].x - 1, ~~C[a].y, g, m);
+            I[H[a] + 1] <=
+                l && Bd(~~C[a].x + 1, ~~C[a].y, g, m);
+            I[H[a] - screenWidth] <= l && Bd(~~C[a].x, ~~C[a].y - 1, g, m);
+            I[H[a] + screenWidth] <= l && Bd(~~C[a].x, ~~C[a].y + 1, g, m);
+            for (d = 0; 8 > d; d++) b = I[H[a] + wg[d]], p <= b && (D[b] == Bc && 256 > G[b] ? G[b] += 256 : D[b] == ac && 256 > G[b] ? G[b] += 256 : D[b] == bc ? G[b] = 1 : D[b] == cc ? G[b] = 1 : D[b] == jc ? G[b] = 1 : D[b] == mc && (G[b] = 1));
+            L(a, g, m, s[g])
+        }
+    } else if (D[a] == Cc) {
+        if (0 == Jd[a]) {
+            setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
+            b = customRandom2(-0.15);
+            c.x += U[H[a]] * b;
+            c.y += V[H[a]] * b;
+            if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
+            Ng(a, c)
+        } else Vg(a, c);
+        e = customRandom(4);
+        b = I[H[a] + tg[e]];
+        1 == X[D[b]] || 2 == X[D[b]] ? 0.3 >= U[H[a]] * ug[e] + V[H[a]] * vg[e] && Lg(a, b) : D[b] == Cc ? (J[a].x += customRandomBetween(-0.3, 0.3), J[a].y += customRandomBetween(-0.3, 0.3)) : D[b] == Ub ? L(a, q, 0, s[q]) : D[b] == Wb ? L(a, Xb, 0, s[Xb]) : D[b] == cc ? L(a, q, 0, s[q]) : D[b] == lc ? L(a, q, 0, s[q]) : D[b] == pc ? L(a, oc, (e + 2 & 3) << 12, s[oc]) : D[b] == tc ? L(a, q, 0, s[q]) : D[b] == Bc ? L(a, q, 0, s[q]) : b == Kb && L(a, q, 0, s[q])
+    } else if (D[a] == Dc)
+        if (0 != Jd[a] && Vg(a, c), E[a] == s[Dc]) {
+            if (e = customRandom(4), b = I[H[a] + tg[e]], 2 == X[D[b]] || D[b] == gc || D[b] == mc || D[b] == zc || D[b] == Cc) L(a, Dc, e + 2 & 3, s[D[b]]), L(b, hc, 0, s[D[b]])
+        } else {
+            m =
+                G[a] & 3;
+            for (d = 0; 4 > d; d++)
+                if (2 != d && (b = I[H[a] + tg[m + d & 3]], D[b] == Dc)) {
+                    E[b] == s[Dc] ? (Lg(a, b), G[a] = m + d & 3) : E[a] = s[Dc];
+                    break
+                } if (4 == d) {
+                if (I[H[a] + (tg[m] << 1)] <= l && !(1E3 > mf - qd))
+                    for (d = 0; d < s.length; d++)
+                        if (E[a] == s[d]) {
+                            Bd(~~C[a].x + (ug[m] << 1), ~~C[a].y + (vg[m] << 1), d, 0);
+                            break
+                        } E[a] = s[Dc]
+            }
+        } return 0
+}
+
+
+function ah(a, c) {
+    var b, d, e, f, g, m, n, t, u;
+    if (D[a] == Jc)
+        if (0 != Jd[a] && Vg(a, c), 0 == G[a]) {
+            u = E[a] >> 16 & 255;
+            n = E[a] >> 8 & 255;
+            var F = E[a] & 255;
+            e = 1;
+            for (d = 0; 8 > d; d++) b = I[H[a] + wg[d]], D[b] != rc && D[b] != oc && p <= b && (u += E[b] >> 16 & 255, n += E[b] >> 8 & 255, F += E[b] & 255, e++);
+            1 < e && (E[a] = floor(u / e) << 16 | floor(n / e) << 8 | floor(F / e))
+        } else if (20 <= G[a]) u = floor(8 * (E[a] >> 16 & 255) / 9), n = floor(8 * (E[a] >> 8 & 255) / 9), F = floor(8 * (E[a] & 255) / 9), E[a] = u << 16 | n << 8 | F, G[a]++, 30 <= G[a] && (G[a] = 0);
+    else {
+        if (1 <= G[a]) {
+            if (1 == G[a])
+                for (d = 0; 8 > d; d++) b = I[H[a] + wg[d]], D[b] == Jc && 0 == G[b] && (G[b] = 1);
+            u = E[a] >> 16 &
+                255;
+            n = E[a] >> 8 & 255;
+            F = E[a] & 255;
+            255 > u && 255 > n && 255 > F && (u = floor(9 * u / 8) + 1, 255 < u && (u = 255), n = floor(9 * n / 8) + 1, 255 < n && (n = 255), F = floor(9 * F / 8) + 1, 255 < F && (F = 255), E[a] = u << 16 | n << 8 | F);
+            G[a]++
+        }
+    } else if (D[a] == Kc)
+        if (0 == Jd[a] ? (setToVector(c, P[R[H[a]]], Q[R[H[a]]]), J[a].x += 0.05 * U[H[a]], J[a].y += 0.05 * V[H[a]], (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) && vectorScale(J[a], 0.95), c.add(J[a]), Ng(a, c)) : Vg(a, c), 0 == G[a]) e = customRandom(8), b = I[H[a] + wg[e]], 3 == X[D[b]] && (G[a] = 1);
+        else {
+            if (2 <= G[a]) {
+                if (50 > ++G[a] || customRandomBoolean(0.95)) return 0;
+                rd(a);
+                return 1
+            }
+            if (1 == G[a]) {
+                u = 3;
+                e = ~~C[a].x;
+                b = ~~C[a].y;
+                d = max(e - u, 8);
+                n = max(b - u, 8);
+                f = min(e + u, 503);
+                t = min(b + u, 287);
+                u = e + customRandomBetween(-0.5, 0.5);
+                F = b + customRandomBetween(-0.5, 0.5);
+                setToVector(c, 0, 0);
+                e = 0;
+                for (m = n; m <= t; m++)
+                    for (g = d; g <= f; g++) b = I[(m << 9) + g], Kb <= b && (c.x += u - g, c.y += F - m, p <= b && e++);
+                normalize(c);
+                vectorScale(c, floor(e / 2) + 4);
+                e = -1;
+                for (m = n; m <= t; m++)
+                    for (g = d; g <= f; g++) b = I[(m << 9) + g], p <= b && D[b] != Zb && !(D[b] == Kc && 1 < G[b]) && (u = customRandomBetween(-1, 1), J[b].x += c.x + c.y * u, J[b].y += c.y - c.x * u, -1 == e ? L(b, Kc, 2, E[b]) : (u = E[e] >> 16 & 255, u += E[b] >> 16 & 255, u >>= 1, n = E[e] >> 8 & 255, n += E[b] >> 8 & 255, n >>= 1, F = E[e] & 255, F += E[b] & 255, F >>= 1, L(b, Kc, 2, u << 16 | n << 8 | F), e =
+                        Gd(0, 0, e, b, 0), -1 != e && (kg[e] = 4)), e = b);
+                G[a] = 2
+            }
+        }
+    else if (D[a] == Lc) {
+        0 != Jd[a] && Vg(a, c);
+        2 <= G[a] && G[a] >> 10 != (cf & 1) && (G[a] &= 1);
+        t = G[a] >> 2 & 255;
+        G[a] &= 1;
+        g = 8;
+        for (d = 0; d < g; d++) 0 != (t & 1 << d) || (e = 0 == G[a] ? d : 2 - d & 7, b = I[H[a] + wg[e]], b < p || D[b] == Lc || D[b] == Zb || D[b] == rc || (f = 0 == G[a] ? e + 1 & 7 : e - 1 & 7, u = I[H[a] + wg[f]], 0 == (e & 1) && D[u] == Lc)) || (f = 0 == G[a] ? e - 1 & 7 : e + 1 & 7, u = I[H[a] + wg[f]], u <= l && (Mg(b, C[b].x + zg[f] - zg[e], C[b].y + Ag[f] - Ag[e]), u = I[H[a] + wg[f] + wg[f] - wg[e]], D[u] == Lc && (2 <= G[u] && G[u] >> 10 != (cf & 1) && (G[u] &= 1), G[u] = 0 == (e & 1) ? (cf & 1) << 10 | G[u] & 1020 |
+            1 << (d + 1 & 7) + 2 | 2 | G[u] : (cf & 1) << 10 | G[u] & 1020 | 1 << (d + 2 & 7) + 2 | 2 | G[u]), 1 == (e & 1) && (f = 0 == G[a] ? e - 2 & 7 : e + 2 & 7, u = I[H[a] + wg[f]], D[u] == Lc && (2 <= G[u] && G[u] >> 10 != (cf & 1) && (G[u] &= 1), G[u] |= (cf & 1) << 10 | G[u] & 1020 | 1 << d + 2 | 2)), 0 == d && (g = 7)));
+        E[a] = 0 == G[a] ? 6702131 : 3359829
+    }
+    return 0
+}
+
+
+// ================================================================
+//                     StickMan related stuff
+// ================================================================
+var jd = 10,
+    ld = 20,
+    md = 30,
+    nd = 40,
+    counterStickman = 0,
+    maxStickmanNumber = 50,
+    hd = 11,
+    stickManBodyPoints = Array(maxStickmanNumber * hd); // 550
+for (da = 0; da < maxStickmanNumber * hd; da++) stickManBodyPoints[da] = new Vector;
+var stickManOldBodyPoints = Array(maxStickmanNumber * hd); // 550
+for (da = 0; da < maxStickmanNumber * hd; da++) stickManOldBodyPoints[da] = new Vector;
+var ye = new Int32Array(maxStickmanNumber * hd),
+    z = new Int32Array(maxStickmanNumber),
+    ze = new Int32Array(maxStickmanNumber),
+    kd = new Int32Array(maxStickmanNumber),
+    dh = Array(maxStickmanNumber);
+for (da = 0; da < maxStickmanNumber; da++) dh[da] = new Vector;
+var Ae = new Int32Array(maxStickmanNumber),
+    Be = new Uint8Array(maxStickmanNumber),
+    eh = [0, 0],
+    fh = [0, 0],
+    gh = [0, 0],
+    playerHealth = [0, 0],
+    playerDamageState = [0, 0],
+    jh = [0, 0, 0.5, 0.5, 0.5, 0.5, 0.8, 1, 0.5, 0.5, 0.5, 1, 0.5, 0.5, 0.5, 0.5, 0.8, 0.5, 0.5, 0.8, 0.5, 0.5, 1, 0.5, 0.8, 0.5, 0, 1, 1, 0, 0.5, 0.5, 0, 0.8, 0.5, 0.5, 0.8, 0.9, 0.1, 0.1, 1, 0.5, 0.5, 1, 0.5, 0, 0, 0, 0, 0, 0.5, 0.5, 0.2],
+    kh = [0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+function createFighterPlayerClone(_X, _Y, TYPE, d) {
+    if (counterStickman != maxStickmanNumber) {
+        var e, f;
+        if (TYPE == Ec || TYPE == Fc) {
+            for (e = f = 0; e < counterStickman; e++) {
+                z[e] != jd && z[e] != ld || f++;
+            }
+            if (2 <= f || 0 != d && 0 == kh[d]) return;
+            e = TYPE == Ec ? 0 : 1;
+            playerHealth[e] = 48;
+            playerDamageState[e] = 0
+        }
+        f = counterStickman * hd;
+        for (e = 0; e < hd; e++, f++) TYPE == cloneId ? setToVector(stickManBodyPoints[f], _X, _Y) : 1 == e ? setToVector(stickManBodyPoints[f], _X, _Y) : setToVector(stickManBodyPoints[f], _X + customRandom2(4), _Y + customRandom2(4)), stickManOldBodyPoints[f].set(stickManBodyPoints[f]), ye[f] = 0;
+        TYPE == Ec ? z[counterStickman] = jd : TYPE == Fc ? z[counterStickman] = ld : TYPE == fighterId ? z[counterStickman] = md : TYPE == cloneId && (z[counterStickman] = nd);
+        ze[counterStickman] = 0;
+        kd[counterStickman] = d;
+        setToVector(dh[counterStickman], 0, 0);
+        Ae[counterStickman] = 0;
+        Be[counterStickman] = 0;
+        counterStickman++
+    }
+}
+
+function id(a) {
+    if (0 != counterStickman) {
+        counterStickman--;
+        mg(1, a);
+        for (var c = a * hd, b = counterStickman * hd, d = 0; d < hd; d++, c++, b++) stickManBodyPoints[c].set(stickManBodyPoints[b]), stickManOldBodyPoints[c].set(stickManOldBodyPoints[b]), ye[c] = ye[b];
+        z[a] = z[counterStickman];
+        ze[a] = ze[counterStickman];
+        kd[a] = kd[counterStickman];
+        dh[a].set(dh[counterStickman]);
+        Ae[a] = Ae[counterStickman];
+        Be[a] = Be[counterStickman];
+        ng(1, counterStickman, a)
+    }
+}
+
+function Ed(a) {
+    var c, b;
+    for (c = 0; c < counterStickman; c++) {
+        b = c * hd;
+        if (z[c] == jd || z[c] == ld) b = (stickManOldBodyPoints[b + 1].y << 9) + ~~stickManOldBodyPoints[b + 1].x;
+        else if (z[c] == md || z[c] == md + 1) b = (stickManOldBodyPoints[b + 1].y << 9) + ~~stickManOldBodyPoints[b + 1].x;
+        else continue;
+        if (b == a) return c
+    }
+    return -1
+}
+
+function movePlayerJoints(a, c, b, d) {
+    distanceX = stickManBodyPoints[a].x - stickManOldBodyPoints[a].x;
+    distanceY = stickManBodyPoints[a].y - stickManOldBodyPoints[a].y;
+    stickManOldBodyPoints[a].set(stickManBodyPoints[a]);
+    if (null == c) {
+        c = (stickManBodyPoints[a].y << 9) + ~~stickManBodyPoints[a].x;
+        distanceX += U[c] * b;
+        distanceY += V[c] * b;
+    } else {
+        distanceX += c.x * b;
+        distanceY += c.y * b;
+    }
+    stickManBodyPoints[a].x += distanceX * d;
+    stickManBodyPoints[a].y += distanceY * d
+}
+
+function constraintJoints(point1, point2, b, d, e) {
+    var f = new Vector;
+    vectorSub(f, stickManBodyPoints[point2], stickManBodyPoints[point1]);
+    var g = normalize(f);
+    if(0 != g) {
+        b -= g;
+        d *= b;
+        e *= b;
+        stickManBodyPoints[point1].x -= f.x * d;
+        stickManBodyPoints[point1].y -= f.y * d;
+        stickManBodyPoints[point2].x += f.x * e;
+        stickManBodyPoints[point2].y += f.y * e
+    } 
+}
+
+function nh(a, c, b, d, e) {
+    var f = new Vector;
+    vectorSub(f, stickManBodyPoints[a], stickManOldBodyPoints[a]);
+    stickManBodyPoints[a].set(stickManOldBodyPoints[a]);
+    if (0 != b) {
+        var g = (stickManBodyPoints[a].y >> 2 << 7) + (stickManBodyPoints[a].x >> 2);
+        f.x += P[g] * b;
+        f.y += Q[g] * b
+    }
+    0 == e ? (b = vectorLength2(f) + 1, 8 <= b ? (vectorScale(f, 3.8 / b), b = 2) : 4 <= b ? (vectorScale(f, 0.5), b = 2) : b = 1) : (b = floor(vectorLength2(f) / 3) + 1, vectorScale(f, 1 / b));
+    ye[a] = 0;
+    if (1 == d) vectorScale(f, b), stickManBodyPoints[a].add(f), stickManBodyPoints[a].x = minInsideRange(stickManBodyPoints[a].x, 4, 507), stickManBodyPoints[a].y = minInsideRange(stickManBodyPoints[a].y, 4, 291);
+    else {
+        d = new Vector;
+        e = new Vector;
+        null == c ? (g = (stickManBodyPoints[a].y << 9) + ~~stickManBodyPoints[a].x, setToVector(e, U[g], V[g])) : e.set(c);
+        c = e.x * f.x + e.y * f.y;
+        vectorScale(e, c);
+        d.set(f);
+        d.sub(e);
+        for (var m, n, g = 0; g < b; g++) {
+            m = stickManBodyPoints[a].x + e.x;
+            n = stickManBodyPoints[a].y + e.y;
+            if (4 > m || 508 <= m || 4 >
+                n || 292 <= n) {
+                ye[a] = -5;
+                return
+            }
+            f = (n << 9) + ~~m;
+            I[f] <= l ? setToVector(stickManBodyPoints[a], m, n) : I[f] <= Kb ? (vectorScale(d, 0.5), ye[a] = I[f]) : (0 > c ? setToVector(stickManBodyPoints[a], m, n) : (vectorScale(d, jh[D[I[f]]]), 2 == X[D[I[f]]] ? setToVector(stickManBodyPoints[a], m, n) : D[I[f]] == Lc && (m = ~~m - ~~stickManBodyPoints[a].x, n = ~~n - ~~stickManBodyPoints[a].y, 0 == G[I[f]] ? (0 == m && 1 == n && (d.x -= 1), -1 == m && 0 == n && (d.y -= 1), 0 == m && -1 == n && (d.x += 1), 1 == m && 0 == n && (d.y += 1)) : (0 == m && 1 == n && (d.x += 1), -1 == m && 0 == n && (d.y += 1), 0 == m && -1 == n && (d.x -= 1), 1 == m && 0 == n && (d.y -= 1)))), ye[a] = D[I[f]])
+        }
+        for (g = 0; g < b; g++) {
+            m = stickManBodyPoints[a].x + d.x;
+            n = stickManBodyPoints[a].y;
+            if (4 > m || 508 <= m || 4 > n || 292 <= n) {
+                ye[a] = -5;
+                break
+            }
+            f = (n << 9) + ~~m;
+            I[f] <=
+                l ? setToVector(stickManBodyPoints[a], m, n) : (2 == X[D[I[f]]] && setToVector(stickManBodyPoints[a], m, n), ye[a] = D[I[f]]);
+            m = stickManBodyPoints[a].x;
+            n = stickManBodyPoints[a].y + d.y;
+            if (4 > m || 508 <= m || 4 > n || 292 <= n) {
+                ye[a] = -5;
+                break
+            }
+            f = (n << 9) + ~~m;
+            I[f] <= l ? setToVector(stickManBodyPoints[a], m, n) : (2 == X[D[I[f]]] && setToVector(stickManBodyPoints[a], m, n), ye[a] = D[I[f]])
+        }
+    }
+}
+
+function oh(a, c) {
+    for (var b = 0; a < c; a++) {
+        if (-5 == ye[a]) return -5;
+        ye[a] == r && -1 < b ? b = -1 : ye[a] == gc && -4 < b ? b = -4 : ye[a] == lc && -1 < b ? b = -1 : ye[a] == oc && -3 < b ? b = -3 : ye[a] == rc && -2 < b ? b = -2 : ye[a] == sc && -1 < b ? b = -1 : ye[a] == Ac && -1 < b ? b = -1 : 0 != ye[a] && 0 == b && (b = 1)
+    }
+    return b
+}
+
+function ph(a, c, b) {
+    if (!ga && 0 == Xa) {
+        var d = new Vector,
+            e, f;
+        if (0 == Ae[a]) {
+            if (47 == ea && Ke || 47 == fa && Oe) {
+                e = 400;
+                for (var g = c; g < b; g++) d.x = ia - stickManOldBodyPoints[g].x, d.y = ja - stickManOldBodyPoints[g].y, f = fastLength(d), f < e && (e = f, Ae[a] = g - c + 1)
+            }
+        } else 47 == ea && We || 47 == fa && Xe ? (stickManBodyPoints[c + Ae[a] - 1].x += 0.1 * (ia - stickManBodyPoints[c + Ae[a] - 1].x), stickManBodyPoints[c + Ae[a] - 1].y += 0.1 * (ja - stickManBodyPoints[c + Ae[a] - 1].y)) : Ae[a] = 0
+    }
+}
+
+
+function processStickman() {
+    var a;
+    for (a = 0; a < counterStickman; a++) {
+        if( z[a] <= jd + 3 ) {
+            // Move player 1
+            processPlayerMove(a);
+        } else if(z[a] <= ld + 3 ) {
+            // Move player 2
+            processPlayerMove(a);
+        } else {
+            // Move fighter (cpu)
+            processFighterMove(a);
+        } 
+    }
+}
+
+function processPlayerMove(k) {
+    var tintB;
+    var b;
+    var j;
+    var i;
+    var s;
+    var v = new Vector;
+    var w = new Vector;
+    var character = new Vector;
+    b = k * hd;
+    if (z[k] == jd || z[k] == ld) {
+        var g = z[k] == jd ? 0 : 1;
+        var oldBanIsTemp = z[k] == jd ? Sd[37] : Sd[65] | Sd[97];
+        var oldBanIsPerm = z[k] == jd ? Sd[39] : Sd[68] | Sd[100];
+        var newBanIsRemoved = z[k] == jd ? Sd[38] : Sd[87] | Sd[119];
+        var $ = z[k] == jd ? Sd[40] : Sd[83] | Sd[115];
+        ze[k]++;
+        j = (stickManOldBodyPoints[b + 4].y << 9) + ~~stickManOldBodyPoints[b + 4].x;
+        i = (stickManOldBodyPoints[b + 5].y << 9) + ~~stickManOldBodyPoints[b + 5].x;
+        s = I[(~~stickManOldBodyPoints[b + 4].y + 0.5 + V[j] << 9) + floor(~~stickManOldBodyPoints[b + 4].x + 0.5 + U[j])] > l ? 1 : 0;
+        var Ca = I[(~~stickManOldBodyPoints[b + 5].y + 0.5 + V[i] << 9) + floor(~~stickManOldBodyPoints[b + 5].x + 0.5 + U[i])] > l ? 1 : 0;
+        if (0 == s) {
+            s = I[j] > l ? 1 : 0;
+        }
+        if (0 == Ca) {
+            Ca = I[i] > l ? 1 : 0;
+        }
+        v.x = U[j] + U[i];
+        v.y = V[j] + V[i];
+        normalize2(v);
+        w.set(v);
+        character.set(v);
+        rotatePointAroundCenter90Degrees(w);
+        if ($ && kd[k] == xc) {
+            tintB = 0;
+            for (; 6 > tintB; tintB++) {
+                movePlayerJoints(b + tintB, character, 0.01, 0.997);
+            }
+        } else {
+            if (!($ && kd[k] == Wb)) {
+                movePlayerJoints(b + 0, character, -0.2, 0.995);
+                movePlayerJoints(b + 1, character, -0.1, 0.995);
+                movePlayerJoints(b + 2, character, 0, 0.995);
+                movePlayerJoints(b + 3, character, 0, 0.995);
+                movePlayerJoints(b + 4, character, 0.3, 0.995);
+                movePlayerJoints(b + 5, character, 0.3, 0.995);
+            }
+        }
+        ph(k, b, b + 6);
+        stickManBodyPoints[b].add(dh[k]);
+        vectorScale(dh[k], 0.5);
+        if (1 < eh[g]) {
+            eh[g]--;
+        } else {
+            if (0 < eh[g] && (1 == s || 1 == Ca)) {
+                eh[g]--;
+            }
+        }
+        if (0 == eh[g]) {
+            if (oldBanIsPerm) {
+                eh[g] = 15;
+                v.x = stickManBodyPoints[b + 5].x - stickManBodyPoints[b + 4].x;
+                v.y = stickManBodyPoints[b + 5].y - stickManBodyPoints[b + 4].y;
+                tintB = v.x * w.x + v.y * w.y;
+                if (0 < tintB) {
+                    stickManBodyPoints[b + 2].x += 3.2 * V[j] + 3 * -U[j] * 0.8;
+                    stickManBodyPoints[b + 2].y += 3.2 * -U[j] + 3 * -V[j] * 0.8;
+                } else {
+                    stickManBodyPoints[b + 3].x += 3.2 * V[i] + 3 * -U[i] * 0.8;
+                    stickManBodyPoints[b + 3].y += 3.2 * -U[i] + 3 * -V[i] * 0.8;
+                }
+                gh[g] = 1;
+            } else {
+                if (oldBanIsTemp) {
+                    eh[g] = 15;
+                    v.x = stickManBodyPoints[b + 5].x - stickManBodyPoints[b + 4].x;
+                    v.y = stickManBodyPoints[b + 5].y - stickManBodyPoints[b + 4].y;
+                    tintB = v.x * w.x + v.y * w.y;
+                    if (0 > tintB) {
+                        stickManBodyPoints[b + 2].x += 3.2 * -V[j] + 3 * -U[j] * 0.8;
+                        stickManBodyPoints[b + 2].y += 3.2 * U[j] + 3 * -V[j] * 0.8;
+                    } else {
+                        stickManBodyPoints[b + 3].x += 3.2 * -V[i] + 3 * -U[i] * 0.8;
+                        stickManBodyPoints[b + 3].y += 3.2 * U[i] + 3 * -V[i] * 0.8;
+                    }
+                    gh[g] = 0;
+                }
+            }
+        } else {
+            if (oldBanIsTemp) {
+                v.x = stickManBodyPoints[b + 1].x - stickManOldBodyPoints[b + 1].x;
+                v.y = stickManBodyPoints[b + 1].y - stickManOldBodyPoints[b + 1].y;
+                tintB = v.x * w.x + v.y * w.y;
+                if (0 < tintB) {
+                    stickManBodyPoints[b + 1].x -= 0.2 * w.x;
+                    stickManBodyPoints[b + 1].y -= 0.2 * w.y;
+                }
+                gh[g] = 0;
+            } else {
+                if (oldBanIsPerm) {
+                    v.x = stickManBodyPoints[b + 1].x - stickManOldBodyPoints[b + 1].x;
+                    v.y = stickManBodyPoints[b + 1].y - stickManOldBodyPoints[b + 1].y;
+                    tintB = v.x * w.x + v.y * w.y;
+                    if (0 > tintB) {
+                        stickManBodyPoints[b + 1].x += 0.2 * w.x;
+                        stickManBodyPoints[b + 1].y += 0.2 * w.y;
+                    }
+                    gh[g] = 1;
+                }
+            }
+        }
+        if (1 < fh[g]) {
+            fh[g]--;
+        }
+        if (0 < fh[g] && (1 == s || 1 == Ca)) {
+            fh[g]--;
+        }
+        if (0 == fh[g] && newBanIsRemoved) {
+            fh[g] = 50;
+            stickManBodyPoints[b + 4].x -= 6 * character.x;
+            stickManBodyPoints[b + 4].y -= 6 * character.y;
+            stickManBodyPoints[b + 5].x -= 6 * character.x;
+            stickManBodyPoints[b + 5].y -= 6 * character.y;
+        }
+        if (!($ && kd[k] == Wb)) {
+            j = 0.5;
+            constraintJoints(b + 0, b + 1, 4, j, j);
+            constraintJoints(b + 1, b + 2, 4, j, j);
+            constraintJoints(b + 1, b + 3, 4, j, j);
+            constraintJoints(b + 2, b + 4, 5, j, j);
+            constraintJoints(b + 3, b + 5, 5, j, j);
+            constraintJoints(b + 2, b + 3, 5, 0.1, 0.1);
+        }
+        j = 0.1;
+        tintB = 0;
+        for (; 4 > tintB; tintB++) {
+            nh(b + tintB, character, j, 1, 0 < Ae[k] ? 1 : 0);
+        }
+        tintB = 4;
+        for (; 6 > tintB; tintB++) {
+            nh(b + tintB, character, j, 0, 0 < Ae[k] ? 1 : 0);
+        }
+        if (!$) {
+            s = -1;
+            for (; 2 > s; s++) {
+                i = -1;
+                for (; 2 > i; i++) {
+                    j = I[(stickManOldBodyPoints[b + 0].y + s << 9) + (~~stickManOldBodyPoints[b + 0].x + i)];
+                    if (1 == kh[D[j]]) {
+                        kd[k] = D[j];
+                    }
+                }
+            }
+        }
+        if (!(newBanIsRemoved && (oldBanIsTemp || oldBanIsPerm) || !$ || 0 == kd[k])) {
+            i = ~~stickManBodyPoints[b + 0].x;
+            s = ~~stickManBodyPoints[b + 0].y;
+            if (kd[k] == jc) {
+                i = i + (w.x * (0 == gh[g] ? 0 : -0) + 8 * character.x);
+                s = s + (w.y * (0 == gh[g] ? 0 : -0) + 8 * character.y);
+                stickManBodyPoints[b + 0].x += w.x * (0 == gh[g] ? -0.5 : 0.5) + -1 * character.x;
+                stickManBodyPoints[b + 0].y += w.y * (0 == gh[g] ? -0.5 : 0.5) + -1 * character.y;
+            }
+            i = minInsideRange(i, 8, 503);
+            s = minInsideRange(s, 8, 287);
+            if (kd[k] == Nb) {
+                j = (s >> 2 << 7) + (i >> 2);
+                if (0 == x[j]) {
+                    P[j] += w.x * (0 == gh[g] ? -1 : 1);
+                    Q[j] += w.y * (0 == gh[g] ? -1 : 1);
+                }
+            } else {
+                if (kd[k] != Wb && kd[k] != xc && I[s * screenWidth + i] == Jb) {
+                    j = Bd(i, s, kd[k], 0);
+                    if (0 <= j) {
+                        if (kd[k] == r) {
+                            J[j].x = w.x * (0 == gh[g] ? -7 : 7) + 2.4 * character.x;
+                            J[j].y = w.y * (0 == gh[g] ? -7 : 7) + 2.4 * character.y;
+                            G[j] = 2;
+                        } else {
+                            if (kd[k] == Yb) {
+                                J[j].x = w.x * (0 == gh[g] ? -20 : 20) + 20 * character.x;
+                                J[j].y = w.y * (0 == gh[g] ? -20 : 20) + 20 * character.y;
+                            } else {
+                                if (kd[k] == jc) {
+                                    J[j].x = w.x * (0 == gh[g] ? 20 : -20);
+                                    J[j].y = w.y * (0 == gh[g] ? 20 : -20);
+                                } else {
+                                    if (kd[k] == oc) {
+                                        G[j] = 0 == gh[g] ? (floor(4 * -getAngle(character) / TWOPI - 0.5) & 3) << 12 : (floor(4 * -getAngle(character) / TWOPI - 2.5) & 3) << 12;
+                                    } else {
+                                        if (kd[k] == rc) {
+                                            G[j] = 0 == gh[g] ? (floor(8 * getAngle(character) / TWOPI + 6.5) & 7) + 1 : (floor(8 * getAngle(character) / TWOPI + 2.5) & 7) + 1;
+                                        } else {
+                                            J[j].x = w.x * (0 == gh[g] ? -20 : 20) + customRandomBetween(-1, 1);
+                                            J[j].y = w.y * (0 == gh[g] ? -20 : 20) + customRandomBetween(-1, 1);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (1 == xa) {
+            w = 4;
+            for (; 5 >= w; w++) {
+                if (s = i = 0, 8 > stickManBodyPoints[b + w].x ? (i = 502, s = ~~stickManOldBodyPoints[b + w].y) : 504 <= stickManBodyPoints[b + w].x ? (i = 10, s = ~~stickManOldBodyPoints[b + w].y) : 8 > stickManBodyPoints[b + w].y ? (i = ~~stickManOldBodyPoints[b + w].x, s = 286) : 288 <= stickManBodyPoints[b + w].y && (i = ~~stickManOldBodyPoints[b + w].x, s = 10), 0 != i + s) {
+                    if (j = (s << 9) + i, I[j] <= l || 2 == X[D[I[j]]]) {
+                        mg(1, k);
+                        vectorSub(v, stickManBodyPoints[b + w], stickManOldBodyPoints[b + w]);
+                        normalize(v);
+                        tintB = 0;
+                        for (; 5 >= tintB; tintB++) {
+                            stickManBodyPoints[b + tintB].x = i + v.x + customRandomBetween(-0.1, 0.1);
+                            stickManBodyPoints[b + tintB].y = s + v.y + customRandomBetween(-0.1, 0.1);
+                            setToVector(stickManOldBodyPoints[b + tintB], i, s);
+                            ye[b + tintB] = 0;
+                        }
+                        break;
+                    } else {
+                        stickManBodyPoints[b + w].set(stickManOldBodyPoints[b + w]);
+                        ye[b + w] = Ob;
+                        if (0 < fh[g]) {
+                            fh[g]--;
+                        }
+                        if (0 < eh[g]) {
+                            eh[g]--;
+                        }
+                    }
+                }
+            }
+        } else {
+            if (-5 == oh(b, b + 6)) {
+                z[k] = 0 == g ? jd + 2 : ld + 2;
+            }
+        }
+        if (0 < playerDamageState[g]) {
+            playerDamageState[g]--;
+        }
+        b = oh(b, b + 6);
+        if (0 > b) {
+            playerHealth[g] += b;
+            playerDamageState[g] = 25;
+        }
+        if (0 >= playerHealth[g]) {
+            z[k] = 0 == g ? jd + 2 : ld + 2;
+        }
+    } else {
+        if (z[k] == jd + 2 || z[k] == ld + 2) {
+            stickManBodyPoints[b + 10].set(stickManBodyPoints[b + 5]);
+            stickManOldBodyPoints[b + 10].set(stickManOldBodyPoints[b + 5]);
+            stickManBodyPoints[b + 9].set(stickManBodyPoints[b + 4]);
+            stickManOldBodyPoints[b + 9].set(stickManOldBodyPoints[b + 4]);
+            stickManBodyPoints[b + 8].set(stickManBodyPoints[b + 3]);
+            stickManOldBodyPoints[b + 8].set(stickManOldBodyPoints[b + 3]);
+            stickManBodyPoints[b + 7].set(stickManBodyPoints[b + 3]);
+            stickManOldBodyPoints[b + 7].set(stickManOldBodyPoints[b + 3]);
+            stickManBodyPoints[b + 6].set(stickManBodyPoints[b + 2]);
+            stickManOldBodyPoints[b + 6].set(stickManOldBodyPoints[b + 2]);
+            stickManBodyPoints[b + 5].set(stickManBodyPoints[b + 2]);
+            stickManOldBodyPoints[b + 5].set(stickManOldBodyPoints[b + 2]);
+            stickManBodyPoints[b + 4].set(stickManBodyPoints[b + 1]);
+            stickManOldBodyPoints[b + 4].set(stickManOldBodyPoints[b + 1]);
+            stickManBodyPoints[b + 3].set(stickManBodyPoints[b + 1]);
+            stickManOldBodyPoints[b + 3].set(stickManOldBodyPoints[b + 1]);
+            stickManBodyPoints[b + 2].set(stickManBodyPoints[b + 1]);
+            stickManOldBodyPoints[b + 2].set(stickManOldBodyPoints[b + 1]);
+            stickManBodyPoints[b + 1].set(stickManBodyPoints[b + 0]);
+            stickManOldBodyPoints[b + 1].set(stickManOldBodyPoints[b + 0]);
+            stickManBodyPoints[b + 0].set(stickManBodyPoints[b + 0]);
+            stickManOldBodyPoints[b + 0].set(stickManOldBodyPoints[b + 0]);
+            dh[k].y -= 1;
+            ze[k] = 0;
+            z[k]++;
+        } else {
+            if (z[k] == jd + 3 || z[k] == ld + 3) {
+                ze[k]++;
+                tintB = 0;
+                for (; 11 > tintB; tintB++) {
+                    movePlayerJoints(b + tintB, null, 0.1, 0.999);
+                    stickManBodyPoints[b + tintB].add(dh[k]);
+                }
+                vectorScale(dh[k], 0.5);
+                j = 0.5;
+                g = (150 - ze[k]) / 150;
+                constraintJoints(b + 1, b + 2, 4 * g, j, j);
+                constraintJoints(b + 3, b + 5, 4 * g, j, j);
+                constraintJoints(b + 4, b + 7, 4 * g, j, j);
+                constraintJoints(b + 6, b + 9, 5 * g, j, j);
+                constraintJoints(b + 8, b + 10, 5 * g, j, j);
+                j = 0.1;
+                tintB = 0;
+                for (; 11 > tintB; tintB++) {
+                    nh(b + tintB, null, j, 0, 0);
+                }
+                if (150 < ze[k]) {
+                    id(k--);
+                }
+            }
+        }
+    }
+};
+
+function processFighterMove(k) {
+    var i;
+    var index;
+    var j;
+    var c;
+    var b;
+    var a = new Vector;
+    b = new Vector;
+    c = new Vector;
+    index = k * hd;
+    if (z[k] == md || z[k] == md + 1) {
+        ze[k]++;
+        j = (stickManOldBodyPoints[index + 4].y << 9) + ~~stickManOldBodyPoints[index + 4].x;
+        i = (stickManOldBodyPoints[index + 5].y << 9) + ~~stickManOldBodyPoints[index + 5].x;
+        a.x = U[j] + U[i];
+        a.y = V[j] + V[i];
+        normalize2(a);
+        b.set(a);
+        c.set(a);
+        rotatePointAroundCenter90Degrees(b);
+        if (z[k] == md) {
+            movePlayerJoints(index + 0, c, -0.2, 0.995);
+            movePlayerJoints(index + 1, c, -0.1, 0.995);
+            movePlayerJoints(index + 2, c, 0, 0.995);
+            movePlayerJoints(index + 3, c, 0, 0.995);
+            movePlayerJoints(index + 4, c, 0.3, 0.995);
+            movePlayerJoints(index + 5, c, 0.3, 0.995);
+        } else {
+            movePlayerJoints(index + 0, c, 0.1, 0.995);
+            movePlayerJoints(index + 1, c, 0.1, 0.995);
+            movePlayerJoints(index + 2, c, 0.1, 0.995);
+            movePlayerJoints(index + 3, c, 0.1, 0.995);
+            movePlayerJoints(index + 4, c, 0.1, 0.995);
+            movePlayerJoints(index + 5, c, 0.1, 0.995);
+        }
+        ph(k, index, index + 6);
+        stickManBodyPoints[index].add(dh[k]);
+        vectorScale(dh[k], 0.5);
+        if (z[k] == md) {
+            a.x = stickManBodyPoints[index + 5].x - stickManBodyPoints[index + 4].x;
+            a.y = stickManBodyPoints[index + 5].y - stickManBodyPoints[index + 4].y;
+            b = a.x * b.x + a.y * b.y;
+            if (0 != ye[index + 4] && 0 != ye[index + 5]) {
+                var r = customRandom(100);
+                if (5 > r) {
+                    if (0 < b) {
+                        stickManBodyPoints[index + 4].x += 4 * V[j] + 4 * -U[j];
+                        stickManBodyPoints[index + 4].y += 4 * -U[j] + 4 * -V[j];
+                    } else {
+                        stickManBodyPoints[index + 5].x += 4 * V[i] + 4 * -U[i];
+                        stickManBodyPoints[index + 5].y += 4 * -U[i] + 4 * -V[i];
+                    }
+                } else {
+                    if (10 > r) {
+                        if (0 > b) {
+                            stickManBodyPoints[index + 4].x += 4 * -V[j] + 4 * -U[j];
+                            stickManBodyPoints[index + 4].y += 4 * U[j] + 4 * -V[j];
+                        } else {
+                            stickManBodyPoints[index + 5].x += 4 * -V[i] + 4 * -U[i];
+                            stickManBodyPoints[index + 5].y += 4 * U[i] + 4 * -V[i];
+                        }
+                    }
+                }
+            } else {
+                if (0 != ye[index + 4]) {
+                    if (customRandomBoolean(0.02)) {
+                        b = customRandomBetween(-4, 4);
+                        stickManBodyPoints[index + 4].x += V[j] * b + 4 * -U[j];
+                        stickManBodyPoints[index + 4].y += -U[j] * b + 4 * -V[j];
+                    }
+                } else {
+                    if (0 != ye[index + 5] && customRandomBoolean(0.02)) {
+                        b = customRandomBetween(-4, 4);
+                        stickManBodyPoints[index + 5].x += V[i] * b + 4 * -U[i];
+                        stickManBodyPoints[index + 5].y += -U[i] * b + 4 * -V[i];
+                    }
+                }
+            }
+            i = 0;
+            for (; i < counterStickman; i++) {
+                if (!(k == i || z[i] != md && z[i] != md + 1 && z[i] != jd && z[i] != ld)) {
+                    j = i * hd;
+                    b = abs(stickManBodyPoints[index + 4].x - stickManBodyPoints[j].x);
+                    r = abs(stickManBodyPoints[index + 4].y - stickManBodyPoints[j].y);
+                    if (4 >= b && 4 >= r) {
+                        dh[i].x += 1 * (stickManBodyPoints[index + 4].x - stickManOldBodyPoints[index + 4].x);
+                        dh[i].y += 2 * (stickManBodyPoints[index + 4].y - stickManOldBodyPoints[index + 4].y);
+                        if (z[i] == md) {
+                            z[i] = md + 1;
+                        }
+                        ze[i] = 0;
+                        if (z[i] == jd) {
+                            playerHealth[0] -= 8;
+                            playerDamageState[0] = 25;
+                        }
+                        if (z[i] == ld) {
+                            playerHealth[1] -= 8;
+                            playerDamageState[1] = 25;
+                        }
+                    }
+                    b = abs(stickManBodyPoints[index + 5].x - stickManBodyPoints[j].x);
+                    r = abs(stickManBodyPoints[index + 5].y - stickManBodyPoints[j].y);
+                    if (4 >= b && 4 >= r) {
+                        dh[i].x += 1 * (stickManBodyPoints[index + 5].x - stickManOldBodyPoints[index + 5].x);
+                        dh[i].y += 2 * (stickManBodyPoints[index + 5].y - stickManOldBodyPoints[index + 5].y);
+                        if (z[i] == md) {
+                            z[i] = md + 1;
+                        }
+                        ze[i] = 0;
+                        if (z[i] == jd) {
+                            playerHealth[0] -= 8;
+                            playerDamageState[0] = 25;
+                        }
+                        if (z[i] == ld) {
+                            playerHealth[1] -= 8;
+                            playerDamageState[1] = 25;
+                        }
+                    }
+                }
+            }
+        } else {
+            if (10 < ze[k] && (0 != ye[index + 4] || 0 != ye[index + 5]) && customRandomBoolean(0.1)) {
+                z[k] = md;
+                ze[k] = 0;
+            }
+        }
+        b = 0.5;
+        constraintJoints(index + 0, index + 1, 4, b, b);
+        constraintJoints(index + 1, index + 2, 4, b, b);
+        constraintJoints(index + 1, index + 3, 4, b, b);
+        constraintJoints(index + 2, index + 4, 5, b, b);
+        constraintJoints(index + 3, index + 5, 5, b, b);
+        constraintJoints(index + 2, index + 3, 5, 0.1, 0.1);
+        j = 0.1;
+        i = 0;
+        for (; 4 > i; i++) {
+            nh(index + i, c, j, 1, 0 < Ae[k] ? 1 : 0);
+        }
+        i = 4;
+        for (; 6 > i; i++) {
+            nh(index + i, c, j, 0, 0 < Ae[k] ? 1 : 0);
+        }
+        if (z[k] == md) {
+            if (0 != oh(index, index + 6)) {
+                ze[k] = 0;
+            } else {
+                if (50 < ze[k]) {
+                    z[k] = md + 1;
+                }
+            }
+        }
+        if (1 == xa) {
+            i = 4;
+            for (; 5 >= i; i++) {
+                if (b = c = 0, 8 > stickManBodyPoints[index + i].x ? (c = 502, b = ~~stickManOldBodyPoints[index + i].y) : 504 <= stickManBodyPoints[index + i].x ? (c = 10, b = ~~stickManOldBodyPoints[index + i].y) : 8 > stickManBodyPoints[index + i].y ? (c = ~~stickManOldBodyPoints[index + i].x, b = 286) : 288 <= stickManBodyPoints[index + i].y && (c = ~~stickManOldBodyPoints[index + i].x, b = 10), 0 != c + b) {
+                    if (j = (b << 9) + c, I[j] <= l || 2 == X[D[I[j]]]) {
+                        mg(1, k);
+                        vectorSub(a, stickManBodyPoints[index + i], stickManOldBodyPoints[index + i]);
+                        normalize(a);
+                        i = 0;
+                        for (; 5 >= i; i++) {
+                            stickManBodyPoints[index + i].x = c + a.x + customRandomBetween(-0.1, 0.1);
+                            stickManBodyPoints[index + i].y = b + a.y + customRandomBetween(-0.1, 0.1);
+                            setToVector(stickManOldBodyPoints[index + i], c, b);
+                            ye[index + i] = 0;
+                        }
+                        break;
+                    } else {
+                        stickManBodyPoints[index + i].set(stickManOldBodyPoints[index + i]);
+                        ye[index + i] = Ob;
+                    }
+                }
+            }
+        } else {
+            if (-5 == oh(index, index + 6)) {
+                z[k] = md + 2;
+            }
+        }
+        if (0 > oh(index, index + 6)) {
+            z[k] = md + 2;
+        }
+    } else {
+        if (z[k] == md + 2) {
+            stickManBodyPoints[index + 10].set(stickManBodyPoints[index + 5]);
+            stickManOldBodyPoints[index + 10].set(stickManOldBodyPoints[index + 5]);
+            stickManBodyPoints[index + 9].set(stickManBodyPoints[index + 4]);
+            stickManOldBodyPoints[index + 9].set(stickManOldBodyPoints[index + 4]);
+            stickManBodyPoints[index + 8].set(stickManBodyPoints[index + 3]);
+            stickManOldBodyPoints[index + 8].set(stickManOldBodyPoints[index + 3]);
+            stickManBodyPoints[index + 7].set(stickManBodyPoints[index + 3]);
+            stickManOldBodyPoints[index + 7].set(stickManOldBodyPoints[index + 3]);
+            stickManBodyPoints[index + 6].set(stickManBodyPoints[index + 2]);
+            stickManOldBodyPoints[index + 6].set(stickManOldBodyPoints[index + 2]);
+            stickManBodyPoints[index + 5].set(stickManBodyPoints[index + 2]);
+            stickManOldBodyPoints[index + 5].set(stickManOldBodyPoints[index + 2]);
+            stickManBodyPoints[index + 4].set(stickManBodyPoints[index + 1]);
+            stickManOldBodyPoints[index + 4].set(stickManOldBodyPoints[index + 1]);
+            stickManBodyPoints[index + 3].set(stickManBodyPoints[index + 1]);
+            stickManOldBodyPoints[index + 3].set(stickManOldBodyPoints[index + 1]);
+            stickManBodyPoints[index + 2].set(stickManBodyPoints[index + 1]);
+            stickManOldBodyPoints[index + 2].set(stickManOldBodyPoints[index + 1]);
+            stickManBodyPoints[index + 1].set(stickManBodyPoints[index + 0]);
+            stickManOldBodyPoints[index + 1].set(stickManOldBodyPoints[index + 0]);
+            stickManBodyPoints[index + 0].set(stickManBodyPoints[index + 0]);
+            stickManOldBodyPoints[index + 0].set(stickManOldBodyPoints[index + 0]);
+            dh[k].y -= 1;
+            ze[k] = 0;
+            z[k] = md + 3;
+        } else {
+            if (z[k] == md + 3) {
+                ze[k]++;
+                i = 0;
+                for (; 11 > i; i++) {
+                    movePlayerJoints(index + i, null, 0.1, 0.999);
+                    stickManBodyPoints[index + i].add(dh[k]);
+                }
+                vectorScale(dh[k], 0.5);
+                b = 0.5;
+                a = (150 - ze[k]) / 150;
+                constraintJoints(index + 1, index + 2, 4 * a, b, b);
+                constraintJoints(index + 3, index + 5, 4 * a, b, b);
+                constraintJoints(index + 4, index + 7, 4 * a, b, b);
+                constraintJoints(index + 6, index + 9, 5 * a, b, b);
+                constraintJoints(index + 8, index + 10, 5 * a, b, b);
+                j = 0.1;
+                i = 0;
+                for (; 11 > i; i++) {
+                    nh(index + i, null, j, 0, 0);
+                }
+                if (150 < ze[k]) {
+                    id(k--);
+                }
+            } else {
+                if (z[k] == nd) {
+                    if (0 == ye[index]) {
+                        i = 0;
+                        for (; i < counterStickman; i++) {
+                            if (!(stickManBodyPoints[index].x + 8 < stickManBodyPoints[i * hd].x || stickManBodyPoints[i * hd].x < stickManBodyPoints[index].x - 4 || stickManBodyPoints[index].y + 8 < stickManBodyPoints[i * hd].y || stickManBodyPoints[i * hd].y < stickManBodyPoints[index].y - 4)) {
+                                if (z[i] == jd || z[i] == ld) {
+                                    a = 0;
+                                    for (; a < counterStickman; a++) {
+                                        if (z[a] == nd && ye[a * hd] == jd) {
+                                            ye[a * hd] = 0;
+                                        }
+                                    }
+                                    ye[index] = jd;
+                                    kd[k] = kd[i];
+                                } else {
+                                    if (z[i] == md) {
+                                        ye[index] = z[i];
+                                        kd[k] = kd[i];
+                                    }
+                                }
+                            }
+                        }
+                        i = 0;
+                        for (; i < od; i++) {
+                            if (!(0 == A[i] || stickManBodyPoints[index].x + 8 < B[i].x || B[i].x < stickManBodyPoints[index].x - 4 || stickManBodyPoints[index].y + 8 < B[i].y || B[i].y < stickManBodyPoints[index].y - 4)) {
+                                ye[index] = Lb;
+                                kd[k] = A[i];
+                            }
+                        }
+                    } else {
+                        if (c = ~~stickManBodyPoints[index + 0].x, b = ~~stickManBodyPoints[index + 0].y, ye[index] == jd) {
+                            if (customRandomBoolean(0.1)) {
+                                j = Ec;
+                                i = 0;
+                                for (; i < counterStickman; i++) {
+                                    if (z[i] == jd) {
+                                        j = Fc;
+                                    }
+                                }
+                                createFighterPlayerClone(c, b, j, kd[k]);
+                            }
+                        } else {
+                            if (ye[index] == md) {
+                                if (customRandomBoolean(0.01)) {
+                                    createFighterPlayerClone(c, b, fighterId, 0);
+                                }
+                            } else {
+                                if (ye[index] == Lb && customRandomBoolean(0.01)) {
+                                    Ad(c + 2, b + 2, kd[k]);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+};
+
+
+function Uf() {
+    var a, c, b, d, e, f = [-1023, -1022, -510, 2, 514, 1026, 1025, 1024, 1023, 1022, 510, -2, -514, -1026, -1025, -1024],
+        g = [-1023, -510, 2, 514, 1025, 1024, 1023, 510, -2, -514, -1025, -1024],
+        m = [-511, 1, 513, 512, 511, -1, -513, -512],
+        n = [1, 512, -1, -512];
+    e = [];
+    var t = 16769198,
+        u = 16777215,
+        F = 52224,
+        M = 10027008;
+    14 == backgroundDrawType && (F = u = t = 0, M = 13421772);
+    for (b = a = 0; a < counterStickman; a++, b += hd) {
+        if (z[a] <= ld + 3) {
+            if (z[a] != jd + 3 && z[a] != ld + 3) lf(stickManBodyPoints[b + 1].x, stickManBodyPoints[b + 1].y, stickManBodyPoints[b + 2].x, stickManBodyPoints[b + 2].y, u), lf(stickManBodyPoints[b + 1].x, stickManBodyPoints[b + 1].y, stickManBodyPoints[b + 3].x, stickManBodyPoints[b + 3].y, u), lf(stickManBodyPoints[b + 2].x, stickManBodyPoints[b + 2].y, stickManBodyPoints[b + 4].x, stickManBodyPoints[b + 4].y, u), lf(stickManBodyPoints[b +
+                3].x, stickManBodyPoints[b + 3].y, stickManBodyPoints[b + 5].x, stickManBodyPoints[b + 5].y, u), e = z[a] <= jd + 3 ? f : g;
+            else {
+                lf(stickManBodyPoints[b + 3].x, stickManBodyPoints[b + 3].y, stickManBodyPoints[b + 5].x, stickManBodyPoints[b + 5].y, u);
+                if (140 < ze[a]) continue;
+                lf(stickManBodyPoints[b + 4].x, stickManBodyPoints[b + 4].y, stickManBodyPoints[b + 7].x, stickManBodyPoints[b + 7].y, u);
+                if (135 < ze[a]) continue;
+                lf(stickManBodyPoints[b + 6].x, stickManBodyPoints[b + 6].y, stickManBodyPoints[b + 9].x, stickManBodyPoints[b + 9].y, u);
+                if (130 < ze[a]) continue;
+                lf(stickManBodyPoints[b + 8].x, stickManBodyPoints[b + 8].y, stickManBodyPoints[b + 10].x, stickManBodyPoints[b + 10].y, u);
+                if (125 < ze[a]) continue;
+                e = z[a] <= jd + 3 ? m : n
+            }
+            d = 0 == s[kd[a]] ? t : s[kd[a]];
+            14 == backgroundDrawType && (d = 0);
+            var $ = 0,
+                Ca = 0;
+            z[a] == jd && ($ = playerHealth[0], Ca = playerDamageState[0]);
+            z[a] == ld && ($ = playerHealth[1], Ca = playerDamageState[1]);
+            var Pb = e.length;
+            for (c = 0; c < Pb; c++) {
+                var $b = (stickManBodyPoints[b].y << 9) + ~~stickManBodyPoints[b].x +
+                    e[c];
+                ve[$b] && (v[$b] = 0 < Ca ? Pb - floor($ * Pb / 48) <= c ? F : M : v[$b] == d ? 0 : d)
+            }
+            if (12 == backgroundDrawType)
+                for (c = floor(minInsideRange(stickManBodyPoints[b + 0].x, 8, 503)), $ = floor(minInsideRange(stickManBodyPoints[b + 0].y, 8, 283)), e = $ - 4; e <= $ + 4; e += 4)
+                    for (d = c - 4; d <= c + 4; d += 4) Eb[(e << 9) + d] = 536870911
+        } else if (z[a] <= md + 2) lf(stickManBodyPoints[b + 0].x, stickManBodyPoints[b + 0].y, stickManBodyPoints[b + 1].x, stickManBodyPoints[b + 1].y, t), lf(stickManBodyPoints[b + 1].x, stickManBodyPoints[b + 1].y, stickManBodyPoints[b + 2].x, stickManBodyPoints[b + 2].y, u), lf(stickManBodyPoints[b + 1].x, stickManBodyPoints[b + 1].y, stickManBodyPoints[b + 3].x, stickManBodyPoints[b + 3].y, u), lf(stickManBodyPoints[b + 2].x, stickManBodyPoints[b + 2].y, stickManBodyPoints[b + 4].x, stickManBodyPoints[b + 4].y, u), lf(stickManBodyPoints[b + 3].x, stickManBodyPoints[b + 3].y, stickManBodyPoints[b + 5].x, stickManBodyPoints[b + 5].y, u), oe(stickManBodyPoints[b + 0].x - 1, stickManBodyPoints[b + 0].y - 1, 3, 3, t);
+        else if (z[a] <= md + 3) {
+            lf(stickManBodyPoints[b + 1].x, stickManBodyPoints[b + 1].y, stickManBodyPoints[b + 2].x, stickManBodyPoints[b + 2].y,
+                u);
+            if (145 < ze[a]) continue;
+            lf(stickManBodyPoints[b + 3].x, stickManBodyPoints[b + 3].y, stickManBodyPoints[b + 5].x, stickManBodyPoints[b + 5].y, u);
+            if (140 < ze[a]) continue;
+            lf(stickManBodyPoints[b + 4].x, stickManBodyPoints[b + 4].y, stickManBodyPoints[b + 7].x, stickManBodyPoints[b + 7].y, u);
+            if (135 < ze[a]) continue;
+            lf(stickManBodyPoints[b + 6].x, stickManBodyPoints[b + 6].y, stickManBodyPoints[b + 9].x, stickManBodyPoints[b + 9].y, u);
+            if (130 < ze[a]) continue;
+            lf(stickManBodyPoints[b + 8].x, stickManBodyPoints[b + 8].y, stickManBodyPoints[b + 10].x, stickManBodyPoints[b + 10].y, u);
+            if (125 < ze[a]) continue;
+            oe(stickManBodyPoints[b + 0].x - 1, stickManBodyPoints[b + 0].y - 1, 2, 2, t)
+        } else z[a] <= nd && (d = 9465872, 14 == backgroundDrawType && (d = 0), ye[b] == jd ? (lf(stickManBodyPoints[b].x, stickManBodyPoints[b].y, stickManBodyPoints[b].x, stickManBodyPoints[b].y + 3, d), lf(stickManBodyPoints[b].x, stickManBodyPoints[b].y, stickManBodyPoints[b].x + 2, stickManBodyPoints[b].y, d), lf(stickManBodyPoints[b].x, stickManBodyPoints[b].y + 2, stickManBodyPoints[b].x + 2, stickManBodyPoints[b].y + 2, d), lf(stickManBodyPoints[b].x + 3, stickManBodyPoints[b].y, stickManBodyPoints[b].x +
+            3, stickManBodyPoints[b].y + 2, d)) : ye[b] == md ? (lf(stickManBodyPoints[b].x, stickManBodyPoints[b].y, stickManBodyPoints[b].x, stickManBodyPoints[b].y + 3, d), lf(stickManBodyPoints[b].x, stickManBodyPoints[b].y, stickManBodyPoints[b].x + 3, stickManBodyPoints[b].y, d), lf(stickManBodyPoints[b].x, stickManBodyPoints[b].y + 2, stickManBodyPoints[b].x + 2, stickManBodyPoints[b].y + 2, d)) : ye[b] == Lb ? (lf(stickManBodyPoints[b].x + 1, stickManBodyPoints[b].y, stickManBodyPoints[b].x + 2, stickManBodyPoints[b].y, d), lf(stickManBodyPoints[b].x, stickManBodyPoints[b].y + 1, stickManBodyPoints[b].x, stickManBodyPoints[b].y + 2, d), lf(stickManBodyPoints[b].x + 3, stickManBodyPoints[b].y + 1, stickManBodyPoints[b].x + 3, stickManBodyPoints[b].y + 2, d), lf(stickManBodyPoints[b].x + 1, stickManBodyPoints[b].y + 3, stickManBodyPoints[b].x + 2, stickManBodyPoints[b].y + 3, d)) : oe(stickManBodyPoints[b].x, stickManBodyPoints[b].y, 4, 4, d));
+        if (z[a] <= md + 3 && 13 == backgroundDrawType)
+            for (c = 0; 6 > c; c++) d = floor(minInsideRange(stickManBodyPoints[b + c].x, 8, 503)), e = floor(minInsideRange(stickManBodyPoints[b + c].y, 8, 287)), Eb[(e << 9) + d] = 3E3
+    }
+}
+var od = 50,
+    B = Array(od);
+for (da = 0; da < od; da++) B[da] = new Vector;
+var W = Array(od);
+for (da = 0; da < od; da++) W[da] = new Vector;
+var A = new Int32Array(od),
+    S = new Int32Array(od),
+    Ce = new Int32Array(od),
+    De = new Uint8Array(od),
+    sh;
+
+function Ad(a, c, b) {
+    for (var d = 0; d < od; d++)
+        if (0 == A[d]) {
+            setToVector(B[d], a + 0.5, c + 0.5);
+            setToVector(W[d], 0, 0);
+            A[d] = b;
+            S[d] = 0;
+            Ce[d] = 0;
+            De[d] = 0;
+            break
+        }
+}
+
+function pd(a) {
+    A[a] = 0;
+    mg(2, a)
+}
+
+function Fd(a) {
+    var c, b;
+    for (c = 0; c < od; c++)
+        if (0 != A[c] && (b = (B[c].y << 9) + ~~B[c].x, b == a)) return c;
+    return -1
+}
+var Pf = [-screenWidth - 1, -screenWidth, -screenWidth + 1, -1, 0, 1, screenWidth - 1, screenWidth, screenWidth + 1, 2 * -screenWidth - 1, 2 * -screenWidth, 2 * -screenWidth + 1, 2 * screenWidth - 1, 2 * screenWidth, 2 * screenWidth + 1, -2 - screenWidth, -2, -2 + screenWidth, 2 - screenWidth, 2, 2 + screenWidth, 3 * -screenWidth - 1, 3 * -screenWidth, 3 * -screenWidth + 1, 3 * screenWidth - 1, 3 * screenWidth, 3 * screenWidth + 1, -3 - screenWidth, -3, -3 + screenWidth, 3 - screenWidth, 3, 3 + screenWidth, -2 - 2 * screenWidth, 2 - 2 * screenWidth, -2 + 2 * screenWidth, 2 + 2 * screenWidth],
+    th = [-0.7, 0, 0.7, -1, 0, 1, -0.7, 0, 0.7, -0.44, 0, 0.44, -0.44, 0, 0.44, -0.89, -1, -0.89, 0.89, 1, 0.89, -0.31, 0, 0.31, -0.31, 0, 0.31, -0.94, -1, -0.94, 0.94, 1, 0.94, -0.7, 0.7, -0.7, 0.7],
+    uh = [-0.7, -1, -0.7, 0, 0, 0, 0.7, 1, 0.7, -0.89, -1, -0.89, 0.89, 1, 0.89, -0.44, 0, 0.44, -0.44, 0, 0.44, -0.94, -1, -0.94, 0.94, 1, 0.94, -0.31, 0, 0.31, -0.31, 0, 0.31, -0.7, -0.7, 0.7, 0.7],
+    vh = [-1,
+        0, 1, -1, 0, 1, -1, 0, 1, -1, 0, 1, -1, 0, 1, -2, -2, -2, 2, 2, 2, -1, 0, 1, -1, 0, 1, -3, -3, -3, 3, 3, 3, -2, 2, -2, 2
+    ],
+    wh = [-1, -1, -1, 0, 0, 0, 1, 1, 1, -2, -2, -2, 2, 2, 2, -1, 0, 1, -1, 0, 1, -3, -3, -3, 3, 3, 3, -1, 0, 1, -1, 0, 1, -2, -2, 2, 2],
+    xh = [0, 0.1, 0, 0, 0, 0.1, 0.1, -0.03, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0, 0.1, 0.1, 0.1, 0.1, -0.01, 0.1, 0.1, 0.2, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.05, 0.1, 0.2, 0.1, 0.1, -0.02, 0.1, 0, 0, 0, 0, 0, 0.1, 0.1, 0.1],
+    yh = [0, 0, 0, 0, 0, 0.5, 0.4, 0.5, 0.5, 0.4, 0.4, 0.3, 0.4, 0.3, 0.3, 0.3, 0, 0.2, 0.2, 0.3, 0.1, 0, 0, 0.5, 0.3, 0.5, 0.3, 0.5, 0.4, 0, 0, 0.1, 0, 0.4,
+        0.4, 0.5, 0.4, 0.2, 0.5, 0.5, 0, 0.5, 0.2, 0.5, 0, 0, 0, 0, 0, 0, 0.2, 0.1, 0
+    ],
+    zh = [0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1];
+
+
+function hf() {
+    var a, c, b, d, e = new Vector;
+    for (a = 0; a < od; a++)
+        if (0 != A[a])
+            if (0 == zh[A[a]]) pd(a);
+            else {
+                b = (B[a].y << 9) + ~~B[a].x;
+                for (c = 0; 21 > c; c++) I[b + Pf[c]] == Lb && (I[b + Pf[c]] = Jb);
+                var f = U[b] * xh[A[a]],
+                    g = V[b] * xh[A[a]];
+                W[a].x += f;
+                W[a].y += g;
+                var m = yh[A[a]];
+                if (0 != m) {
+                    var n = (B[a].y >> 2 << 7) + (B[a].x >> 2);
+                    W[a].x += P[n] * m;
+                    W[a].y += Q[n] * m;
+                    100 < fastLength(W[a]) && vectorScale(W[a], 0.9 + 0.1 * (1 - m))
+                }
+                n = a;
+                if (0 == Ce[n]) {
+                    if (47 == ea && Ke || 47 == fa && Oe) {
+                        var m = ia - B[n].x,
+                            t = ja - B[n].y;
+                        400 > m * m + t * t && (Ce[n] = 1)
+                    }
+                } else 47 == ea && We || 47 == fa && Xe ? (W[n].x += 0.05 * (ia - B[n].x), W[n].y += 0.05 *
+                    (ja - B[n].y), vectorScale(W[n], 0.9)) : Ce[n] = 0;
+                for (m = 0; m < counterStickman; m++)
+                    if (z[m] == md || z[m] == md + 1 || z[m] == jd || z[m] == ld)
+                        for (n = m * hd, t = 4; 5 >= t; t++) {
+                            var u = abs(stickManBodyPoints[n + t].y - B[a].y);
+                            9 >= abs(stickManBodyPoints[n + t].x - B[a].x) && 9 >= u && (W[a].x += 0.1 * (stickManBodyPoints[n + t].x - stickManOldBodyPoints[n + t].x), W[a].y += 0.2 * (stickManBodyPoints[n + t].y - stickManOldBodyPoints[n + t].y))
+                        }
+                sh = n = 0;
+                for (var m = floor(vectorLength(W[a]) / 2) + 1, t = 1 / m, F, M, u = 0; u < m; u++) {
+                    F = B[a].x + W[a].x * t;
+                    M = B[a].y + W[a].y * t;
+                    if (4 > F || screenWidth - 4 <= F || 4 > M || 292 <= M) {
+                        pd(a);
+                        break
+                    }
+                    1 == xa && (8 > F ? (I[(M << 9) + floor(F + 496)] <= l ? (B[a].x += 496, W[a].x *= 0.8, mg(2, a)) : W[a].x *= -0.8, F = B[a].x + W[a].x * t) : 504 <= F && (I[(M << 9) + floor(F - 496)] <=
+                        l ? (B[a].x -= 496, W[a].x *= 0.8, mg(2, a)) : W[a].x *= -0.8, F = B[a].x + W[a].x * t), 8 > M ? (I[(M + 280 << 9) + ~~F] <= l ? (B[a].y += 280, W[a].y *= 0.8, mg(2, a)) : W[a].y *= -0.8, M = B[a].y + W[a].y * t) : 288 <= M && (I[(M - 280 << 9) + ~~F] <= l ? (B[a].y -= 280, W[a].y *= 0.5, mg(2, a)) : W[a].y *= -0.8, M = B[a].y + W[a].y * t));
+                    if (4 > F || screenWidth - 4 <= F || 4 > M || 292 <= M) {
+                        pd(a);
+                        break
+                    }
+                    b = (M << 9) + ~~F;
+                    d = 0;
+                    setToVector(e, 0, 0);
+                    for (c = 0; 37 > c; c++) {
+                        var $ = I[b + Pf[c]];
+                        $ <= l || (n = D[$], 1 == Bh(a, c, n, $) || 2 == X[n] && 2 == X[A[a]] && A[a] != n || 2 == X[n] && 2 != X[A[a]] || 5 == X[n] && 5 != X[A[a]] || n == r || n == oc || (n == Lc && (0 == G[$] ? (22 == c && (e.x +=
+                            1), 25 == c && (e.x -= 1), 28 == c && (e.y -= 1), 31 == c && (e.y += 1)) : (22 == c && (e.x -= 1), 25 == c && (e.x += 1), 28 == c && (e.y += 1), 31 == c && (e.y -= 1))), e.x -= th[c], e.y -= uh[c], d++))
+                    }
+                    0 == d ? (B[a].x = F, B[a].y = M) : (normalize2(e), W[a].x -= f, W[a].y -= g, c = 0.999 * vectorLength(W[a]), b = e.x * W[a].x + e.y * W[a].y, 0 > b && (vectorScale(e, -b), W[a].add(e), vectorScale(W[a], 0.9), vectorScale(e, 0.1), W[a].add(e), normalize2(W[a]), vectorScale(W[a], c)), B[a].x += W[a].x * t, B[a].y += W[a].y * t, W[a].x += f, W[a].y += g);
+                    if (4 > B[a].x || screenWidth - 4 <= B[a].x || 4 > B[a].y || 292 <= B[a].y) {
+                        pd(a);
+                        break
+                    }
+                    b = (B[a].y << 9) + ~~B[a].x;
+                    d = 0;
+                    setToVector(e, 0, 0);
+                    for (c = 0; 21 > c; c++) $ = I[b + Pf[c]],
+                        $ <= l || 2 == X[D[$]] && 2 == X[A[a]] && A[a] != D[$] || 2 == X[D[$]] && 2 != X[A[a]] || 5 == X[D[$]] && 5 != X[A[a]] || D[$] == rc && 2 == X[A[a]] || D[$] == rc && A[a] == zc || D[$] == r || D[$] == oc || (e.x -= th[c], e.y -= uh[c], d++);
+                    0 != d && (normalize2(e), B[a].add(e))
+                }
+                if (4 > B[a].x || screenWidth - 4 <= B[a].x || 4 > B[a].y || 292 <= B[a].y) pd(a);
+                else if (Ch(a, n), 0 != A[a])
+                    for (0 != sh && (A[a] = sh, S[a] = 0), b = (B[a].y << 9) + ~~B[a].x, c = 0; 21 > c; c++) I[b + Pf[c]] <= l && (I[b + Pf[c]] = Lb)
+            }
+}
+
+
+function Bh(a, c, b, d) {
+    if (A[a] != Sb)
+        if (A[a] == q)
+            if (b == r) rd(d);
+            else if (b == Ub) Hg(d, Tb);
+    else if (b == Wb) sh = Wb;
+    else if (b == Xb) sh = Xb;
+    else if (b == dc) Hg(d, ec);
+    else {
+        if (b == gc) return 1;
+        if (b == lc) rd(d);
+        else if (b == pc) customRandomBoolean(0.1) && Hg(d, Sb);
+        else {
+            if (b == rc) return 1;
+            b == uc ? (20 <= ++S[a] && (sh = vc), rd(d)) : b == Ac ? rd(d) : b == Bc && Hg(d, Vb)
+        }
+    } else if (A[a] == Wb) b == q ? Hg(d, Wb) : b == Wb ? S[a] = 0 : b == Xb ? S[a] = 0 : b == r ? 20 <= ++S[a] && (sh = q) : b == gc ? sh = q : b == lc ? 20 <= ++S[a] && (sh = q) : b == rc ? 20 <= ++S[a] && (sh = q) : b == Ac && 20 <= ++S[a] && (sh = q);
+    else if (A[a] == Xb) b == q ? Hg(d, Xb) : b ==
+        r ? sh = q : b == gc ? sh = q : b == lc ? sh = q : b == rc ? sh = q : b == Ac && (sh = q);
+    else if (A[a] == vc)
+        if (b == q) S[a] = 0;
+        else if (b == Tb) Hg(d, Sb);
+    else if (b == Ub) Hg(d, Sb);
+    else if (b == pc) Hg(d, Sb);
+    else if (b == tc) Hg(d, Sb);
+    else if (b == Bc) Hg(d, Vb);
+    else if (b == r) 20 <= ++S[a] && (sh = uc), rd(d);
+    else if (b == gc) sh = uc;
+    else if (b == lc) 20 <= ++S[a] && (sh = uc), rd(d);
+    else {
+        if (b == rc) return 20 <= ++S[a] && (sh = uc), 1;
+        b == Ac && (20 <= ++S[a] && (sh = uc), rd(d))
+    } else if (A[a] == uc)
+        if (b == q) sh = vc;
+        else {
+            if (b == gc) return 1
+        }
+    else if (A[a] == r) b == Sb ? Hg(d, r) : b == Tb ? Hg(d, r) : b == Ub ? Hg(d, r) : b == Vb ? Hg(d,
+        r) : b == Wb ? Hg(d, q) : b == Xb ? Hg(d, q) : b == ac ? D[d] == ac && 256 > G[d] && (G[d] += 256) : b == bc ? Hg(d, r) : b == cc ? Hg(d, r) : b == jc ? Hg(d, r) : b == kc ? Hg(d, r) : b == mc ? Hg(d, r) : b == tc ? Hg(d, r) : b == xc ? Hg(d, r) : b == yc ? Hg(d, r) : b == Bc && Hg(d, r);
+    else if (A[a] == Tb) b == Sb || b == dc || b == tc ? 1 == S[a] ? sh = Ub : Hg(d, Tb) : b == q && (S[a] = 1);
+    else if (A[a] == Ub) b == Tb ? G[d] = 1 : b == bc && (S[a] = 1);
+    else if (A[a] == bc) {
+        if (b == gc) return 1;
+        if (b == nc) rd(d);
+        else {
+            if (b == rc) return 1;
+            b == Bc && L(d, Bc, bc, 5583650)
+        }
+    } else if (A[a] == nc)
+        if (b == Wb) sh = Wb;
+        else if (b == bc) rd(d);
+    else {
+        if (b == gc) return 1;
+        if (b == lc) rd(d);
+        else {
+            if (b == rc) return 1;
+            b == Ac ? rd(d) : b == Bc && L(d, Bc, nc, 5588019)
+        }
+    } else if (A[a] == Zb) {
+        if (0 == S[a] && d >= p && (S[a] = b), b == rc) return 1
+    } else if (A[a] == ic) 0 == S[a] && d >= p ? S[a] = b : 0 != S[a] && d >= p && L(d, S[a], 0, s[S[a]]);
+    else if (A[a] == jc) b == Bc && L(d, Bc, jc, 4473890);
+    else if (A[a] == sc) {
+        if (0 == qg[b] && b != Zb || rd(d), b == rc) return 1
+    } else if (A[a] == xc) b != Tb && b != kc && b != yc || rd(d), b == Ub && vectorScale(W[a], 0.9);
+    else if (A[a] == oc) b == vc ? L(d, oc, 0, s[oc]) : b == pc ? (0 == vh[c] && 0 < wh[c] && L(d, pc, 1, s[oc]), 0 > vh[c] && 0 == wh[c] && L(d, pc, 2, s[oc]), 0 == vh[c] && 0 > wh[c] && L(d, pc,
+        3, s[oc]), 0 < vh[c] && 0 == wh[c] && L(d, pc, 4, s[oc])) : b == zc ? (0 == vh[c] && 0 < wh[c] && L(d, zc, 1, s[oc]), 0 > vh[c] && 0 == wh[c] && L(d, zc, 2, s[oc]), 0 == vh[c] && 0 > wh[c] && L(d, zc, 3, s[oc]), 0 < vh[c] && 0 == wh[c] && L(d, zc, 4, s[oc])) : b == Jc && 0 == G[d] && (G[d] = 1);
+    else if (A[a] == dc) b == q ? sh = ec : b == gc && (sh = gc);
+    else if (A[a] == ec)
+        if (b == r) 20 <= ++S[a] && (sh = dc), rd(d);
+        else if (b == gc) sh = dc;
+    else if (b == lc) 20 <= ++S[a] && (sh = dc);
+    else {
+        if (b == rc) return 20 <= ++S[a] && (sh = dc), 1;
+        b == Ac && (20 <= ++S[a] && (sh = dc), rd(d))
+    } else if (A[a] == fc)
+        if (b == fc) 10 < fastLength(W[a]) && (b = ~~B[a].x + customRandom(5) -
+            2, d = ~~B[a].y + customRandom(5) - 2, a = I[(d << 9) + b], a <= l && Bd(b, d, Ac, 0));
+        else {
+            if (b == Ac) return 1
+        }
+    else if (A[a] == gc) b == q ? (20 <= ++S[a] && (sh = pc), L(d, hc, 10, s[hc])) : b == nc ? (20 <= ++S[a] && (sh = wc), L(d, hc, 10, s[hc])) : b == vc ? (20 <= ++S[a] && (sh = fc), L(d, uc, 0, s[uc])) : b == ec ? (20 <= ++S[a] && (sh = dc), L(d, dc, 0, s[dc])) : b == gc && (S[a] = 0), b == Sb ? L(d, r, 0, s[r]) : b == Tb ? L(d, r, 0, s[r]) : b == Ub ? L(d, r, 0, s[r]) : b == Vb ? L(d, r, 0, s[r]) : b == Wb ? L(d, q, 0, s[q]) : b == Xb ? L(d, q, 0, s[q]) : b == Yb ? L(d, r, 0, s[r]) : b == ac ? D[d] == ac && 256 > G[d] && (G[d] += 256) : b == bc ? L(d, r, 0, s[r]) : b == cc ? L(d, r, 0, s[r]) :
+        b == jc ? L(d, r, 0, s[r]) : b == kc ? L(d, r, 0, s[r]) : b == mc ? L(d, r, 0, s[r]) : b == tc ? L(d, r, 0, s[r]) : b == xc ? L(d, r, 0, s[r]) : b == yc ? L(d, r, 0, s[r]) : b == Bc && L(d, r, 0, s[r]);
+    else if (A[a] == pc)
+        if (b == q) S[a] = 0;
+        else if (b == gc) 20 <= ++S[a] && (sh = gc);
+    else if (b == pc) 10 < fastLength(W[a]) && (b = ~~B[a].x + customRandom(5) - 2, d = ~~B[a].y + customRandom(5) - 2, a = I[(d << 9) + b], a <= l && Bd(b, d, Ac, 0));
+    else {
+        if (b == rc || b == Ac) return 1
+    } else if (A[a] == wc)
+        if (b == q) S[a] = 0;
+        else if (b == gc) 20 <= ++S[a] && (sh = gc);
+    else {
+        if (b == rc) return 1
+    } else if (A[a] == lc) b == Sb ? L(d, r, 0, s[r]) : b == Tb ? L(d, r, 0, s[r]) : b == Ub ? L(d, lc, 0, s[lc]) :
+        b == Vb ? L(d, r, 0, s[r]) : b == Wb ? L(d, q, 0, s[q]) : b == Xb ? L(d, q, 0, s[q]) : b == Yb ? L(d, r, 0, s[r]) : b == ac ? D[d] == ac && 256 > G[d] && (G[d] += 256) : b == bc ? L(d, r, 0, s[r]) : b == cc ? L(d, r, 0, s[r]) : b == jc ? L(d, r, 0, s[r]) : b == kc ? L(d, r, 0, s[r]) : b == mc ? L(d, r, 0, s[r]) : b == tc ? L(d, r, 0, s[r]) : b == xc ? L(d, r, 0, s[r]) : b == yc ? L(d, r, 0, s[r]) : b == Bc ? L(d, r, 0, s[r]) : b == Cc && L(d, q, 0, s[q]);
+    else if (A[a] == Bc) b == bc ? S[a] = bc : b == jc ? S[a] = jc : b == nc && (S[a] = nc);
+    else if (A[a] == Cc)
+        if (b == Ub) sh = q;
+        else if (b == Wb) sh = Xb;
+    else if (b == cc) sh = q;
+    else if (b == lc) sh = q;
+    else if (b == pc) sh = oc;
+    else if (b ==
+        tc) sh = q;
+    else if (b == Bc) sh = q;
+    else {
+        if (b == rc) return 1
+    } else if (A[a] == Dc) {
+        if (0 == S[a]) b == q ? S[a] = q : b == bc ? S[a] = bc : b == ec ? S[a] = ec : b == gc ? S[a] = gc : b == jc ? S[a] = jc : b == mc ? S[a] = mc : b == nc ? S[a] = nc : b == sc ? S[a] = sc : b == vc ? S[a] = vc : b == zc ? S[a] = zc : b == Cc && (S[a] = Cc);
+        else {
+            c = S[a] & 255;
+            var e = S[a] >> 8;
+            b == c && (S[a] = e + 1 << 8 | c, rd(d))
+        }
+        if (b == gc || b == rc) return 1
+    } else if (A[a] == Yb) b == Yb && (J[d].x += th[c], J[d].y += uh[c]);
+    else if (A[a] == kc) 4 == X[b] && b != Zb && L(d, kc, 0, s[kc]);
+    else if (A[a] == rc)
+        if (b == pc || b == zc) b = (B[a].y << 9) + ~~B[a].x, 21 <= c && 23 >= c && I[b + Pf[c + 3]] <=
+            l && Bd(~~B[a].x + vh[c + 3], ~~B[a].y + wh[c + 3], rc, 7), 24 <= c && 26 >= c && I[b + Pf[c - 3]] <= l && Bd(~~B[a].x + vh[c - 3], ~~B[a].y + wh[c - 3], rc, 3), 27 <= c && 29 >= c && I[b + Pf[c + 3]] <= l && Bd(~~B[a].x + vh[c + 3], ~~B[a].y + wh[c + 3], rc, 1), 30 <= c && 32 >= c && I[b + Pf[c - 3]] <= l && Bd(~~B[a].x + vh[c - 3], ~~B[a].y + wh[c - 3], rc, 5);
+        else if (b == Wb) L(d, q, 0, s[q]);
+    else {
+        if (b == wc) return 1
+    } else if (A[a] == tc) b == Tb ? G[d] = 2 : b != dc && b != fc && b != Dc || L(d, tc, 0, s[tc]);
+    else if (A[a] == zc)
+        if (b == q) S[a] = 0;
+        else if (b == gc) 20 <= ++S[a] && (sh = gc);
+    else if (b == oc) 21 <= c && 23 >= c && (G[d] = 8192 | G[d] & 4095),
+        24 <= c && 26 >= c && (G[d] = 0 | G[d] & 4095), 27 <= c && 29 >= c && (G[d] = 4096 | G[d] & 4095), 30 <= c && 32 >= c && (G[d] = 12288 | G[d] & 4095);
+    else {
+        if (b == rc) return 21 <= c && 23 >= c && (G[d] = G[d] & 65520 | 3), 24 <= c && 26 >= c && (G[d] = G[d] & 65520 | 7), 27 <= c && 29 >= c && (G[d] = G[d] & 65520 | 5), 30 <= c && 32 >= c && (G[d] = G[d] & 65520 | 1), 33 == c && (G[d] = G[d] & 65520 | 4), 34 == c && (G[d] = G[d] & 65520 | 2), 35 == c && (G[d] = G[d] & 65520 | 6), 36 == c && (G[d] = G[d] & 65520 | 8), 1
+    } else if (A[a] == Ac) {
+        if (b == Ac) return 1;
+        0 != X[b] && 2 < fastLength(W[a]) && (b = ~~B[a].x + customRandom(2), d = ~~B[a].y, 0 > W[a].x && (b += 2), 0 < W[a].x && (b -= 3), a = I[(d <<
+            9) + b], a <= l && Bd(b, d, Ac, 0))
+    } else if (A[a] == Jc)
+        if (b != oc && b != pc && b != zc || 0 == S[a]) {
+            if (b == rc) return 0 != S[a] && (E[d] = S[a]), 1;
+            b == Jc ? 0 != S[a] && (E[d] = S[a]) : d >= p && (S[a] = s[b])
+        } else 0 != G[d] && (b = S[a] >> 16 & 255, d = S[a] >> 8 & 255, c = S[a] & 255, 384 > b + d + c && (b = floor(9 * b / 7 + 1), 255 < b && (b = 255), d = floor(9 * d / 7 + 1), 255 < d && (d = 255), c = floor(9 * c / 7 + 1), 255 < c && (c = 255), S[a] = b << 16 | d << 8 | c));
+    else if (A[a] == Lc && 0 != X[b] && b != Lc && b != Zb && b != rc) {
+        a = 8;
+        b == Yb && (a = 1);
+        if (b == qc || b == Kc) a = 4;
+        if (b == jc || b == nc) a = 16;
+        9 <= c && 11 >= c && (J[d].y = a);
+        21 <= c && 23 >= c && (J[d].y = a);
+        12 <= c && 14 >= c && (J[d].y = -a);
+        24 <= c && 26 >= c && (J[d].y = -a);
+        15 <= c && 17 >= c && (J[d].x = a);
+        27 <= c && 29 >= c && (J[d].x = a);
+        18 <= c && 20 >= c && (J[d].x = -a);
+        30 <= c && 32 >= c && (J[d].x = -a)
+    }
+    return 0
+}
+
+
+function Ch(a, c) {
+    var b, d, e = new Vector;
+    d = (B[a].y << 9) + ~~B[a].x;
+    A[a] == Sb ? 2 == X[c] ? Z(a, d, 0, Sb, 0, 0.5 * W[a].x, 0.5 * W[a].y, 0.5) : 3 == X[c] && Z(a, d, 0, r, 0, 0.5 * W[a].x, 0.5 * W[a].y, 0.5) : A[a] == q ? c != gc && c != oc && c != sc || Z(a, d, 0, q, 0, 0, 0, 0) : A[a] == Wb ? (b = fastLength(W[a]), (c == oc || c == sc || (c == Kb || c == fc || c == pc || c == qc || c == Jc) && 25 < b) && Z(a, d, 0, Xb, 0, W[a].x, W[a].y, 0.1 * -b)) : A[a] == Xb ? (b = fastLength(W[a]), (c == oc || c == sc || (c == Kb || c == fc || c == pc || c == qc || c == Jc) && 25 < b) && Z(a, d, 0, Xb, 0, W[a].x, W[a].y, 0)) : A[a] == vc ? c != oc && c != sc || Z(a, d, 0, vc, 0, 0, 0, 0) : A[a] == uc ? c != gc && c != oc &&
+        c != sc || Z(a, d, 0, uc, 0, 0, 0, 0) : A[a] == r && (c != q && c != ec && c != nc && c != vc && c != sc || Z(a, d, 0, r, 0, 0, 0, 0));
+    A[a] == Tb && (c == sc ? Z(a, d, 0, Tb, 0, 0.5 * W[a].x, 0.5 * W[a].y, 0.5) : c != Ac && 3 == X[c] && Z(a, d, 0, r, 0, 0.5 * W[a].x, 0.5 * W[a].y, 0.5));
+    if (A[a] == Ub) c == lc ? Z(a, d, 0, lc, 0, 0, 0, 0) : c == sc ? Z(a, d, 0, Ub, 0, 0, 0, 0) : c == oc ? Z(a, d, 0, Sb, 0, 0, 0, 1) : c != Ac && (3 == X[c] && 1 == S[a] ? Z(a, d, 0, Ub, 0, 0, 0, 0) : 3 == X[c] && Z(a, d, 0, r, 0, 0, 0, 0));
+    else if (A[a] == Vb)
+        if (2 == X[c]) Z(a, d, 0, Vb, 0, 0, 0, 0);
+        else {
+            if (3 == X[c]) {
+                for (b = 0; 37 > b; b++)
+                    if (I[d + Pf[b]] <= l) {
+                        var f = Bd(~~B[a].x + vh[b], ~~B[a].y +
+                            wh[b], r, 2);
+                        if (0 < f) {
+                            var g = customRandom2(4);
+                            J[f].x += W[a].x * g + th[b] * g;
+                            J[f].y += W[a].y * g + uh[b] * g
+                        }
+                    } pd(a)
+            }
+        }
+    else if (A[a] == bc)
+        if (3 == X[c]) {
+            for (b = 9; 21 > b; b++) I[d + Pf[b]] <= l && customRandomBoolean(0.5) && Bd(~~B[a].x + vh[b], ~~B[a].y + wh[b], r, 0);
+            customRandomBoolean(0.01) && Z(a, d, 0, bc, 0, 0, 0, 0)
+        } else c == sc && Z(a, d, 0, bc, 0, 0, 0, 0);
+    else if (A[a] == nc) c != gc && c != oc && c != sc || Z(a, d, 0, nc, 0, 0, 0, 0);
+    else if (A[a] == Nb) d = (B[a].y >> 2 << 7) + (B[a].x >> 2), setToVector(e, W[a].x, W[a].y), normalize2(e), P[d] += e.x, Q[d] += e.y;
+    else if (A[a] == Zb) {
+        if (0 != S[a] && !(1E3 > mf - qd)) {
+            b = ~~B[a].x;
+            g = ~~B[a].y;
+            if (1 == X[S[a]] || S[a] == gc || S[a] ==
+                Ub || S[a] == Wb || S[a] == tc || S[a] == Bc || S[a] == Jc) b = floor(B[a].x + 4 * U[d]), g = floor(B[a].y + 4 * V[d]);
+            else if (S[a] == r || S[a] == mc) b = floor(B[a].x - 4 * U[d]), g = floor(B[a].y - 4 * V[d]);
+            else if (S[a] == Ac || S[a] == lc) e.set(W[a]), normalize(e), b = floor(B[a].x - 4 * e.x), g = floor(B[a].y - 4 * e.y);
+            d = 0;
+            S[a] == rc && (d = 128);
+            I[(g << 9) + b] <= l && Bd(b, g, S[a], d)
+        }
+    } else if (A[a] == cc || A[a] == jc)
+        if (3 == X[c]) {
+            d = 8;
+            for (var m = ~~B[a].x, n = ~~B[a].y, t = max(m - d, 8), f = max(n - d, 8), u = min(m + d, 503), F = min(n + d, 287), M, g = f; g <= F; g++)
+                for (b = t; b <= u; b++) d * d < (b - m) * (b - m) + (g - n) * (g - n) || (f = (g + n >> 1 << 9) + (b + m >> 1), 1 <= x[R[f]] ||
+                    (M = I[(g << 9) + b], M >= p && (D[M] == fc && L(M, dc, 0, s[dc]), J[M].x += 2 * (b - m), J[M].y += 2 * (g - n)), M <= l && A[a] == jc && Bd(b, g, r, 0)));
+            m = minInsideRange(m, 12, 499);
+            n = minInsideRange(n, 12, 283);
+            d = (n >> 2 << 7) + (m >> 2);
+            m = 5;
+            0 == x[f = d - w - 1] && (P[f] -= 0.4 * m, Q[f] -= 0.4 * m);
+            0 == x[f = d - w] && (Q[f] -= 0.5 * m);
+            0 == x[f = d - w + 1] && (P[f] += 0.4 * m, Q[f] -= 0.4 * m);
+            0 == x[f = d - 1] && (P[f] -= 0.5 * m);
+            0 == x[f = d + 1] && (P[f] += 0.5 * m);
+            0 == x[f = d + w - 1] && (P[f] -= 0.4 * m, Q[f] += 0.4 * m);
+            0 == x[f = d + w] && (Q[f] += 0.5 * m);
+            0 == x[f = d + w + 1] && (P[f] += 0.4 * m, Q[f] += 0.4 * m);
+            pd(a)
+        } else c == sc && Z(a, d, 0, A[a], 0, 0, 0, 0);
+    else if (A[a] == mc) 3 == X[c] ?
+        (Z(a, d, 0, mc, 0, 0, 0, 1), 2 > S[a] && (S[a]++, A[a] = mc)) : c == sc && Z(a, d, 0, mc, 0, 0, 0, 0);
+    else if (A[a] == qc) {
+        if (0 < X[c] && c != qc) {
+            d = 8;
+            m = ~~B[a].x;
+            n = ~~B[a].y;
+            t = max(m - d, 8);
+            f = max(n - d, 8);
+            u = min(m + d, 503);
+            F = min(n + d, 287);
+            setToVector(e, 0, 0);
+            for (g = f; g <= F; g++)
+                for (b = t; b <= u; b++) d * d < (b - m) * (b - m) + (g - n) * (g - n) || (M = I[(g << 9) + b], M >= p && (e.x += m - b, e.y += n - g));
+            normalize(e);
+            for (g = f; g <= F; g++)
+                for (b = t; b <= u; b++) d * d < (b - m) * (b - m) + (g - n) * (g - n) || (f = (g + n >> 1 << 9) + (b + m >> 1), 1 <= x[R[f]] || (M = I[(g << 9) + b], M >= p && (D[M] == qc && 0 != G[M] || L(M, qc, D[M], s[qc]), J[M].x += 0.5 * e.x + 0.5 * (m - b), J[M].y +=
+                    0.5 * e.y + 0.5 * (n - g))));
+            pd(a)
+        }
+    } else if (A[a] == xc) 3 == X[c] ? Z(a, d, 0, r, 0, 0.5 * W[a].x, 0.5 * W[a].y, 0.5) : c == sc && Z(a, d, 0, xc, 0, 0, 0, 0);
+    else if (A[a] == yc) 3 == X[c] ? Z(a, d, 0, r, 0, 0.5 * W[a].x, 0.5 * W[a].y, 0.5) : 2 != X[c] && c != xc || Z(a, d, 0, yc, 0, 0, 0, 0);
+    else if (A[a] == dc) c != oc && c != sc || Z(a, d, 0, dc, 0, 0, 0, 0);
+    else if (A[a] == ec) c != oc && c != sc || Z(a, d, 0, ec, 0, 0, 0, 0);
+    else if (A[a] == fc) b = fastLength(W[a]), (c == Kb || c == pc || c == qc || c == Jc) && 45 < b ? A[a] = dc : c == sc && Z(a, d, 0, fc, 0, 0, 0, 0);
+    else if (A[a] == pc) c == vc ? Z(a, d, 1, Sb, 0, 0, 0, 0) : c == oc ? Z(a, d, 2, pc, 0, 0, 0, 0) : c == rc ? Z(a, d, 1,
+        pc, 0, 0, 0, 0) : c == sc && Z(a, d, 0, pc, 0, 0, 0, 0);
+    else if (A[a] == wc) b = fastLength(W[a]), (c == Kb || c == fc || c == pc || c == qc) && 25 < b ? Z(a, d, 0, fc, 0, 0, 0, 0.05 * b) : c == oc ? Z(a, d, 1, wc, 0, 0, 0, 0) : c == rc ? Z(a, d, 2, wc, 0, 0, 0, 0) : c == sc && Z(a, d, 0, wc, 0, 0, 0, 0);
+    else if (A[a] == lc) c == q && Z(a, d, 0, lc, 0, 0, 0, 0), c == ec ? Z(a, d, 0, lc, 0, 0, 0, 0) : c == nc ? Z(a, d, 0, lc, 0, 0, 0, 0) : c == vc ? Z(a, d, 0, lc, 0, 0, 0, 0) : c == oc ? Z(a, d, 0, r, 0, 0, 0, 0) : c == sc && Z(a, d, 0, lc, 0, 0, 0, 0);
+    else if (A[a] == Bc) 3 == X[c] ? S[a] == bc ? Z(a, d, 2, r, 0, 0, 0, 0) : S[a] == jc ? Z(a, d, 0, jc, 0, 0, 0, 1) : S[a] == nc ? Z(a, d, 0, hc, 10, 0, 0, 1) : Z(a, d, 0, Ac,
+        0, 0, 0, 0) : c == q ? Z(a, d, 0, Vb, 0, 0, 0, 0) : c == vc ? Z(a, d, 0, Vb, 0, 0, 0, 0) : c == sc && Z(a, d, 0, Bc, 0, 0, 0, 0);
+    else if (A[a] == Cc) c == sc && Z(a, d, 0, Cc, 0, 0, 0, 0);
+    else if (A[a] == Dc) 0 == S[a] || 1E3 > mf - qd || (e.set(W[a]), normalize(e), vectorScale(e, 4), b = floor(B[a].x - e.x), g = floor(B[a].y - e.y), M = I[(g << 9) + b], M <= l && (m = S[a] & 255, e = S[a] >> 8, 0 < e && (Bd(b, g, m, 0), S[a] = e - 1 << 8 | m)));
+    else if (A[a] == Yb) c == oc ? Z(a, d, 0, Yb, 0, 0, 0, 1) : c == rc ? Z(a, d, 0, Yb, 0, 0, 0, 2) : c != Ac && (3 == X[c] ? Z(a, d, 0, r, 0, 0, 0, 0) : c == sc && Z(a, d, 0, Yb, 0, 0, 0, 2));
+    else if (A[a] == ac)
+        if (0 == S[a]) 3 == X[c] ? (W[a].x -= 5 * U[d], W[a].y -= 5 * V[d],
+            S[a] = 1) : c == sc && Z(a, d, 0, ac, 0, 0, 0, 0);
+        else {
+            if (S[a]++, 50 < S[a]) {
+                if (!(1E3 > mf - qd))
+                    for (e = customRandom(6), 0 == e ? e = 16711680 | customRandom(256) << 8 : 1 == e ? e = 65280 | customRandom(256) << 16 : 2 == e ? e = 65280 | customRandom(256) : 3 == e ? e = 255 | customRandom(256) << 8 : 4 == e ? e = 255 | customRandom(256) << 16 : 5 == e && (e = 16711680 | customRandom(256)), b = 9; 37 > b; b++) I[d + Pf[b]] <= l && (g = Bd(~~B[a].x + vh[b], ~~B[a].y + wh[b], r, 2), 0 < g && (J[g].x += 5 * th[b], J[g].y += 5 * uh[b], E[g] = e));
+                pd(a)
+            }
+        }
+    else A[a] == kc ? 3 == X[c] ? Z(a, d, 0, r, 0, 0, 0, 0) : c == sc && Z(a, d, 0, kc, 0, 0, 0, 0) : A[a] == rc ? c == sc && Z(a, d, 0, rc, 0, 0, 0, 0) : A[a] == tc ? c == vc ? Z(a, d, 0, Sb, 0, 0, 0, 0) : c == oc ? Z(a,
+        d, 0, tc, 0, 0, 0, 0) : c != Ac && (3 == X[c] ? Z(a, d, 0, r, 0, 0, 0, 0) : c == sc && Z(a, d, 0, tc, 0, 0, 0, 0)) : A[a] == zc ? c == sc && Z(a, d, 0, zc, 0, 0, 0, 0) : A[a] == Ac ? c == q ? Z(a, d, 2, Ac, 0, 0, 0, 0) : c == nc ? Z(a, d, 2, Ac, 0, 0, 0, 0) : c == vc ? Z(a, d, 2, Ac, 0, 0, 0, 0) : c == oc ? Z(a, d, 2, Ac, 0, 0, 0, 0) : c == sc && Z(a, d, 2, Ac, 0, 0, 0, 0) : A[a] == Kc ? 0 != X[c] && (b = I[d - 2 * screenWidth - 2], g = I[d - 2 * screenWidth + 2], e = I[d + 2 * screenWidth + 2], d = I[d + 2 * screenWidth - 2], b <= l && (b = Bd(~~B[a].x - 2, ~~B[a].y - 2, c, 0)), g <= l && (g = Bd(~~B[a].x + 2, ~~B[a].y - 2, c, 0)), e <= l && (e = Bd(~~B[a].x + 2, ~~B[a].y + 2, c, 0)), d <= l && (d = Bd(~~B[a].x - 2, ~~B[a].y + 2, c, 0)), 0 < b && J[b].set(W[a]),
+        0 < g && J[g].set(W[a]), 0 < e && J[e].set(W[a]), 0 < d && J[d].set(W[a]), p <= b && p <= g && Gd(0, 0, b, g, 0), p <= g && p <= e && Gd(0, 0, g, e, 0), p <= e && p <= d && Gd(0, 0, e, d, 0), p <= d && p <= b && Gd(0, 0, d, b, 0), p <= b && p <= e && Gd(0, 0, b, e, 5), p <= g && p <= d && Gd(0, 0, g, d, 5), pd(a)) : A[a] == Lc && c == sc && Z(a, d, 2, Lc, 0, 0, 0, 0)
+}
+
+function Z(a, c, b, d, e, f, g, m) {
+    if (0 == b) {
+        for (b = 9; 21 > b; b++) {
+            var n = I[c + Pf[b]];
+            n <= l && (n = Bd(~~B[a].x + vh[b], ~~B[a].y + wh[b], d, e), 0 < n && (J[n].x += f + th[b] * m, J[n].y += g + uh[b] * m))
+        }
+        pd(a)
+    } else if (1 == b || 2 == b) {
+        for (b = 1 == b ? 9 : 0; 21 > b; b++) n = I[c + Pf[b]], n <= l ? Bd(~~B[a].x + vh[b], ~~B[a].y + wh[b], d, e) : n >= p && L(n, d, e, s[d]);
+        pd(a)
+    }
+}
+
+
+function Vf() {
+    var a, c, b, d;
+    for (a = 0; a < od; a++)
+        if (0 != A[a]) {
+            d = s[A[a]];
+            A[a] == Jc && 0 != S[a] && (d = S[a]);
+            14 == backgroundDrawType && (d = 0);
+            b = (B[a].y << 9) + ~~B[a].x;
+            for (c = 9; 21 > c; c++) v[b + Pf[c]] = v[b + Pf[c]] == d ? 0 : d;
+            if (288 > B[a].y)
+                if (12 == backgroundDrawType) {
+                    if (A[a] == r || A[a] == gc || A[a] == lc || A[a] == oc || A[a] == rc || A[a] == Ac) Eb[b] = 255E3
+                } else 13 == backgroundDrawType && (Eb[b] = 2 * Sc[A[a]])
+        }
+}
+var    canvasElement = document.getElementById("cv"),
+    canvasContext = canvasElement.getContext("2d"),
+    canvasImageData = canvasContext.createImageData(screenWidth, screenHeight),
+    ae = new Uint8Array(canvasImageData.data.buffer);
+
+
+function drawCanvas(a, c, b, d, e, f, g) {
+    try {
+        canvasElement = document.getElementById("cv"), canvasContext = canvasElement.getContext("2d"), canvasContext.putImageData(a, c, b, d, e, f, g)
+    } catch (m) {}
+}
+
+
+function logOnConsole(a) {
+    try {
+        window.console.log(a);
+    } catch (c) {}
+}
+window.Init = startScript;
+    Jh = 11; // Changed
+    v = new Int32Array(screenWidth * screenHeight);
+
+function loop() {
+    if (requestAnimationFrame) {
+        requestAnimationFrame(loop);
+        Mh++;
+        Nh = Date.now();
+        var a = floor(60 * (Nh - Oh) / 1E3 + 0.5);
+        if (0 > a || 60 <= a) qf = Mh, Mh = 0, nf = Ph, Ph = 0, pf = floor((2 * pf + Qh) / 3), Qh = 0, Oh = Nh, a = 0;
+        else if (a == Rh) return;
+        Ph++;
+        Rh = a
+    }
+    Ke = false == We && true == Sh;
+    trueAfterMouseUpButOnlyForOneTick = true == We && false == Sh;
+    Oe = false == Xe && true == moreThanOneTouches;
+    Ve = true == Xe && false == moreThanOneTouches;
+    We = Sh;
+    Xe = moreThanOneTouches;
+    Je = !(trueAfterMouseUpButOnlyForOneTick | We | Ve | Xe);
+    Pe = trueAfterMouseUpButOnlyForOneTick ? 1 : Ve ? -1 : 0;
+    Qf = Ne;
+    Rf = Ie;
+    Ne = distanceXFromTopScreen;
+    Ie = distanceYFromTopScreen;
+    Ke && (Qf = Ne, Rf = Ie);
+    for (a = 0; 256 > a; a++) Qd[a] = Rd[a], Rd[a] = false, Ud[a] = false == Td[a] && true == Sd[a], Vd[a] = true == Td[a] && false == Sd[a], Td[a] = Sd[a];
+    Zd = Zd + floor(1024 * Math.random()) & 1023;
+    $d = floor(512 * Math.random()) | 1;
+    Ge();
+    // Another security check
+    var c, b = 11 == Jh ? screenWidth * screenHeight : 0;
+    for (c = a = 0; a < b; a++) ae[c++] = v[a] >> 16 & 255, ae[c++] = v[a] >> 8 & 255, ae[c++] = v[a] & 255, c++;
+    drawCanvas(canvasImageData, -8, -8, 8, 8, screenWidth - 16, screenHeight - 8);
+    requestAnimationFrame ? Qh += Date.now() - Nh : setTimeout(loop, je())
+}
+var He = 0;
+
+function securityCheck() {
+    return false
+    /*if (location.hostname.length != "dan-ball.jp".length) return true;
+    for (He = 0; Jh < location.hostname.length; Jh++)
+        if (location.hostname[Jh] != "dan-ball.jp"[Jh]) return true;
+    return false*/
+}
+var Mh = 0,
+    qf = 0,
+    Rh = 0,
+    Ph = 0,
+    nf = 0,
+    Qh = 0,
+    pf = 0,
+    Wh = 20,
+    Nh = Date.now(),
+    Oh = Nh,
+    Xh = Nh + Wh,
+    Yh = Nh,
+    cf = 0;
+
+function je() {
+    Nh = Date.now();
+    var a = minInsideRange(Xh - Nh, 5, Wh);
+    Ph++;
+    Qh += a;
+    Xh += Wh;
+    if (Nh + a >= Yh || Nh < Oh) pf = pf + Qh >> 1, Qh = 0, nf = Ph, Ph = 0, Xh = Nh + Wh, Yh = Nh + 1E3;
+    Oh = Nh;
+    return a
+}
+var ce = 0;
+
+function ImageHandler() {
+    this.img = 0;
+    this.file = "";
+    this.o = this.d = this.k = this.f = this.j = this.a = this.shift = this.screenWidth = this.b = 0
+}
+
+function he(a, c, b) {
+    a.b = c;
+    a.screenWidth = b;
+    for (c = a.shift = 0; 16 > c; c++) 1 << c == a.b && (a.shift = c);
+    a.a = new Int32Array(a.b * a.screenWidth)
+}
+ImageHandler.prototype.m = function(url) {
+    if(this.file != url) {
+        ce++;
+        this.file = url;
+        this.img = new Image;
+        if( url = "font.gif") {
+            this.img.src = "data:image/gif;base64,R0lGODlhAAMMAJECAAAAAP///wAAAAAAACH5BAEAAAIALAAAAAAAAwwAAAL/lI9pACoMUVzsVdvoVXO6D4aipm1QhnUnmqbn8a6RXG4j5yWvtNZo7/rtgMGGLAM8knCVWdOj6jmHxKQ1dsxGtxdakTolEVui3O2MTqvX7Lb7DR+BdTllGxkIsBZ6PQygdxIIaESI54eDaMhEtxdn4ceQFwipCDgpiIl0aTSJSZHX6TnomRm6abPzF/rBKVQKAVupKCt5+qDJV4q7a0vJyYpro9sZK/pDa2vsO3h562vaDOuseWrdFJhsKMnNxxzsXOzNi1g5zEEZoipnxuTI47gOFt/+aP/3fs+mPC5xa07oTraAPPo8gWXwl0FiDhZBYrEMWb43i4BF+sRLmStw/59cOXlmLZtIjRzLZSz4S4orYhsFiQLJr6Wwis0iYutzEeeheKwM9Qw2k9vGkUONZfRJSiNShER/dpsZUqhUl96wUTVa1WRDgi5gAK2hA5wqjT6EoTPJiWFYSyqvTJmnBRWUckq4yO3i1s62fvi0/VNDKJRWck6lBcZDcB0oiOmELeRr7ynSlzuLpuWWc8ipY5ajpj3ple5KwptANgV2zKnHmkEvdvgqNXNJnq5NI2t6epnT1kKh1owlDbdul0JJjVyVbFVvvl7U4c01E2Xj6NAQB1Tm2h280mM5Hsa8mRpwjxaxB3+2VyZNyQOHZx2F2N+7xM3XBB78UGHF74snev9NxVV1GAwCQn2tpHQcPy6EtxJqhJ33W3jTRFXCdqA01pxS42G3DVHiKbiYWeFwdtMRx4Hmj3EI0jWKSDol5mFSUBE3YmiVeXaNYIWg196FXYjWI2QUyRjUjYWwh9U246lmwnSfzWijLky96FlLk20Y40uZXaeaYcXZFGEkXBUpn3/76NjQQBeueNCYB/IEkUPU4CclncqxNBtKTW7W3go4WtITasBhdMZo7MyW2pUhafLkSR12BF9G1UQKmp8u/ohhKZde8x5JSVk5YDqfWSbofTCyiBFZzLUoUWTQeCOhFL10SKNSOf3T6FOOobqTQatNtWV7iHrYZolcfqqTmDz/LkeWQ3XGaeeZDhbkLGY70rpXgU4GWGNEBY6RJqYKPtlsJuaF6WllRwVq6A2qBoGcuMTwCV9n6BbXzFHGLpXqsC4qhJaXrCr5r3Hf1WvpTnjKpmWguDbYLrce/eeqmiSB+NCxjA5cJaco9iOgWqglqGZrwmr424dVYbmjr3MeJGrJquoK739mpnEwban6VIyvA0VLc7UJtYrPzWMFSGGl5NnLVLqj+luaaACaMJp4Pgrxo5JzCjci1wzm+ue4UJenIZIWeZ2vvU7nSc5ls+o4aMy0sGZWnUC56YZ6YSf8aBYMYpKlyEnKIrKOJANrnrlJ1+Cdor22fJ3Kr75btxzR/wL22Hz8kWaMz8uUIeqY3kLW6IEs7ll1SVMyamu9rBZOaThRzn41vJQ/jSVuE66u4qSM7S723E0PhZB1fzad4sa69yt8R6l3UxTsuwQV6hRA23GW8toTP6nMd+cuTqXevwj7wa6pvcXi6zb/DcxZHzsuTeGt7BzeAtkfFrcEYgvN5WYzAg9qWQ5Q0CLU0xBGOEd9iBnymoXcUCdAPZluGKNa4PF4RC/TIA85AAte1OilG9cZL0bKK6DPSIgrsRCOXBZL2gGnJzu1tE0dr9sK4AYFMwnBTWUoqo7bFEaahQFxZDHp3XgmmCseogxNPWzhVV64s6+c5RwCuRxY8IFFu5wYDS83oyEVG2EdMFKNi22pg13KUiE0kiGNVdHOVs5xNCzEBQpy1CK48rKFoj1hj3P0QRn5KMa41GyNGaJjHefhx7sUTY/1A9d23oI1LQ6yO+jZYxpnFgYyzPFItpOijRRTH7iQUY+cxMBRErnIb32RDdPRhytd1UUAvnKWtKwHLW+Jy1zqcpe87KUvAaOYQtkyl8Fk4y/dNcxjFgAAOw=="
+        } else {
+            this.img.src = url;
+        }
+        //this.img.crossOrigin = "anonymous";
+        delete this.a;
+        this.j = this.a = 0;
+    }
+};
+
+function rf(a, c) {
+    If(a, c, "sans-serif", 0, 14)
+}
+
+function If(a, c, b, d, e) {
+    0 == a.j && (a.j = 1, he(a, screenWidth, 128), a.k = document.createElement("canvas"), a.k.width = a.b, a.k.height = a.screenWidth, a.d = a.k.getContext("2d"));
+    var f = c + b + d + e;
+    if (a.o != f) {
+        a.o = f;
+        a.d.fillStyle = "#000000";
+        a.d.fillRect(0, 0, a.b, a.screenWidth);
+        f = "";
+        0 != (d & 2) && (f += "italic ");
+        0 != (d & 1) && (f += "bold ");
+        f = f + (e + "px ") + b;
+        a.d.font = f;
+        a.d.fillStyle = "#ffffff";
+        a.d.fillText(c, 0, e);
+        b = a.d.getImageData(0, 0, a.b, a.screenWidth).data;
+        c = 0;
+        for (d = b.length; c < d; c += 4) a.a[c >> 2] = 1 <= b[c + 0] ? 16777215 : -1;
+        for (c = b = a.f = 0; b < a.screenWidth; b++)
+            for (d = 0; d < a.b; d++, c++) 16777215 == a.a[c] && a.f <= d &&
+                (a.f = d + 1)
+    }
+}
+var Zh = [
+        [0, 2, 0, 0, 1, 0, 0, 2, 2, 1, 1, 1, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 3, 1, 0],
+        [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]
+    ],
+    $screenWidth = [
+        [0, 1, 1, 0, 0, 0, 0, 2, 1, 2, 0, 0, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 0
+        ],
+        [0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]
+    ],
+    fontImage = new ImageContainer;
+
+function ImageContainer() {
+    this.l = new ImageHandler;
+    this.i = this.e = this.n = this.g = 0
+}
+ImageContainer.prototype.m = function(a, c, b) {
+    this.l.m(a);
+    this.g = c;
+    this.n = b;
+    this.i = this.e = 0
+};
+
+function drawTextUsingImage(a, c, b, d, e, f) {
+    var g, m, n, t, u, F, M, $ = screenWidth - a.g,
+        Ca = a.l.b - a.g,
+        Pb = -1 < e ? 16777215 : 1,
+        $b = -1 < f ? 0 : 1,
+        ub = d.length;
+    for (g = 0; g < ub; g++, c += a.g + a.e)
+        if (u = d.charCodeAt(g) - 32, 0 != u) {
+            96 <= u && (u = 31);
+            0 != a.i && (c -= Zh[a.i - 1][u]);
+            F = u * a.g;
+            t = b * screenWidth + c;
+            for (n = 0; n < a.n; n++, t += $, F += Ca)
+                for (m = 0; m < a.g; m++, t++, F++) M = a.l.a[F], M == Pb ? v[t] = e : M == $b && (v[t] = f);
+            0 != a.i && (c -= $screenWidth[a.i - 1][u])
+        } a.e = 0;
+    a.i = 0
+}
+
+function tf(a, c, b, d) {
+    var e = fontImage;
+    a -= b.length * (e.g + e.e) - e.e >> 1;
+    c -= e.n >> 1;
+    drawTextUsingImage(e, a, c, b, d, 0)
+}
+
+function drawCompositeTextUsingImage(a, c, b, d, e, f) {
+    var g = fontImage;
+    g.e = f;
+    drawTextUsingImage(g, a, c, b, d, e);
+    g.e = 0
+}
+var bi = 0;
+
+function lf(a, c, b, d, e) {
+    var f = ~~b - ~~a,
+        g = ~~d - ~~c,
+        m = max(max(abs(f), abs(g)), 1),
+        f = floor((f << 8) / m),
+        g = floor((g << 8) / m);
+    a = (a << 8) + 127;
+    c = (c << 8) + 127;
+    for (var n = 0; n <= m; n++, a += f, c += g) b = a >> 8, d = c >> 8, 0 > b || screenWidth <= b || 0 > d || screenHeight <= d || (v[(d << 9) + b] = e)
+}
+
+function vf(a, c, b, d) {
+    var e = 18;
+    b--;
+    e--;
+    lf(a, c, a + b, c, d);
+    lf(a, c + e, a + b, c + e, d);
+    lf(a, c, a, c + e, d);
+    lf(a + b, c, a + b, c + e, d)
+}
+
+function oe(a, c, b, d, e) {
+    var f;
+    b = a + b > screenWidth ? screenWidth : ~~(a + b);
+    d = c + d > screenHeight ? screenHeight : ~~(c + d);
+    a = 0 > a ? 0 : ~~a;
+    c = (0 > c ? 0 : ~~c) * screenWidth + a;
+    f = screenWidth - (b - a);
+    b = c + b - a;
+    d *= screenWidth;
+    if (0 == bi)
+        for (; c < d; c += f, b += screenWidth)
+            for (; c < b; c++) v[c] = e;
+    else
+        for (; c < d; c += f, b += screenWidth)
+            for (; c < b; c++) {
+                a = v[c];
+                var g = e >> 24 & 255,
+                    m = bi,
+                    n = void 0,
+                    t = 0,
+                    u = 0,
+                    n = 0;
+                1 == m ? (n = a >> 16 & 255, t = (((e >> 16 & 255) - n) * g >> 8) + n, n = a >> 8 & 255, u = (((e >> 8 & 255) - n) * g >> 8) + n, n = a & 255, n = (((e & 255) - n) * g >> 8) + n) : 2 == m ? (t = ((e >> 16 & 255) * g >> 8) + (a >> 16 & 255), 255 < t && (t = 255), u = ((e >> 8 & 255) * g >> 8) + (a >> 8 & 255), 255 < u && (u = 255), n = ((e & 255) * g >> 8) + (a & 255), 255 < n &&
+                    (n = 255)) : 3 == m ? (t = (a >> 16 & 255) - ((e >> 16 & 255) * g >> 8), 0 > t && (t = 0), u = (a >> 8 & 255) - ((e >> 8 & 255) * g >> 8), 0 > u && (u = 0), n = (a & 255) - ((e & 255) * g >> 8), 0 > n && (n = 0)) : 4 == m ? (t = (e >> 16 & 255) * (a >> 16 & 255) >> 8, u = (e >> 8 & 255) * (a >> 8 & 255) >> 8, n = (e & 255) * (a & 255) >> 8) : 5 == m ? (n = a >> 16 & 255, t = n + ((e >> 16 & 255) * n * g >> 16), 255 < t && (t = 255), n = a >> 8 & 255, u = n + ((e >> 8 & 255) * n * g >> 16), 255 < u && (u = 255), n = a & 255, n += (e & 255) * n * g >> 16, 255 < n && (n = 255)) : 6 == m && (n = a >> 16 & 255, t = n + (g - (2 * n * g >> 8)), n = a >> 8 & 255, u = n + (g - (2 * n * g >> 8)), n = a & 255, n += g - (2 * n * g >> 8));
+                v[c] = t << 16 | u << 8 | n
+            }
+}
+
+function kf(a, c, b, d, e) {
+    var f = imageHandlerForScreen,
+        g = 8,
+        m = 496,
+        n = 496 >> ra,
+        t, u;
+    if (0 != m && 0 != c)
+        for (n = ~~((n << 8) / m), e = ~~((e << 8) / c), b <<= 8, d <<= 8, 0 > g && (b += n * -g), 0 > a && (d += e * -a), m = g + m > screenWidth ? screenWidth : ~~(g + m), c = a + c > screenHeight ? screenHeight : ~~(a + c), g = 0 > g ? 0 : ~~g, a = (0 > a ? 0 : ~~a) * screenWidth + g, t = screenWidth - (m - g), m = a + m - g, c *= screenWidth; a < c; a += t, m += screenWidth, d += e)
+            for (g = ((d >> 8) * f.b << 8) + b; a < m; a++, g += n) u = f.a[g >> 8], v[a] = u
+}
+
+function xf(a, c, b, d, e, f, g, m) {
+    var n, t, u, F, M;
+    f = floor((f << 8) / d);
+    g = floor((g << 8) / e);
+    t = n = 0;
+    0 > c && (n += f * -c);
+    0 > b && (t += g * -b);
+    d = c + d > screenWidth ? screenWidth : floor(c + d);
+    e = b + e > screenHeight ? screenHeight : floor(b + e);
+    c = 0 > c ? 0 : floor(c);
+    b = 0 > b ? 0 : floor(b);
+    for (var $ = m >> 16 & 255, Ca = m >> 8 & 255, Pb = m & 255, $b, ub; b < e; b++, t += g)
+        for (u = b * screenWidth + c, F = ((t >> 8) * a.b << 8) + n, m = c; m < d; m++, u++, F += f) M = a.a[F >> 8], -1 != M && ($b = $ * (M >> 16 & 255) >> 8, ub = Ca * (M >> 8 & 255) >> 8, M = Pb * (M & 255) >> 8, v[u] = $b << 16 | ub << 8 | M)
+}
+
+function uf(a) {
+    var c = rb.f;
+    xf(rb, 256 - (c >> 1), a - 8, c, 16, rb.f, 16, 0)
+}
+var $e = new Vector,
+    Ke = false,
+    trueAfterMouseUpButOnlyForOneTick = false,
+    We = false,
+    Sh = false,
+    Oe = false,
+    Ve = false,
+    Xe = false,
+    moreThanOneTouches = false,
+    Je = false,
+    Pe = 0,
+    Ne = 0,
+    Ie = 0,
+    Qf = 0,
+    Rf = 0,
+    distanceXFromTopScreen = 0,
+    distanceYFromTopScreen = 0;
+
+function Me(a, c, b, d) {
+    return Ne < a || a + b <= Ne || Ie < c || c + d <= Ie ? false : true
+}
+
+function ci(a) {
+    var c = canvasElement.getBoundingClientRect();
+    distanceXFromTopScreen = floor(a.clientX - c.left);
+    distanceYFromTopScreen = floor(a.clientY - c.top)
+}
+document.onmousemove = ci;
+document.onmousedown = function(a) {
+    ci(a);
+    di = false;
+    if (!(0 > distanceXFromTopScreen || screenWidth <= distanceXFromTopScreen || 0 > distanceYFromTopScreen || screenHeight <= distanceYFromTopScreen) && (di = true, 0 == a.button && (Sh = true), 2 == a.button && (moreThanOneTouches = true), di)) return false
+};
+document.onmouseup = function(a) {
+    ci(a);
+    0 == a.button && (Sh = false);
+    2 == a.button && (moreThanOneTouches = false)
+};
+document.oncontextmenu = function() {
+    if (di) return false
+};
+
+function saveTouchPosition(a) {
+    for (var c = 0, b = 0, d = canvasElement; null !== d; d = d.offsetParent) c += d.offsetLeft, b += d.offsetTop;
+    a = a.touches;
+    distanceXFromTopScreen = floor(a[0].pageX - c);
+    distanceYFromTopScreen = floor(a[0].pageY - b)
+}
+canvasElement.ontouchstart = function(a) {
+    saveTouchPosition(a);
+    Sh = true;
+    1 < a.touches.length && (moreThanOneTouches = true);
+    return false
+};
+canvasElement.ontouchmove = function(a) {
+    saveTouchPosition(a);
+    return false
+};
+canvasElement.ontouchend = function(a) {
+    1 > a.touches.length && (Sh = false);
+    return moreThanOneTouches = false
+};
+canvasElement.ontouchcancel = function() {
+    moreThanOneTouches = Sh = false
+};
+var Qd = Array(256),
+    Rd = Array(256),
+    Sd = Array(256),
+    Td = Array(256),
+    Ud = Array(256),
+    Vd = Array(256),
+    Wd = Array(256),
+    Xd = Array(256);
+document.onkeydown = function(a) {
+    var c = a.keyCode;
+    65 <= c & 90 >= c ? a.shiftKey || (c += 32) : c = a.shiftKey ? Xd[c] : Wd[c];
+    0 <= c && 256 > c && (Sd[c] = true, Rd[c] = true);
+    if (0 != c && di) return false
+};
+document.onkeyup = function(a) {
+    var c = a.keyCode;
+    65 <= c & 90 >= c ? a.shiftKey || (c += 32) : c = a.shiftKey ? Xd[c] : Wd[c];
+    0 <= c && 256 > c && (Sd[c] = false);
+    if (0 != c && di) return false
+};
+var di = false;
+
+function callPrompt(a, c) {
+    var b = null;
+    try {
+        b = prompt(a, c)
+    } catch (d) {}
+    return b
+}
+var ne = Array(100),
+    me = 0;
+
+function AjaxRequest(a, c) {
+    for (var b = me = 0; 100 > b; b++) ne[b] = "";
+    try {
+        var d = new XMLHttpRequest;
+        d.onreadystatechange = function() {
+            if (4 == d.readyState)
+                if (200 == d.status) {
+                    var a, b, c = 0,
+                        e = d.responseText.length;
+                    for (a = 0; a < e; a++)
+                        if (b = d.responseText[a], b == "=") {
+                            for (a += 1; a < e; a++) {
+                                b = d.responseText[a];
+                                if (b == "\n") break;
+                                ne[c] += b
+                            }
+                            c++
+                        } else
+                            for (; a < e && d.responseText[a] != "\n"; a++);
+                    me = 1
+                } else me = -1
+        };
+        d.open("POST", a, false);
+        d.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        d.send(c)
+    } catch (e) {
+        me = -2
+    }
+}
+function Vector() {
+    this.y = this.x = 0
+}
+Vector.prototype.set = function(a) {
+    this.x = a.x;
+    this.y = a.y;
+    return this
+};
+function setToVector(a, c, b) {
+    a.x = c;
+    a.y = b
+}
+Vector.prototype.add = function(a) {
+    this.x += a.x;
+    this.y += a.y;
+    return this
+};
+Vector.prototype.sub = function(a) {
+    this.x -= a.x;
+    this.y -= a.y;
+    return this
+};
+function vectorSub(a, c, b) {
+    a.x = c.x - b.x;
+    a.y = c.y - b.y
+}
+function vectorScale(a, c) {
+    a.x *= c;
+    a.y *= c
+}
+function rotatePointAroundCenter90Degrees(a) {
+    var c = a.x;
+    a.x = a.y;
+    a.y = -c
+}
+function vectorLength2(a) {
+    return Math.sqrt(a.x * a.x + a.y * a.y)
+}
+function fastLength(a) {
+    return a.x * a.x + a.y * a.y
+}
+function vectorLength(a) {
+    return Math.sqrt(a.x * a.x + a.y * a.y)
+}
+function normalize(a) {
+    var c = vectorLength2(a);
+    if (0 == c) return 0;
+    a.x /= c;
+    a.y /= c;
+    return c
+}
+function normalize2(a) {
+    var c = vectorLength(a);
+    if (0 == c) return 0;
+    a.x /= c;
+    a.y /= c;
+    return c
+}
+function getAngle(a) {
+    var c = Math.acos(a.x / Math.sqrt(a.x * a.x + a.y * a.y));
+    0 < a.y && (c = TWOPI - c);
+    return c
+}
+var Yd = new Float32Array(1024),
+    Zd = 0,
+    $d = 0;
+
+function customRandom2(a) {
+    Zd += $d;
+    Zd &= 1023;
+    return Yd[Zd] * a
+}
+
+function customRandomBetween(a, c) {
+    Zd += $d;
+    Zd &= 1023;
+    return Yd[Zd] * (c - a) + a
+}
+
+function customRandomBoolean(a) {
+    Zd += $d;
+    Zd &= 1023;
+    return Yd[Zd] < a ? true : false
+}
+
+function customRandom(a) {
+    Zd += $d;
+    Zd &= 1023;
+    return ~~(Yd[Zd] * a)
+}
+var PI = 3.1415927,
+    TWOPI = 6.2831855;
+
+function abs(a) {
+    return 0 > a ? -a : a
+}
+
+function max(a, c) {
+    return a > c ? a : c
+}
+
+function min(a, c) {
+    return a < c ? a : c
+}
+
+function minInsideRange(a, c, b) {
+    return a < c ? c : a > b ? b : a
+}
+
+function returnBetween0_MAX(a, c) {
+    return 0 > a ? c : a > c ? 0 : a
+}
+
+function floor(a) {
+    return Math.floor(a)
+};
