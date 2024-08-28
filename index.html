@@ -17,5 +17,12 @@
     <body>
         <canvas id="cv" class="nrnb" width="496" height="422"></canvas>
         <script async src="dust.js" onload="Init('','',1,'');"></script>
+        <input onclick="fullScreen();" type="button" value="フルスクリーン">
+        <script>
+            function fullScreen(){
+                const canvas = document.getElementById("cv");
+                canvas.requestFullscreen();
+            }
+        </script>
     </body>
 </html>

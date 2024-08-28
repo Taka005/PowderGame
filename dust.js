@@ -666,7 +666,7 @@ function Yc(option){
 }
 
 // ユーザーが「LOAD」ボタンをクリックするたびに呼び出されます
-function _loadGameToScreen() {
+function loadGameToScreen() {
     reset(1); // ゲーム画面のリセット
     if (Za !== 0) { // Zaが0でない場合のみ処理を実行
         let currentIndex = Ya + 138880; // eに相当
