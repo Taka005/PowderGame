@@ -1584,7 +1584,7 @@ function bf(a) {
             P[b] += na.x * (oa + 1);
             Q[b] += na.y * (oa + 1);
             setToVector(e, P[b], Q[b]);
-            if(10 < vectorLength2(e) && 1 == isStopped) {
+            if(10 < vectorLength(e) && 1 == isStopped) {
                 normalize(e);
                 P[b] = 10 * e.x;
                 Q[b] = 10 * e.y;
@@ -1769,7 +1769,7 @@ function handlesDrawingMethods() {
             for (c = 2; c < Ee; c++, d++) 0 == x[d] && (setToVector(t, P[d], Q[d]), f = Math.floor(10 * normalize(t)), 2 > f || (48 < f && (f = 48), a = (c << 2) + 2, n = (b << 2) + 2, lf(a, n, a + t.x * f, n + t.y * f, 0 | f << 17)));
     else if (9 == backgroundDrawType)
         for (b = 2, d = 258; b < Fe; b++, d += 4)
-            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (setToVector(t, P[d], Q[d]), a = vectorLength2(t), 0.2 > a || (g = Math.floor(Math.min(16 * a, 80)),
+            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (setToVector(t, P[d], Q[d]), a = vectorLength(t), 0.2 > a || (g = Math.floor(Math.min(16 * a, 80)),
                 f = 0, 0 < ue[d] && (f = Math.floor(Math.min(ue[d] * a, 80))), m = 0, 0 > ue[d] && (m = Math.floor(Math.min(-ue[d] * a, 80))), a = (c << 2) + 5 * P[d], n = (b << 2) + 5 * Q[d], e = (c + 1 << 2) + 5 * P[d + 1], F = (b << 2) + 5 * Q[d + 1], lf(a, n, e, F, f << 16 | g << 8 | m), e = (c << 2) + 5 * P[d + w], F = (b + 1 << 2) + 5 * Q[d + w], lf(a, n, e, F, f << 16 | g << 8 | m)));
     else if (14 == backgroundDrawType)
         for (a = 288 * screenWidth; 4096 < a; a--) I[a] == Jb ? (f = 255 - (255 - (v[a] >> 16 & 255) >> 1), g = 255 - (255 - (v[a] >> 8 & 255) >> 1), m = 255 - (255 - (v[a] & 255) >> 1), v[a] = f << 16 | g << 8 | m) : I[a] < Lb && (v[a] = 0);
@@ -1974,7 +1974,7 @@ function fg() {
     var a, c, b, d = new Vector,
         e;
     for (b = c = 0; 280 > c; c++, b += 16)
-        for (a = 0; 496 > a; a++, b++) d.x = -0.5 - a, d.y = -0.5 - c, e = normalize2(d) + 16, e = 100 / (e * e), U[b] = d.x * e, V[b] = d.y * e
+        for (a = 0; 496 > a; a++, b++) d.x = -0.5 - a, d.y = -0.5 - c, e = normalize(d) + 16, e = 100 / (e * e), U[b] = d.x * e, V[b] = d.y * e
 }
 
 function hg(a, c) {
@@ -2047,7 +2047,7 @@ function setGravity() {
         var c = new Vector;
         for (a = 288 * screenWidth - 1; 4096 <= a; a--) {
             setToVector(c, eg[a], Re[a]);
-            normalize2(c);
+            normalize(c);
             U[a] = c.x;
             V[a] = c.y;
         }
@@ -2115,14 +2115,14 @@ function ff() {
         c = false;
         0 == ud[n] ? (b = C[vd[n]], e = J[vd[n]], g = Jd[vd[n]] & 255, D[vd[n]] == nc && (c = true)) : 1 == ud[n] ? (b = stickManBodyPoints[vd[n] * hd + 1], e = stickManBodyPoints[vd[n] * hd + 1], g = Be[vd[n]] & 255) : 2 == ud[n] && (b = B[vd[n]], e = W[vd[n]], g = De[vd[n]] & 255);
         0 == wd[n] ? (d = C[xd[n]], f = J[xd[n]], m = Jd[xd[n]] & 255) : 1 == wd[n] ? (d = stickManBodyPoints[xd[n] * hd + 1], f = stickManBodyPoints[xd[n] * hd + 1], m = Be[xd[n]] & 255) : 2 == wd[n] && (d = B[xd[n]], f = W[xd[n]], m = De[xd[n]] & 255);
-        c && (vectorSub(a, C[xd[n]], C[vd[n]]), rotatePointAroundCenter90Degrees(a), normalize2(a), vectorScale(a, 0.1), J[vd[n]].add(a),
+        c && (vectorSub(a, C[xd[n]], C[vd[n]]), vectorRotateVertical(a), normalize(a), vectorScale(a, 0.1), J[vd[n]].add(a),
             J[xd[n]].add(a));
-        if (1 == td[n]) vectorSub(a, d, b), rotatePointAroundCenter90Degrees(a), normalize2(a), vectorScale(a, 0.1), e.sub(a), f.add(a);
-        else if (2 == td[n]) vectorSub(a, d, b), rotatePointAroundCenter90Degrees(a), normalize2(a), vectorScale(a, 0.1), e.add(a), f.sub(a);
+        if (1 == td[n]) vectorSub(a, d, b), vectorRotateVertical(a), normalize(a), vectorScale(a, 0.1), e.sub(a), f.add(a);
+        else if (2 == td[n]) vectorSub(a, d, b), vectorRotateVertical(a), normalize(a), vectorScale(a, 0.1), e.add(a), f.sub(a);
         else if (4 == td[n]) continue;
         vectorSub(a, d, b);
         c || (1 != wd[n] && a.add(f), 1 != ud[n] && a.sub(e));
-        c = normalize2(a);
+        c = normalize(a);
         if (0 != c) {
             if (3 == td[n]) {
                 var t = we & 255;
@@ -2247,7 +2247,7 @@ function Mg(a, c, b) {
 
 function Ng(a, c) {
     I[H[a]] = Jb;
-    var b = vectorLength2(c);
+    var b = vectorLength(c);
     3.8 < b && vectorScale(c, 3.8 / b);
     b = (C[a].y << 9) + ~~(C[a].x + c.x);
     I[b] <= l && (C[a].x += c.x);
@@ -2261,7 +2261,7 @@ var Og = new Vector,
     Qg = new Vector;
 
 function Rg(a, c) {
-    var b = vectorLength2(c);
+    var b = vectorLength(c);
     3.8 < b && vectorScale(c, 3.8 / b);
     setToVector(Qg, U[H[a]], V[H[a]]);
     var b = c.x * Qg.x + c.y * Qg.y,
@@ -2290,7 +2290,7 @@ function Vg(a, c) {
     c.x += P[R[H[a]]];
     c.y += Q[R[H[a]]];
     I[H[a]] = Jb;
-    var b = Math.floor(vectorLength2(c) / 4) + 2;
+    var b = Math.floor(vectorLength(c) / 4) + 2;
     vectorScale(c, 1 / b);
     for (var d = 0, e; d < b; d++) e = (C[a].y << 9) + ~~(C[a].x + c.x), 4 > C[a].x + c.x || 508 <= C[a].x + c.x || (I[e] <= l ? C[a].x += c.x : (J[a].y *= Ug[D[a]], J[a].x *= -Tg[D[a]], c.x *= -Tg[D[a]])), e = (C[a].y + c.y << 9) + ~~C[a].x, 4 > C[a].y + c.y || 292 <= C[a].y + c.y || (I[e] <= l ? C[a].y += c.y : (J[a].x *= Ug[D[a]], J[a].y *= -Tg[D[a]], c.y *= -Tg[D[a]]));
     H[a] = (C[a].y << 9) + ~~C[a].x;
@@ -2481,7 +2481,7 @@ function Xg(a, c) {
         b = I[H[a] + wg[d]];
         b >= p && D[b] != Ub && D[b] !=
             Xb && D[b] != Zb && D[b] != tc && D[b] != Cc && (D[b] == Wb ? L(a, Wb, 0, s[Wb]) : customRandomBoolean(0.1) && L(a, q, 0, s[q]))
-    } else if (D[a] == Yb) 0 == Jd[a] ? (J[a].x += 0.05 * P[R[H[a]]], J[a].y += 0.05 * Q[R[H[a]]], J[a].x += 0.01 * U[H[a]], J[a].y += 0.01 * V[H[a]], vectorScale(J[a], 0.999), c.set(J[a]), I[H[a]] = Jb, b = vectorLength2(c), 3.8 < b && vectorScale(c, 3.8 / b), b = I[(C[a].y << 9) + Math.floor(C[a].x + c.x)], b <= l ? C[a].x += c.x : 2 == X[D[b]] ? (J[b].x -= J[a].x, J[a].x *= 0.9, C[b].x = C[a].x, C[a].x += c.x, H[b] = H[a], I[H[a]] = b) : D[b] == r ? Lg(a, b) : D[b] == Yb ? (d = 0.9 * J[a].x, J[a].x = 0.9 * J[b].x, J[b].x = d) : (J[a].x *= -rg[D[b]], J[a].y *= sg[D[b]]),
+    } else if (D[a] == Yb) 0 == Jd[a] ? (J[a].x += 0.05 * P[R[H[a]]], J[a].y += 0.05 * Q[R[H[a]]], J[a].x += 0.01 * U[H[a]], J[a].y += 0.01 * V[H[a]], vectorScale(J[a], 0.999), c.set(J[a]), I[H[a]] = Jb, b = vectorLength(c), 3.8 < b && vectorScale(c, 3.8 / b), b = I[(C[a].y << 9) + Math.floor(C[a].x + c.x)], b <= l ? C[a].x += c.x : 2 == X[D[b]] ? (J[b].x -= J[a].x, J[a].x *= 0.9, C[b].x = C[a].x, C[a].x += c.x, H[b] = H[a], I[H[a]] = b) : D[b] == r ? Lg(a, b) : D[b] == Yb ? (d = 0.9 * J[a].x, J[a].x = 0.9 * J[b].x, J[b].x = d) : (J[a].x *= -rg[D[b]], J[a].y *= sg[D[b]]),
         H[a] = (C[a].y << 9) + Math.floor(C[a].x), I[H[a]] = Jb, b = I[(C[a].y + c.y << 9) + Math.floor(C[a].x)], b <= l ? C[a].y += c.y : 2 == X[D[b]] ? (J[b].y -= J[a].y, J[a].y *= 0.9, C[b].y = C[a].y, C[a].y += c.y, H[b] = H[a], I[H[a]] = b) : D[b] == r ? Lg(a, b) : D[b] == Yb ? 0 < J[a].y ? (d = 0.45 * J[a].y, J[a].y = -d, J[a].y += J[b].y, J[b].y = d) : (d = 0.45 * J[b].y, J[b].y = -d, J[b].y += J[a].y, J[a].y = d) : (J[a].y *= -rg[D[b]], J[a].x *= sg[D[b]]), H[a] = (C[a].y << 9) + Math.floor(C[a].x), I[H[a]] = a) : Vg(a, c);
     else if (D[a] == Zb)
         if (0 != Jd[a] && setToVector(J[a], 0, 0), 0 == G[a]) d = customRandom(20), b = I[H[a] + Bg[d]], b >= p && (G[a] = D[b] == Zb ? G[b] : D[b]);
@@ -2597,7 +2597,7 @@ function Yg(a, c) {
                 V[H[a]] * d;
             vectorScale(J[a], 0.95);
             c.set(J[a]);
-            d = vectorLength2(c);
+            d = vectorLength(c);
             3.8 < d && vectorScale(c, 3.8 / d);
             I[H[a]] = Jb;
             b = I[(C[a].y << 9) + Math.floor(C[a].x + c.x)];
@@ -2664,7 +2664,7 @@ function Yg(a, c) {
         e = customRandom(8);
         b = I[H[a] + wg[e]];
         1 == X[D[b]] && D[b] != fc || D[b] == ec ? customRandomBoolean(0.2) && 0.3 >= U[H[a]] * xg[e] + V[H[a]] * yg[e] && Lg(a, b) : 3 == X[D[b]] && (G[a] = 1);
-        if (0 == G[a] && 10 > vectorLength2(J[a])) return 0;
+        if (0 == G[a] && 10 > vectorLength(J[a])) return 0;
         F = 8;
         t = ~~C[a].x;
         u = ~~C[a].y;
@@ -3402,7 +3402,7 @@ function nh(a, c, b, d, e) {
         f.x += P[g] * b;
         f.y += Q[g] * b
     }
-    0 == e ? (b = vectorLength2(f) + 1, 8 <= b ? (vectorScale(f, 3.8 / b), b = 2) : 4 <= b ? (vectorScale(f, 0.5), b = 2) : b = 1) : (b = Math.floor(vectorLength2(f) / 3) + 1, vectorScale(f, 1 / b));
+    0 == e ? (b = vectorLength(f) + 1, 8 <= b ? (vectorScale(f, 3.8 / b), b = 2) : 4 <= b ? (vectorScale(f, 0.5), b = 2) : b = 1) : (b = Math.floor(vectorLength(f) / 3) + 1, vectorScale(f, 1 / b));
     ye[a] = 0;
     if (1 == d) vectorScale(f, b), stickManBodyPoints[a].add(f), stickManBodyPoints[a].x = minInsideRange(stickManBodyPoints[a].x, 4, 507), stickManBodyPoints[a].y = minInsideRange(stickManBodyPoints[a].y, 4, 291);
     else {
@@ -3513,10 +3513,10 @@ function processPlayerMove(k) {
         }
         v.x = U[j] + U[i];
         v.y = V[j] + V[i];
-        normalize2(v);
+        normalize(v);
         w.set(v);
         character.set(v);
-        rotatePointAroundCenter90Degrees(w);
+        vectorRotateVertical(w);
         if ($ && kd[k] == xc) {
             tintB = 0;
             for (; 6 > tintB; tintB++) {
@@ -3805,10 +3805,10 @@ function processFighterMove(k) {
         i = (stickManOldBodyPoints[index + 5].y << 9) + ~~stickManOldBodyPoints[index + 5].x;
         a.x = U[j] + U[i];
         a.y = V[j] + V[i];
-        normalize2(a);
+        normalize(a);
         b.set(a);
         c.set(a);
-        rotatePointAroundCenter90Degrees(b);
+        vectorRotateVertical(b);
         if (z[k] == md) {
             movePlayerJoints(index + 0, c, -0.2, 0.995);
             movePlayerJoints(index + 1, c, -0.1, 0.995);
@@ -4248,7 +4248,7 @@ function hf() {
                         $ <= l || (n = D[$], 1 == Bh(a, c, n, $) || 2 == X[n] && 2 == X[A[a]] && A[a] != n || 2 == X[n] && 2 != X[A[a]] || 5 == X[n] && 5 != X[A[a]] || n == r || n == oc || (n == Lc && (0 == G[$] ? (22 == c && (e.x +=
                             1), 25 == c && (e.x -= 1), 28 == c && (e.y -= 1), 31 == c && (e.y += 1)) : (22 == c && (e.x -= 1), 25 == c && (e.x += 1), 28 == c && (e.y += 1), 31 == c && (e.y -= 1))), e.x -= th[c], e.y -= uh[c], d++))
                     }
-                    0 == d ? (B[a].x = F, B[a].y = M) : (normalize2(e), W[a].x -= f, W[a].y -= g, c = 0.999 * vectorLength(W[a]), b = e.x * W[a].x + e.y * W[a].y, 0 > b && (vectorScale(e, -b), W[a].add(e), vectorScale(W[a], 0.9), vectorScale(e, 0.1), W[a].add(e), normalize2(W[a]), vectorScale(W[a], c)), B[a].x += W[a].x * t, B[a].y += W[a].y * t, W[a].x += f, W[a].y += g);
+                    0 == d ? (B[a].x = F, B[a].y = M) : (normalize(e), W[a].x -= f, W[a].y -= g, c = 0.999 * vectorLength(W[a]), b = e.x * W[a].x + e.y * W[a].y, 0 > b && (vectorScale(e, -b), W[a].add(e), vectorScale(W[a], 0.9), vectorScale(e, 0.1), W[a].add(e), normalize(W[a]), vectorScale(W[a], c)), B[a].x += W[a].x * t, B[a].y += W[a].y * t, W[a].x += f, W[a].y += g);
                     if (4 > B[a].x || screenWidth - 4 <= B[a].x || 4 > B[a].y || 292 <= B[a].y) {
                         pd(a);
                         break
@@ -4258,7 +4258,7 @@ function hf() {
                     setToVector(e, 0, 0);
                     for (c = 0; 21 > c; c++) $ = I[b + Pf[c]],
                         $ <= l || 2 == X[D[$]] && 2 == X[A[a]] && A[a] != D[$] || 2 == X[D[$]] && 2 != X[A[a]] || 5 == X[D[$]] && 5 != X[A[a]] || D[$] == rc && 2 == X[A[a]] || D[$] == rc && A[a] == zc || D[$] == r || D[$] == oc || (e.x -= th[c], e.y -= uh[c], d++);
-                    0 != d && (normalize2(e), B[a].add(e))
+                    0 != d && (normalize(e), B[a].add(e))
                 }
                 if (4 > B[a].x || screenWidth - 4 <= B[a].x || 4 > B[a].y || 292 <= B[a].y) pd(a);
                 else if (Ch(a, n), 0 != A[a])
@@ -4455,7 +4455,7 @@ function Ch(a, c) {
             customRandomBoolean(0.01) && Z(a, d, 0, bc, 0, 0, 0, 0)
         } else c == sc && Z(a, d, 0, bc, 0, 0, 0, 0);
     else if (A[a] == nc) c != gc && c != oc && c != sc || Z(a, d, 0, nc, 0, 0, 0, 0);
-    else if (A[a] == Nb) d = (B[a].y >> 2 << 7) + (B[a].x >> 2), setToVector(e, W[a].x, W[a].y), normalize2(e), P[d] += e.x, Q[d] += e.y;
+    else if (A[a] == Nb) d = (B[a].y >> 2 << 7) + (B[a].x >> 2), setToVector(e, W[a].x, W[a].y), normalize(e), P[d] += e.x, Q[d] += e.y;
     else if (A[a] == Zb) {
         if (0 != S[a] && !(1E3 > mf - qd)) {
             b = ~~B[a].x;
@@ -4974,52 +4974,55 @@ function AjaxRequest(a, c) {
     }
 }
 
-function setToVector(a, c, b) {
-    a.x = c;
-    a.y = b
+function setToVector(vec,x,y){
+    vec.x = x;
+    vec.y = y;
 }
 
-function vectorSub(a, c, b) {
-    a.x = c.x - b.x;
-    a.y = c.y - b.y
+function vectorSub(vec,source,target){
+    vec.x = source.x - target.x;
+    vec.y = source.y - target.y
 }
-function vectorScale(a, c) {
-    a.x *= c;
-    a.y *= c
+
+function vectorScale(vec,value){
+    vec.x *= value;
+    vec.y *= value;
 }
-function rotatePointAroundCenter90Degrees(a) {
-    var c = a.x;
-    a.x = a.y;
-    a.y = -c
+
+function vectorRotateVertical(vec){
+    const x = vec.x;
+    vec.x = vec.y;
+    vec.y = -x
 }
-function vectorLength2(a) {
-    return Math.sqrt(a.x * a.x + a.y * a.y)
+
+function vectorLength(vec){
+    return Math.sqrt(vec.x*vec.x + vec.y*vec.y);
 }
-function fastLength(a) {
-    return a.x * a.x + a.y * a.y
+
+function fastLength(vec){
+    return vec.x*vec.x + vec.y*vec.y
 }
-function vectorLength(a) {
-    return Math.sqrt(a.x * a.x + a.y * a.y)
+
+function normalize(vec){
+    const length = vectorLength(vec);
+    if (0 == length) return 0;
+
+    vec.x /= length;
+    vec.y /= length;
+
+    return length;
 }
-function normalize(a) {
-    var c = vectorLength2(a);
-    if (0 == c) return 0;
-    a.x /= c;
-    a.y /= c;
-    return c
+
+function getAngle(vec){
+    const angle = Math.acos(vec.x / Math.sqrt(vec.x*vec.x + vec.y*vec.y));
+
+    if(0 < vec.y){
+        angle = Math.PI**2 - angle;
+    }
+
+    return angle;
 }
-function normalize2(a) {
-    var c = vectorLength(a);
-    if (0 == c) return 0;
-    a.x /= c;
-    a.y /= c;
-    return c
-}
-function getAngle(a) {
-    var c = Math.acos(a.x / Math.sqrt(a.x * a.x + a.y * a.y));
-    0 < a.y && (c = Math.PI**2 - c);
-    return c
-}
+
 var Yd = new Float32Array(1024),
     Zd = 0,
     $d = 0;
