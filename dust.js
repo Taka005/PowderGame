@@ -1548,7 +1548,7 @@ function bf(a) {
             var m = ia - ka,
                 n = ja - la;
             if (!(1 >= oa && 1 == isStopped && 1 >= ra && 0 == m && 0 == n && 3 != Aa)) {
-                var t = max(max(Math.abs(m), Math.abs(n)), 1),
+                var t = Math.max(Math.max(Math.abs(m), Math.abs(n)), 1),
                     m = Math.floor((m << 8) / t),
                     n = Math.floor((n << 8) / t),
                     u = (ka << 8) + 127,
@@ -1635,7 +1635,7 @@ function bf(a) {
             56 != elementType && 0 == oa && (c = 1);
             m = Math.floor(ia / ha) - Math.floor(ka / ha);
             n = Math.floor(ja / ha) - Math.floor(la / ha);
-            t = max(max(Math.abs(m), Math.abs(n)),
+            t = Math.max(Math.max(Math.abs(m), Math.abs(n)),
                 1);
             m = Math.floor((m << 8) / t);
             n = Math.floor((n << 8) / t);
@@ -1647,7 +1647,7 @@ function bf(a) {
                         x[b] && (x[b] = Ib, P[b] = Q[b] = se[b] = te[b] = ue[b] = 0, Of(e, f, -1)));
             setGravity();
             if (56 == elementType && 0 == oa)
-                for (m = ia - ka, n = ja - la, t = max(max(Math.abs(m), Math.abs(n)), 1), m = Math.floor((m << 8) / t), n = Math.floor((n << 8) / t), u = (ka << 8) + 127, F = (la << 8) + 127, a = 0; a <= t; a++, u += m, F += n)
+                for (m = ia - ka, n = ja - la, t = Math.max(Math.max(Math.abs(m), Math.abs(n)), 1), m = Math.floor((m << 8) / t), n = Math.floor((n << 8) / t), u = (ka << 8) + 127, F = (la << 8) + 127, a = 0; a <= t; a++, u += m, F += n)
                     for (b = p; b < qd; b++) u >> 8 == Math.floor(C[b].x) && F >> 8 == Math.floor(C[b].y) && rd(b--);
             if (54 == elementType || 56 == elementType || 57 == elementType || 58 == elementType)
                 for (a = p; a < qd; a++) 0 != x[(C[a].y >> 2) * w + (C[a].x >> 2)] && rd(a--);
@@ -1685,7 +1685,7 @@ function handlesDrawingMethods() {
         for (a = 288 * screenWidth; 4096 < a; a--) v[a] = 0;
     else if (1 == backgroundDrawType || 2 == backgroundDrawType)
         for (b = 2, d = 258; b < Fe; b++, d += 4)
-            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (g = 0 < ue[d] ? Math.floor(min(10 * ue[d], 96)) : 0, m = 0 > ue[d] ? Math.floor(min(-10 * ue[d], 96)) : 0, oe(c << 2, b << 2, ha, ha, 0 | g << 8 | m));
+            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (g = 0 < ue[d] ? Math.floor(Math.min(10 * ue[d], 96)) : 0, m = 0 > ue[d] ? Math.floor(Math.min(-10 * ue[d], 96)) : 0, oe(c << 2, b << 2, ha, ha, 0 | g << 8 | m));
     else if (3 == backgroundDrawType) {
         for (a = 288 * screenWidth; 4096 < a; a--) {
             if (0 == x[R[a]]) {
@@ -1698,7 +1698,7 @@ function handlesDrawingMethods() {
     } else if (4 == backgroundDrawType)
         for (d = 4104, b = 8; 288 > b; b++, d += 16)
             for (c = 8; 504 > c; c++, d++) t.x =
-                U[d + (503 == c ? 0 : 1)] - U[d - (8 == c ? 0 : 1)], t.y = V[d + (287 == b ? 0 : 512)] - V[d - (8 == b ? 0 : 512)], f = Math.floor(512 * (t.x + t.y)), v[d] = 0 >= f ? min(-f, 255) : min(f, 255) << 8;
+                U[d + (503 == c ? 0 : 1)] - U[d - (8 == c ? 0 : 1)], t.y = V[d + (287 == b ? 0 : 512)] - V[d - (8 == b ? 0 : 512)], f = Math.floor(512 * (t.x + t.y)), v[d] = 0 >= f ? Math.min(-f, 255) : Math.min(f, 255) << 8;
     else if (5 == backgroundDrawType) {
         for (b = 8; 288 > b; b++) {
             d = (b << 9) + 8;
@@ -1731,11 +1731,11 @@ function handlesDrawingMethods() {
         for (a = 288 * screenWidth; 4096 <= a; a--) v[a] = 0;
     else if (10 == backgroundDrawType)
         for (b = 2, d = 258; b < Fe; b++, d += 4)
-            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (f = 0, 0 < ue[d] && (f = Math.floor(min(10 * ue[d], 72))), 0 > ue[d] && (f = Math.floor(min(-10 * ue[d], 24))), oe(c << 2, b << 2, ha, ha, f << 16 | f << 8 | f));
+            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (f = 0, 0 < ue[d] && (f = Math.floor(Math.min(10 * ue[d], 72))), 0 > ue[d] && (f = Math.floor(Math.min(-10 * ue[d], 24))), oe(c << 2, b << 2, ha, ha, f << 16 | f << 8 | f));
     else if (11 == backgroundDrawType)
         for (b = 2, d = 258; b < Fe; b++, d += 4)
             for (c = 2; c < Ee; c++, d++) {
-                if (0 == x[d] && (n = 256 - Math.floor(min(Math.abs(ue[d]), 32)), 256 != n))
+                if (0 == x[d] && (n = 256 - Math.floor(Math.min(Math.abs(ue[d]), 32)), 256 != n))
                     for (e = (b << 11) + (c << 2), a = 0; 16 > a; a++) f = (v[e] >> 16 & 255) * n >> 8, g = (v[e] >> 8 & 255) * n >> 8, m = (v[e] & 255) * n >> 8, v[e] = f << 16 | g << 8 | m, e += u[a]
             } else if (12 ==
                 backgroundDrawType)
@@ -1769,8 +1769,8 @@ function handlesDrawingMethods() {
             for (c = 2; c < Ee; c++, d++) 0 == x[d] && (setToVector(t, P[d], Q[d]), f = Math.floor(10 * normalize(t)), 2 > f || (48 < f && (f = 48), a = (c << 2) + 2, n = (b << 2) + 2, lf(a, n, a + t.x * f, n + t.y * f, 0 | f << 17)));
     else if (9 == backgroundDrawType)
         for (b = 2, d = 258; b < Fe; b++, d += 4)
-            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (setToVector(t, P[d], Q[d]), a = vectorLength2(t), 0.2 > a || (g = Math.floor(min(16 * a, 80)),
-                f = 0, 0 < ue[d] && (f = Math.floor(min(ue[d] * a, 80))), m = 0, 0 > ue[d] && (m = Math.floor(min(-ue[d] * a, 80))), a = (c << 2) + 5 * P[d], n = (b << 2) + 5 * Q[d], e = (c + 1 << 2) + 5 * P[d + 1], F = (b << 2) + 5 * Q[d + 1], lf(a, n, e, F, f << 16 | g << 8 | m), e = (c << 2) + 5 * P[d + w], F = (b + 1 << 2) + 5 * Q[d + w], lf(a, n, e, F, f << 16 | g << 8 | m)));
+            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (setToVector(t, P[d], Q[d]), a = vectorLength2(t), 0.2 > a || (g = Math.floor(Math.min(16 * a, 80)),
+                f = 0, 0 < ue[d] && (f = Math.floor(Math.min(ue[d] * a, 80))), m = 0, 0 > ue[d] && (m = Math.floor(Math.min(-ue[d] * a, 80))), a = (c << 2) + 5 * P[d], n = (b << 2) + 5 * Q[d], e = (c + 1 << 2) + 5 * P[d + 1], F = (b << 2) + 5 * Q[d + 1], lf(a, n, e, F, f << 16 | g << 8 | m), e = (c << 2) + 5 * P[d + w], F = (b + 1 << 2) + 5 * Q[d + w], lf(a, n, e, F, f << 16 | g << 8 | m)));
     else if (14 == backgroundDrawType)
         for (a = 288 * screenWidth; 4096 < a; a--) I[a] == Jb ? (f = 255 - (255 - (v[a] >> 16 & 255) >> 1), g = 255 - (255 - (v[a] >> 8 & 255) >> 1), m = 255 - (255 - (v[a] & 255) >> 1), v[a] = f << 16 | g << 8 | m) : I[a] < Lb && (v[a] = 0);
     if (2 <= ya) {
@@ -1818,7 +1818,7 @@ function handlesDrawingMethods() {
             for (b = 8; 287 > b; b++, d += screenWidth) Eb[d] = Eb[d] + Eb[d + screenWidth] >> 1;
             for (b = 287; 8 < b; b--, d -= screenWidth) Eb[d] = Eb[d] + Eb[d - screenWidth] >> 1
         }
-        for (a = 288 * screenWidth; 4096 < a; a--) 1 > Eb[a] ? v[a] = 0 : (n = min(Eb[a], 255), f = (v[a] >> 16 & 255) * n >> 8, g = (v[a] >> 8 & 255) * n >> 8, m = (v[a] & 255) * n >> 8, v[a] = f << 16 | g << 8 | m)
+        for (a = 288 * screenWidth; 4096 < a; a--) 1 > Eb[a] ? v[a] = 0 : (n = Math.min(Eb[a], 255), f = (v[a] >> 16 & 255) * n >> 8, g = (v[a] >> 8 & 255) * n >> 8, m = (v[a] & 255) * n >> 8, v[a] = f << 16 | g << 8 | m)
     } else if (15 == backgroundDrawType)
         for (b = 2, d = 258; b < Fe; b++, d += 4)
             for (c = 2; c < Ee; c++, d++) {
@@ -1827,7 +1827,7 @@ function handlesDrawingMethods() {
                 for (a = 0; 16 > a; a++) 0 != v[e] && (f += v[e] >> 16 & 255, g += v[e] >> 8 & 255, m += v[e] & 255, n++), e += u[a];
                 if (0 != n)
                     for (f = Math.floor(f / n), g = Math.floor(g /
-                            n), m = Math.floor(m / n), e = (b << 11) + (c << 2), a = 0; 16 > a; a++) v[e] = 3 > a || 4 == a || 8 == a ? min(f + 48, 255) << 16 | min(g + 48, 255) << 8 | min(m + 48, 255) : 12 < a || 7 == a || 11 == a ? max(f - 32, 0) << 16 | max(g - 32, 0) << 8 | max(m - 32, 0) : f << 16 | g << 8 | m, e += u[a]
+                            n), m = Math.floor(m / n), e = (b << 11) + (c << 2), a = 0; 16 > a; a++) v[e] = 3 > a || 4 == a || 8 == a ? Math.min(f + 48, 255) << 16 | Math.min(g + 48, 255) << 8 | Math.min(m + 48, 255) : 12 < a || 7 == a || 11 == a ? Math.max(f - 32, 0) << 16 | Math.max(g - 32, 0) << 8 | Math.max(m - 32, 0) : f << 16 | g << 8 | m, e += u[a]
             }
     Wf()
 }
@@ -2446,11 +2446,11 @@ function Xg(a, c) {
         if (3 != X[b]) return 0;
         n = ~~C[a].x;
         t = ~~C[a].y;
-        d = max(n - 8, 8);
-        b = max(t - 8,
+        d = Math.max(n - 8, 8);
+        b = Math.max(t - 8,
             8);
-        g = min(n + 8, 503);
-        m = min(t + 8, 287);
+        g = Math.min(n + 8, 503);
+        m = Math.min(t + 8, 287);
         for (f = b; f <= m; f++)
             for (e = d; e <= g; e++) 64 < (e - n) * (e - n) + (f - t) * (f - t) || (b = (f + t >> 1 << 9) + (e + n >> 1), 1 <= x[R[b]] || (b = I[(f << 9) + e], b >= p && D[b] != Vb && (D[b] == fc && L(b, dc, 0, s[dc]), J[b].x += e - n, J[b].y += f - t)));
         n = minInsideRange(n, 12, 499);
@@ -2539,10 +2539,10 @@ function Yg(a, c) {
             var F = 8;
             t = ~~C[a].x;
             u = ~~C[a].y;
-            e = max(t - F, 8);
-            d = max(u - F, 8);
-            m = min(t + F, 503);
-            n = min(u + F, 287);
+            e = Math.max(t - F, 8);
+            d = Math.max(u - F, 8);
+            m = Math.min(t + F, 503);
+            n = Math.min(u + F, 287);
             for (g = d; g <= n; g++)
                 for (f = e; f <= m; f++) F * F < (f - t) * (f - t) + (g - u) * (g - u) || (d = (g + u >> 1 << 9) + (f + t >> 1), 1 <= x[R[d]] || (b = I[(g << 9) + f], b >= p && (D[b] == fc && L(b, dc, 0, s[dc]), J[b].x += f - t, J[b].y += g - u)));
             t = minInsideRange(t, 12, 499);
@@ -2668,10 +2668,10 @@ function Yg(a, c) {
         F = 8;
         t = ~~C[a].x;
         u = ~~C[a].y;
-        e = max(t - F, 8);
-        d = max(u - F, 8);
-        m = min(t + F, 503);
-        n = min(u + F, 287);
+        e = Math.max(t - F, 8);
+        d = Math.max(u - F, 8);
+        m = Math.min(t + F, 503);
+        n = Math.min(u + F, 287);
         for (g = d; g <= n; g++)
             for (f = e; f <= m; f++) F * F < (f - t) * (f - t) + (g - u) * (g - u) || (d = (g + u >> 1 << 9) + (f + t >> 1), 1 <= x[R[d]] || (b = I[(g << 9) + f], b >= p && (D[b] == fc && L(b, dc, 0, s[dc]), J[b].x += f - t, J[b].y += g - u)));
         t = minInsideRange(t, 12, 499);
@@ -2741,10 +2741,10 @@ function Yg(a, c) {
         F = 8;
         t = ~~C[a].x;
         u = ~~C[a].y;
-        e = max(t - F, 8);
-        d = max(u - F, 8);
-        m = min(t + F, 503);
-        n = min(u + F, 287);
+        e = Math.max(t - F, 8);
+        d = Math.max(u - F, 8);
+        m = Math.min(t + F, 503);
+        n = Math.min(u + F, 287);
         for (g = d; g <= n; g++)
             for (f = e; f <= m; f++) F * F < (f - t) * (f - t) + (g - u) * (g - u) || (d = (g + u >> 1 << 9) + (f + t >> 1), 1 <= x[R[d]] || (b = I[(g << 9) + f], D[b] == mc && (G[b] = 1), b <= l && customRandomBoolean(0.02) && Bd(f, g, r, 0)));
         L(a, r, 0, s[r])
@@ -2795,10 +2795,10 @@ function Zg(a, c) {
                 var M = 4;
                 t = ~~C[a].x;
                 u = ~~C[a].y;
-                e = max(t - M, 8);
-                f = max(u - M, 8);
-                m = min(t + M, 503);
-                n = min(u + M, 287);
+                e = Math.max(t - M, 8);
+                f = Math.max(u - M, 8);
+                m = Math.min(t + M, 503);
+                n = Math.min(u + M, 287);
                 var $ = t + customRandomBetween(-0.5, 0.5),
                     Ca = u + customRandomBetween(-0.5, 0.5);
                 for (d = f; d <= n; d++)
@@ -2853,10 +2853,10 @@ function Zg(a, c) {
         M = 8;
         t = ~~C[a].x;
         u = ~~C[a].y;
-        e = max(t - M, 8);
-        f = max(u - M, 8);
-        m = min(t + M, 503);
-        n = min(u + M, 287);
+        e = Math.max(t - M, 8);
+        f = Math.max(u - M, 8);
+        m = Math.min(t + M, 503);
+        n = Math.min(u + M, 287);
         $ = t + customRandomBetween(-0.5, 0.5);
         Ca = u + customRandomBetween(-0.5, 0.5);
         setToVector(c, 0, 0);
@@ -3248,10 +3248,10 @@ function ah(a, c) {
                 u = 3;
                 e = ~~C[a].x;
                 b = ~~C[a].y;
-                d = max(e - u, 8);
-                n = max(b - u, 8);
-                f = min(e + u, 503);
-                t = min(b + u, 287);
+                d = Math.max(e - u, 8);
+                n = Math.max(b - u, 8);
+                f = Math.min(e + u, 503);
+                t = Math.min(b + u, 287);
                 u = e + customRandomBetween(-0.5, 0.5);
                 F = b + customRandomBetween(-0.5, 0.5);
                 setToVector(c, 0, 0);
@@ -4471,7 +4471,7 @@ function Ch(a, c) {
     } else if (A[a] == cc || A[a] == jc)
         if (3 == X[c]) {
             d = 8;
-            for (var m = ~~B[a].x, n = ~~B[a].y, t = max(m - d, 8), f = max(n - d, 8), u = min(m + d, 503), F = min(n + d, 287), M, g = f; g <= F; g++)
+            for (var m = ~~B[a].x, n = ~~B[a].y, t = Math.max(m - d, 8), f = Math.max(n - d, 8), u = Math.min(m + d, 503), F = Math.min(n + d, 287), M, g = f; g <= F; g++)
                 for (b = t; b <= u; b++) d * d < (b - m) * (b - m) + (g - n) * (g - n) || (f = (g + n >> 1 << 9) + (b + m >> 1), 1 <= x[R[f]] ||
                     (M = I[(g << 9) + b], M >= p && (D[M] == fc && L(M, dc, 0, s[dc]), J[M].x += 2 * (b - m), J[M].y += 2 * (g - n)), M <= l && A[a] == jc && Bd(b, g, r, 0)));
             m = minInsideRange(m, 12, 499);
@@ -4495,10 +4495,10 @@ function Ch(a, c) {
             d = 8;
             m = ~~B[a].x;
             n = ~~B[a].y;
-            t = max(m - d, 8);
-            f = max(n - d, 8);
-            u = min(m + d, 503);
-            F = min(n + d, 287);
+            t = Math.max(m - d, 8);
+            f = Math.max(n - d, 8);
+            u = Math.min(m + d, 503);
+            F = Math.min(n + d, 287);
             setToVector(e, 0, 0);
             for (g = f; g <= F; g++)
                 for (b = t; b <= u; b++) d * d < (b - m) * (b - m) + (g - n) * (g - n) || (M = I[(g << 9) + b], M >= p && (e.x += m - b, e.y += n - g));
@@ -4771,7 +4771,7 @@ var bi = 0;
 function lf(a, c, b, d, e) {
     var f = ~~b - ~~a,
         g = ~~d - ~~c,
-        m = max(max(Math.abs(f), Math.abs(g)), 1),
+        m = Math.max(Math.max(Math.abs(f), Math.abs(g)), 1),
         f = Math.floor((f << 8) / m),
         g = Math.floor((g << 8) / m);
     a = (a << 8) + 127;
@@ -5046,14 +5046,6 @@ function customRandom(a) {
     Zd += $d;
     Zd &= 1023;
     return ~~(Yd[Zd] * a)
-}
-
-function max(a, c) {
-    return a > c ? a : c
-}
-
-function min(a, c) {
-    return a < c ? a : c
 }
 
 function minInsideRange(a, c, b) {
