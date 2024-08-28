@@ -3,9 +3,36 @@
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <style>
             body {
-                margin:0;
+                margin: 0;
+                padding: 0;
             }
-            
+
+            .canvasDiv{
+	            width: 50%;
+	            margin: 0 auto;
+            }
+
+            #cv {
+                background-color: gray;
+                position: absolute;
+                left: 50%;
+                margin-right: -50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            @media (min-aspect-ratio: 9/16) {
+                canvas {
+                    height: 100%;
+                }
+            }
+
+            @media (max-aspect-ratio: 9/16) {
+                canvas {
+                    width: 100%;
+                }
+            }
+
             .nrnb {
                 -MS-INTERPOLATION-MODE:nearest-neighbor;
                 IMAGE-RENDERING:-webkit-crisp-edges;
@@ -15,7 +42,9 @@
         </style>
     </head>
     <body>
-        <canvas id="cv" class="nrnb" width="496" height="422"></canvas>
+        <div class="canvasDiv">
+            <canvas id="cv" class="nrnb" width="496" height="422"></canvas>
+        </div>
         <script async src="dust.js" onload="Init('','',1,'');"></script>
         <input onclick="fullScreen();" type="button" value="フルスクリーン">
         <script>

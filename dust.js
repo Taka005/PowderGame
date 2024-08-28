@@ -4869,25 +4869,54 @@ function Me(a, c, b, d) {
     return Ne < a || a + b <= Ne || Ie < c || c + d <= Ie ? false : true
 }
 
-function ci(a) {
-    var c = canvasElement.getBoundingClientRect();
-    distanceXFromTopScreen = Math.floor(a.clientX - c.left);
-    distanceYFromTopScreen = Math.floor(a.clientY - c.top)
+function getPosition(event){
+    const rect = canvasElement.getBoundingClientRect();
+
+    distanceXFromTopScreen = Math.floor(event.clientX - rect.left);
+    distanceYFromTopScreen = Math.floor(event.clientY - rect.top);
 }
-document.onmousemove = ci;
-document.onmousedown = function(a) {
-    ci(a);
+
+document.addEventListener("mousemove",getPosition);
+document.addEventListener("mousedown",(event)=>{
+    getPosition(event);
+
     di = false;
-    if (!(0 > distanceXFromTopScreen || screenWidth <= distanceXFromTopScreen || 0 > distanceYFromTopScreen || screenHeight <= distanceYFromTopScreen) && (di = true, 0 == a.button && (Sh = true), 2 == a.button && (moreThanOneTouches = true), di)) return false
-};
-document.onmouseup = function(a) {
-    ci(a);
-    0 == a.button && (Sh = false);
-    2 == a.button && (moreThanOneTouches = false)
-};
-document.oncontextmenu = function() {
-    if (di) return false
-};
+
+    if(
+        distanceXFromTopScreen >= 0 &&
+        distanceXFromTopScreen < screenWidth &&
+        distanceYFromTopScreen >= 0 &&
+        distanceYFromTopScreen < screenHeight
+    ){
+        di = true;
+
+        if(event.button === 0){
+            Sh = true;
+        }
+
+        if(event.button === 2){
+            moreThanOneTouches = true;
+        }
+    }
+
+    if(di) return false;
+});
+
+document.addEventListener("mouseup",(event)=>{
+    getPosition(event);
+
+    if(event.button === 0){
+        Sh = false;
+    }
+
+    if(event.button === 2){
+        moreThanOneTouches = false;
+    }
+});
+
+document.addEventListener("contextmenu",()=>{
+    if(di) return false;
+});
 
 function saveTouchPosition(a) {
     for (var c = 0, b = 0, d = canvasElement; null !== d; d = d.offsetParent) c += d.offsetLeft, b += d.offsetTop;
