@@ -4599,12 +4599,12 @@ function loop() {
         Ph++;
         Rh = a
     }
-    Ke = false == We && true == Sh;
-    trueAfterMouseUpButOnlyForOneTick = true == We && false == Sh;
-    Oe = false == Xe && true == moreThanOneTouches;
-    Ve = true == Xe && false == moreThanOneTouches;
-    We = Sh;
-    Xe = moreThanOneTouches;
+    Ke = false == We && true == isTouch;
+    trueAfterMouseUpButOnlyForOneTick = true == We && false == isTouch;
+    Oe = false == Xe && true == isDoubleTouch;
+    Ve = true == Xe && false == isDoubleTouch;
+    We = isTouch;
+    Xe = isDoubleTouch;
     Je = !(trueAfterMouseUpButOnlyForOneTick | We | Ve | Xe);
     Pe = trueAfterMouseUpButOnlyForOneTick ? 1 : Ve ? -1 : 0;
     Qf = Ne;
@@ -4843,11 +4843,11 @@ var $e = new Vector,
     Ke = false,
     trueAfterMouseUpButOnlyForOneTick = false,
     We = false,
-    Sh = false,
+    isTouch = false,
     Oe = false,
     Ve = false,
     Xe = false,
-    moreThanOneTouches = false,
+    isDoubleTouch = false,
     Je = false,
     Pe = 0,
     Ne = 0,
@@ -4873,7 +4873,7 @@ document.addEventListener("mousemove",getPosition);
 document.addEventListener("mousedown",(event)=>{
     getPosition(event);
 
-    di = false;
+    isInputCancel = false;
 
     if(
         distanceXFromTopScreen >= 0 &&
@@ -4881,34 +4881,34 @@ document.addEventListener("mousedown",(event)=>{
         distanceYFromTopScreen >= 0 &&
         distanceYFromTopScreen < screenHeight
     ){
-        di = true;
+        isInputCancel = true;
 
         if(event.button === 0){
-            Sh = true;
+            isTouch = true;
         }
 
         if(event.button === 2){
-            moreThanOneTouches = true;
+            isDoubleTouch = true;
         }
     }
 
-    if(di) return event.preventDefault();
+    if(isInputCancel) return event.preventDefault();
 });
 
 document.addEventListener("mouseup",(event)=>{
     getPosition(event);
 
     if(event.button === 0){
-        Sh = false;
+        isTouch = false;
     }
 
     if(event.button === 2){
-        moreThanOneTouches = false;
+        isDoubleTouch = false;
     }
 });
 
 document.addEventListener("contextmenu",(event)=>{
-    if(di) return event.preventDefault();
+    if(isInputCancel) return event.preventDefault();
 });
 
 function saveTouchPosition(event){
@@ -4929,10 +4929,10 @@ canvasElement.addEventListener("touchstart",(event)=>{
 
     saveTouchPosition(event);
 
-    Sh = true;
+    isTouch = true;
 
     if(1 < event.touches.length){
-        moreThanOneTouches = true
+        isDoubleTouch = true
     }
 });
 
@@ -4946,15 +4946,15 @@ canvasElement.addEventListener("touchend",(event)=>{
     event.preventDefault();
 
     if(1 > event.touches.length){
-        Sh = false;
+        isTouch = false;
     }
 
-    moreThanOneTouches = false;
+    isDoubleTouch = false;
 });
 
 canvasElement.addEventListener("touchcancel",()=>{
-    moreThanOneTouches = false;
-    Sh = false;
+    isDoubleTouch = false;
+    isTouch = false;
 });
 
 var Qd = Array(256),
@@ -4965,27 +4965,59 @@ var Qd = Array(256),
     Vd = Array(256),
     Wd = Array(256),
     Xd = Array(256);
-document.onkeydown = function(a) {
-    var c = a.keyCode;
-    65 <= c & 90 >= c ? a.shiftKey || (c += 32) : c = a.shiftKey ? Xd[c] : Wd[c];
-    0 <= c && 256 > c && (Sd[c] = true, Rd[c] = true);
-    if (0 != c && di) return false
-};
-document.onkeyup = function(a) {
-    var c = a.keyCode;
-    65 <= c & 90 >= c ? a.shiftKey || (c += 32) : c = a.shiftKey ? Xd[c] : Wd[c];
-    0 <= c && 256 > c && (Sd[c] = false);
-    if (0 != c && di) return false
-};
-var di = false;
 
-function callPrompt(a, c) {
-    var b = null;
-    try {
-        b = prompt(a, c)
-    } catch (d) {}
-    return b
+document.addEventListener("keydown",(event)=>{
+    let keyCode = event.keyCode;
+
+    if(keyCode >= 65 && keyCode <= 90){
+        if(!event.shiftKey){
+            keyCode += 32;
+        }
+    }else{
+        keyCode = event.shiftKey ? Xd[keyCode] : Wd[keyCode];
+    }
+
+    if(keyCode >= 0 && keyCode < 256){
+        Sd[keyCode] = true;
+        Rd[keyCode] = true;
+    }
+
+    if(keyCode !== 0 && isInputCancel){
+        event.preventDefault();
+    }
+});
+
+document.addEventListener("keyup",(event)=>{
+    let keyCode = event.keyCode;
+
+    if(keyCode >= 65 && keyCode <= 90){
+        if(!event.shiftKey){
+            keyCode += 32;
+        }
+    }else{
+        keyCode = event.shiftKey ? Xd[keyCode] : Wd[keyCode];
+    }
+
+    if(keyCode >= 0 && keyCode < 256){
+        Sd[keyCode] = false;
+    }
+
+    if(keyCode !== 0 && isInputCancel){
+        event.preventDefault();
+    }
+});    
+
+var isInputCancel = false;
+
+function callPrompt(msg,def){
+    let sign = null;
+    try{
+        sign = prompt(msg,def);
+    }catch{}
+
+    return sign;
 }
+
 var ne = Array(100),
     me = 0;
 
