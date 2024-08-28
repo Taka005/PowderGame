@@ -802,7 +802,7 @@ function startScript(a, c, b, d) {
         for (a = 0; 8 > a && a < ab.length; a++) bb[a] = ab.charCodeAt(a);
         cb = 0 == b ? true : false;
         db = null != d ? d : 0;
-        logOnConsole('Created by ha55ii, deobfuscated by Elieder Sousa');
+        logOnConsole("Created by ha55ii");
         canvasElement.width = screenWidth;
         canvasElement.height = screenHeight;
         canvasElement.width = 496;
