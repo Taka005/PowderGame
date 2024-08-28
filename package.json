@@ -1,0 +1,14 @@
+{
+  "name": "powdergame",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dust.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "webcrack": "^2.14.1"
+  }
+}
