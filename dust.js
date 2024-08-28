@@ -1,3 +1,31 @@
+class Vector{
+    constructor(){
+        this.x = 0;
+        this.y = 0;
+    }
+
+    set({ x, y }){
+        this.x = x;
+        this.y = y;
+
+        return this;
+    }
+
+    add({ x, y }){
+        this.x += x;
+        this.y += y;
+
+        return this;
+    }
+
+    sub({ x, y }){
+        this.x -= x;
+        this.y -= y;
+
+        return this;
+    }
+}
+
 var aa = 0,
     screenWidth = 512,
     screenHeight = 430,
@@ -4945,28 +4973,12 @@ function AjaxRequest(a, c) {
         me = -2
     }
 }
-function Vector() {
-    this.y = this.x = 0
-}
-Vector.prototype.set = function(a) {
-    this.x = a.x;
-    this.y = a.y;
-    return this
-};
+
 function setToVector(a, c, b) {
     a.x = c;
     a.y = b
 }
-Vector.prototype.add = function(a) {
-    this.x += a.x;
-    this.y += a.y;
-    return this
-};
-Vector.prototype.sub = function(a) {
-    this.x -= a.x;
-    this.y -= a.y;
-    return this
-};
+
 function vectorSub(a, c, b) {
     a.x = c.x - b.x;
     a.y = c.y - b.y
