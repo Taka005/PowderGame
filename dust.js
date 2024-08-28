@@ -1000,7 +1000,7 @@ function startScript(a, c, b, d) {
         for (b = 0; b < screenWidth * screenHeight; b++) v[b] = 0;
         for (b = 0; b < screenWidth * screenHeight * 4; b++) ae[b] = 255;
         fontImage.m("font.gif", 8, 12);
-        securityCheck() ? loadingPhase-- : loadingPhase++
+        loadingPhase++
     }
     if (1 == loadingPhase) {
         b = fontImage.l;
@@ -4616,21 +4616,13 @@ function loop() {
     Zd = Zd + Math.floor(1024 * Math.random()) & 1023;
     $d = Math.floor(512 * Math.random()) | 1;
     Ge();
-    // Another security check
     var c, b = 11 == Jh ? screenWidth * screenHeight : 0;
     for (c = a = 0; a < b; a++) ae[c++] = v[a] >> 16 & 255, ae[c++] = v[a] >> 8 & 255, ae[c++] = v[a] & 255, c++;
     drawCanvas(canvasImageData, -8, -8, 8, 8, screenWidth - 16, screenHeight - 8);
     requestAnimationFrame ? Qh += Date.now() - Nh : setTimeout(loop, je())
 }
-var He = 0;
 
-function securityCheck() {
-    return false
-    /*if (location.hostname.length != "dan-ball.jp".length) return true;
-    for (He = 0; Jh < location.hostname.length; Jh++)
-        if (location.hostname[Jh] != "dan-ball.jp"[Jh]) return true;
-    return false*/
-}
+var He = 0;
 var Mh = 0,
     qf = 0,
     Rh = 0,
@@ -4877,6 +4869,7 @@ function getPosition(event){
 }
 
 document.addEventListener("mousemove",getPosition);
+
 document.addEventListener("mousedown",(event)=>{
     getPosition(event);
 
@@ -4899,7 +4892,7 @@ document.addEventListener("mousedown",(event)=>{
         }
     }
 
-    if(di) return false;
+    if(di) return event.preventDefault();
 });
 
 document.addEventListener("mouseup",(event)=>{
@@ -4914,33 +4907,56 @@ document.addEventListener("mouseup",(event)=>{
     }
 });
 
-document.addEventListener("contextmenu",()=>{
-    if(di) return false;
+document.addEventListener("contextmenu",(event)=>{
+    if(di) return event.preventDefault();
 });
 
-function saveTouchPosition(a) {
-    for (var c = 0, b = 0, d = canvasElement; null !== d; d = d.offsetParent) c += d.offsetLeft, b += d.offsetTop;
-    a = a.touches;
-    distanceXFromTopScreen = Math.floor(a[0].pageX - c);
-    distanceYFromTopScreen = Math.floor(a[0].pageY - b)
+function saveTouchPosition(event){
+    let offsetX = 0;
+    let offsetY = 0;
+
+    for(let element = canvasElement; element !== null; element = element.offsetParent){
+        offsetX += element.offsetLeft;
+        offsetY += element.offsetTop;
+    }
+
+    distanceXFromTopScreen = Math.floor(event.touches[0].pageX - offsetX);
+    distanceYFromTopScreen = Math.floor(event.touches[0].pageY - offsetY);
 }
-canvasElement.ontouchstart = function(a) {
-    saveTouchPosition(a);
+
+canvasElement.addEventListener("touchstart",(event)=>{
+    event.preventDefault();
+
+    saveTouchPosition(event);
+
     Sh = true;
-    1 < a.touches.length && (moreThanOneTouches = true);
-    return false
-};
-canvasElement.ontouchmove = function(a) {
-    saveTouchPosition(a);
-    return false
-};
-canvasElement.ontouchend = function(a) {
-    1 > a.touches.length && (Sh = false);
-    return moreThanOneTouches = false
-};
-canvasElement.ontouchcancel = function() {
-    moreThanOneTouches = Sh = false
-};
+
+    if(1 < event.touches.length){
+        moreThanOneTouches = true
+    }
+});
+
+canvasElement.addEventListener("touchmove",(event)=>{
+    event.preventDefault();
+
+    saveTouchPosition(event);
+});
+
+canvasElement.addEventListener("touchend",(event)=>{
+    event.preventDefault();
+
+    if(1 > event.touches.length){
+        Sh = false;
+    }
+
+    moreThanOneTouches = false;
+});
+
+canvasElement.addEventListener("touchcancel",()=>{
+    moreThanOneTouches = false;
+    Sh = false;
+});
+
 var Qd = Array(256),
     Rd = Array(256),
     Sd = Array(256),
