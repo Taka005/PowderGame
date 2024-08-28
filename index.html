@@ -7,30 +7,13 @@
                 padding: 0;
             }
 
-            .canvasDiv{
+            .canvasDiv {
 	            width: 50%;
 	            margin: 0 auto;
             }
 
-            #cv {
-                background-color: gray;
-                position: absolute;
-                left: 50%;
-                margin-right: -50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-            }
-
-            @media (min-aspect-ratio: 9/16) {
-                canvas {
-                    height: 100%;
-                }
-            }
-
-            @media (max-aspect-ratio: 9/16) {
-                canvas {
-                    width: 100%;
-                }
+            h2 {
+                text-align: center;
             }
 
             .nrnb {
@@ -39,14 +22,21 @@
                 IMAGE-RENDERING:-moz-crisp-edges;
                 IMAGE-RENDERING:pixelated;
             }
+
+            .fullScreen {
+                text-align: center;
+            }
         </style>
     </head>
     <body>
+        <h2>POWDER GAME</h2>
         <div class="canvasDiv">
             <canvas id="cv" class="nrnb" width="496" height="422"></canvas>
         </div>
         <script async src="dust.js" onload="Init('','',1,'');"></script>
-        <input onclick="fullScreen();" type="button" value="フルスクリーン">
+        <div class="fullScreen">
+            <input onclick="fullScreen();" type="button" value="フルスクリーン">
+        </div>
         <script>
             function fullScreen(){
                 const canvas = document.getElementById("cv");
