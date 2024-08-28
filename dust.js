@@ -447,161 +447,222 @@ function saveGameFromScreen(){
     ob = nb;
 }
 
-function Yc(a){
-    var c, b;
-    if (0 == a) {
-        var d = new Uint8Array(8680),
-            e = new Uint8Array(768),
-            f, g;
-        for (c = 0; c < d.length; c++) d[c] = 0;
-        for (c = 0; c < od; c++) 0 != A[c] && (f = ~~B[c].x - 8, g = ~~B[c].y - 8, 0 > f || 496 <= f || 0 > g || 280 <= g || (f >>= 2, g >>= 2, d[124 * g + f] = Hc));
-        for (g = c = 0; 280 > g; g += 4)
-            for (f = 0; 496 > f; f += 4) 0 == d[c] && (b = Ya + 496 * g + f, 0 == arrayOfTypesOfElementInThisPosition[b] && (b += 497), d[c] = arrayOfTypesOfElementInThisPosition[b]), 12 == backgroundDrawType ? d[c] != r && d[c] != gc && d[c] != lc && d[c] != oc && d[c] != rc && d[c] != Ac && (d[c] = 0) : 14 == backgroundDrawType && (d[c] = 0 == d[c] ? Xb : 0), c++;
-        g = s;
-        10 == backgroundDrawType && (g = Rc);
-        f = new Int32Array(256);
-        for (c = 0; 256 > c; c++) f[c] = 0;
-        for (c = 0; c < d.length; c++) f[d[c]]++;
-        var m = jb = 0;
-        for (b = 0; 256 > b; b++)
-            if (0 != f[b]) {
-                e[jb++] = g[b] >> 16 & 255;
-                e[jb++] = g[b] >> 8 & 255;
-                e[jb++] = g[b] & 255;
-                for (c = 0; c < d.length; c++) d[c] == b && (d[c] = m);
-                m++
-            } 16 == backgroundDrawType && (e[0] = (s[Nc[ea]] >> 16 & 255) + (s[Nc[fa]] >> 16 & 255) >> 1 & 255, e[1] = (s[Nc[ea]] >> 8 & 255) + (s[Nc[fa]] >> 8 & 255) >> 1 & 255, e[2] = (s[Nc[ea]] & 255) + (s[Nc[fa]] & 255) >> 1 & 255);
-        gb = "";
-        hb = d.length;
-        for (c = 0; c < hb;) {
-            b = d[c++];
-            for (f = 0; c < hb && 255 != f && b == d[c]; c++) f++;
-            gb += String.fromCharCode(b);
-            gb += String.fromCharCode(f)
+/**
+ * 
+ * @param {Number} option オプション 
+ */
+function Yc(option){
+    let index, tempIndex;
+
+    if(option === 0){
+        let gameElementsArray = new Uint8Array(8680);
+        let colorMappingArray = new Uint8Array(768);
+        let posX, posY;
+
+        for(index = 0; index < gameElementsArray.length; index++){
+            gameElementsArray[index] = 0;
         }
+
+        for(index = 0; index < od; index++){
+            if(A[index] !== 0){
+                posX = Math.floor(B[index].x) - 8;
+                posY = Math.floor(B[index].y) - 8;
+
+                if (posX < 0 || posX >= 496 || posY < 0 || posY >= 280) continue;
+
+                posX >>= 2;
+                posY >>= 2;
+                gameElementsArray[124 * posY + posX] = Hc;
+            }
+        }
+
+        for(posY = index = 0; posY < 280; posY += 4){
+            for(posX = 0; posX < 496; posX += 4){
+                if(gameElementsArray[index] === 0){
+                    tempIndex = Ya + 496 * posY + posX;
+                    if(arrayOfTypesOfElementInThisPosition[tempIndex] === 0){
+                        tempIndex += 497;
+                    }
+
+                    gameElementsArray[index] = arrayOfTypesOfElementInThisPosition[tempIndex];
+                }
+
+                if(backgroundDrawType === 12){
+                    if(![r, gc, lc, oc, rc, Ac].includes(gameElementsArray[index])){
+                        gameElementsArray[index] = 0;
+                    }
+                }else if(backgroundDrawType === 14){
+                    gameElementsArray[index] = gameElementsArray[index] === 0 ? Xb : 0;
+                }
+                index++;
+            }
+        }
+
+        let colorPalette = s;
+        if(backgroundDrawType === 10){
+            colorPalette = Rc;
+        }
+
+        let countArray = new Int32Array(256);
+        for(index = 0; index < 256; index++){
+            countArray[index] = 0;
+        }
+
+        for(index = 0; index < gameElementsArray.length; index++){
+            countArray[gameElementsArray[index]]++;
+        }
+
+        let uniqueColors = 0;
+        let paletteIndex = 0;
+        for(tempIndex = 0; tempIndex < 256; tempIndex++){
+            if (countArray[tempIndex] !== 0){
+                colorMappingArray[paletteIndex++] = (colorPalette[tempIndex] >> 16) & 255;
+                colorMappingArray[paletteIndex++] = (colorPalette[tempIndex] >> 8) & 255;
+                colorMappingArray[paletteIndex++] = colorPalette[tempIndex] & 255;
+
+                for(index = 0; index < gameElementsArray.length; index++){
+                    if(gameElementsArray[index] === tempIndex){
+                        gameElementsArray[index] = uniqueColors;
+                    }
+                }
+
+                uniqueColors++;
+            }
+        }
+
+        if(backgroundDrawType === 16){
+            colorMappingArray[0] = ((s[Nc[ea]] >> 16) + (s[Nc[fa]] >> 16)) >> 1 & 255;
+            colorMappingArray[1] = ((s[Nc[ea]] >> 8) + (s[Nc[fa]] >> 8)) >> 1 & 255;
+            colorMappingArray[2] = ((s[Nc[ea]]) + (s[Nc[fa]])) >> 1 & 255;
+        }
+
+        gb = "";
+        hb = gameElementsArray.length;
+        for(index = 0; index < hb;){
+            tempIndex = gameElementsArray[index++];
+
+            let count = 0;
+            while(index < hb && count < 255 && tempIndex === gameElementsArray[index]){
+                count++;
+                index++;
+            }
+
+            gb += String.fromCharCode(tempIndex);
+            gb += String.fromCharCode(count);
+        }
+
         hb = gb.length;
         gb = window.btoa(gb);
-        ib = "";
-        for (c = 0; c < jb; c++) ib += String.fromCharCode(e[c]);
-        ib = window.btoa(ib)
-    }
-    b = 0;
-    arrayOfTypesOfElementInThisPosition[b++] = 0;
-    arrayOfTypesOfElementInThisPosition[b++] = 0;
-    for (c = arrayOfTypesOfElementInThisPosition[b++] = 0; 8 > c; c++) arrayOfTypesOfElementInThisPosition[b++] = bb[c];
-    arrayOfTypesOfElementInThisPosition[b++] = ob & 255;
-    arrayOfTypesOfElementInThisPosition[b++] = ob >> 8;
-    arrayOfTypesOfElementInThisPosition[b++] = Nc[ea];
-    arrayOfTypesOfElementInThisPosition[b++] = Nc[fa];
-    arrayOfTypesOfElementInThisPosition[b++] = oa;
-    arrayOfTypesOfElementInThisPosition[b++] = backgroundDrawType;
-    arrayOfTypesOfElementInThisPosition[b++] = wa;
-    arrayOfTypesOfElementInThisPosition[b++] = xa;
-    arrayOfTypesOfElementInThisPosition[b++] = isGravityOn ? 0 : 1;
-    arrayOfTypesOfElementInThisPosition[b++] = ya;
-    for (c = 0; 8 > c; c++) arrayOfTypesOfElementInThisPosition[b++] = 0;
-    if (0 == a)
-        for (pb = 0, c = Ya; c < Ya + 138880; c++) 0 < arrayOfTypesOfElementInThisPosition[c] && (pb += c & 255);
-    b = 0;
-    for (c = 3; c < Za; c++) b = 128 > arrayOfTypesOfElementInThisPosition[c] ? b + arrayOfTypesOfElementInThisPosition[c] * ((c & 15) + 1) : b + (arrayOfTypesOfElementInThisPosition[c] - 256) * ((c & 15) + 1);
-    arrayOfTypesOfElementInThisPosition[1] = b & 255;
-    arrayOfTypesOfElementInThisPosition[2] = b >> 8 & 255;
-    e = [];
-    for (c = d = 0; c < Za;) {
-        b = arrayOfTypesOfElementInThisPosition[c++];
-        for (f = 0; c < Za && 255 != f && b == arrayOfTypesOfElementInThisPosition[c]; c++) f++;
-        e[d++] = b;
-        e[d++] = f
-    }
-    if (1 == a) {
-        var n = [],
-            t = 0;
-        f = Array(4096);
-        g = 1;
-        for (c = 0; c < d;) {
-            var m = 0,
-                u = 1;
-            if (c < d - 1)
-                for (var F = 1; F < g; F++)
-                    if (f[F].length == u) {
-                        for (b = 0; b < u && f[F][b] == e[c + b]; b++);
-                        if (b == u && (m = F, u++, c + u >= d)) break
-                    } n[t++] = m >> 8;
-            n[t++] = m & 255;
-            n[t++] = e[c + u - 1];
-            if (4096 > g) {
-                f[g] = Array(u);
-                for (b = 0; b < u; b++) f[g][b] = e[c + b];
-                g++
-            }
-            c += u
-        }
-    }
-    0 == a ? (a = e, fb = d) : (a = n, fb = t);
-    eb = "";
-    for (c = 0; c < fb; c++) eb += String.fromCharCode(a[c]);
-    eb = window.btoa(eb)
-}
 
-function ad(a) {
-    var c, b = window.atob(eb),
-        d = [];
-    fb = b.length;
-    for (c = 0; c < fb; c++) d[c] = b.charCodeAt(c);
-    if (1 == a) {
-        var b = [],
-            e = 0,
-            f = Array(4096),
-            g = 1;
-        for (c = 0; c < fb;) {
-            var m = 0,
-                n = 1,
-                m = d[c++] << 8,
-                m = m + d[c++];
-            if (0 < m) {
-                for (a = 0; a < f[m].length; a++) b[e++] = f[m][a];
-                n = 1 + f[m].length
-            }
-            b[e++] = d[c++];
-            if (4096 > g) {
-                f[g] = Array(n);
-                for (a = 0; a < n; a++) f[g][a] = b[e - n + a];
-                g++
+        ib = "";
+        for(index = 0; index < paletteIndex; index++){
+            ib += String.fromCharCode(colorMappingArray[index]);
+        }
+        ib = window.btoa(ib);
+    }
+
+    tempIndex = 0;
+    arrayOfTypesOfElementInThisPosition[tempIndex++] = 0;
+    arrayOfTypesOfElementInThisPosition[tempIndex++] = 0;
+    for(index = arrayOfTypesOfElementInThisPosition[tempIndex++] = 0; index < 8; index++){
+        arrayOfTypesOfElementInThisPosition[tempIndex++] = bb[index];
+    }
+    arrayOfTypesOfElementInThisPosition[tempIndex++] = ob & 255;
+    arrayOfTypesOfElementInThisPosition[tempIndex++] = ob >> 8;
+    arrayOfTypesOfElementInThisPosition[tempIndex++] = Nc[ea];
+    arrayOfTypesOfElementInThisPosition[tempIndex++] = Nc[fa];
+    arrayOfTypesOfElementInThisPosition[tempIndex++] = oa;
+    arrayOfTypesOfElementInThisPosition[tempIndex++] = backgroundDrawType;
+    arrayOfTypesOfElementInThisPosition[tempIndex++] = wa;
+    arrayOfTypesOfElementInThisPosition[tempIndex++] = xa;
+    arrayOfTypesOfElementInThisPosition[tempIndex++] = isGravityOn ? 0 : 1;
+    arrayOfTypesOfElementInThisPosition[tempIndex++] = ya;
+    for(index = 0; index < 8; index++){
+        arrayOfTypesOfElementInThisPosition[tempIndex++] = 0;
+    }
+
+    if(option === 0){
+        pb = 0;
+        for(index = Ya; index < Ya + 138880; index++){
+            if(arrayOfTypesOfElementInThisPosition[index] > 0){
+                pb += index & 255;
             }
         }
-        d = b;
-        fb = e
     }
-    for (c = Za = 0; c < fb;)
-        for (b = d[c++], e = d[c++], arrayOfTypesOfElementInThisPosition[Za++] = b, a = 0; a < e; a++) arrayOfTypesOfElementInThisPosition[Za++] = b;
-    if (0 != Za) {
-        d = 0;
-        for (c = 3; c < Za; c++) d = 128 > arrayOfTypesOfElementInThisPosition[c] ? d + arrayOfTypesOfElementInThisPosition[c] * ((c & 15) + 1) : d + (arrayOfTypesOfElementInThisPosition[c] - 256) * ((c & 15) + 1);
-        if (arrayOfTypesOfElementInThisPosition[1] != (d & 255)) Za =
-            0;
-        else if (arrayOfTypesOfElementInThisPosition[2] != (d >> 8 & 255)) Za = 0;
-        else {
-            a = 0;
-            a++;
-            a++;
-            a++;
-            for (c = 0; 8 > c; c++) arrayOfTypesOfElementInThisPosition[a++] != bb[c] && (kb = 2, mb = 6);
-            ob = arrayOfTypesOfElementInThisPosition[a++];
-            ob += arrayOfTypesOfElementInThisPosition[a++] << 8;
-            if (0 != arrayOfTypesOfElementInThisPosition[a])
-                for (c = 0; c < Nc.length; c++) arrayOfTypesOfElementInThisPosition[a] == Nc[c] && (ea = c);
-            a++;
-            if (0 != arrayOfTypesOfElementInThisPosition[a])
-                for (c = 0; c < Nc.length; c++) arrayOfTypesOfElementInThisPosition[a] == Nc[c] && (fa = c);
-            a++;
-            oa = arrayOfTypesOfElementInThisPosition[a++];
-            backgroundDrawType = arrayOfTypesOfElementInThisPosition[a++];
-            wa = arrayOfTypesOfElementInThisPosition[a++];
-            xa = arrayOfTypesOfElementInThisPosition[a++];
-            isGravityOn = 0 == arrayOfTypesOfElementInThisPosition[a++] ? true : false;
-            ya = arrayOfTypesOfElementInThisPosition[a++]
+
+    tempIndex = 0;
+    for(index = 3; index < Za; index++){
+        tempIndex = (arrayOfTypesOfElementInThisPosition[index] < 128) ? 
+            tempIndex + arrayOfTypesOfElementInThisPosition[index] * ((index & 15) + 1) : 
+            tempIndex + (arrayOfTypesOfElementInThisPosition[index] - 256) * ((index & 15) + 1);
+    }
+    arrayOfTypesOfElementInThisPosition[1] = tempIndex & 255;
+    arrayOfTypesOfElementInThisPosition[2] = (tempIndex >> 8) & 255;
+
+    let compressedData = [];
+    for(index = tempIndex = 0; index < Za;){
+        let value = arrayOfTypesOfElementInThisPosition[index++];
+        let count = 0;
+        while(index < Za && count < 255 && value === arrayOfTypesOfElementInThisPosition[index]){
+            count++;
+            index++;
         }
+        compressedData[tempIndex++] = value;
+        compressedData[tempIndex++] = count;
     }
+
+    if(option === 1){
+        let compressionBuffer = [];
+        let bufferIndex = 0;
+        let patternArray = Array(4096);
+        let patternCount = 1;
+
+        for(index = 0; index < tempIndex;){
+            let pattern = 0;
+            let patternLength = 1;
+
+            if(index < tempIndex - 1){
+                for(let matchIndex = 1; matchIndex < patternCount; matchIndex++){
+                    if(patternArray[matchIndex].length === patternLength){
+                        let matchCount = 0;
+                        for(let patternPos = 0; patternPos < patternLength && patternArray[matchIndex][patternPos] === compressedData[index + patternPos]; patternPos++){
+                            matchCount++;
+                        }
+
+                        if(matchCount === patternLength && pattern === 0){
+                            pattern = matchIndex;
+                            patternLength++;
+
+                            if(index + patternLength >= tempIndex) break;
+                        }
+                    }
+                }
+            }
+
+            compressionBuffer[bufferIndex++] = pattern >> 8;
+            compressionBuffer[bufferIndex++] = pattern & 255;
+            compressionBuffer[bufferIndex++] = compressedData[index + patternLength - 1];
+
+            if(patternCount < 4096){
+                patternArray[patternCount] = Array(patternLength);
+
+                for(let i = 0; i < patternLength; i++){
+                    patternArray[patternCount][i] = compressedData[index + i];
+                }
+
+                patternCount++;
+            }
+            index += patternLength;
+        }
+
+        option === 0 ? (a = compressedData, fb = tempIndex) : (a = compressionBuffer, fb = bufferIndex);
+    }
+
+    eb = "";
+    for(index = 0; index < fb; index++){
+        eb += String.fromCharCode(a[index]);
+    }
+    eb = window.btoa(eb);
 }
 
 // Called whenever user click on "LOAD" button
@@ -676,7 +737,6 @@ function loadGameToScreen() {
         nb = ob
     }
 }
-
 
 function Hd() {
     var i;
@@ -1004,6 +1064,12 @@ function startScript(a, c, b, d) {
     }
 }
 
+/**
+ * リセット
+ * 1のとき、画面に枠なし
+ * 0のとき、画面に枠あり
+ * @param {Number} a 
+ */
 function reset(a) {
     var c, b, d;
     for (d = b = 0; b < re; b++)
