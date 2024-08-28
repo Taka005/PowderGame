@@ -863,8 +863,8 @@ function Id() {
     var t;
     var k;
     var p;
-    var prefix = ia - floor((Ja - Ha) / 2) - Ha;
-    var ret = ja - floor((Ka - Ia) / 2) - Ia;
+    var prefix = ia - Math.floor((Ja - Ha) / 2) - Ha;
+    var ret = ja - Math.floor((Ka - Ia) / 2) - Ia;
     k = Ia - 8;
     for (; k <= Ka - 8; k++) {
         if (!(0 > ret + k || 280 <= ret + k)) {
@@ -876,8 +876,8 @@ function Id() {
                         i = Bd(prefix + t + 8, ret + k + 8, La[p], 0);
                         if (0 <= i) {
                             if (La[p] == Nb) {
-                                J[i].x = 0.01 * Math.cos(Ma[p] * PI / 32);
-                                J[i].y = 0.01 * -Math.sin(Ma[p] * PI / 32);
+                                J[i].x = 0.01 * Math.cos(Ma[p] * Math.PI / 32);
+                                J[i].y = 0.01 * -Math.sin(Ma[p] * Math.PI / 32);
                                 G[i] = Ma[p];
                                 I[(ret + k + 8) * screenWidth + (prefix + t + 8)] = l;
                             } else {
@@ -896,8 +896,8 @@ function Id() {
             }
         }
     }
-    prefix = ia - floor((Ja - Ha) / 2);
-    ret = ja - floor((Ka - Ia) / 2);
+    prefix = ia - Math.floor((Ja - Ha) / 2);
+    ret = ja - Math.floor((Ka - Ia) / 2);
     i = 0;
     for (; i < Sa; i++) {
         if (!(8 > prefix + Na[i] || 504 <= prefix + Na[i] || 8 > ret + Oa[i] || 288 <= ret + Oa[i] || 8 > prefix + Pa[i] || 504 <= prefix + Pa[i] || 8 > ret + Qa[i] || 288 <= ret + Qa[i])) {
@@ -990,13 +990,13 @@ function startScript(a, c, b, d) {
         Xd[160] = 126;
         for (b = 0; 1024 > b; b++) Yd[b] = b / 1024;
         for (b = 0; 1024 > b; b++) {
-            d = floor(1024 * Math.random());
+            d = Math.floor(1024 * Math.random());
             a = Yd[b];
             Yd[b] = Yd[d];
             Yd[d] = a;
         }
-        Zd = floor(1024 * Math.random()) & 1023;
-        $d = floor(512 * Math.random()) | 1;
+        Zd = Math.floor(1024 * Math.random()) & 1023;
+        $d = Math.floor(512 * Math.random()) | 1;
         for (b = 0; b < screenWidth * screenHeight; b++) v[b] = 0;
         for (b = 0; b < screenWidth * screenHeight * 4; b++) ae[b] = 255;
         fontImage.m("font.gif", 8, 12);
@@ -1039,7 +1039,7 @@ function startScript(a, c, b, d) {
         saveGameFromScreen();
         0 < db && (b = "/score/dust2.php?a=", b += db, AjaxRequest(b, ""), 1 == me && "ok" == ne[0] ? (eb = ne[1], ad(0), 0 < Za ? (loadGameToScreen(), lb = 1) : lb = 2) : lb = 2, isStopped = 1);
         ed(1);
-        for (a = 0; a < s.length; a++) b = floor((2989 * (s[a] >> 16 & 255) + 5866 * (s[a] >> 8 & 255) + 1145 * (s[a] & 255)) / 1E4), Rc[a] = b << 16 | b << 8 | b;
+        for (a = 0; a < s.length; a++) b = Math.floor((2989 * (s[a] >> 16 & 255) + 5866 * (s[a] >> 8 & 255) + 1145 * (s[a] & 255)) / 1E4), Rc[a] = b << 16 | b << 8 | b;
         oe(0, 0, screenWidth, screenHeight, 4210752);
         drawTextUsingImage(fontImage, 13, 291, "POWDER", 15908203, 0);
         drawTextUsingImage(fontImage, 13, 305, "WATER", 4210943, 0);
@@ -1229,7 +1229,7 @@ function Ge() {
         f = 13;
         g = 291;
         if (Me(f - 4 - 8, g - 1 - 8, 495, 126) && ga && 0 == Xa)
-            if (e = floor((Ne - (f - 4 - 8)) / 55), c = floor((Ie - (g - 1 - 8)) / 14), c = 9 * e + c, 5 == c) {
+            if (e = Math.floor((Ne - (f - 4 - 8)) / 55), c = Math.floor((Ie - (g - 1 - 8)) / 14), c = 9 * e + c, 5 == c) {
                 if( Ke ) {
                     if( 5 == ea ) {
                         Fa = returnBetween0_MAX(Fa + 8, 56);
@@ -1305,7 +1305,7 @@ function Ge() {
             ia = minInsideRange(Ne + 2 * ha, 2 * ha, ha * (w - 2) - 1);
             ja = minInsideRange(Ie + 2 * ha, 2 * ha, ha * (re - 2) - 1);
             0 < ra &&
-                (ia = 2 * ha + floor(sa) + (Ne >> ra), ja = 2 * ha + floor(ta) + (Ie >> ra), ia = minInsideRange(ia, 2 * ha, ha * (w - 2) - 1), ja = minInsideRange(ja, 2 * ha, ha * (re - 2) - 1));
+                (ia = 2 * ha + Math.floor(sa) + (Ne >> ra), ja = 2 * ha + Math.floor(ta) + (Ie >> ra), ia = minInsideRange(ia, 2 * ha, ha * (w - 2) - 1), ja = minInsideRange(ja, 2 * ha, ha * (re - 2) - 1));
             Ke && (ka = ia, la = ja);
             if (1 == Aa)
                 if (Ke || Oe) Da = ia, Ea = ja;
@@ -1314,7 +1314,7 @@ function Ge() {
                 }
             else if (2 == Aa && (We || Xe)) {
                 if (Ke || Oe) Ba = 0;
-                0 == Ba && (abs(ia - ka) > abs(ja - la) ? Ba = 1 : abs(ia - ka) < abs(ja - la) ? Ba = 2 : (ia = ka, ja = la));
+                0 == Ba && (Math.abs(ia - ka) > Math.abs(ja - la) ? Ba = 1 : Math.abs(ia - ka) < Math.abs(ja - la) ? Ba = 2 : (ia = ka, ja = la));
                 1 == Ba ? ja = la : 2 == Ba && (ia = ka)
             }
             setToVector(d, ia, ja);
@@ -1346,18 +1346,18 @@ function Ge() {
         handlesDrawingMethods();
         if (0 != ra) {
             for (b = 288 * screenWidth - 1; 4096 <= b; b--) imageHandlerForScreen.a[b] = v[b];
-            e = 8 + floor(sa);
-            c = 8 + floor(ta);
+            e = 8 + Math.floor(sa);
+            c = 8 + Math.floor(ta);
             3 >= ra ? kf(8, 280, e, c, 280 >> ra) : 4 == ra && (kf(8, 272, e, c, 17), kf(280, 8, e, c + 17, 1))
         }
         d = screenWidth * screenHeight;
         for (b = 288 * screenWidth; b < d; b++) v[b] = imageHandlerForScreen.a[b];
         if (Me(f - 4 - 8, g - 1 - 8, 495, 126) && ga && 0 == Xa)
-            for (e = floor((Ne - (f - 4 - 8)) / 55), c = floor((Ie - (g - 1 - 8)) / 14), d = f - 4 + 55 * e, a = g - 1 + 14 * c, c = 55, e = 13, c = d + c > screenWidth ? screenWidth : ~~(d + c), e = a + e > screenHeight ? screenHeight : ~~(a +
+            for (e = Math.floor((Ne - (f - 4 - 8)) / 55), c = Math.floor((Ie - (g - 1 - 8)) / 14), d = f - 4 + 55 * e, a = g - 1 + 14 * c, c = 55, e = 13, c = d + c > screenWidth ? screenWidth : ~~(d + c), e = a + e > screenHeight ? screenHeight : ~~(a +
                     e), d = 0 > d ? 0 : ~~d, a = (0 > a ? 0 : ~~a) * screenWidth + d, b = screenWidth - (c - d), c = a + c - d, e *= screenWidth; a < e; a += b, c += screenWidth)
                 for (; a < c; a++) 4210752 == (v[a] & 16777215) && (v[a] = 4194304);
         ga && lf(8, 288, 504, 288, 6684672);
-        drawCompositeTextUsingImage(f + 0 - 2, g + 70, "    " + floor(360 * Fa / 64) + "'", 8421631, 0, -1);
+        drawCompositeTextUsingImage(f + 0 - 2, g + 70, "    " + Math.floor(360 * Fa / 64) + "'", 8421631, 0, -1);
         drawCompositeTextUsingImage(f + 275, g + 112, "JOINT-n J-left J-right J-scale J-none J-blind".split(" ")[Ta], 15908203, 0, -1);
         1 == isMinimapActive && drawCompositeTextUsingImage(f + 330, g + 112, "MiniMap", 16777215, 16711680, -1);
         0 == Ga ? drawCompositeTextUsingImage(f + 385 - 1, g + 28, "Copy", 16728128, -1, -2) : drawCompositeTextUsingImage(f + 385 + 23, g + 28, "Paste", 16728128, -1, -3);
@@ -1403,9 +1403,9 @@ function Ge() {
         
         drawTextUsingImage(fontImage, f + 440, g + 98, "     " + ya, 8388608, 0);
         
-        oe(f - 4 + 55 * floor(ea / 9), g + 1 + ea % 9 * 14, 3, 4, 16711680);
+        oe(f - 4 + 55 * Math.floor(ea / 9), g + 1 + ea % 9 * 14, 3, 4, 16711680);
         
-        oe(f - 4 + 55 * floor(fa / 9), g + 6 + fa % 9 * 14, 3, 4, 255);
+        oe(f - 4 + 55 * Math.floor(fa / 9), g + 6 + fa % 9 * 14, 3, 4, 255);
         
         drawTextUsingImage(fontImage, f + 56, g + 126, " " + (ia - 8), -1, 0);
         
@@ -1423,9 +1423,9 @@ function Ge() {
             g = 291;
             166 > Ne && ga && (f = 178);
             oe(f, g, 124, 70, 0);
-            for (b = a = 0; a < counterStickman; a++, b += hd) e = floor(stickManBodyPoints[b + 4].x) -
-                8, c = floor(stickManBodyPoints[b + 4].y) - 8, 0 > e || 496 <= e || 0 > c || 280 <= c || (e >>= 2, c >>= 2, d = 512 * (g + c) + (f + e), z[a] == jd ? v[d] = Ec : z[a] == ld ? v[d] = Fc : z[a] == md ? v[d] = fighterId : z[a] == md + 1 ? v[d] = fighterId : z[a] == nd && (v[d] = cloneId));
-            for (a = 0; a < od; a++) 0 != A[a] && (e = floor(B[a].x) - 8, c = floor(B[a].y) - 8, 0 > e || 496 <= e || 0 > c || 280 <= c || (e >>= 2, c >>= 2, d = 512 * (g + c) + (f + e), v[d] = Hc));
+            for (b = a = 0; a < counterStickman; a++, b += hd) e = Math.floor(stickManBodyPoints[b + 4].x) -
+                8, c = Math.floor(stickManBodyPoints[b + 4].y) - 8, 0 > e || 496 <= e || 0 > c || 280 <= c || (e >>= 2, c >>= 2, d = 512 * (g + c) + (f + e), z[a] == jd ? v[d] = Ec : z[a] == ld ? v[d] = Fc : z[a] == md ? v[d] = fighterId : z[a] == md + 1 ? v[d] = fighterId : z[a] == nd && (v[d] = cloneId));
+            for (a = 0; a < od; a++) 0 != A[a] && (e = Math.floor(B[a].x) - 8, c = Math.floor(B[a].y) - 8, 0 > e || 496 <= e || 0 > c || 280 <= c || (e >>= 2, c >>= 2, d = 512 * (g + c) + (f + e), v[d] = Hc));
             for (c = 0; 70 > c; c++)
                 for (e = 0; 124 > e; e++) b = (c + 2) * w + (e + 2), d = 2048 * (c + 2) + 4 * (e + 2), a = v[512 * (g + c) + (f + e)], 0 == a && (x[b] == Gb ? a = Ob : x[b] == Hb ? a = Qb : x[b] == Ib ? a = Rb : (a = D[I[d]], a == Hc && (a = 0), 0 == a && (a = D[I[d + 512 + 1]]), a == Hc && (a = 0))), d = s, 10 ==
                     backgroundDrawType ? d = Rc : 12 == backgroundDrawType ? a != r && a != gc && a != lc && a != oc && a != rc && a != Ac && (a = 0) : 14 == backgroundDrawType && (a = 0 == a ? Xb : 0), v[512 * (g + c) + (f + e)] = d[a], 16 == backgroundDrawType && 0 == a && (d = (s[Nc[ea]] & 255) + (s[Nc[fa]] & 255) >> 1, v[512 * (g + c) + (f + e)] = (s[Nc[ea]] >> 16 & 255) + (s[Nc[fa]] >> 16 & 255) >> 1 << 16 | (s[Nc[ea]] >> 8 & 255) + (s[Nc[fa]] >> 8 & 255) >> 1 << 8 | d)
@@ -1496,7 +1496,7 @@ function Ge() {
                 16777215, 0);
             3 == yb && (oe(288, 320, 84, 16, 16777215), vf(287, 319, 86, 0), Me(280, 312, 84, 16) && (vf(287, 319, 86, 16711680), trueAfterMouseUpButOnlyForOneTick && (g = callPrompt("setFont", tb), null != g && (tb = g))), drawTextUsingImage(fontImage, 289, 323, tb.substr(0, 10), 16777215, 0));
             a = -1;
-            128 <= Ne && 268 > Ne && 314 <= Ie && 362 > Ie && (a = floor((Ie - 314) / 16), 0 == a && 0 != Pe && (yb = returnBetween0_MAX(yb + Pe, 5)), 1 == a && 0 != Pe && (zb = returnBetween0_MAX(zb + Pe, 3)), 2 == a && 0 != Pe && (Ab = returnBetween0_MAX(Ab + Pe, 10)));
+            128 <= Ne && 268 > Ne && 314 <= Ie && 362 > Ie && (a = Math.floor((Ie - 314) / 16), 0 == a && 0 != Pe && (yb = returnBetween0_MAX(yb + Pe, 5)), 1 == a && 0 != Pe && (zb = returnBetween0_MAX(zb + Pe, 3)), 2 == a && 0 != Pe && (Ab = returnBetween0_MAX(Ab + Pe, 10)));
             drawTextUsingImage(fontImage, 140, 322, "font :" + fontsText[yb], 0 == a ? 16711680 : 16777215, 0);
             drawTextUsingImage(fontImage, 140, 338, "style:" + fontFormat[zb], 1 == a ? 16711680 : 16777215, 0);
             drawTextUsingImage(fontImage, 140, 354, "size :" + fontSizeArray[Ab], 2 == a ? 16711680 : 16777215, 0);
@@ -1528,7 +1528,7 @@ function Ge() {
             0 != Nc[ea] ? g = Nc[ea] : 0 != Nc[fa] && (g = Nc[fa]);
             if (g == wc || g == Ob || g == Qb || g == Rb) g = Sb;
             for (c = 0; 128 > c && !(288 <= xb + c); c++)
-                for (e = 0; 496 > e && !(504 <= wb + e); e++) - 1 != vb.a[c * vb.b + e] && I[(xb + c) * screenWidth + (wb + e)] == Jb && (b = Bd(wb + e, xb + c, g, 0), 0 <= b && g == Nb && (J[b].x = 0.01 * Math.cos(Fa * PI / 32), J[b].y = 0.01 * -Math.sin(Fa * PI / 32), G[b] = Fa, I[(xb +
+                for (e = 0; 496 > e && !(504 <= wb + e); e++) - 1 != vb.a[c * vb.b + e] && I[(xb + c) * screenWidth + (wb + e)] == Jb && (b = Bd(wb + e, xb + c, g, 0), 0 <= b && g == Nb && (J[b].x = 0.01 * Math.cos(Fa * Math.PI / 32), J[b].y = 0.01 * -Math.sin(Fa * Math.PI / 32), G[b] = Fa, I[(xb +
                     c) * screenWidth + (wb + e)] = l));
             Xa++
         } else 23 == Xa && (Xa = 0);
@@ -1548,9 +1548,9 @@ function bf(a) {
             var m = ia - ka,
                 n = ja - la;
             if (!(1 >= oa && 1 == isStopped && 1 >= ra && 0 == m && 0 == n && 3 != Aa)) {
-                var t = max(max(abs(m), abs(n)), 1),
-                    m = floor((m << 8) / t),
-                    n = floor((n << 8) / t),
+                var t = max(max(Math.abs(m), Math.abs(n)), 1),
+                    m = Math.floor((m << 8) / t),
+                    n = Math.floor((n << 8) / t),
                     u = (ka << 8) + 127,
                     F = (la << 8) + 127;
                 for (c = 0; c <= t; c++, u += m, F += n) {
@@ -1572,9 +1572,9 @@ function bf(a) {
                                 if (3 == Aa) {
                                     b = 0 != Nc[elementType] ? Nc[elementType] : Sb;
                                     var ub = 0;
-                                    b != Nb && (b == ac ? ub = 0 != Oc[ea] ? Oc[ea] : 0 != Oc[fa] ? Oc[fa] : Sb : b == rc ? (ub = floor(8 * getAngle(na) / TWOPI + 0.5) & 7, ub += 1) : b == Lc && (ub = 0 == a ? 0 : 1), I[d] >= p && D[I[d]] != b && Kd(d, D[I[d]], b, ub))
-                                } else I[d] == Jb && (ub = Nc[elementType], (0 == a && Xe && fa < numberOfTypesOfElements || 1 == a && We && ea < numberOfTypesOfElements) && customRandomBoolean(0.5) && (ub = Nc[0 == a ? fa : ea]), b = Bd(e, f, ub, 0), 0 > b || (ub == Nb ? (J[b].x = 0.01 * Math.cos(Fa * PI / 32), J[b].y = 0.01 * -Math.sin(Fa * PI / 32), G[b] = Fa, I[d] = l) : ub == ac ? G[b] = 0 != Oc[ea] ? Oc[ea] : 0 != Oc[fa] ? Oc[fa] : Sb : ub == rc ? (ub = floor(8 *
-                                    getAngle(na) / TWOPI + 0.5) & 7, G[b] = ub + 1) : ub == Lc && (G[b] = 0 == a ? 0 : 1, E[b] = 0 == a ? 6702131 : 3359829)))
+                                    b != Nb && (b == ac ? ub = 0 != Oc[ea] ? Oc[ea] : 0 != Oc[fa] ? Oc[fa] : Sb : b == rc ? (ub = Math.floor(8 * getAngle(na) / Math.PI**2 + 0.5) & 7, ub += 1) : b == Lc && (ub = 0 == a ? 0 : 1), I[d] >= p && D[I[d]] != b && Kd(d, D[I[d]], b, ub))
+                                } else I[d] == Jb && (ub = Nc[elementType], (0 == a && Xe && fa < numberOfTypesOfElements || 1 == a && We && ea < numberOfTypesOfElements) && customRandomBoolean(0.5) && (ub = Nc[0 == a ? fa : ea]), b = Bd(e, f, ub, 0), 0 > b || (ub == Nb ? (J[b].x = 0.01 * Math.cos(Fa * Math.PI / 32), J[b].y = 0.01 * -Math.sin(Fa * Math.PI / 32), G[b] = Fa, I[d] = l) : ub == ac ? G[b] = 0 != Oc[ea] ? Oc[ea] : 0 != Oc[fa] ? Oc[fa] : Sb : ub == rc ? (ub = Math.floor(8 *
+                                    getAngle(na) / Math.PI**2 + 0.5) & 7, G[b] = ub + 1) : ub == Lc && (G[b] = 0 == a ? 0 : 1, E[b] = 0 == a ? 6702131 : 3359829)))
                 }
             }
         }
@@ -1633,22 +1633,22 @@ function bf(a) {
         if (1 == Aa && (f = 0 == a ? trueAfterMouseUpButOnlyForOneTick : Ve), f) {
             c = oa;
             56 != elementType && 0 == oa && (c = 1);
-            m = floor(ia / ha) - floor(ka / ha);
-            n = floor(ja / ha) - floor(la / ha);
-            t = max(max(abs(m), abs(n)),
+            m = Math.floor(ia / ha) - Math.floor(ka / ha);
+            n = Math.floor(ja / ha) - Math.floor(la / ha);
+            t = max(max(Math.abs(m), Math.abs(n)),
                 1);
-            m = floor((m << 8) / t);
-            n = floor((n << 8) / t);
-            u = (floor(ka / ha) << 8) - 127;
-            F = (floor(la / ha) << 8) - 127;
+            m = Math.floor((m << 8) / t);
+            n = Math.floor((n << 8) / t);
+            u = (Math.floor(ka / ha) << 8) - 127;
+            F = (Math.floor(la / ha) << 8) - 127;
             for (a = 0; a <= t; a++, u += m, F += n)
-                for (d = (u >> 8) - floor(c / 2), M = (F >> 8) - floor(c / 2), $ = d + c / 2 + 0.5, Ca = M + c / 2 + 0.5, f = M; f <= M + c; f++)
-                    for (e = d; e <= d + c; e++) 2 > e || Ee <= e || 2 > f || Fe <= f || (e - $) * (e - $) + (f - Ca) * (f - Ca) > floor(c * c / 4) || (b = f * w + e, 54 == elementType ? 0 == x[b] && (x[b] = Gb, P[b] = Q[b] = se[b] = te[b] = ue[b] = 0) : 55 == elementType ? (x[b] == Hb ? Of(e, f, -1) : x[b] == Ib && Of(e, f, 1), x[b] = -2) : 56 == elementType ? 0 == x[b] && (x[b] = -2, P[b] = Q[b] = se[b] = te[b] = ue[b] = 0) : 57 == elementType ? 0 == x[b] && (x[b] = Hb, P[b] = Q[b] = se[b] = te[b] = ue[b] = 0, Of(e, f, 1)) : 58 == elementType && 0 ==
+                for (d = (u >> 8) - Math.floor(c / 2), M = (F >> 8) - Math.floor(c / 2), $ = d + c / 2 + 0.5, Ca = M + c / 2 + 0.5, f = M; f <= M + c; f++)
+                    for (e = d; e <= d + c; e++) 2 > e || Ee <= e || 2 > f || Fe <= f || (e - $) * (e - $) + (f - Ca) * (f - Ca) > Math.floor(c * c / 4) || (b = f * w + e, 54 == elementType ? 0 == x[b] && (x[b] = Gb, P[b] = Q[b] = se[b] = te[b] = ue[b] = 0) : 55 == elementType ? (x[b] == Hb ? Of(e, f, -1) : x[b] == Ib && Of(e, f, 1), x[b] = -2) : 56 == elementType ? 0 == x[b] && (x[b] = -2, P[b] = Q[b] = se[b] = te[b] = ue[b] = 0) : 57 == elementType ? 0 == x[b] && (x[b] = Hb, P[b] = Q[b] = se[b] = te[b] = ue[b] = 0, Of(e, f, 1)) : 58 == elementType && 0 ==
                         x[b] && (x[b] = Ib, P[b] = Q[b] = se[b] = te[b] = ue[b] = 0, Of(e, f, -1)));
             setGravity();
             if (56 == elementType && 0 == oa)
-                for (m = ia - ka, n = ja - la, t = max(max(abs(m), abs(n)), 1), m = floor((m << 8) / t), n = floor((n << 8) / t), u = (ka << 8) + 127, F = (la << 8) + 127, a = 0; a <= t; a++, u += m, F += n)
-                    for (b = p; b < qd; b++) u >> 8 == floor(C[b].x) && F >> 8 == floor(C[b].y) && rd(b--);
+                for (m = ia - ka, n = ja - la, t = max(max(Math.abs(m), Math.abs(n)), 1), m = Math.floor((m << 8) / t), n = Math.floor((n << 8) / t), u = (ka << 8) + 127, F = (la << 8) + 127, a = 0; a <= t; a++, u += m, F += n)
+                    for (b = p; b < qd; b++) u >> 8 == Math.floor(C[b].x) && F >> 8 == Math.floor(C[b].y) && rd(b--);
             if (54 == elementType || 56 == elementType || 57 == elementType || 58 == elementType)
                 for (a = p; a < qd; a++) 0 != x[(C[a].y >> 2) * w + (C[a].x >> 2)] && rd(a--);
             if (54 == elementType || 55 == elementType || 57 == elementType || 58 == elementType) {
@@ -1661,7 +1661,7 @@ function bf(a) {
                                 break
                             } for (a = 0; a < od; a++)
                     if (0 != A[a] && (b = (B[a].y >> 2 << 7) + (B[a].x >> 2), 0 != x[b])) {
-                        b = (B[a].y << 9) + floor(B[a].x);
+                        b = (B[a].y << 9) + Math.floor(B[a].x);
                         for (c = 0; 21 > c; c++) I[b + Pf[c]] == Lb && (I[b + Pf[c]] = Jb);
                         pd(a)
                     }
@@ -1685,7 +1685,7 @@ function handlesDrawingMethods() {
         for (a = 288 * screenWidth; 4096 < a; a--) v[a] = 0;
     else if (1 == backgroundDrawType || 2 == backgroundDrawType)
         for (b = 2, d = 258; b < Fe; b++, d += 4)
-            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (g = 0 < ue[d] ? floor(min(10 * ue[d], 96)) : 0, m = 0 > ue[d] ? floor(min(-10 * ue[d], 96)) : 0, oe(c << 2, b << 2, ha, ha, 0 | g << 8 | m));
+            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (g = 0 < ue[d] ? Math.floor(min(10 * ue[d], 96)) : 0, m = 0 > ue[d] ? Math.floor(min(-10 * ue[d], 96)) : 0, oe(c << 2, b << 2, ha, ha, 0 | g << 8 | m));
     else if (3 == backgroundDrawType) {
         for (a = 288 * screenWidth; 4096 < a; a--) {
             if (0 == x[R[a]]) {
@@ -1698,7 +1698,7 @@ function handlesDrawingMethods() {
     } else if (4 == backgroundDrawType)
         for (d = 4104, b = 8; 288 > b; b++, d += 16)
             for (c = 8; 504 > c; c++, d++) t.x =
-                U[d + (503 == c ? 0 : 1)] - U[d - (8 == c ? 0 : 1)], t.y = V[d + (287 == b ? 0 : 512)] - V[d - (8 == b ? 0 : 512)], f = floor(512 * (t.x + t.y)), v[d] = 0 >= f ? min(-f, 255) : min(f, 255) << 8;
+                U[d + (503 == c ? 0 : 1)] - U[d - (8 == c ? 0 : 1)], t.y = V[d + (287 == b ? 0 : 512)] - V[d - (8 == b ? 0 : 512)], f = Math.floor(512 * (t.x + t.y)), v[d] = 0 >= f ? min(-f, 255) : min(f, 255) << 8;
     else if (5 == backgroundDrawType) {
         for (b = 8; 288 > b; b++) {
             d = (b << 9) + 8;
@@ -1716,8 +1716,8 @@ function handlesDrawingMethods() {
         b = 2;
         for (d = 258; b < Fe; b++, d += 4)
             for (c = 2; c < Ee; c++, d++)
-                if (m = abs(P[d]), f = abs(Q[d]), 0 != m || 0 != f)
-                    for (g = 1 / (m + f), n = floor(m * g * 258), F = floor(f * g * 258), M = 0 > P[d] ? -1 : 1, $ = 0 > Q[d] ? -screenWidth : screenWidth, e = (b << 11) + (c << 2), a = 0; 16 > a; a++) f = (Eb[e + M] >> 16 & 255) + ((v[e] >>
+                if (m = Math.abs(P[d]), f = Math.abs(Q[d]), 0 != m || 0 != f)
+                    for (g = 1 / (m + f), n = Math.floor(m * g * 258), F = Math.floor(f * g * 258), M = 0 > P[d] ? -1 : 1, $ = 0 > Q[d] ? -screenWidth : screenWidth, e = (b << 11) + (c << 2), a = 0; 16 > a; a++) f = (Eb[e + M] >> 16 & 255) + ((v[e] >>
                         16 & 255) * n >> 8), 255 < f && (f = 255), g = (Eb[e + M] >> 8 & 255) + ((v[e] >> 8 & 255) * n >> 8), 255 < g && (g = 255), m = (Eb[e + M] & 255) + ((v[e] & 255) * n >> 8), 255 < m && (m = 255), Eb[e + M] = f << 16 | g << 8 | m, f = (Eb[e + $] >> 16 & 255) + ((v[e] >> 16 & 255) * F >> 8), 255 < f && (f = 255), g = (Eb[e + $] >> 8 & 255) + ((v[e] >> 8 & 255) * F >> 8), 255 < g && (g = 255), m = (Eb[e + $] & 255) + ((v[e] & 255) * F >> 8), 255 < m && (m = 255), Eb[e + $] = f << 16 | g << 8 | m, e += u[a];
         for (a = 288 * screenWidth; 4096 < a; a--) 0 == x[R[a]] && (v[a] = Eb[a], Eb[a] = 0)
     } else if (7 == backgroundDrawType)
@@ -1731,15 +1731,15 @@ function handlesDrawingMethods() {
         for (a = 288 * screenWidth; 4096 <= a; a--) v[a] = 0;
     else if (10 == backgroundDrawType)
         for (b = 2, d = 258; b < Fe; b++, d += 4)
-            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (f = 0, 0 < ue[d] && (f = floor(min(10 * ue[d], 72))), 0 > ue[d] && (f = floor(min(-10 * ue[d], 24))), oe(c << 2, b << 2, ha, ha, f << 16 | f << 8 | f));
+            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (f = 0, 0 < ue[d] && (f = Math.floor(min(10 * ue[d], 72))), 0 > ue[d] && (f = Math.floor(min(-10 * ue[d], 24))), oe(c << 2, b << 2, ha, ha, f << 16 | f << 8 | f));
     else if (11 == backgroundDrawType)
         for (b = 2, d = 258; b < Fe; b++, d += 4)
             for (c = 2; c < Ee; c++, d++) {
-                if (0 == x[d] && (n = 256 - floor(min(abs(ue[d]), 32)), 256 != n))
+                if (0 == x[d] && (n = 256 - Math.floor(min(Math.abs(ue[d]), 32)), 256 != n))
                     for (e = (b << 11) + (c << 2), a = 0; 16 > a; a++) f = (v[e] >> 16 & 255) * n >> 8, g = (v[e] >> 8 & 255) * n >> 8, m = (v[e] & 255) * n >> 8, v[e] = f << 16 | g << 8 | m, e += u[a]
             } else if (12 ==
                 backgroundDrawType)
-                for (a = 288 * screenWidth; 4096 < a; a--) v[a] = 0, Eb[a] = I[a] < p ? floor(8 * Eb[a] / 9) : D[I[a]] == r ? 25500 : D[I[a]] == gc ? 25500 : D[I[a]] == lc ? 255E3 : D[I[a]] == oc ? 255E3 : D[I[a]] == rc ? 25500 : D[I[a]] == wc && E[I[a]] == s[oc] ? 255E3 : D[I[a]] == Ac ? 25500 : D[I[a]] == Jc && 0 != G[I[a]] ? 255E3 : floor(8 * Eb[a] / 9);
+                for (a = 288 * screenWidth; 4096 < a; a--) v[a] = 0, Eb[a] = I[a] < p ? Math.floor(8 * Eb[a] / 9) : D[I[a]] == r ? 25500 : D[I[a]] == gc ? 25500 : D[I[a]] == lc ? 255E3 : D[I[a]] == oc ? 255E3 : D[I[a]] == rc ? 25500 : D[I[a]] == wc && E[I[a]] == s[oc] ? 255E3 : D[I[a]] == Ac ? 25500 : D[I[a]] == Jc && 0 != G[I[a]] ? 255E3 : Math.floor(8 * Eb[a] / 9);
             else if (13 == backgroundDrawType) {
         for (a = 0; a < qd; a++) Eb[H[a]] = Sc[D[a]];
         for (b = 8; 288 > b; b++) {
@@ -1766,11 +1766,11 @@ function handlesDrawingMethods() {
                 for (e = (b << 11) + (c << 2), a = 0; 16 > a; a++) v[e] = Tc[x[d]][a], e += u[a];
     if (2 == backgroundDrawType)
         for (b = 2, d = 258; b < Fe; b++, d += 4)
-            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (setToVector(t, P[d], Q[d]), f = floor(10 * normalize(t)), 2 > f || (48 < f && (f = 48), a = (c << 2) + 2, n = (b << 2) + 2, lf(a, n, a + t.x * f, n + t.y * f, 0 | f << 17)));
+            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (setToVector(t, P[d], Q[d]), f = Math.floor(10 * normalize(t)), 2 > f || (48 < f && (f = 48), a = (c << 2) + 2, n = (b << 2) + 2, lf(a, n, a + t.x * f, n + t.y * f, 0 | f << 17)));
     else if (9 == backgroundDrawType)
         for (b = 2, d = 258; b < Fe; b++, d += 4)
-            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (setToVector(t, P[d], Q[d]), a = vectorLength2(t), 0.2 > a || (g = floor(min(16 * a, 80)),
-                f = 0, 0 < ue[d] && (f = floor(min(ue[d] * a, 80))), m = 0, 0 > ue[d] && (m = floor(min(-ue[d] * a, 80))), a = (c << 2) + 5 * P[d], n = (b << 2) + 5 * Q[d], e = (c + 1 << 2) + 5 * P[d + 1], F = (b << 2) + 5 * Q[d + 1], lf(a, n, e, F, f << 16 | g << 8 | m), e = (c << 2) + 5 * P[d + w], F = (b + 1 << 2) + 5 * Q[d + w], lf(a, n, e, F, f << 16 | g << 8 | m)));
+            for (c = 2; c < Ee; c++, d++) 0 == x[d] && (setToVector(t, P[d], Q[d]), a = vectorLength2(t), 0.2 > a || (g = Math.floor(min(16 * a, 80)),
+                f = 0, 0 < ue[d] && (f = Math.floor(min(ue[d] * a, 80))), m = 0, 0 > ue[d] && (m = Math.floor(min(-ue[d] * a, 80))), a = (c << 2) + 5 * P[d], n = (b << 2) + 5 * Q[d], e = (c + 1 << 2) + 5 * P[d + 1], F = (b << 2) + 5 * Q[d + 1], lf(a, n, e, F, f << 16 | g << 8 | m), e = (c << 2) + 5 * P[d + w], F = (b + 1 << 2) + 5 * Q[d + w], lf(a, n, e, F, f << 16 | g << 8 | m)));
     else if (14 == backgroundDrawType)
         for (a = 288 * screenWidth; 4096 < a; a--) I[a] == Jb ? (f = 255 - (255 - (v[a] >> 16 & 255) >> 1), g = 255 - (255 - (v[a] >> 8 & 255) >> 1), m = 255 - (255 - (v[a] & 255) >> 1), v[a] = f << 16 | g << 8 | m) : I[a] < Lb && (v[a] = 0);
     if (2 <= ya) {
@@ -1826,8 +1826,8 @@ function handlesDrawingMethods() {
                 e = (b << 11) + (c << 2);
                 for (a = 0; 16 > a; a++) 0 != v[e] && (f += v[e] >> 16 & 255, g += v[e] >> 8 & 255, m += v[e] & 255, n++), e += u[a];
                 if (0 != n)
-                    for (f = floor(f / n), g = floor(g /
-                            n), m = floor(m / n), e = (b << 11) + (c << 2), a = 0; 16 > a; a++) v[e] = 3 > a || 4 == a || 8 == a ? min(f + 48, 255) << 16 | min(g + 48, 255) << 8 | min(m + 48, 255) : 12 < a || 7 == a || 11 == a ? max(f - 32, 0) << 16 | max(g - 32, 0) << 8 | max(m - 32, 0) : f << 16 | g << 8 | m, e += u[a]
+                    for (f = Math.floor(f / n), g = Math.floor(g /
+                            n), m = Math.floor(m / n), e = (b << 11) + (c << 2), a = 0; 16 > a; a++) v[e] = 3 > a || 4 == a || 8 == a ? min(f + 48, 255) << 16 | min(g + 48, 255) << 8 | min(m + 48, 255) : 12 < a || 7 == a || 11 == a ? max(f - 32, 0) << 16 | max(g - 32, 0) << 8 | max(m - 32, 0) : f << 16 | g << 8 | m, e += u[a]
             }
     Wf()
 }
@@ -1866,8 +1866,8 @@ function Wf() {
             e = 4210752;
             f && (e |= 16711680);
             g && (e |= 255);
-            b = (ja >> 2) - floor(m / 2);
-            c = ((ia >> 2) - floor(m / 2) + Xf[m]) * ha;
+            b = (ja >> 2) - Math.floor(m / 2);
+            c = ((ia >> 2) - Math.floor(m / 2) + Xf[m]) * ha;
             b = (b + 0) * ha;
             for (a = 0; a < Yf[m].length; a++) d = minInsideRange(b, 0, 288) * screenWidth + minInsideRange(c, 0, screenWidth - 1), v[d] = e, 1 == Yf[m][a] && c++, 2 == Yf[m][a] && b++, 3 == Yf[m][a] && c--, 4 == Yf[m][a] && b--
         }
@@ -1878,14 +1878,14 @@ function Wf() {
             if (45 == fa || 25 == fa) e |= 255;
             lf(ia + 0.5, ja + 0.5, ia + 0.5 + 30 * na.x, ja + 0.5 + 30 * na.y, e)
         }
-        if (5 == ea || 5 == fa) e = 4210752, 5 == ea && (e |= 16711680), 5 == fa && (e |= 255), lf(ia + 0.5, ja + 0.5, ia + 0.5 + 20 * Math.cos(Fa * PI / 32), ja + 0.5 - 20 * Math.sin(Fa * PI / 32), e);
+        if (5 == ea || 5 == fa) e = 4210752, 5 == ea && (e |= 16711680), 5 == fa && (e |= 255), lf(ia + 0.5, ja + 0.5, ia + 0.5 + 20 * Math.cos(Fa * Math.PI / 32), ja + 0.5 - 20 * Math.sin(Fa * Math.PI / 32), e);
         1 == Aa && (We && (ea < numberOfTypesOfElements || f) || Xe && (fa < numberOfTypesOfElements || g)) && lf(Da, Ea, ia, ja, 16711680);
         if (64 == ea || 64 == fa) e = 4210752, 64 == ea && (e |= 16711680), 64 == fa && (e |= 255), lf(wb, xb, wb, xb + 13, e), lf(wb, xb, wb + 200, xb, e), lf(wb, xb + 13, wb + 200, xb + 13, e);
         if (65 == ea || 65 == fa)
             if (0 == Ga) {
                 if (65 == ea && We || 65 == fa && Xe) lf(Ha, Ia, Ja,
                     Ia, 16761024), lf(Ha, Ka, Ja, Ka, 16761024), lf(Ha, Ia, Ha, Ka, 16761024), lf(Ja, Ia, Ja, Ka, 16761024)
-            } else c = ia - floor((Ja - Ha) / 2), b = ja - floor((Ka - Ia) / 2), e = Ja - Ha, a = Ka - Ia, lf(c, b, c + e, b, 12632319), lf(c, b + a, c + e, b + a, 12632319), lf(c, b, c, b + a, 12632319), lf(c + e, b, c + e, b + a, 12632319);
+            } else c = ia - Math.floor((Ja - Ha) / 2), b = ja - Math.floor((Ka - Ia) / 2), e = Ja - Ha, a = Ka - Ia, lf(c, b, c + e, b, 12632319), lf(c, b + a, c + e, b + a, 12632319), lf(c, b, c, b + a, 12632319), lf(c + e, b, c + e, b + a, 12632319);
         if (53 == ea || 53 == fa) {
             e = 4210752;
             53 == ea && (e |= 16711680);
@@ -1898,7 +1898,7 @@ function Wf() {
             for (a = 0; 37 > a; a++)
                 if (-1 != Ed(d + f[a]) || -1 != Fd(d + f[a]) || I[d + f[a]] >= p) {
                     c = d + f[a] & 511;
-                    b = floor((d + f[a]) / 512);
+                    b = Math.floor((d + f[a]) / 512);
                     break
                 } - 1 != Ua ? lf(Ua & 511, Ua / 512, c, b, e) : lf(c, b, ia, ja, e)
         }
@@ -1954,7 +1954,7 @@ function df() {
     b = 2;
     f = 258;
     for (g = f + 124; b < Fe; b++, f += 4, g += w)
-        for (; f < g; f++) 1 <= x[f] || (a = f + 1, c = f - 1, d = f + w, e = f - w, m = 3 * abs(P[f]), n = 3 * abs(Q[f]), t = 6 * P[f] * (P[a] -
+        for (; f < g; f++) 1 <= x[f] || (a = f + 1, c = f - 1, d = f + w, e = f - w, m = 3 * Math.abs(P[f]), n = 3 * Math.abs(Q[f]), t = 6 * P[f] * (P[a] -
                 P[c]) + m * (2 * P[f] - P[a] - P[c]), u = 6 * Q[f] * (P[d] - P[e]) + n * (2 * P[f] - P[d] - P[e]), F = (1 <= x[a] ? ue[f] : ue[a]) - (1 <= x[c] ? ue[f] : ue[c]), M = P[a] + P[c] - 2 * P[f], M += P[d] + P[e] - 2 * P[f], t = minInsideRange(t + u + F, -10, 10), se[f] = P[f] + Zf * (-t + M), t = 6 * P[f] * (Q[a] - Q[c]) + m * (2 * Q[f] - Q[a] - Q[c]), u = 6 * Q[f] * (Q[d] - Q[e]) + n * (2 * Q[f] - Q[d] - Q[e]), F = (1 <= x[d] ? ue[f] : ue[d]) - (1 <= x[e] ? ue[f] : ue[e]), M = Q[a] + Q[c] - 2 * Q[f], M += Q[d] + Q[e] - 2 * Q[f], t = minInsideRange(t + u + F, -10, 10), te[f] = Q[f] + Zf * (-t + M), 1 <= x[c] && 0 > se[f] && (se[f] *= 0.9), 1 <= x[a] && 0 < se[f] && (se[f] *= 0.9), 1 <= x[e] && 0 > te[f] && (te[f] *= 0.9), 1 <= x[d] &&
             0 < te[f] && (te[f] *= 0.9));
     f = P;
@@ -2142,7 +2142,7 @@ function ff() {
 
 
 function Tf() {
-    for (var a, c, b, d = null, e = null, f = 0, g = 0, m = 0; m < sd; m++) 0 == ud[m] ? (d = C[vd[m]], f = E[vd[m]]) : 1 == ud[m] ? (d = stickManBodyPoints[vd[m] * hd + 1], f = 16769198) : 2 == ud[m] && (d = B[vd[m]], f = s[A[vd[m]]]), 0 == wd[m] ? (e = C[xd[m]], g = E[xd[m]]) : 1 == wd[m] ? (e = stickManBodyPoints[xd[m] * hd + 1], g = 16769198) : 2 == wd[m] && (e = B[xd[m]], g = s[A[xd[m]]]), a = (f >> 16 & 255) + (g >> 16 & 255) >> 1, c = (f >> 8 & 255) + (g >> 8 & 255) >> 1, b = (f & 255) + (g & 255) >> 1, 0 != Va ? 1 == Va ? lf(d.x, d.y, e.x, e.y, 14540253) : 2 == Va && lf(d.x, d.y, e.x, e.y, 2236962) : 5 != td[m] && (10 == backgroundDrawType ? (a = floor((2989 * a + 5866 * c + 1145 * b) / 1E4), lf(d.x, d.y, e.x, e.y,
+    for (var a, c, b, d = null, e = null, f = 0, g = 0, m = 0; m < sd; m++) 0 == ud[m] ? (d = C[vd[m]], f = E[vd[m]]) : 1 == ud[m] ? (d = stickManBodyPoints[vd[m] * hd + 1], f = 16769198) : 2 == ud[m] && (d = B[vd[m]], f = s[A[vd[m]]]), 0 == wd[m] ? (e = C[xd[m]], g = E[xd[m]]) : 1 == wd[m] ? (e = stickManBodyPoints[xd[m] * hd + 1], g = 16769198) : 2 == wd[m] && (e = B[xd[m]], g = s[A[xd[m]]]), a = (f >> 16 & 255) + (g >> 16 & 255) >> 1, c = (f >> 8 & 255) + (g >> 8 & 255) >> 1, b = (f & 255) + (g & 255) >> 1, 0 != Va ? 1 == Va ? lf(d.x, d.y, e.x, e.y, 14540253) : 2 == Va && lf(d.x, d.y, e.x, e.y, 2236962) : 5 != td[m] && (10 == backgroundDrawType ? (a = Math.floor((2989 * a + 5866 * c + 1145 * b) / 1E4), lf(d.x, d.y, e.x, e.y,
         a << 16 | a << 8 | a)) : 14 == backgroundDrawType ? lf(d.x, d.y, e.x, e.y, 0) : lf(d.x, d.y, e.x, e.y, a << 16 | c << 8 | b))
 }
 var qd = p,
@@ -2290,7 +2290,7 @@ function Vg(a, c) {
     c.x += P[R[H[a]]];
     c.y += Q[R[H[a]]];
     I[H[a]] = Jb;
-    var b = floor(vectorLength2(c) / 4) + 2;
+    var b = Math.floor(vectorLength2(c) / 4) + 2;
     vectorScale(c, 1 / b);
     for (var d = 0, e; d < b; d++) e = (C[a].y << 9) + ~~(C[a].x + c.x), 4 > C[a].x + c.x || 508 <= C[a].x + c.x || (I[e] <= l ? C[a].x += c.x : (J[a].y *= Ug[D[a]], J[a].x *= -Tg[D[a]], c.x *= -Tg[D[a]])), e = (C[a].y + c.y << 9) + ~~C[a].x, 4 > C[a].y + c.y || 292 <= C[a].y + c.y || (I[e] <= l ? C[a].y += c.y : (J[a].x *= Ug[D[a]], J[a].y *= -Tg[D[a]], c.y *= -Tg[D[a]]));
     H[a] = (C[a].y << 9) + ~~C[a].x;
@@ -2304,7 +2304,7 @@ function ef() {
         if (47 == ea && Ke || 47 == fa && Oe) {
             a = new Vector;
             Ig = 0;
-            for (var b = p; b < qd && !(Kg <= Ig); b++) D[b] != Nb && (a.x = ia - floor(C[b].x), a.y = ja - floor(C[b].y), fastLength(a) < oa * oa * 7 + 1 && (Jg[Ig++] = b))
+            for (var b = p; b < qd && !(Kg <= Ig); b++) D[b] != Nb && (a.x = ia - Math.floor(C[b].x), a.y = ja - Math.floor(C[b].y), fastLength(a) < oa * oa * 7 + 1 && (Jg[Ig++] = b))
         }
         if (47 == ea && We || 47 == fa && Xe)
             for (b = 0; b < Ig; b++) J[Jg[b]].x += 0.1 * (ia - C[Jg[b]].x), J[Jg[b]].y += 0.1 * (ja - C[Jg[b]].y);
@@ -2344,8 +2344,8 @@ function Xg(a, c) {
         if (0 == Jd[a]) {
             I[H[a]] = Jb;
             setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
-            b = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
-            D[I[b]] >= Ob ? (b = (C[a].y + U[H[a]] << 9) + floor(C[a].x - V[H[a]]), I[b] <= l && (d = customRandomBetween(0.1, 0.2), J[a].x -= V[H[a]] * d, J[a].y += U[H[a]] * d), b = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[b] <= l &&
+            b = (C[a].y + V[H[a]] << 9) + Math.floor(C[a].x + U[H[a]]);
+            D[I[b]] >= Ob ? (b = (C[a].y + U[H[a]] << 9) + Math.floor(C[a].x - V[H[a]]), I[b] <= l && (d = customRandomBetween(0.1, 0.2), J[a].x -= V[H[a]] * d, J[a].y += U[H[a]] * d), b = (C[a].y - U[H[a]] << 9) + Math.floor(C[a].x + V[H[a]]), I[b] <= l &&
                 (d = customRandomBetween(0.1, 0.2), J[a].x += V[H[a]] * d, J[a].y -= U[H[a]] * d), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (d = customRandom2(1.5), c.x += U[H[a]] * d, c.y += V[H[a]] * d);
             if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
             0 == V[H[a]] ? Ng(a, c) : Rg(a, c)
@@ -2390,19 +2390,19 @@ function Xg(a, c) {
                 Ng(a, c)
             } else Vg(a, c);
             if (1E3 > mf - qd) return 0;
-            b = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
+            b = (C[a].y + V[H[a]] << 9) + Math.floor(C[a].x + U[H[a]]);
             D[I[b]] == Sb && (G[a] = 1);
             D[I[b]] == tc && (G[a] = 2);
             D[I[b]] == dc && (G[a] = 3);
             D[I[b]] == Ub && (G[a] = (G[I[b]] & 15) + 1)
         } else if (1 == G[a] || 2 == G[a]) {
-        if (setToVector(c, ~~C[a].x + 0.5, ~~C[a].y + 0.5), d = 1 == G[a] ? customRandom2(1) : 1, c.x -= U[H[a]] * d, c.y -= V[H[a]] * d, d = customRandom(3) - 1, c.x += V[H[a]] * d, c.y -= U[H[a]] * d, b = I[(c.y << 9) + floor(c.x)], b <= l && I[(c.y + V[H[a]] <<
-                9) + floor(c.x + U[H[a]])] <= l && (e = ~~C[a].x, f = ~~C[a].y, Mg(a, ~~c.x, ~~c.y), Bd(e, f, Ub, G[a] - 1)), customRandomBoolean(0.05)) return rd(a), 1
+        if (setToVector(c, ~~C[a].x + 0.5, ~~C[a].y + 0.5), d = 1 == G[a] ? customRandom2(1) : 1, c.x -= U[H[a]] * d, c.y -= V[H[a]] * d, d = customRandom(3) - 1, c.x += V[H[a]] * d, c.y -= U[H[a]] * d, b = I[(c.y << 9) + Math.floor(c.x)], b <= l && I[(c.y + V[H[a]] <<
+                9) + Math.floor(c.x + U[H[a]])] <= l && (e = ~~C[a].x, f = ~~C[a].y, Mg(a, ~~c.x, ~~c.y), Bd(e, f, Ub, G[a] - 1)), customRandomBoolean(0.05)) return rd(a), 1
     } else {
         if (3 <= G[a] && 5 >= G[a]) {
             setToVector(c, ~~C[a].x + 0.5, ~~C[a].y + 0.5);
             if (3 == G[a]) {
-                if (customRandomBoolean(0.1) && (e = floor(c.x - V[H[a]]), f = floor(c.y + U[H[a]]), I[(f << 9) + e] <= l && Bd(e, f, Tb, 4)), customRandomBoolean(0.1) && (e = floor(c.x + V[H[a]]), f = floor(c.y - U[H[a]]), I[(f << 9) + e] <= l && Bd(e, f, Tb, 5)), customRandomBoolean(0.05)) return rd(a), 1
+                if (customRandomBoolean(0.1) && (e = Math.floor(c.x - V[H[a]]), f = Math.floor(c.y + U[H[a]]), I[(f << 9) + e] <= l && Bd(e, f, Tb, 4)), customRandomBoolean(0.1) && (e = Math.floor(c.x + V[H[a]]), f = Math.floor(c.y - U[H[a]]), I[(f << 9) + e] <= l && Bd(e, f, Tb, 5)), customRandomBoolean(0.05)) return rd(a), 1
             } else if (4 == G[a]) {
                 if (c.x -= V[H[a]], c.y += U[H[a]], customRandomBoolean(0.15)) return rd(a), 1
             } else if (5 == G[a] && (c.x += V[H[a]], c.y -= U[H[a]], customRandomBoolean(0.15))) return rd(a), 1;
@@ -2410,7 +2410,7 @@ function Xg(a, c) {
             c.y -= V[H[a]];
             b = I[(c.y << 9) + ~~c.x];
             if (b <= l) {
-                if (I[(c.y + U[H[a]] << 9) + floor(c.x - V[H[a]])] > l || I[(c.y - U[H[a]] << 9) + floor(c.x + V[H[a]])] > l) return 0;
+                if (I[(c.y + U[H[a]] << 9) + Math.floor(c.x - V[H[a]])] > l || I[(c.y - U[H[a]] << 9) + Math.floor(c.x + V[H[a]])] > l) return 0;
                 e = ~~C[a].x;
                 f = ~~C[a].y;
                 Mg(a, ~~c.x, ~~c.y);
@@ -2481,8 +2481,8 @@ function Xg(a, c) {
         b = I[H[a] + wg[d]];
         b >= p && D[b] != Ub && D[b] !=
             Xb && D[b] != Zb && D[b] != tc && D[b] != Cc && (D[b] == Wb ? L(a, Wb, 0, s[Wb]) : customRandomBoolean(0.1) && L(a, q, 0, s[q]))
-    } else if (D[a] == Yb) 0 == Jd[a] ? (J[a].x += 0.05 * P[R[H[a]]], J[a].y += 0.05 * Q[R[H[a]]], J[a].x += 0.01 * U[H[a]], J[a].y += 0.01 * V[H[a]], vectorScale(J[a], 0.999), c.set(J[a]), I[H[a]] = Jb, b = vectorLength2(c), 3.8 < b && vectorScale(c, 3.8 / b), b = I[(C[a].y << 9) + floor(C[a].x + c.x)], b <= l ? C[a].x += c.x : 2 == X[D[b]] ? (J[b].x -= J[a].x, J[a].x *= 0.9, C[b].x = C[a].x, C[a].x += c.x, H[b] = H[a], I[H[a]] = b) : D[b] == r ? Lg(a, b) : D[b] == Yb ? (d = 0.9 * J[a].x, J[a].x = 0.9 * J[b].x, J[b].x = d) : (J[a].x *= -rg[D[b]], J[a].y *= sg[D[b]]),
-        H[a] = (C[a].y << 9) + floor(C[a].x), I[H[a]] = Jb, b = I[(C[a].y + c.y << 9) + floor(C[a].x)], b <= l ? C[a].y += c.y : 2 == X[D[b]] ? (J[b].y -= J[a].y, J[a].y *= 0.9, C[b].y = C[a].y, C[a].y += c.y, H[b] = H[a], I[H[a]] = b) : D[b] == r ? Lg(a, b) : D[b] == Yb ? 0 < J[a].y ? (d = 0.45 * J[a].y, J[a].y = -d, J[a].y += J[b].y, J[b].y = d) : (d = 0.45 * J[b].y, J[b].y = -d, J[b].y += J[a].y, J[a].y = d) : (J[a].y *= -rg[D[b]], J[a].x *= sg[D[b]]), H[a] = (C[a].y << 9) + floor(C[a].x), I[H[a]] = a) : Vg(a, c);
+    } else if (D[a] == Yb) 0 == Jd[a] ? (J[a].x += 0.05 * P[R[H[a]]], J[a].y += 0.05 * Q[R[H[a]]], J[a].x += 0.01 * U[H[a]], J[a].y += 0.01 * V[H[a]], vectorScale(J[a], 0.999), c.set(J[a]), I[H[a]] = Jb, b = vectorLength2(c), 3.8 < b && vectorScale(c, 3.8 / b), b = I[(C[a].y << 9) + Math.floor(C[a].x + c.x)], b <= l ? C[a].x += c.x : 2 == X[D[b]] ? (J[b].x -= J[a].x, J[a].x *= 0.9, C[b].x = C[a].x, C[a].x += c.x, H[b] = H[a], I[H[a]] = b) : D[b] == r ? Lg(a, b) : D[b] == Yb ? (d = 0.9 * J[a].x, J[a].x = 0.9 * J[b].x, J[b].x = d) : (J[a].x *= -rg[D[b]], J[a].y *= sg[D[b]]),
+        H[a] = (C[a].y << 9) + Math.floor(C[a].x), I[H[a]] = Jb, b = I[(C[a].y + c.y << 9) + Math.floor(C[a].x)], b <= l ? C[a].y += c.y : 2 == X[D[b]] ? (J[b].y -= J[a].y, J[a].y *= 0.9, C[b].y = C[a].y, C[a].y += c.y, H[b] = H[a], I[H[a]] = b) : D[b] == r ? Lg(a, b) : D[b] == Yb ? 0 < J[a].y ? (d = 0.45 * J[a].y, J[a].y = -d, J[a].y += J[b].y, J[b].y = d) : (d = 0.45 * J[b].y, J[b].y = -d, J[b].y += J[a].y, J[a].y = d) : (J[a].y *= -rg[D[b]], J[a].x *= sg[D[b]]), H[a] = (C[a].y << 9) + Math.floor(C[a].x), I[H[a]] = a) : Vg(a, c);
     else if (D[a] == Zb)
         if (0 != Jd[a] && setToVector(J[a], 0, 0), 0 == G[a]) d = customRandom(20), b = I[H[a] + Bg[d]], b >= p && (G[a] = D[b] == Zb ? G[b] : D[b]);
         else {
@@ -2515,8 +2515,8 @@ function Xg(a, c) {
         if (0 == Jd[a]) {
             I[H[a]] = Jb;
             setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
-            b = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
-            D[I[b]] >= Ob ? (b = (C[a].y + U[H[a]] << 9) + floor(C[a].x - V[H[a]]), I[b] <= l && (d = customRandomBetween(0.1, 0.2), J[a].x -= V[H[a]] * d, J[a].y += U[H[a]] * d), b = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[b] <= l && (d = customRandomBetween(0.1, 0.2), J[a].x += V[H[a]] *
+            b = (C[a].y + V[H[a]] << 9) + Math.floor(C[a].x + U[H[a]]);
+            D[I[b]] >= Ob ? (b = (C[a].y + U[H[a]] << 9) + Math.floor(C[a].x - V[H[a]]), I[b] <= l && (d = customRandomBetween(0.1, 0.2), J[a].x -= V[H[a]] * d, J[a].y += U[H[a]] * d), b = (C[a].y - U[H[a]] << 9) + Math.floor(C[a].x + V[H[a]]), I[b] <= l && (d = customRandomBetween(0.1, 0.2), J[a].x += V[H[a]] *
                 d, J[a].y -= U[H[a]] * d), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (d = customRandom2(1.5), c.x += U[H[a]] * d, c.y += V[H[a]] * d);
             if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
             0 == V[H[a]] ? Ng(a, c) : Rg(a, c)
@@ -2570,16 +2570,16 @@ function Yg(a, c) {
             if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.8), c.add(J[a]);
             b = ~~C[a].x + 0.5;
             e = ~~C[a].y + 0.5;
-            d = (e + V[H[a]] << 9) + floor(b + U[H[a]]);
-            D[I[d]] >= Ob && (customRandomBoolean(0.5) ? (d = (e + V[H[a]] + U[H[a]] << 9) + floor(b + U[H[a]] - V[H[a]]), I[d] <= l && (c.x -= 0.5 * V[H[a]], c.y += 0.5 * U[H[a]])) : (d = (e + V[H[a]] - U[H[a]] << 9) + floor(b + U[H[a]] + V[H[a]]), I[d] <= l && (c.x += 0.5 * V[H[a]], c.y -= 0.5 * U[H[a]])));
+            d = (e + V[H[a]] << 9) + Math.floor(b + U[H[a]]);
+            D[I[d]] >= Ob && (customRandomBoolean(0.5) ? (d = (e + V[H[a]] + U[H[a]] << 9) + Math.floor(b + U[H[a]] - V[H[a]]), I[d] <= l && (c.x -= 0.5 * V[H[a]], c.y += 0.5 * U[H[a]])) : (d = (e + V[H[a]] - U[H[a]] << 9) + Math.floor(b + U[H[a]] + V[H[a]]), I[d] <= l && (c.x += 0.5 * V[H[a]], c.y -= 0.5 * U[H[a]])));
             Ng(a, c)
         } else Vg(a, c);
     else if (D[a] == ec) {
         if (0 == Jd[a]) {
             I[H[a]] = Jb;
             setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
-            d = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
-            D[I[d]] >= Ob ? (d = (C[a].y + U[H[a]] << 9) + floor(C[a].x - V[H[a]]), I[d] <= l && (d = customRandom2(0.05), J[a].x -= V[H[a]] * d, J[a].y += U[H[a]] * d), d = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[d] <= l && (d =
+            d = (C[a].y + V[H[a]] << 9) + Math.floor(C[a].x + U[H[a]]);
+            D[I[d]] >= Ob ? (d = (C[a].y + U[H[a]] << 9) + Math.floor(C[a].x - V[H[a]]), I[d] <= l && (d = customRandom2(0.05), J[a].x -= V[H[a]] * d, J[a].y += U[H[a]] * d), d = (C[a].y - U[H[a]] << 9) + Math.floor(C[a].x + V[H[a]]), I[d] <= l && (d =
                 customRandom2(0.05), J[a].x += V[H[a]] * d, J[a].y -= U[H[a]] * d), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (d = customRandom2(1.5), c.x += U[H[a]] * d, c.y += V[H[a]] * d);
             if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
             0 == V[H[a]] ? Ng(a, c) : Rg(a, c)
@@ -2600,7 +2600,7 @@ function Yg(a, c) {
             d = vectorLength2(c);
             3.8 < d && vectorScale(c, 3.8 / d);
             I[H[a]] = Jb;
-            b = I[(C[a].y << 9) + floor(C[a].x + c.x)];
+            b = I[(C[a].y << 9) + Math.floor(C[a].x + c.x)];
             if (b <= l) C[a].x += c.x;
             else if (2 == X[D[b]] || D[b] == gc) J[b].x -= J[a].x, J[a].x *= 0.5, C[b].x = C[a].x, C[a].x += c.x, H[b] = H[a], I[H[a]] = b;
             else {
@@ -2609,7 +2609,7 @@ function Yg(a, c) {
             }
             H[a] = (C[a].y << 9) + ~~C[a].x;
             I[H[a]] = Jb;
-            b = I[(C[a].y + c.y << 9) + floor(C[a].x)];
+            b = I[(C[a].y + c.y << 9) + Math.floor(C[a].x)];
             if (b <= l) C[a].y += c.y;
             else if (2 == X[D[b]] || D[b] == gc) J[b].y -= J[a].y, J[a].y *= 0.5, C[b].y = C[a].y, C[a].y += c.y, H[b] = H[a], I[H[a]] =
                 b;
@@ -2624,8 +2624,8 @@ function Yg(a, c) {
         if (0 == Jd[a]) {
             I[H[a]] = Jb;
             setToVector(c, 0.1 * P[R[H[a]]], 0.1 * Q[R[H[a]]]);
-            d = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
-            D[I[d]] >= Ob ? (d = (C[a].y + U[H[a]] << 9) + floor(C[a].x - V[H[a]]), I[d] <= l && (d = customRandom2(0.1), J[a].x -= V[H[a]] * d, J[a].y += U[H[a]] * d), d = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[d] <= l && (d = customRandom2(0.1), J[a].x += V[H[a]] * d, J[a].y -= U[H[a]] * d), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (d = customRandom2(2), c.x += U[H[a]] * d, c.y += V[H[a]] * d);
+            d = (C[a].y + V[H[a]] << 9) + Math.floor(C[a].x + U[H[a]]);
+            D[I[d]] >= Ob ? (d = (C[a].y + U[H[a]] << 9) + Math.floor(C[a].x - V[H[a]]), I[d] <= l && (d = customRandom2(0.1), J[a].x -= V[H[a]] * d, J[a].y += U[H[a]] * d), d = (C[a].y - U[H[a]] << 9) + Math.floor(C[a].x + V[H[a]]), I[d] <= l && (d = customRandom2(0.1), J[a].x += V[H[a]] * d, J[a].y -= U[H[a]] * d), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (d = customRandom2(2), c.x += U[H[a]] * d, c.y += V[H[a]] * d);
             if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
             0 == V[H[a]] ? Ng(a, c) : Rg(a, c)
         } else Vg(a, c);
@@ -2655,8 +2655,8 @@ function Yg(a, c) {
         if (0 == Jd[a]) {
             I[H[a]] = Jb;
             setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
-            d = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
-            D[I[d]] >= Ob ? (d = (C[a].y + U[H[a]] << 9) + floor(C[a].x - V[H[a]]), I[d] <= l && (d = customRandomBetween(0.1, 0.2), J[a].x -= V[H[a]] * d, J[a].y += U[H[a]] * d), d = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[d] <= l && (d = customRandomBetween(0.1, 0.2), J[a].x += V[H[a]] * d, J[a].y -= U[H[a]] * d), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (d = customRandom2(1.5), c.x += U[H[a]] * d, c.y += V[H[a]] * d);
+            d = (C[a].y + V[H[a]] << 9) + Math.floor(C[a].x + U[H[a]]);
+            D[I[d]] >= Ob ? (d = (C[a].y + U[H[a]] << 9) + Math.floor(C[a].x - V[H[a]]), I[d] <= l && (d = customRandomBetween(0.1, 0.2), J[a].x -= V[H[a]] * d, J[a].y += U[H[a]] * d), d = (C[a].y - U[H[a]] << 9) + Math.floor(C[a].x + V[H[a]]), I[d] <= l && (d = customRandomBetween(0.1, 0.2), J[a].x += V[H[a]] * d, J[a].y -= U[H[a]] * d), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (d = customRandom2(1.5), c.x += U[H[a]] * d, c.y += V[H[a]] * d);
             if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
             0 == V[H[a]] ? Ng(a,
                 c) : Rg(a, c)
@@ -2759,8 +2759,8 @@ function Zg(a, c) {
         if (0 == G[a]) {
             I[H[a]] = Jb;
             setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
-            f = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
-            D[I[f]] >= Ob ? (f = (C[a].y + U[H[a]] << 9) + floor(C[a].x - V[H[a]]), I[f] <= l && (e = customRandomBetween(0.1, 0.2), J[a].x -= V[H[a]] * e, J[a].y += U[H[a]] * e), f = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[f] <= l && (e = customRandomBetween(0.1, 0.2), J[a].x += V[H[a]] * e, J[a].y -= U[H[a]] * e), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (e = customRandom2(1.5), c.x += U[H[a]] * e, c.y += V[H[a]] * e);
+            f = (C[a].y + V[H[a]] << 9) + Math.floor(C[a].x + U[H[a]]);
+            D[I[f]] >= Ob ? (f = (C[a].y + U[H[a]] << 9) + Math.floor(C[a].x - V[H[a]]), I[f] <= l && (e = customRandomBetween(0.1, 0.2), J[a].x -= V[H[a]] * e, J[a].y += U[H[a]] * e), f = (C[a].y - U[H[a]] << 9) + Math.floor(C[a].x + V[H[a]]), I[f] <= l && (e = customRandomBetween(0.1, 0.2), J[a].x += V[H[a]] * e, J[a].y -= U[H[a]] * e), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (e = customRandom2(1.5), c.x += U[H[a]] * e, c.y += V[H[a]] * e);
             if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 <
                 J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
             E[a] = s[nc];
@@ -2782,7 +2782,7 @@ function Zg(a, c) {
             Q[R[H[a]]]), vectorScale(J[a], 0.9), c.add(J[a]), Ng(a, c), E[a] == s[nc] && (E[a] = lg[customRandom(6)]), e = customRandom(8), b = I[H[a] + wg[e]], D[b] == nc && 0 == G[b] ? customRandomBoolean(0.2) && 0.3 >= U[H[a]] * xg[e] + V[H[a]] * yg[e] && Lg(a, b) : Kb <= b && D[b] != nc && (mg(0, a), G[a] = 0), 2 == G[a] && (mg(0, a), G[a] = 0);
     else if (D[a] == oc)
         if (e = G[a] >> 12, n = G[a] >> 10 & 3, b = G[a] & 1023, 0 == b && (b = R[H[a]] % 1E3), b = 73 * b % 955 + 44, 0 == n ? (n = b % 3, 0 == n ? (g = -1, n = d = 1) : 1 == n ? (d = g = 1, n = 3) : (g = 0, d = 1, n = 0)) : 1 == n ? 0 == (b & 1) ? (g = -1, n = d = 1) : (g = 0, d = 1, n = 0) : 0 == (b & 1) ? (d = g = 1, n = 3) : (g = 0, d = 1, n = 0), 1 == e ? (m = g, g = -d, d = m) : 2 == e ? (g = -g, d = -d) : 3 == e &&
-            (m = g, g = d, d = -m), n = e << 12 | n << 10 | b, f = (C[a].y + d << 9) + floor(C[a].x + g), b = I[f], b <= l) I[H[a]] = Jb, C[a].x += g, C[a].y += d, G[a] = n, H[a] = f, I[H[a]] = a;
+            (m = g, g = d, d = -m), n = e << 12 | n << 10 | b, f = (C[a].y + d << 9) + Math.floor(C[a].x + g), b = I[f], b <= l) I[H[a]] = Jb, C[a].x += g, C[a].y += d, G[a] = n, H[a] = f, I[H[a]] = a;
         else if (D[b] == oc) {
         if (G[b] != n) return rd(a), 1
     } else {
@@ -2943,8 +2943,8 @@ function Zg(a, c) {
         if (0 == Jd[a]) {
             I[H[a]] = Jb;
             setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
-            f = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
-            D[I[f]] >= Ob ? (f = (C[a].y + U[H[a]] << 9) + floor(C[a].x - V[H[a]]), I[f] <= l && (e = customRandom2(0.2), J[a].x -= V[H[a]] * e, J[a].y += U[H[a]] * e), f = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[f] <= l && (e = customRandom2(0.2), J[a].x += V[H[a]] * e, J[a].y -= U[H[a]] * e), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (e = customRandom2(1.5), c.x += U[H[a]] * e, c.y += V[H[a]] * e);
+            f = (C[a].y + V[H[a]] << 9) + Math.floor(C[a].x + U[H[a]]);
+            D[I[f]] >= Ob ? (f = (C[a].y + U[H[a]] << 9) + Math.floor(C[a].x - V[H[a]]), I[f] <= l && (e = customRandom2(0.2), J[a].x -= V[H[a]] * e, J[a].y += U[H[a]] * e), f = (C[a].y - U[H[a]] << 9) + Math.floor(C[a].x + V[H[a]]), I[f] <= l && (e = customRandom2(0.2), J[a].x += V[H[a]] * e, J[a].y -= U[H[a]] * e), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (e = customRandom2(1.5), c.x += U[H[a]] * e, c.y += V[H[a]] * e);
             if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
             0 == V[H[a]] ? Ng(a, c) : Rg(a, c)
         } else Vg(a, c);
@@ -2961,8 +2961,8 @@ function Zg(a, c) {
                     if (b = I[H[a] + wg[e] + wg[d]], p <= b && D[b] != tc && D[b] != kc) {
                         customRandomBoolean(0.5) && Bd(~~C[a].x + zg[e], ~~C[a].y + Ag[e], tc, 0);
                         break
-                    } 1 >= G[a] && ($ = ~~C[a].x + 0.5 + U[H[a]], Ca = ~~C[a].y + 0.5 + V[H[a]], I[(Ca << 9) + floor($)] <= l && I[(Ca + V[H[a]] << 9) + floor($ + U[H[a]])] <= l && I[(Ca +
-                U[H[a]] << 9) + floor($ - V[H[a]])] <= l && I[(Ca - U[H[a]] << 9) + floor($ + V[H[a]])] <= l && customRandomBoolean(0.2) && Bd(~~$, ~~Ca, tc, 1));
+                    } 1 >= G[a] && ($ = ~~C[a].x + 0.5 + U[H[a]], Ca = ~~C[a].y + 0.5 + V[H[a]], I[(Ca << 9) + Math.floor($)] <= l && I[(Ca + V[H[a]] << 9) + Math.floor($ + U[H[a]])] <= l && I[(Ca +
+                U[H[a]] << 9) + Math.floor($ - V[H[a]])] <= l && I[(Ca - U[H[a]] << 9) + Math.floor($ + V[H[a]])] <= l && customRandomBoolean(0.2) && Bd(~~$, ~~Ca, tc, 1));
             1 == G[a] && customRandomBoolean(0.04) && (G[a] = 2)
         } else Vg(a, c);
     return 0
@@ -2988,9 +2988,9 @@ function $g(a, c) {
         if (0 == Jd[a]) {
             I[H[a]] = Jb;
             setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
-            f = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
-            D[I[f]] >= Ob ? (f = (C[a].y + U[H[a]] << 9) + floor(C[a].x - V[H[a]]), I[f] <= l && (b = customRandomBetween(0.1,
-                0.2), J[a].x -= V[H[a]] * b, J[a].y += U[H[a]] * b), f = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[f] <= l && (b = customRandomBetween(0.1, 0.2), J[a].x += V[H[a]] * b, J[a].y -= U[H[a]] * b), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (b = customRandom2(1.5), c.x += U[H[a]] * b, c.y += V[H[a]] * b);
+            f = (C[a].y + V[H[a]] << 9) + Math.floor(C[a].x + U[H[a]]);
+            D[I[f]] >= Ob ? (f = (C[a].y + U[H[a]] << 9) + Math.floor(C[a].x - V[H[a]]), I[f] <= l && (b = customRandomBetween(0.1,
+                0.2), J[a].x -= V[H[a]] * b, J[a].y += U[H[a]] * b), f = (C[a].y - U[H[a]] << 9) + Math.floor(C[a].x + V[H[a]]), I[f] <= l && (b = customRandomBetween(0.1, 0.2), J[a].x += V[H[a]] * b, J[a].y -= U[H[a]] * b), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (b = customRandom2(1.5), c.x += U[H[a]] * b, c.y += V[H[a]] * b);
             if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
             0 == V[H[a]] ? Ng(a, c) : Rg(a, c)
         } else Vg(a, c);
@@ -3007,7 +3007,7 @@ function $g(a, c) {
         c.set(J[a]);
         var g = 0.5 * normalize(c);
         for (d = 1; 6 > d; d++)
-            if (b = I[(C[a].y + 0.5 + c.y * d << 9) + floor(C[a].x + 0.5 + c.x * d)], D[b] == wc) G[b] = 1, J[b].x = 0.98 * J[a].x, J[b].y = 0.98 * J[a].y;
+            if (b = I[(C[a].y + 0.5 + c.y * d << 9) + Math.floor(C[a].x + 0.5 + c.x * d)], D[b] == wc) G[b] = 1, J[b].x = 0.98 * J[a].x, J[b].y = 0.98 * J[a].y;
             else break;
         for (d = 1; 8 > d; d += 2)
             if (b = I[H[a] + wg[d]], D[b] == wc && 1 != G[b]) {
@@ -3028,7 +3028,7 @@ function $g(a, c) {
         if (1 == G[a]) return customRandomBoolean(0.02) && (G[a] = 0, vectorScale(J[a], -1)), 0;
         0 == Jd[a] ? (setToVector(c, P[R[H[a]]], Q[R[H[a]]]), c.add(J[a]), Ng(a, c)) : Vg(a, c);
         normalize(J[a]);
-        b = I[(~~C[a].y + 0.5 + J[a].y << 9) + floor(~~C[a].x + 0.5 + J[a].x)];
+        b = I[(~~C[a].y + 0.5 + J[a].y << 9) + Math.floor(~~C[a].x + 0.5 + J[a].x)];
         l < b && (customRandomBoolean(0.5) ? setToVector(J[a], J[a].y, -J[a].x) : setToVector(J[a], -J[a].y, J[a].x));
         e = customRandom(8);
         b = I[H[a] + wg[e]];
@@ -3042,8 +3042,8 @@ function $g(a, c) {
         var n = m = 0,
             t = 0,
             u = 0;
-        b = minInsideRange(floor(C[a].x + 4 * J[a].x), 8, 503);
-        d = minInsideRange(floor(C[a].y + 4 * J[a].y), 8, 287);
+        b = minInsideRange(Math.floor(C[a].x + 4 * J[a].x), 8, 503);
+        d = minInsideRange(Math.floor(C[a].y + 4 * J[a].y), 8, 287);
         f = (d << 9) + b;
         for (d = 0; 101 > d; d++) e = f + Gg[d], b = I[e], b <= l || (D[b] == xc ? (c.x += J[b].x, c.y += J[b].y, m++) : D[b] != Ub && D[b] != Tb && D[b] != kc && D[b] != yc && (n += e & 511, t += e >> 9, u++));
         0 < m && vectorScale(c, 1 / m);
@@ -3068,7 +3068,7 @@ function $g(a, c) {
             2 == X[D[b]] ? (0 == g && (g = D[b], E[a] = 0 | ~s[g]), G[a] = 256 | g) : 3 == X[D[b]] && L(a, r, 0, s[r])
         } else {
             normalize(J[a]);
-            b = I[(C[a].y + J[a].y << 9) + floor(C[a].x + J[a].x)];
+            b = I[(C[a].y + J[a].y << 9) + Math.floor(C[a].x + J[a].x)];
             2 != X[D[b]] && (customRandomBoolean(0.5) ? setToVector(J[a], J[a].y, -J[a].x) : setToVector(J[a], -J[a].y, J[a].x));
             vectorScale(J[a], 0.8);
             I[H[a]] = Jb;
@@ -3084,8 +3084,8 @@ function $g(a, c) {
             I[H[a]] = a;
             setToVector(c, 0, 0);
             u = t = n = m = 0;
-            b = minInsideRange(floor(C[a].x + 0.5 + 4 * J[a].x), 8, 503);
-            d = minInsideRange(floor(C[a].y + 0.5 + 4 * J[a].y), 8, 287);
+            b = minInsideRange(Math.floor(C[a].x + 0.5 + 4 * J[a].x), 8, 503);
+            d = minInsideRange(Math.floor(C[a].y + 0.5 + 4 * J[a].y), 8, 287);
             f = (d << 9) + b;
             for (d = 0; 101 > d; d++)
                 if (e = f + Gg[d], b = I[e], 2 != X[D[b]] || D[b] != g) D[b] == yc && G[a] == G[b] ? (c.x += J[b].x, c.y +=
@@ -3105,9 +3105,9 @@ function $g(a, c) {
             if (0 == Jd[a]) {
                 I[H[a]] = Jb;
                 setToVector(c, P[R[H[a]]], Q[R[H[a]]]);
-                f = (C[a].y + V[H[a]] << 9) + floor(C[a].x + U[H[a]]);
+                f = (C[a].y + V[H[a]] << 9) + Math.floor(C[a].x + U[H[a]]);
                 D[I[f]] >= Ob ? (f = (C[a].y + U[H[a]] <<
-                    9) + floor(C[a].x - V[H[a]]), I[f] <= l && (b = customRandomBetween(0.1, 0.2), J[a].x -= V[H[a]] * b, J[a].y += U[H[a]] * b), f = (C[a].y - U[H[a]] << 9) + floor(C[a].x + V[H[a]]), I[f] <= l && (b = customRandomBetween(0.1, 0.2), J[a].x += V[H[a]] * b, J[a].y -= U[H[a]] * b), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (b = customRandom2(1.5), c.x += U[H[a]] * b, c.y += V[H[a]] * b);
+                    9) + Math.floor(C[a].x - V[H[a]]), I[f] <= l && (b = customRandomBetween(0.1, 0.2), J[a].x -= V[H[a]] * b, J[a].y += U[H[a]] * b), f = (C[a].y - U[H[a]] << 9) + Math.floor(C[a].x + V[H[a]]), I[f] <= l && (b = customRandomBetween(0.1, 0.2), J[a].x += V[H[a]] * b, J[a].y -= U[H[a]] * b), customRandomBoolean(0.01) && (C[a].x = ~~C[a].x + 0.5, C[a].y = ~~C[a].y + 0.5)) : (b = customRandom2(1.5), c.x += U[H[a]] * b, c.y += V[H[a]] * b);
                 if (-0.01 > J[a].x || 0.01 < J[a].x || -0.01 > J[a].y || 0.01 < J[a].y) vectorScale(J[a], 0.9), c.add(J[a]);
                 0 == V[H[a]] ? Ng(a, c) : Rg(a, c)
             } else Vg(a, c);
@@ -3223,8 +3223,8 @@ function ah(a, c) {
             var F = E[a] & 255;
             e = 1;
             for (d = 0; 8 > d; d++) b = I[H[a] + wg[d]], D[b] != rc && D[b] != oc && p <= b && (u += E[b] >> 16 & 255, n += E[b] >> 8 & 255, F += E[b] & 255, e++);
-            1 < e && (E[a] = floor(u / e) << 16 | floor(n / e) << 8 | floor(F / e))
-        } else if (20 <= G[a]) u = floor(8 * (E[a] >> 16 & 255) / 9), n = floor(8 * (E[a] >> 8 & 255) / 9), F = floor(8 * (E[a] & 255) / 9), E[a] = u << 16 | n << 8 | F, G[a]++, 30 <= G[a] && (G[a] = 0);
+            1 < e && (E[a] = Math.floor(u / e) << 16 | Math.floor(n / e) << 8 | Math.floor(F / e))
+        } else if (20 <= G[a]) u = Math.floor(8 * (E[a] >> 16 & 255) / 9), n = Math.floor(8 * (E[a] >> 8 & 255) / 9), F = Math.floor(8 * (E[a] & 255) / 9), E[a] = u << 16 | n << 8 | F, G[a]++, 30 <= G[a] && (G[a] = 0);
     else {
         if (1 <= G[a]) {
             if (1 == G[a])
@@ -3233,7 +3233,7 @@ function ah(a, c) {
                 255;
             n = E[a] >> 8 & 255;
             F = E[a] & 255;
-            255 > u && 255 > n && 255 > F && (u = floor(9 * u / 8) + 1, 255 < u && (u = 255), n = floor(9 * n / 8) + 1, 255 < n && (n = 255), F = floor(9 * F / 8) + 1, 255 < F && (F = 255), E[a] = u << 16 | n << 8 | F);
+            255 > u && 255 > n && 255 > F && (u = Math.floor(9 * u / 8) + 1, 255 < u && (u = 255), n = Math.floor(9 * n / 8) + 1, 255 < n && (n = 255), F = Math.floor(9 * F / 8) + 1, 255 < F && (F = 255), E[a] = u << 16 | n << 8 | F);
             G[a]++
         }
     } else if (D[a] == Kc)
@@ -3259,7 +3259,7 @@ function ah(a, c) {
                 for (m = n; m <= t; m++)
                     for (g = d; g <= f; g++) b = I[(m << 9) + g], Kb <= b && (c.x += u - g, c.y += F - m, p <= b && e++);
                 normalize(c);
-                vectorScale(c, floor(e / 2) + 4);
+                vectorScale(c, Math.floor(e / 2) + 4);
                 e = -1;
                 for (m = n; m <= t; m++)
                     for (g = d; g <= f; g++) b = I[(m << 9) + g], p <= b && D[b] != Zb && !(D[b] == Kc && 1 < G[b]) && (u = customRandomBetween(-1, 1), J[b].x += c.x + c.y * u, J[b].y += c.y - c.x * u, -1 == e ? L(b, Kc, 2, E[b]) : (u = E[e] >> 16 & 255, u += E[b] >> 16 & 255, u >>= 1, n = E[e] >> 8 & 255, n += E[b] >> 8 & 255, n >>= 1, F = E[e] & 255, F += E[b] & 255, F >>= 1, L(b, Kc, 2, u << 16 | n << 8 | F), e =
@@ -3402,7 +3402,7 @@ function nh(a, c, b, d, e) {
         f.x += P[g] * b;
         f.y += Q[g] * b
     }
-    0 == e ? (b = vectorLength2(f) + 1, 8 <= b ? (vectorScale(f, 3.8 / b), b = 2) : 4 <= b ? (vectorScale(f, 0.5), b = 2) : b = 1) : (b = floor(vectorLength2(f) / 3) + 1, vectorScale(f, 1 / b));
+    0 == e ? (b = vectorLength2(f) + 1, 8 <= b ? (vectorScale(f, 3.8 / b), b = 2) : 4 <= b ? (vectorScale(f, 0.5), b = 2) : b = 1) : (b = Math.floor(vectorLength2(f) / 3) + 1, vectorScale(f, 1 / b));
     ye[a] = 0;
     if (1 == d) vectorScale(f, b), stickManBodyPoints[a].add(f), stickManBodyPoints[a].x = minInsideRange(stickManBodyPoints[a].x, 4, 507), stickManBodyPoints[a].y = minInsideRange(stickManBodyPoints[a].y, 4, 291);
     else {
@@ -3503,8 +3503,8 @@ function processPlayerMove(k) {
         ze[k]++;
         j = (stickManOldBodyPoints[b + 4].y << 9) + ~~stickManOldBodyPoints[b + 4].x;
         i = (stickManOldBodyPoints[b + 5].y << 9) + ~~stickManOldBodyPoints[b + 5].x;
-        s = I[(~~stickManOldBodyPoints[b + 4].y + 0.5 + V[j] << 9) + floor(~~stickManOldBodyPoints[b + 4].x + 0.5 + U[j])] > l ? 1 : 0;
-        var Ca = I[(~~stickManOldBodyPoints[b + 5].y + 0.5 + V[i] << 9) + floor(~~stickManOldBodyPoints[b + 5].x + 0.5 + U[i])] > l ? 1 : 0;
+        s = I[(~~stickManOldBodyPoints[b + 4].y + 0.5 + V[j] << 9) + Math.floor(~~stickManOldBodyPoints[b + 4].x + 0.5 + U[j])] > l ? 1 : 0;
+        var Ca = I[(~~stickManOldBodyPoints[b + 5].y + 0.5 + V[i] << 9) + Math.floor(~~stickManOldBodyPoints[b + 5].x + 0.5 + U[i])] > l ? 1 : 0;
         if (0 == s) {
             s = I[j] > l ? 1 : 0;
         }
@@ -3673,10 +3673,10 @@ function processPlayerMove(k) {
                                     J[j].y = w.y * (0 == gh[g] ? 20 : -20);
                                 } else {
                                     if (kd[k] == oc) {
-                                        G[j] = 0 == gh[g] ? (floor(4 * -getAngle(character) / TWOPI - 0.5) & 3) << 12 : (floor(4 * -getAngle(character) / TWOPI - 2.5) & 3) << 12;
+                                        G[j] = 0 == gh[g] ? (Math.floor(4 * -getAngle(character) / Math.PI**2 - 0.5) & 3) << 12 : (Math.floor(4 * -getAngle(character) / Math.PI**2 - 2.5) & 3) << 12;
                                     } else {
                                         if (kd[k] == rc) {
-                                            G[j] = 0 == gh[g] ? (floor(8 * getAngle(character) / TWOPI + 6.5) & 7) + 1 : (floor(8 * getAngle(character) / TWOPI + 2.5) & 7) + 1;
+                                            G[j] = 0 == gh[g] ? (Math.floor(8 * getAngle(character) / Math.PI**2 + 6.5) & 7) + 1 : (Math.floor(8 * getAngle(character) / Math.PI**2 + 2.5) & 7) + 1;
                                         } else {
                                             J[j].x = w.x * (0 == gh[g] ? -20 : 20) + customRandomBetween(-1, 1);
                                             J[j].y = w.y * (0 == gh[g] ? -20 : 20) + customRandomBetween(-1, 1);
@@ -3871,8 +3871,8 @@ function processFighterMove(k) {
             for (; i < counterStickman; i++) {
                 if (!(k == i || z[i] != md && z[i] != md + 1 && z[i] != jd && z[i] != ld)) {
                     j = i * hd;
-                    b = abs(stickManBodyPoints[index + 4].x - stickManBodyPoints[j].x);
-                    r = abs(stickManBodyPoints[index + 4].y - stickManBodyPoints[j].y);
+                    b = Math.abs(stickManBodyPoints[index + 4].x - stickManBodyPoints[j].x);
+                    r = Math.abs(stickManBodyPoints[index + 4].y - stickManBodyPoints[j].y);
                     if (4 >= b && 4 >= r) {
                         dh[i].x += 1 * (stickManBodyPoints[index + 4].x - stickManOldBodyPoints[index + 4].x);
                         dh[i].y += 2 * (stickManBodyPoints[index + 4].y - stickManOldBodyPoints[index + 4].y);
@@ -3889,8 +3889,8 @@ function processFighterMove(k) {
                             playerDamageState[1] = 25;
                         }
                     }
-                    b = abs(stickManBodyPoints[index + 5].x - stickManBodyPoints[j].x);
-                    r = abs(stickManBodyPoints[index + 5].y - stickManBodyPoints[j].y);
+                    b = Math.abs(stickManBodyPoints[index + 5].x - stickManBodyPoints[j].x);
+                    r = Math.abs(stickManBodyPoints[index + 5].y - stickManBodyPoints[j].y);
                     if (4 >= b && 4 >= r) {
                         dh[i].x += 1 * (stickManBodyPoints[index + 5].x - stickManOldBodyPoints[index + 5].x);
                         dh[i].y += 2 * (stickManBodyPoints[index + 5].y - stickManOldBodyPoints[index + 5].y);
@@ -4118,10 +4118,10 @@ function Uf() {
             for (c = 0; c < Pb; c++) {
                 var $b = (stickManBodyPoints[b].y << 9) + ~~stickManBodyPoints[b].x +
                     e[c];
-                ve[$b] && (v[$b] = 0 < Ca ? Pb - floor($ * Pb / 48) <= c ? F : M : v[$b] == d ? 0 : d)
+                ve[$b] && (v[$b] = 0 < Ca ? Pb - Math.floor($ * Pb / 48) <= c ? F : M : v[$b] == d ? 0 : d)
             }
             if (12 == backgroundDrawType)
-                for (c = floor(minInsideRange(stickManBodyPoints[b + 0].x, 8, 503)), $ = floor(minInsideRange(stickManBodyPoints[b + 0].y, 8, 283)), e = $ - 4; e <= $ + 4; e += 4)
+                for (c = Math.floor(minInsideRange(stickManBodyPoints[b + 0].x, 8, 503)), $ = Math.floor(minInsideRange(stickManBodyPoints[b + 0].y, 8, 283)), e = $ - 4; e <= $ + 4; e += 4)
                     for (d = c - 4; d <= c + 4; d += 4) Eb[(e << 9) + d] = 536870911
         } else if (z[a] <= md + 2) lf(stickManBodyPoints[b + 0].x, stickManBodyPoints[b + 0].y, stickManBodyPoints[b + 1].x, stickManBodyPoints[b + 1].y, t), lf(stickManBodyPoints[b + 1].x, stickManBodyPoints[b + 1].y, stickManBodyPoints[b + 2].x, stickManBodyPoints[b + 2].y, u), lf(stickManBodyPoints[b + 1].x, stickManBodyPoints[b + 1].y, stickManBodyPoints[b + 3].x, stickManBodyPoints[b + 3].y, u), lf(stickManBodyPoints[b + 2].x, stickManBodyPoints[b + 2].y, stickManBodyPoints[b + 4].x, stickManBodyPoints[b + 4].y, u), lf(stickManBodyPoints[b + 3].x, stickManBodyPoints[b + 3].y, stickManBodyPoints[b + 5].x, stickManBodyPoints[b + 5].y, u), oe(stickManBodyPoints[b + 0].x - 1, stickManBodyPoints[b + 0].y - 1, 3, 3, t);
         else if (z[a] <= md + 3) {
@@ -4140,7 +4140,7 @@ function Uf() {
         } else z[a] <= nd && (d = 9465872, 14 == backgroundDrawType && (d = 0), ye[b] == jd ? (lf(stickManBodyPoints[b].x, stickManBodyPoints[b].y, stickManBodyPoints[b].x, stickManBodyPoints[b].y + 3, d), lf(stickManBodyPoints[b].x, stickManBodyPoints[b].y, stickManBodyPoints[b].x + 2, stickManBodyPoints[b].y, d), lf(stickManBodyPoints[b].x, stickManBodyPoints[b].y + 2, stickManBodyPoints[b].x + 2, stickManBodyPoints[b].y + 2, d), lf(stickManBodyPoints[b].x + 3, stickManBodyPoints[b].y, stickManBodyPoints[b].x +
             3, stickManBodyPoints[b].y + 2, d)) : ye[b] == md ? (lf(stickManBodyPoints[b].x, stickManBodyPoints[b].y, stickManBodyPoints[b].x, stickManBodyPoints[b].y + 3, d), lf(stickManBodyPoints[b].x, stickManBodyPoints[b].y, stickManBodyPoints[b].x + 3, stickManBodyPoints[b].y, d), lf(stickManBodyPoints[b].x, stickManBodyPoints[b].y + 2, stickManBodyPoints[b].x + 2, stickManBodyPoints[b].y + 2, d)) : ye[b] == Lb ? (lf(stickManBodyPoints[b].x + 1, stickManBodyPoints[b].y, stickManBodyPoints[b].x + 2, stickManBodyPoints[b].y, d), lf(stickManBodyPoints[b].x, stickManBodyPoints[b].y + 1, stickManBodyPoints[b].x, stickManBodyPoints[b].y + 2, d), lf(stickManBodyPoints[b].x + 3, stickManBodyPoints[b].y + 1, stickManBodyPoints[b].x + 3, stickManBodyPoints[b].y + 2, d), lf(stickManBodyPoints[b].x + 1, stickManBodyPoints[b].y + 3, stickManBodyPoints[b].x + 2, stickManBodyPoints[b].y + 3, d)) : oe(stickManBodyPoints[b].x, stickManBodyPoints[b].y, 4, 4, d));
         if (z[a] <= md + 3 && 13 == backgroundDrawType)
-            for (c = 0; 6 > c; c++) d = floor(minInsideRange(stickManBodyPoints[b + c].x, 8, 503)), e = floor(minInsideRange(stickManBodyPoints[b + c].y, 8, 287)), Eb[(e << 9) + d] = 3E3
+            for (c = 0; 6 > c; c++) d = Math.floor(minInsideRange(stickManBodyPoints[b + c].x, 8, 503)), e = Math.floor(minInsideRange(stickManBodyPoints[b + c].y, 8, 287)), Eb[(e << 9) + d] = 3E3
     }
 }
 var od = 50,
@@ -4223,18 +4223,18 @@ function hf() {
                 for (m = 0; m < counterStickman; m++)
                     if (z[m] == md || z[m] == md + 1 || z[m] == jd || z[m] == ld)
                         for (n = m * hd, t = 4; 5 >= t; t++) {
-                            var u = abs(stickManBodyPoints[n + t].y - B[a].y);
-                            9 >= abs(stickManBodyPoints[n + t].x - B[a].x) && 9 >= u && (W[a].x += 0.1 * (stickManBodyPoints[n + t].x - stickManOldBodyPoints[n + t].x), W[a].y += 0.2 * (stickManBodyPoints[n + t].y - stickManOldBodyPoints[n + t].y))
+                            var u = Math.abs(stickManBodyPoints[n + t].y - B[a].y);
+                            9 >= Math.abs(stickManBodyPoints[n + t].x - B[a].x) && 9 >= u && (W[a].x += 0.1 * (stickManBodyPoints[n + t].x - stickManOldBodyPoints[n + t].x), W[a].y += 0.2 * (stickManBodyPoints[n + t].y - stickManOldBodyPoints[n + t].y))
                         }
                 sh = n = 0;
-                for (var m = floor(vectorLength(W[a]) / 2) + 1, t = 1 / m, F, M, u = 0; u < m; u++) {
+                for (var m = Math.floor(vectorLength(W[a]) / 2) + 1, t = 1 / m, F, M, u = 0; u < m; u++) {
                     F = B[a].x + W[a].x * t;
                     M = B[a].y + W[a].y * t;
                     if (4 > F || screenWidth - 4 <= F || 4 > M || 292 <= M) {
                         pd(a);
                         break
                     }
-                    1 == xa && (8 > F ? (I[(M << 9) + floor(F + 496)] <= l ? (B[a].x += 496, W[a].x *= 0.8, mg(2, a)) : W[a].x *= -0.8, F = B[a].x + W[a].x * t) : 504 <= F && (I[(M << 9) + floor(F - 496)] <=
+                    1 == xa && (8 > F ? (I[(M << 9) + Math.floor(F + 496)] <= l ? (B[a].x += 496, W[a].x *= 0.8, mg(2, a)) : W[a].x *= -0.8, F = B[a].x + W[a].x * t) : 504 <= F && (I[(M << 9) + Math.floor(F - 496)] <=
                         l ? (B[a].x -= 496, W[a].x *= 0.8, mg(2, a)) : W[a].x *= -0.8, F = B[a].x + W[a].x * t), 8 > M ? (I[(M + 280 << 9) + ~~F] <= l ? (B[a].y += 280, W[a].y *= 0.8, mg(2, a)) : W[a].y *= -0.8, M = B[a].y + W[a].y * t) : 288 <= M && (I[(M - 280 << 9) + ~~F] <= l ? (B[a].y -= 280, W[a].y *= 0.5, mg(2, a)) : W[a].y *= -0.8, M = B[a].y + W[a].y * t));
                     if (4 > F || screenWidth - 4 <= F || 4 > M || 292 <= M) {
                         pd(a);
@@ -4407,7 +4407,7 @@ function Bh(a, c, b, d) {
         if (b != oc && b != pc && b != zc || 0 == S[a]) {
             if (b == rc) return 0 != S[a] && (E[d] = S[a]), 1;
             b == Jc ? 0 != S[a] && (E[d] = S[a]) : d >= p && (S[a] = s[b])
-        } else 0 != G[d] && (b = S[a] >> 16 & 255, d = S[a] >> 8 & 255, c = S[a] & 255, 384 > b + d + c && (b = floor(9 * b / 7 + 1), 255 < b && (b = 255), d = floor(9 * d / 7 + 1), 255 < d && (d = 255), c = floor(9 * c / 7 + 1), 255 < c && (c = 255), S[a] = b << 16 | d << 8 | c));
+        } else 0 != G[d] && (b = S[a] >> 16 & 255, d = S[a] >> 8 & 255, c = S[a] & 255, 384 > b + d + c && (b = Math.floor(9 * b / 7 + 1), 255 < b && (b = 255), d = Math.floor(9 * d / 7 + 1), 255 < d && (d = 255), c = Math.floor(9 * c / 7 + 1), 255 < c && (c = 255), S[a] = b << 16 | d << 8 | c));
     else if (A[a] == Lc && 0 != X[b] && b != Lc && b != Zb && b != rc) {
         a = 8;
         b == Yb && (a = 1);
@@ -4461,9 +4461,9 @@ function Ch(a, c) {
             b = ~~B[a].x;
             g = ~~B[a].y;
             if (1 == X[S[a]] || S[a] == gc || S[a] ==
-                Ub || S[a] == Wb || S[a] == tc || S[a] == Bc || S[a] == Jc) b = floor(B[a].x + 4 * U[d]), g = floor(B[a].y + 4 * V[d]);
-            else if (S[a] == r || S[a] == mc) b = floor(B[a].x - 4 * U[d]), g = floor(B[a].y - 4 * V[d]);
-            else if (S[a] == Ac || S[a] == lc) e.set(W[a]), normalize(e), b = floor(B[a].x - 4 * e.x), g = floor(B[a].y - 4 * e.y);
+                Ub || S[a] == Wb || S[a] == tc || S[a] == Bc || S[a] == Jc) b = Math.floor(B[a].x + 4 * U[d]), g = Math.floor(B[a].y + 4 * V[d]);
+            else if (S[a] == r || S[a] == mc) b = Math.floor(B[a].x - 4 * U[d]), g = Math.floor(B[a].y - 4 * V[d]);
+            else if (S[a] == Ac || S[a] == lc) e.set(W[a]), normalize(e), b = Math.floor(B[a].x - 4 * e.x), g = Math.floor(B[a].y - 4 * e.y);
             d = 0;
             S[a] == rc && (d = 128);
             I[(g << 9) + b] <= l && Bd(b, g, S[a], d)
@@ -4520,7 +4520,7 @@ function Ch(a, c) {
     else if (A[a] == Bc) 3 == X[c] ? S[a] == bc ? Z(a, d, 2, r, 0, 0, 0, 0) : S[a] == jc ? Z(a, d, 0, jc, 0, 0, 0, 1) : S[a] == nc ? Z(a, d, 0, hc, 10, 0, 0, 1) : Z(a, d, 0, Ac,
         0, 0, 0, 0) : c == q ? Z(a, d, 0, Vb, 0, 0, 0, 0) : c == vc ? Z(a, d, 0, Vb, 0, 0, 0, 0) : c == sc && Z(a, d, 0, Bc, 0, 0, 0, 0);
     else if (A[a] == Cc) c == sc && Z(a, d, 0, Cc, 0, 0, 0, 0);
-    else if (A[a] == Dc) 0 == S[a] || 1E3 > mf - qd || (e.set(W[a]), normalize(e), vectorScale(e, 4), b = floor(B[a].x - e.x), g = floor(B[a].y - e.y), M = I[(g << 9) + b], M <= l && (m = S[a] & 255, e = S[a] >> 8, 0 < e && (Bd(b, g, m, 0), S[a] = e - 1 << 8 | m)));
+    else if (A[a] == Dc) 0 == S[a] || 1E3 > mf - qd || (e.set(W[a]), normalize(e), vectorScale(e, 4), b = Math.floor(B[a].x - e.x), g = Math.floor(B[a].y - e.y), M = I[(g << 9) + b], M <= l && (m = S[a] & 255, e = S[a] >> 8, 0 < e && (Bd(b, g, m, 0), S[a] = e - 1 << 8 | m)));
     else if (A[a] == Yb) c == oc ? Z(a, d, 0, Yb, 0, 0, 0, 1) : c == rc ? Z(a, d, 0, Yb, 0, 0, 0, 2) : c != Ac && (3 == X[c] ? Z(a, d, 0, r, 0, 0, 0, 0) : c == sc && Z(a, d, 0, Yb, 0, 0, 0, 2));
     else if (A[a] == ac)
         if (0 == S[a]) 3 == X[c] ? (W[a].x -= 5 * U[d], W[a].y -= 5 * V[d],
@@ -4593,8 +4593,8 @@ function loop() {
         requestAnimationFrame(loop);
         Mh++;
         Nh = Date.now();
-        var a = floor(60 * (Nh - Oh) / 1E3 + 0.5);
-        if (0 > a || 60 <= a) qf = Mh, Mh = 0, nf = Ph, Ph = 0, pf = floor((2 * pf + Qh) / 3), Qh = 0, Oh = Nh, a = 0;
+        var a = Math.floor(60 * (Nh - Oh) / 1E3 + 0.5);
+        if (0 > a || 60 <= a) qf = Mh, Mh = 0, nf = Ph, Ph = 0, pf = Math.floor((2 * pf + Qh) / 3), Qh = 0, Oh = Nh, a = 0;
         else if (a == Rh) return;
         Ph++;
         Rh = a
@@ -4613,8 +4613,8 @@ function loop() {
     Ie = distanceYFromTopScreen;
     Ke && (Qf = Ne, Rf = Ie);
     for (a = 0; 256 > a; a++) Qd[a] = Rd[a], Rd[a] = false, Ud[a] = false == Td[a] && true == Sd[a], Vd[a] = true == Td[a] && false == Sd[a], Td[a] = Sd[a];
-    Zd = Zd + floor(1024 * Math.random()) & 1023;
-    $d = floor(512 * Math.random()) | 1;
+    Zd = Zd + Math.floor(1024 * Math.random()) & 1023;
+    $d = Math.floor(512 * Math.random()) | 1;
     Ge();
     // Another security check
     var c, b = 11 == Jh ? screenWidth * screenHeight : 0;
@@ -4771,9 +4771,9 @@ var bi = 0;
 function lf(a, c, b, d, e) {
     var f = ~~b - ~~a,
         g = ~~d - ~~c,
-        m = max(max(abs(f), abs(g)), 1),
-        f = floor((f << 8) / m),
-        g = floor((g << 8) / m);
+        m = max(max(Math.abs(f), Math.abs(g)), 1),
+        f = Math.floor((f << 8) / m),
+        g = Math.floor((g << 8) / m);
     a = (a << 8) + 127;
     c = (c << 8) + 127;
     for (var n = 0; n <= m; n++, a += f, c += g) b = a >> 8, d = c >> 8, 0 > b || screenWidth <= b || 0 > d || screenHeight <= d || (v[(d << 9) + b] = e)
@@ -4830,15 +4830,15 @@ function kf(a, c, b, d, e) {
 
 function xf(a, c, b, d, e, f, g, m) {
     var n, t, u, F, M;
-    f = floor((f << 8) / d);
-    g = floor((g << 8) / e);
+    f = Math.floor((f << 8) / d);
+    g = Math.floor((g << 8) / e);
     t = n = 0;
     0 > c && (n += f * -c);
     0 > b && (t += g * -b);
-    d = c + d > screenWidth ? screenWidth : floor(c + d);
-    e = b + e > screenHeight ? screenHeight : floor(b + e);
-    c = 0 > c ? 0 : floor(c);
-    b = 0 > b ? 0 : floor(b);
+    d = c + d > screenWidth ? screenWidth : Math.floor(c + d);
+    e = b + e > screenHeight ? screenHeight : Math.floor(b + e);
+    c = 0 > c ? 0 : Math.floor(c);
+    b = 0 > b ? 0 : Math.floor(b);
     for (var $ = m >> 16 & 255, Ca = m >> 8 & 255, Pb = m & 255, $b, ub; b < e; b++, t += g)
         for (u = b * screenWidth + c, F = ((t >> 8) * a.b << 8) + n, m = c; m < d; m++, u++, F += f) M = a.a[F >> 8], -1 != M && ($b = $ * (M >> 16 & 255) >> 8, ub = Ca * (M >> 8 & 255) >> 8, M = Pb * (M & 255) >> 8, v[u] = $b << 16 | ub << 8 | M)
 }
@@ -4871,8 +4871,8 @@ function Me(a, c, b, d) {
 
 function ci(a) {
     var c = canvasElement.getBoundingClientRect();
-    distanceXFromTopScreen = floor(a.clientX - c.left);
-    distanceYFromTopScreen = floor(a.clientY - c.top)
+    distanceXFromTopScreen = Math.floor(a.clientX - c.left);
+    distanceYFromTopScreen = Math.floor(a.clientY - c.top)
 }
 document.onmousemove = ci;
 document.onmousedown = function(a) {
@@ -4892,8 +4892,8 @@ document.oncontextmenu = function() {
 function saveTouchPosition(a) {
     for (var c = 0, b = 0, d = canvasElement; null !== d; d = d.offsetParent) c += d.offsetLeft, b += d.offsetTop;
     a = a.touches;
-    distanceXFromTopScreen = floor(a[0].pageX - c);
-    distanceYFromTopScreen = floor(a[0].pageY - b)
+    distanceXFromTopScreen = Math.floor(a[0].pageX - c);
+    distanceYFromTopScreen = Math.floor(a[0].pageY - b)
 }
 canvasElement.ontouchstart = function(a) {
     saveTouchPosition(a);
@@ -5017,7 +5017,7 @@ function normalize2(a) {
 }
 function getAngle(a) {
     var c = Math.acos(a.x / Math.sqrt(a.x * a.x + a.y * a.y));
-    0 < a.y && (c = TWOPI - c);
+    0 < a.y && (c = Math.PI**2 - c);
     return c
 }
 var Yd = new Float32Array(1024),
@@ -5047,12 +5047,6 @@ function customRandom(a) {
     Zd &= 1023;
     return ~~(Yd[Zd] * a)
 }
-var PI = 3.1415927,
-    TWOPI = 6.2831855;
-
-function abs(a) {
-    return 0 > a ? -a : a
-}
 
 function max(a, c) {
     return a > c ? a : c
@@ -5069,7 +5063,3 @@ function minInsideRange(a, c, b) {
 function returnBetween0_MAX(a, c) {
     return 0 > a ? c : a > c ? 0 : a
 }
-
-function floor(a) {
-    return Math.floor(a)
-};
