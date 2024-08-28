@@ -22,6 +22,7 @@ var aa = 0,
     xa = 0,
     ya = 0,
     isGravityOn = true,
+    //選択しているペイントツール
     Aa = 0,
     Ba = 0,
     Da = 0,
@@ -54,8 +55,7 @@ var aa = 0,
     eb = "",
     fb = 0,
     gb = "",
-    hb =
-    0,
+    hb = 0,
     ib = "",
     jb = 0,
     kb = 0,
@@ -665,76 +665,116 @@ function Yc(option){
     eb = window.btoa(eb);
 }
 
-// Called whenever user click on "LOAD" button
-function loadGameToScreen() {
-    reset(1);
-    if (0 != Za) {
-        e = Ya + 138880;
-        ycoord = 8;
-        for (d = Ya; ycoord < 288; ycoord++) {
-            for (xcoord = 8; xcoord < 504; xcoord++, d++) {
-                if (0 != arrayOfTypesOfElementInThisPosition[d]) {
-                    if( arrayOfTypesOfElementInThisPosition[d] == Ob ) {
-                        x[(ycoord >> 2) * w + (xcoord >> 2)] = Gb;
-                        I[ycoord * screenWidth + xcoord] = Kb;
-                    } else if( arrayOfTypesOfElementInThisPosition[d] == Qb ) {
-                        x[(ycoord >> 2) * w + (xcoord >> 2)] = Hb;
-                        I[ycoord * screenWidth + xcoord] = Kb;
-                    } else if ( arrayOfTypesOfElementInThisPosition[d] == Rb ) {
-                        x[(ycoord >> 2) * w + (xcoord >> 2)] = Ib;
-                        I[ycoord * screenWidth + xcoord] = Kb;
-                    } else if ( arrayOfTypesOfElementInThisPosition[d] == Ec ) {
-                        createFighterPlayerClone(xcoord, ycoord, Ec, arrayOfTypesOfElementInThisPosition[e++])
-                    } else if( arrayOfTypesOfElementInThisPosition[d] == Fc ) {
-                        createFighterPlayerClone(xcoord, ycoord, Fc, arrayOfTypesOfElementInThisPosition[e++])
-                    } else if ( arrayOfTypesOfElementInThisPosition[d] == fighterId) {
-                        createFighterPlayerClone(xcoord, ycoord, fighterId, 0);
-                        e++;
-                    } else if( arrayOfTypesOfElementInThisPosition[d] == Hc) {
-                        Ad(xcoord, ycoord, arrayOfTypesOfElementInThisPosition[e++])
-                    } else if( arrayOfTypesOfElementInThisPosition[d] == cloneId ) {
-                        createFighterPlayerClone(xcoord, ycoord, cloneId, 0);
-                        e++;
-                    } else {
-                        a = Bd(xcoord, ycoord, arrayOfTypesOfElementInThisPosition[d], 0)
-                        if(arrayOfTypesOfElementInThisPosition[d] == Nb) {
-                            J[a].x = 0.01 * Math.cos(arrayOfTypesOfElementInThisPosition[e] * PI / 32);
-                            J[a].y = 0.01 * -Math.sin(arrayOfTypesOfElementInThisPosition[e] * PI / 32);
-                            G[a] = arrayOfTypesOfElementInThisPosition[e];
-                            e++;
-                            I[ycoord * screenWidth + xcoord] = l
-                        } else if( arrayOfTypesOfElementInThisPosition[d] == ac ) {
-                            G[a] = arrayOfTypesOfElementInThisPosition[e++]
-                        } else {
-                            if( arrayOfTypesOfElementInThisPosition[d] == Lc ) {
-                                G[a] = arrayOfTypesOfElementInThisPosition[e++];
-                                E[a] = 0 == G[a] ? 6702131 : 3359829;
+// ユーザーが「LOAD」ボタンをクリックするたびに呼び出されます
+function _loadGameToScreen() {
+    reset(1); // ゲーム画面のリセット
+    if (Za !== 0) { // Zaが0でない場合のみ処理を実行
+        let currentIndex = Ya + 138880; // eに相当
+        let ycoord = 8; // 初期Y座標
+
+        // 各画面ピクセルをループ
+        for (let d = Ya; ycoord < 288; ycoord++) {
+            for (let xcoord = 8; xcoord < 504; xcoord++, d++) {
+                let elementType = arrayOfTypesOfElementInThisPosition[d];
+                if (elementType !== 0) { // 配列の現在位置が空でない場合に処理
+                    switch (elementType) {
+                        case Ob:
+                            x[(ycoord >> 2) * w + (xcoord >> 2)] = Gb;
+                            I[ycoord * screenWidth + xcoord] = Kb;
+                            break;
+                        case Qb:
+                            x[(ycoord >> 2) * w + (xcoord >> 2)] = Hb;
+                            I[ycoord * screenWidth + xcoord] = Kb;
+                            break;
+                        case Rb:
+                            x[(ycoord >> 2) * w + (xcoord >> 2)] = Ib;
+                            I[ycoord * screenWidth + xcoord] = Kb;
+                            break;
+                        case Ec:
+                        case Fc:
+                            createFighterPlayerClone(xcoord, ycoord, elementType, arrayOfTypesOfElementInThisPosition[currentIndex++]);
+                            break;
+                        case fighterId:
+                        case cloneId:
+                            createFighterPlayerClone(xcoord, ycoord, elementType, 0);
+                            currentIndex++;
+                            break;
+                        case Hc:
+                            Ad(xcoord, ycoord, arrayOfTypesOfElementInThisPosition[currentIndex++]);
+                            break;
+                        default:
+                            // 通常の要素描画
+                            let a = Bd(xcoord, ycoord, elementType, 0);
+                            if (elementType === Nb) {
+                                J[a].x = 0.01 * Math.cos(arrayOfTypesOfElementInThisPosition[currentIndex] * Math.PI / 32);
+                                J[a].y = 0.01 * -Math.sin(arrayOfTypesOfElementInThisPosition[currentIndex] * Math.PI / 32);
+                                G[a] = arrayOfTypesOfElementInThisPosition[currentIndex];
+                                currentIndex++;
+                                I[ycoord * screenWidth + xcoord] = l;
+                            } else if (elementType === ac) {
+                                G[a] = arrayOfTypesOfElementInThisPosition[currentIndex++];
+                            } else if (elementType === Lc) {
+                                G[a] = arrayOfTypesOfElementInThisPosition[currentIndex++];
+                                E[a] = G[a] === 0 ? 6702131 : 3359829;
                             }
-                        }
+                            break;
                     }
                 }
             }
         }
+
+        // 一般的な描画処理の終了
         Dd();
-        c = new Vector;
-        var f;
-        for (a = p; a < qd; a++) f = p + floor(Math.random() * (qd - p)), c.set(C[a]), C[a].set(C[f]), C[f].set(c), c.set(J[a]), J[a].set(J[f]), J[f].set(c), b = D[a], D[a] = D[f], D[f] = b, b = G[a], G[a] = G[f], G[f] = b, b = E[a], E[a] = E[f], E[f] = b, b = H[a], H[a] = H[f], H[f] = b, I[H[a]] = D[a] == Nb ? l : a, I[H[f]] = D[f] == Nb ? l : f;
-        f = floor((Za - e) / 7);
-        for (a = e; a < e + f; a++) {
-            c = (arrayOfTypesOfElementInThisPosition[a + 1 * f] & 255) << 16 | (arrayOfTypesOfElementInThisPosition[a + 2 * f] & 255) << 8 | arrayOfTypesOfElementInThisPosition[a + 3 * f] & 255;
-            b = (arrayOfTypesOfElementInThisPosition[a + 4 * f] & 255) << 16 | (arrayOfTypesOfElementInThisPosition[a + 5 * f] & 255) << 8 | arrayOfTypesOfElementInThisPosition[a + 6 * f] & 255;
-            var g = 0,
-                m = d = 0,
-                n = 0;
-            d = Ya + 496 * ((c >> 9) - 8) + ((c & 511) - 8);
-            g = arrayOfTypesOfElementInThisPosition[d] == Ec ? 1 : arrayOfTypesOfElementInThisPosition[d] == Fc ? 1 : arrayOfTypesOfElementInThisPosition[d] == fighterId ? 1 : arrayOfTypesOfElementInThisPosition[d] == Hc ? 2 : 0;
-            d = Ya + 496 * ((b >> 9) - 8) + ((b & 511) - 8);
-            d = arrayOfTypesOfElementInThisPosition[d] == Ec ? 1 : arrayOfTypesOfElementInThisPosition[d] == Fc ? 1 : arrayOfTypesOfElementInThisPosition[d] == fighterId ? 1 : arrayOfTypesOfElementInThisPosition[d] == Hc ? 2 : 0;
-            0 == g ? m = I[c] : 1 == g ? m = Ed(c) : 2 == g && (m = Fd(c));
-            0 == d ? n = I[b] : 1 == d ? n = Ed(b) : 2 == d && (n = Fd(b));
-            Gd(g, d, m, n, arrayOfTypesOfElementInThisPosition[a + 0 * f])
+        let swapVector = new Vector();
+        let temp;
+
+        // シャッフル処理: 要素をランダムに交換
+        for (let a = p; a < qd; a++) {
+            let randomIndex = p + Math.floor(Math.random() * (qd - p));
+            swapVector.set(C[a]);
+            C[a].set(C[randomIndex]);
+            C[randomIndex].set(swapVector);
+
+            swapVector.set(J[a]);
+            J[a].set(J[randomIndex]);
+            J[randomIndex].set(swapVector);
+
+            [D[a], D[randomIndex]] = [D[randomIndex], D[a]];
+            [G[a], G[randomIndex]] = [G[randomIndex], G[a]];
+            [E[a], E[randomIndex]] = [E[randomIndex], E[a]];
+            [H[a], H[randomIndex]] = [H[randomIndex], H[a]];
+
+            I[H[a]] = D[a] === Nb ? l : a;
+            I[H[randomIndex]] = D[randomIndex] === Nb ? l : randomIndex;
         }
-        nb = ob
+
+        // 特殊なエンティティの処理
+        let remainingEntities = Math.floor((Za - currentIndex) / 7);
+        for (let a = currentIndex; a < currentIndex + remainingEntities; a++) {
+            let color1 = ((arrayOfTypesOfElementInThisPosition[a + 1 * remainingEntities] & 255) << 16) |
+                ((arrayOfTypesOfElementInThisPosition[a + 2 * remainingEntities] & 255) << 8) |
+                (arrayOfTypesOfElementInThisPosition[a + 3 * remainingEntities] & 255);
+
+            let color2 = ((arrayOfTypesOfElementInThisPosition[a + 4 * remainingEntities] & 255) << 16) |
+                ((arrayOfTypesOfElementInThisPosition[a + 5 * remainingEntities] & 255) << 8) |
+                (arrayOfTypesOfElementInThisPosition[a + 6 * remainingEntities] & 255);
+
+            let g = 0, m = 0, n = 0;
+
+            let pos1 = Ya + 496 * ((color1 >> 9) - 8) + ((color1 & 511) - 8);
+            g = [Ec, Fc, fighterId, Hc].includes(arrayOfTypesOfElementInThisPosition[pos1]) ? (arrayOfTypesOfElementInThisPosition[pos1] === Hc ? 2 : 1) : 0;
+
+            let pos2 = Ya + 496 * ((color2 >> 9) - 8) + ((color2 & 511) - 8);
+            let d = [Ec, Fc, fighterId, Hc].includes(arrayOfTypesOfElementInThisPosition[pos2]) ? (arrayOfTypesOfElementInThisPosition[pos2] === Hc ? 2 : 1) : 0;
+
+            m = g === 0 ? I[color1] : g === 1 ? Ed(color1) : Fd(color1);
+            n = d === 0 ? I[color2] : d === 1 ? Ed(color2) : Fd(color2);
+
+            Gd(g, d, m, n, arrayOfTypesOfElementInThisPosition[a + 0 * remainingEntities]);
+        }
+
+        // 最終処理
+        nb = ob;
     }
 }
 
@@ -1070,43 +1110,83 @@ function startScript(a, c, b, d) {
  * 0のとき、画面に枠あり
  * @param {Number} a 
  */
-function reset(a) {
-    var c, b, d;
-    for (d = b = 0; b < re; b++)
-        for (c = 0; c < w; c++, d++) x[d] = 0, P[d] = 0, Q[d] = 0, se[d] = 0, te[d] = 0, ue[d] = 0;
+function reset(mode){
+    let index, row, col;
+
+    for(index = row = 0; row < re; row++){
+        for(col = 0; col < w; col++, index++){
+            x[index] = 0;
+            P[index] = 0;
+            Q[index] = 0;
+            se[index] = 0;
+            te[index] = 0;
+            ue[index] = 0;
+        }
+    }
+
     Dd();
+
     qd = p;
-    for (c = 0; c < 296 * screenWidth; c++) I[c] = Jb;
-    for (b = 0; 296 > b; b++)
-        for (c = 0; c < screenWidth; c++) ve[b * screenWidth + c] = 8 > c || screenWidth - 8 <= c || 8 > b || 288 <= b ? false : true, R[b * screenWidth + c] = (b >> 2) * w + (c >> 2);
+
+    for(let i = 0; i < 296 * screenWidth; i++){
+        I[i] = Jb;
+    }
+
+    for(row = 0; row < 296; row++){
+        for(col = 0; col < screenWidth; col++){
+            ve[row * screenWidth + col] = (col < 8 || col >= screenWidth - 8 || row < 8 || row >= 288) ? false : true;
+            R[row * screenWidth + col] = ((row >> 2) * w + (col >> 2));
+        }
+    }
+
     D[0] = Mb;
     D[1] = Nb;
     D[2] = Ob;
     D[3] = Hc;
+
     sd = 0;
     we = 64;
-    for (c = counterStickman = 0; c < maxStickmanNumber * hd; c++) ye[c] = 0;
-    for (c = 0; c < maxStickmanNumber; c++) z[c] = 0;
-    for (c = 0; c < maxStickmanNumber; c++) ze[c] = 0;
-    for (c = 0; c < maxStickmanNumber; c++) kd[c] = 0;
-    for (c = 0; c < maxStickmanNumber; c++) Ae[c] = 0;
-    for (c = 0; c < maxStickmanNumber; c++) Be[c] = 0;
-    for (c = 0; c < od; c++) A[c] = 0;
-    for (c = 0; c < od; c++) S[c] = 0;
-    for (c = 0; c <
-        od; c++) Ce[c] = 0;
-    for (c = 0; c < od; c++) De[c] = 0;
-    if (0 == a) {
-        for (a = 2; a < Ee; a++) x[2 * w + a] = Gb;
-        for (a = 2; a < Ee; a++) x[(re - 3) * w + a] = Gb;
-        for (c = 2; c < Fe; c++) x[c * w + 2] = Gb;
-        for (c = 2; c < Fe; c++) x[c * w + w - 3] = Gb
-    }
-    for (c = 8; 288 > c; c++)
-        for (a = 8; 504 > a; a++) x[(c >> 2) * w + (a >> 2)] >= Gb && (I[c * screenWidth + a] = Kb);
-    nb = 0
-}
 
+    for(let i = counterStickman = 0; i < maxStickmanNumber * hd; i++){
+        ye[i] = 0;
+    }
+
+    for(let i = 0; i < maxStickmanNumber; i++){
+        z[i] = 0;
+        ze[i] = 0;
+        kd[i] = 0;
+        Ae[i] = 0;
+        Be[i] = 0;
+    }
+
+    for(let i = 0; i < od; i++){
+        A[i] = 0;
+        S[i] = 0;
+        Ce[i] = 0;
+        De[i] = 0;
+    }
+
+    if(mode === 0){
+        for(let i = 2; i < Ee; i++){
+            x[2 * w + i] = Gb;
+            x[(re - 3) * w + i] = Gb;
+        }
+        for(let i = 2; i < Fe; i++){
+            x[i * w + 2] = Gb;
+            x[i * w + w - 3] = Gb;
+        }
+    }
+
+    for(row = 8; row < 288; row++){
+        for(col = 8; col < 504; col++){
+            if(x[(row >> 2) * w + (col >> 2)] >= Gb){
+                I[row * screenWidth + col] = Kb;
+            }
+        }
+    }
+
+    nb = 0;
+}
 
 function Ge() {
     if (0 < He) He++;
