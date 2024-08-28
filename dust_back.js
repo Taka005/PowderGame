@@ -163,291 +163,79 @@ var aa = 0,
     arrayComOsOffsetsDosChars = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 62, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0, 0, 0, 0, 0, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 0, 0, 0, 0, 0, 0, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 0, 0, 0, 0, 0];
 window.GameSave = gameSave;
 
-/**
- * ゲームのセーブ
- * @param {String} gameData
- * @returns 
- */
-function gameSave(gameData){
-    if (0 == gameData.length || 0 != db) return "";
-
+function gameSave(a) {
+    if (0 == a.length || 0 != db) return "";
     saveGameFromScreen();
-
     Yc(1);
-
-    let checksum = 0;
-    for (let i = 0; i < ed.length; i++){
-        checksum += ed.charCodeAt(i)*((i & 15) + 1);
-    }
-
-    return eb + chars[checksum&63];
+    for (var c = a = 0; c < eb.length; c++) a += eb.charCodeAt(c) * ((c & 15) + 1);
+    return a = eb + chars[a & 63]
 }
-
 var Zc = "";
 window.GameLoad = gameLoad;
 
-/**
- * ゲームのロード
- * @param {String} gameData 
- * @returns 
- */
-function gameLoad(gameData){
-    if(5 < gameData.length){
-
-        let checksum = 0;
-        for(let i = 0; i < gameData.length - 1; i++){
-            checksum += gameData.charCodeAt(i)*((i & 15) + 1);
+function gameLoad(a) {
+    if (5 < a.length) {
+        for (var c = 0, b = 0; b < a.length - 1; b++) {
+            c += a.charCodeAt(b) * ((b & 15) + 1);
         }
-
-        if((checksum & 63) != arrayComOsOffsetsDosChars[gameData.charCodeAt(gameData.length - 1)]) return -1;
-
-        Zc = gameData.substring(0,gameData.length - 1);
-
-        return 0;
+        if ((c & 63) != arrayComOsOffsetsDosChars[a.charCodeAt(a.length - 1)]) return -1;
+        Zc = a.substring(0, a.length - 1);
+        return 0
     }
-
-    if(0 == gameData.length && 0 != Zc.length){
-        eb = Zc;
-        Zc = "";
-        ad(1);
-        loadGameToScreen();
-    }
-
+    0 == a.length && 0 != Zc.length && (eb = Zc, Zc = "", ad(1), loadGameToScreen());
     return -1
 }
-
 var cd = 0,
     dd = 0;
 
-function ed(isInitial){
-    let checksum, randomValue;
-    
-    if(oa < 0 && oa > 9){
-        v = null;
-    }
-
-    randomValue = isInitial === 0 ? dd : (dd = customRandom(1024));
-    
-    randomValue += (ea | 1)*(randomValue & 15 | 1);
-    randomValue += (fa | 1)*(randomValue & 15 | 1);
-    randomValue += (oa | 1)*(randomValue & 15 | 1);
-    randomValue += (backgroundDrawType | 1)*(randomValue & 15 | 1);
-    randomValue += (ra | 1)*(randomValue & 15 | 1);
-    randomValue += (isStopped | 1)*(randomValue & 15 | 1);
-    randomValue += (wa | 1)*(randomValue & 15 | 1);
-    randomValue += (xa | 1)*(randomValue & 15 | 1);
-    randomValue += (Aa | 1)*(randomValue & 15 | 1);
-    randomValue += (Xa | 1)*(randomValue & 15 | 1);
-    randomValue += (Ya | 1)*(randomValue & 15 | 1);
-
-    for(checksum = 0; checksum < ab.length; checksum++){
-        randomValue += (ab.charCodeAt(checksum) | 1)*(randomValue & 15 | 1);
-    }
-
-    for(checksum = 0; checksum < 8; checksum++){
-        randomValue += (bb[checksum] | 1)*(randomValue & 15 | 1);
-    }
-    
-    randomValue += (cb ? 1 : 2)*(randomValue & 15 | 1);
-    randomValue += (db | 1)*(randomValue & 15 | 1);
-    randomValue += (kb | 1)*(randomValue & 15 | 1);
-    randomValue += (lb | 1)*(randomValue & 15 | 1);
-    randomValue += (mb | 1)*(randomValue & 15 | 1);
-    randomValue += (nb | 1)*(randomValue & 15 | 1);
-
-    if(isInitial === 0){
-        if (cd !== (randomValue^16777215)){
-            v = null;
-        }
-    }else{
-        cd = randomValue^16777215;
-    }
+function ed(a) {
+    var c, b;
+    0 > oa && 9 < oa && (v = null);
+    0 == a ? b = dd : dd = b = customRandom(1024);
+    b += (ea | 1) * (b & 15 | 1);
+    b += (fa | 1) * (b & 15 | 1);
+    b += (oa | 1) * (b & 15 | 1);
+    b += (backgroundDrawType | 1) * (b & 15 | 1);
+    b += (ra | 1) * (b & 15 | 1);
+    b += (isStopped | 1) * (b & 15 | 1);
+    b += (wa | 1) * (b & 15 | 1);
+    b += (xa | 1) * (b & 15 | 1);
+    b += (Aa | 1) * (b & 15 | 1);
+    b += (Xa | 1) * (b & 15 | 1);
+    b += (Ya | 1) * (b & 15 | 1);
+    for (c = 0; c < ab.length; c++) b += (ab.charCodeAt(c) | 1) * (b & 15 | 1);
+    for (c = 0; 8 > c; c++) b += (bb[c] | 1) * (b & 15 | 1);
+    b += (cb ? 1 : 2) * (b & 15 | 1);
+    b += (db | 1) * (b & 15 | 1);
+    b += (kb | 1) * (b & 15 | 1);
+    b += (lb | 1) * (b & 15 | 1);
+    b += (mb | 1) * (b & 15 | 1);
+    b += (nb | 1) * (b & 15 | 1);
+    0 == a ? cd != (b ^ 16777215) &&
+        (v = null) : cd = b ^ 16777215
 }
 
-function saveGameFromScreen(){
-    let index, posX, posY, tempIndex, tempValue;
-
-    for(index = Ya + 277760 + 7000 - 1; index >= 0; index--){
-        arrayOfTypesOfElementInThisPosition[index] = 0;
-    }
-
-    for(posX = 0; posX < 280; posX++){
-        for(posY = 0; posY < 496; posY++){
-            tempIndex = ((posX >> 2) + 2)*w + (posY >> 2) + 2;
-            tempValue = Ya + 496*posX + posY;
-            if(x[tempIndex] !== 0){
-                arrayOfTypesOfElementInThisPosition[tempValue] = (x[tempIndex] === Gb) ? Ob :
-                                                                (x[tempIndex] === Hb) ? Qb :
-                                                                (x[tempIndex] === Ib) ? Rb : arrayOfTypesOfElementInThisPosition[tempValue];
-            }
-        }
-    }
-
-    for(index = 0; index < counterStickman; index++){
-        tempIndex = index*hd;
-        posX = Math.floor(stickManBodyPoints[tempIndex + 4].x) - 8;
-        posY = Math.floor(stickManBodyPoints[tempIndex + 4].y) - 8;
-        if(posX < 0 || posX >= 496){
-            id(index--);
-        }else if(posY < 0 || posY >= 280){
-            id(index--);
-        }else{
-            posX = (posX >> 2) << 2;
-            posY = (posY >> 2) << 2;
-            tempValue = Ya + 496*posY + posX;
-            if(arrayOfTypesOfElementInThisPosition[tempValue] !== 0){
-                id(index--);
-            }else{
-                switch(z[index]){
-                    case jd:
-                        arrayOfTypesOfElementInThisPosition[tempValue] = Ec;
-                        arrayOfTypesOfElementInThisPosition[tempValue + 138880] = kd[index];
-
-                        break;
-                    case ld:
-                        arrayOfTypesOfElementInThisPosition[tempValue] = Fc;
-                        arrayOfTypesOfElementInThisPosition[tempValue + 138880] = kd[index];
-
-                        break;
-                    case md:
-                    case md + 1:
-                        arrayOfTypesOfElementInThisPosition[tempValue] = fighterId;
-                        arrayOfTypesOfElementInThisPosition[tempValue + 138880] = 0;
-
-                        break;
-                    case nd:
-                        arrayOfTypesOfElementInThisPosition[tempValue] = cloneId;
-                        arrayOfTypesOfElementInThisPosition[tempValue + 138880] = 0;
-
-                        break;
-                    default:
-                        id(index--);
-
-                        break;
-                }
-            }
-        }
-    }
-
-    for(index = 0; index < od; index++){
-        if(A[index] !== 0){
-            posX = Math.floor(B[index].x) - 8;
-            posY = Math.floor(B[index].y) - 8;
-            if(posX < 0 || posX >= 496){
-                pd(index);
-            }else if(posY < 0 || posY >= 280){
-                pd(index);
-            }else{
-                tempValue = Ya + 496*posY + posX;
-                if(arrayOfTypesOfElementInThisPosition[tempValue] !== 0){
-                    pd(index);
-                }else{
-                    arrayOfTypesOfElementInThisPosition[tempValue] = Hc;
-                    arrayOfTypesOfElementInThisPosition[tempValue + 138880] = A[index];
-                }
-            }
-        }
-    }
-
-    for(index = p; index < qd; index++){
-        posX = Math.floor(C[index].x) - 8;
-        posY = Math.floor(C[index].y) - 8;
-
-        if(posX < 0 || posX >= 496){
-            rd(index--);
-        }else if(posY < 0 || posY >= 280){
-            rd(index--);
-        }else{
-            if(D[index] === hc && E[index] !== s[hc]){
-                rd(index--);
-            }else{
-                tempValue = Ya + 496*posY + posX;
-                if(arrayOfTypesOfElementInThisPosition[tempValue] !== 0){
-                    rd(index--);
-                }else{
-                    arrayOfTypesOfElementInThisPosition[tempValue] = D[index];
-                    switch(D[index]){
-                        case Nb:
-                            arrayOfTypesOfElementInThisPosition[tempValue + 138880] = G[index];
-
-                            break;
-                        case ac:
-                            arrayOfTypesOfElementInThisPosition[tempValue + 138880] = G[index] & 255;
-
-                            break;
-                        case Lc:
-                            arrayOfTypesOfElementInThisPosition[tempValue + 138880] = G[index] & 1;
-    
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            }
-        }
-    }
-
+function saveGameFromScreen() {
+    var a, c, b, d, e;
+    for (a = Ya + 277760 + 7E3 - 1; 0 <= a; a--) arrayOfTypesOfElementInThisPosition[a] = 0;
+    for (b = 0; 280 > b; b++)
+        for (c = 0; 496 > c; c++) d = ((b >> 2) + 2) * w + (c >> 2) + 2, e = Ya + 496 * b + c, 0 != x[d] && (x[d] == Gb ? arrayOfTypesOfElementInThisPosition[e] = Ob : x[d] == Hb ? arrayOfTypesOfElementInThisPosition[e] = Qb : x[d] == Ib && (arrayOfTypesOfElementInThisPosition[e] = Rb));
+    for (a = 0; a < counterStickman; a++) d = a * hd, c = ~~stickManBodyPoints[d + 4].x - 8, b = ~~stickManBodyPoints[d + 4].y - 8, 0 > c || 496 <= c ? id(a--) : 0 > b || 280 <= b ? id(a--) : (c = c >> 2 << 2, b = b >> 2 << 2, e = Ya + 496 * b + c, 0 != arrayOfTypesOfElementInThisPosition[e] ? id(a--) : z[a] == jd ? (arrayOfTypesOfElementInThisPosition[e] = Ec, arrayOfTypesOfElementInThisPosition[e + 138880] = kd[a]) : z[a] == ld ? (arrayOfTypesOfElementInThisPosition[e] = Fc, arrayOfTypesOfElementInThisPosition[e + 138880] = kd[a]) : z[a] == md ? (arrayOfTypesOfElementInThisPosition[e] = fighterId, arrayOfTypesOfElementInThisPosition[e + 138880] = 0) : z[a] == md + 1 ? (arrayOfTypesOfElementInThisPosition[e] = fighterId, arrayOfTypesOfElementInThisPosition[e + 138880] = 0) : z[a] == nd ? (arrayOfTypesOfElementInThisPosition[e] =
+        cloneId, arrayOfTypesOfElementInThisPosition[e + 138880] = 0) : id(a--));
+    for (a = 0; a < od; a++) 0 != A[a] && (c = ~~B[a].x - 8, b = ~~B[a].y - 8, 0 > c || 496 <= c ? pd(a) : 0 > b || 280 <= b ? pd(a) : (e = Ya + 496 * b + c, 0 != arrayOfTypesOfElementInThisPosition[e] ? pd(a) : (arrayOfTypesOfElementInThisPosition[e] = Hc, arrayOfTypesOfElementInThisPosition[e + 138880] = A[a])));
+    for (a = p; a < qd; a++) c = ~~C[a].x - 8, b = ~~C[a].y - 8, 0 > c || 496 <= c ? rd(a--) : 0 > b || 280 <= b ? rd(a--) : D[a] == hc && E[a] != s[hc] ? rd(a--) : (e = Ya + 496 * b + c, 0 != arrayOfTypesOfElementInThisPosition[e] ? rd(a--) : (arrayOfTypesOfElementInThisPosition[e] = D[a], D[a] == Nb ? arrayOfTypesOfElementInThisPosition[e + 138880] = G[a] : D[a] == ac ? arrayOfTypesOfElementInThisPosition[e + 138880] = G[a] & 255 : D[a] == Lc && (arrayOfTypesOfElementInThisPosition[e + 138880] = G[a] & 1)));
     Za = Ya + 138880;
-    tempIndex = Ya;
-    for(tempValue = Ya + 138880; tempIndex < tempValue; tempIndex++){
-        if([Nb, ac, Ec, Fc, fighterId, Hc, cloneId, Lc].includes(arrayOfTypesOfElementInThisPosition[tempIndex])){
-            arrayOfTypesOfElementInThisPosition[Za++] = arrayOfTypesOfElementInThisPosition[tempIndex + 138880];
-        }
-    }
-
-    for(index = 0; index < sd; index++){
-        arrayOfTypesOfElementInThisPosition[Za] = td[index];
-        if(ud[index] === 0){
-            arrayOfTypesOfElementInThisPosition[Za + 1*sd] = (H[vd[index]] >> 16) & 255;
-            arrayOfTypesOfElementInThisPosition[Za + 2*sd] = (H[vd[index]] >> 8) & 255;
-            arrayOfTypesOfElementInThisPosition[Za + 3*sd] = H[vd[index]] & 255;
-        }else if(ud[index] === 1){
-            posX = Math.floor(stickManBodyPoints[vd[index]*hd + 4].x);
-            posY = Math.floor(stickManBodyPoints[vd[index]*hd + 4].y);
-            posX = (posX >> 2) << 2;
-            posY = (posY >> 2) << 2;
-            tempValue = 0 + 512*posY + posX;
-            arrayOfTypesOfElementInThisPosition[Za + 1*sd] = (tempValue >> 16) & 255;
-            arrayOfTypesOfElementInThisPosition[Za + 2*sd] = (tempValue >> 8) & 255;
-            arrayOfTypesOfElementInThisPosition[Za + 3*sd] = tempValue & 255;
-        }else if(ud[index] === 2){
-            posX = Math.floor(B[vd[index]].x);
-            posY = Math.floor(B[vd[index]].y);
-            tempValue = 0 + 512*posY + posX;
-            arrayOfTypesOfElementInThisPosition[Za + 1*sd] = (tempValue >> 16) & 255;
-            arrayOfTypesOfElementInThisPosition[Za + 2*sd] = (tempValue >> 8) & 255;
-            arrayOfTypesOfElementInThisPosition[Za + 3*sd] = tempValue & 255;
-        }
-
-        if(wd[index] === 0){
-            arrayOfTypesOfElementInThisPosition[Za + 4*sd] = (H[xd[index]] >> 16) & 255;
-            arrayOfTypesOfElementInThisPosition[Za + 5*sd] = (H[xd[index]] >> 8) & 255;
-            arrayOfTypesOfElementInThisPosition[Za + 6*sd] = H[xd[index]] & 255;
-        }else if(wd[index] === 1){
-            posX = Math.floor(stickManBodyPoints[xd[index]*hd + 4].x);
-            posY = Math.floor(stickManBodyPoints[xd[index]*hd + 4].y);
-            posX = (posX >> 2) << 2;
-            posY = (posY >> 2) << 2;
-            tempValue = 0 + 512*posY + posX;
-            arrayOfTypesOfElementInThisPosition[Za + 4*sd] = (tempValue >> 16) & 255;
-            arrayOfTypesOfElementInThisPosition[Za + 5*sd] = (tempValue >> 8) & 255;
-            arrayOfTypesOfElementInThisPosition[Za + 6*sd] = tempValue & 255;
-        }else if(wd[index] === 2){
-            posX = Math.floor(B[xd[index]].x);
-            posY = Math.floor(B[xd[index]].y);
-            tempValue = 0 + 512*posY + posX;
-            arrayOfTypesOfElementInThisPosition[Za + 4*sd] = (tempValue >> 16) & 255;
-            arrayOfTypesOfElementInThisPosition[Za + 5*sd] = (tempValue >> 8) & 255;
-            arrayOfTypesOfElementInThisPosition[Za + 6*sd] = tempValue & 255;
-        }
-        Za++;
-    }
-
-    Za += 6*sd;
-    ob = nb;
+    d = Ya;
+    for (e = Ya + 138880; d < e; d++)
+        if (arrayOfTypesOfElementInThisPosition[d] == Nb || arrayOfTypesOfElementInThisPosition[d] == ac || arrayOfTypesOfElementInThisPosition[d] == Ec || arrayOfTypesOfElementInThisPosition[d] == Fc ||
+            arrayOfTypesOfElementInThisPosition[d] == fighterId || arrayOfTypesOfElementInThisPosition[d] == Hc || arrayOfTypesOfElementInThisPosition[d] == cloneId || arrayOfTypesOfElementInThisPosition[d] == Lc) arrayOfTypesOfElementInThisPosition[Za++] = arrayOfTypesOfElementInThisPosition[d + 138880];
+    for (a = 0; a < sd; a++) arrayOfTypesOfElementInThisPosition[Za] = td[a], 0 == ud[a] ? (arrayOfTypesOfElementInThisPosition[Za + 1 * sd] = H[vd[a]] >> 16 & 255, arrayOfTypesOfElementInThisPosition[Za + 2 * sd] = H[vd[a]] >> 8 & 255, arrayOfTypesOfElementInThisPosition[Za + 3 * sd] = H[vd[a]] & 255) : 1 == ud[a] ? (c = ~~stickManBodyPoints[vd[a] * hd + 4].x, b = ~~stickManBodyPoints[vd[a] * hd + 4].y, c = c >> 2 << 2, b = b >> 2 << 2, e = 0 + 512 * b + c, arrayOfTypesOfElementInThisPosition[Za + 1 * sd] = e >> 16 & 255, arrayOfTypesOfElementInThisPosition[Za + 2 * sd] = e >> 8 & 255, arrayOfTypesOfElementInThisPosition[Za + 3 * sd] = e & 255) : 2 == ud[a] && (c = ~~B[vd[a]].x, b = ~~B[vd[a]].y, e = 0 + 512 * b + c, arrayOfTypesOfElementInThisPosition[Za + 1 * sd] = e >> 16 & 255, arrayOfTypesOfElementInThisPosition[Za + 2 * sd] = e >> 8 & 255, arrayOfTypesOfElementInThisPosition[Za + 3 * sd] = e & 255), 0 == wd[a] ? (arrayOfTypesOfElementInThisPosition[Za + 4 * sd] = H[xd[a]] >> 16 & 255, arrayOfTypesOfElementInThisPosition[Za + 5 * sd] = H[xd[a]] >> 8 & 255, arrayOfTypesOfElementInThisPosition[Za +
+        6 * sd] = H[xd[a]] & 255) : 1 == wd[a] ? (c = ~~stickManBodyPoints[xd[a] * hd + 4].x, b = ~~stickManBodyPoints[xd[a] * hd + 4].y, c = c >> 2 << 2, b = b >> 2 << 2, e = 0 + 512 * b + c, arrayOfTypesOfElementInThisPosition[Za + 4 * sd] = e >> 16 & 255, arrayOfTypesOfElementInThisPosition[Za + 5 * sd] = e >> 8 & 255, arrayOfTypesOfElementInThisPosition[Za + 6 * sd] = e & 255) : 2 == wd[a] && (c = ~~B[xd[a]].x, b = ~~B[xd[a]].y, e = 0 + 512 * b + c, arrayOfTypesOfElementInThisPosition[Za + 4 * sd] = e >> 16 & 255, arrayOfTypesOfElementInThisPosition[Za + 5 * sd] = e >> 8 & 255, arrayOfTypesOfElementInThisPosition[Za + 6 * sd] = e & 255), Za++;
+    Za += 6 * sd;
+    ob = nb
 }
 
-function Yc(a){
+function Yc(a) {
     var c, b;
     if (0 == a) {
         var d = new Uint8Array(8680),
