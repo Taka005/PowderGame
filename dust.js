@@ -2135,66 +2135,120 @@ function hg(width,height){
     }
 }
 
-function ig(a, c) {
-    var b, d, e, f;
-    e = 4104;
-    f = (c - 8 - 1 << 9) + (a - 8 - 1);
-    for (d = 8; d < c; d++, e += 16) {
-        for (b = 8; b < a; b++, e++, f--) eg[e] += U[f], Re[e] += V[f];
-        for (f++; 504 > b; b++, e++, f++) eg[e] -= U[f], Re[e] += V[f];
-        f += a + a - 1025
+function ig(width,height){
+    let x, y;
+    let offset = 4104;
+    let index = (height - 8 - 1 << 9) + (width - 8 - 1);
+    for(y = 8; y < height; y++, offset += 16){
+        for(x = 8; x < width; x++, offset++, index--){
+            eg[offset] += U[index];
+            Re[offset] += V[index];
+        }
+
+        for(index++; x < 504; x++, offset++, index++){
+            eg[offset] -= U[index];
+            Re[offset] += V[index];
+        }
+
+        index += 2*width - 1025;
     }
-    for (f += 512; 288 > d; d++, e += 16) {
-        for (b = 8; b < a; b++, e++, f--) eg[e] += U[f], Re[e] -= V[f];
-        for (f++; 504 > b; b++, e++, f++) eg[e] -= U[f], Re[e] -= V[f];
-        f += a + a - 1
+
+    for(index += 512; y < 288; y++, offset += 16){
+        for(x = 8; x < width; x++, offset++, index--){
+            eg[offset] += U[index];
+            Re[offset] -= V[index];
+        }
+
+        for(index++; x < 504; x++, offset++, index++){
+            eg[offset] -= U[index];
+            Re[offset] -= V[index];
+        }
+
+        index += 2*width - 1;
     }
 }
 
-function Dd() {
-    var a, c, b;
-    for (b = 296 * screenWidth - 1; 0 <= b; b--) eg[b] = 0, Re[b] = isGravityOn ? 1 : 0;
+function Dd(){
+    for(let i = 296*screenWidth - 1; i >= 0; i--){
+        eg[i] = 0;
+        Re[i] = isGravityOn ? 1 : 0;
+    }
+
     fg();
-    c = 10;
-    for (b = 258; 288 > c; c += 4, b += 4)
-        for (a = 10; 504 > a; a += 4, b++) {
-            if (x[b] == Hb) hg(a, c);
-            else if (x[b] == Ib) ig(a, c);
-            else continue;
+
+    let xCoord;
+    let yCoord = 10;
+    for(let i = 258; yCoord < 288; yCoord += 4, i += 4){
+        for(xCoord = 10; xCoord < 504; xCoord += 4, i++){
+            if(x[i] == Hb){
+                hg(xCoord, yCoord);
+            }else if(x[i] == Ib){
+                ig(xCoord, yCoord);
+            }else{
+                continue;
+            }
+
             Se++;
-            0 == (Se & 63) && (oe(12, 12, 80, 12, 0), drawTextUsingImage(fontImage, 12, 12, "G-MAP " + Se, 0, 6316128))
+
+            if((Se & 63) == 0){
+                oe(12, 12, 80, 12, 0);
+                drawTextUsingImage(fontImage, 12, 12, "G-MAP " + Se, 0, 6316128);
+            }
         }
+    }
+
     Se = 1;
-    setGravity()
+
+    setGravity();
 }
 
-function Of(a, c, b) {
-    0 == Se && fg();
-    a = (a << 2) + 2;
-    c = (c << 2) + 2;
-    0 < b ? hg(a, c) : ig(a, c);
+function Of(posX,posY,direction){
+    if(Se == 0){
+        fg();
+    }
+
+    posX = (posX << 2) + 2;
+    posY = (posY << 2) + 2;
+
+    if(direction > 0){
+        hg(posX,posY);
+    }else{
+        ig(posX,posY);
+    }
+
     Se++;
-    0 == (Se & 127) && (oe(12, 12, 80, 12, 0), drawTextUsingImage(fontImage, 12, 12, "G-MAP " + Se, 0, 6316128))
+
+    if((Se & 127) == 0){
+        oe(12, 12, 80, 12, 0);
+        drawTextUsingImage(fontImage, 12, 12, "G-MAP " + Se, 0, 6316128);
+    }
 }
 
-function setGravity() {
-    if (0 != Se) {
+function setGravity(){
+    if(Se != 0){
         Se = 0;
-        var a;
-        if (isGravityOn == 0) {
-            for (a = re * w - 1; 0 <= a && x[a] != Hb && x[a] != Ib; a--);
-            if (-1 == a)
-                for (a = 296 * screenWidth - 1; 0 <= a; a--) eg[a] = 0, Re[a] = 0
+        let index;
+        if(isGravityOn == 0){
+            for(index = re * w - 1; index >= 0 && x[index] != Hb && x[index] != Ib; index--);
+
+            if(index == -1){
+                for(index = 296 * screenWidth - 1; index >= 0; index--){
+                    eg[index] = 0;
+                    Re[index] = 0;
+                }
+            }
         }
-        var c = new Vector;
-        for (a = 288 * screenWidth - 1; 4096 <= a; a--) {
-            setToVector(c, eg[a], Re[a]);
-            normalize(c);
-            U[a] = c.x;
-            V[a] = c.y;
+
+        let vector = new Vector;
+        for(index = 288 * screenWidth - 1; index >= 4096; index--){
+            setToVector(vector,eg[index],Re[index]);
+            normalize(vector);
+            U[index] = vector.x;
+            V[index] = vector.y;
         }
     }
 }
+
 var sd = 0,
     jg = 999,
     we = 64,
@@ -2470,7 +2524,6 @@ function ef() {
             }
 }
 
-
 function Xg(a, c) {
     var b, d, e, f, g, m, n, t;
     if (D[a] == Sb)
@@ -2670,7 +2723,6 @@ function Xg(a, c) {
     }
     return 0
 }
-
 
 function Yg(a, c) {
     var b, d, e, f, g, m, n, t, u;
@@ -2894,7 +2946,6 @@ function Yg(a, c) {
     return 0
 }
 
-
 function Zg(a, c) {
     var b, d, e, f, g, m, n, t, u, F;
     if (D[a] == nc)
@@ -3109,7 +3160,6 @@ function Zg(a, c) {
         } else Vg(a, c);
     return 0
 }
-
 
 function $g(a, c) {
     var b, d, e, f;
@@ -3354,7 +3404,6 @@ function $g(a, c) {
             }
         } return 0
 }
-
 
 function ah(a, c) {
     var b, d, e, f, g, m, n, t, u;
