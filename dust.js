@@ -804,87 +804,87 @@ function loadGameToScreen(){
     }
 }
 
-function Hd() {
-    var i;
-    var a;
-    var alpha;
-    i = 0;
-    for (; 138880 > i; i++) {
+function Hd(){
+    let i, a, alpha;
+
+    for(i = 0; i < 138880; i++){
         La[i] = 0;
         Ma[i] = 0;
     }
-    i = 0;
-    for (; i < qd; i++) {
-        a = ~~C[i].x - 8;
-        alpha = ~~C[i].y - 8;
-        if (!(0 > a || 496 <= a || 0 > alpha || 280 <= alpha)) {
-            a = 496 * alpha + a;
-            La[a] = D[i];
-            if (D[i] == Nb) {
-                Ma[a] = G[i];
-            } else {
-                if (D[i] == ac) {
-                    Ma[a] = G[i] & 255;
-                } else {
-                    if (D[i] == Lc) {
-                        Ma[a] = G[i] & 1;
-                    }
-                }
+
+    for(i = 0; i < qd; i++){
+        a = Math.floor(C[i].x) - 8;
+        alpha = Math.floor(C[i].y) - 8;
+
+        if(a >= 0 && a < 496 && alpha >= 0 && alpha < 280){
+            const index = 496 * alpha + a;
+            La[index] = D[i];
+
+            if(D[i] === Nb){
+                Ma[index] = G[i];
+            }else if (D[i] === ac){
+                Ma[index] = G[i] & 255;
+            }else if (D[i] === Lc){
+                Ma[index] = G[i] & 1;
             }
         }
     }
-    if (Ha > Ja) {
-        a = Ha;
-        Ha = Ja;
-        Ja = a;
-    }
-    if (Ia > Ka) {
-        alpha = Ia;
-        Ia = Ka;
-        Ka = alpha;
-    }
-    i = Sa = 0;
-    for (; i < sd && 500 > Sa; i++) {
-        if (!(0 != ud[i] || 0 != wd[i] || ~~C[vd[i]].x < Ha || Ja < ~~C[vd[i]].x || ~~C[vd[i]].y < Ia || Ka < ~~C[vd[i]].y || ~~C[xd[i]].x < Ha || Ja < ~~C[xd[i]].x || ~~C[xd[i]].y < Ia || Ka < ~~C[xd[i]].y)) {
-            Na[Sa] = ~~C[vd[i]].x - Ha;
-            Oa[Sa] = ~~C[vd[i]].y - Ia;
-            Pa[Sa] = ~~C[xd[i]].x - Ha;
-            Qa[Sa] = ~~C[xd[i]].y - Ia;
+
+    if(Ha > Ja) [Ha, Ja] = [Ja, Ha];
+    if(Ia > Ka) [Ia, Ka] = [Ka, Ia];
+
+    Sa = 0;
+    for(i = 0; i < sd && Sa < 500; i++){
+        const x1 = Math.floor(C[vd[i]].x);
+        const y1 = Math.floor(C[vd[i]].y);
+        const x2 = Math.floor(C[xd[i]].x);
+        const y2 = Math.floor(C[xd[i]].y);
+
+        if(
+            ud[i] === 0 && wd[i] === 0 &&
+            x1 >= Ha && x1 <= Ja && y1 >= Ia && y1 <= Ka &&
+            x2 >= Ha && x2 <= Ja && y2 >= Ia && y2 <= Ka
+        ){
+            Na[Sa] = x1 - Ha;
+            Oa[Sa] = y1 - Ia;
+            Pa[Sa] = x2 - Ha;
+            Qa[Sa] = y2 - Ia;
             Ra[Sa] = td[i];
             Sa++;
         }
     }
 }
 
-function Id() {
-    var i;
-    var t;
-    var k;
-    var p;
-    var prefix = ia - Math.floor((Ja - Ha) / 2) - Ha;
-    var ret = ja - Math.floor((Ka - Ia) / 2) - Ia;
-    k = Ia - 8;
-    for (; k <= Ka - 8; k++) {
-        if (!(0 > ret + k || 280 <= ret + k)) {
-            t = Ha - 8;
-            for (; t <= Ja - 8; t++) {
-                if (!(0 > prefix + t || 496 <= prefix + t)) {
-                    p = 496 * k + t;
-                    if (0 != La[p] && I[(ret + k + 8) * screenWidth + (prefix + t + 8)] == Jb) {
-                        i = Bd(prefix + t + 8, ret + k + 8, La[p], 0);
-                        if (0 <= i) {
-                            if (La[p] == Nb) {
-                                J[i].x = 0.01 * Math.cos(Ma[p] * Math.PI / 32);
-                                J[i].y = 0.01 * -Math.sin(Ma[p] * Math.PI / 32);
-                                G[i] = Ma[p];
-                                I[(ret + k + 8) * screenWidth + (prefix + t + 8)] = l;
-                            } else {
-                                if (La[p] == ac) {
-                                    G[i] = Ma[p];
-                                } else {
-                                    if (La[p] == Lc) {
-                                        G[i] = Ma[p];
-                                        E[i] = 0 == G[i] ? 6702131 : 3359829;
+function Id(){
+    var currentIndex;
+    var xCoord;
+    var yCoord;
+    var position;
+    var adjustedX = ia - Math.floor((Ja - Ha) / 2) - Ha;
+    var adjustedY = ja - Math.floor((Ka - Ia) / 2) - Ia;
+
+    yCoord = Ia - 8;
+    for(; yCoord <= Ka - 8; yCoord++){
+        if(!(0 > adjustedY + yCoord || 280 <= adjustedY + yCoord)){
+            xCoord = Ha - 8;
+            for(; xCoord <= Ja - 8; xCoord++){
+                if(!(0 > adjustedX + xCoord || 496 <= adjustedX + xCoord)){
+                    position = 496 * yCoord + xCoord;
+                    if(0 != La[position] && I[(adjustedY + yCoord + 8) * screenWidth + (adjustedX + xCoord + 8)] == Jb){
+                        currentIndex = Bd(adjustedX + xCoord + 8, adjustedY + yCoord + 8, La[position], 0);
+                        if(0 <= currentIndex){
+                            if(La[position] == Nb){
+                                J[currentIndex].x = 0.01 * Math.cos(Ma[position] * Math.PI / 32);
+                                J[currentIndex].y = 0.01 * -Math.sin(Ma[position] * Math.PI / 32);
+                                G[currentIndex] = Ma[position];
+                                I[(adjustedY + yCoord + 8) * screenWidth + (adjustedX + xCoord + 8)] = l;
+                            }else{
+                                if(La[position] == ac){
+                                    G[currentIndex] = Ma[position];
+                                }else{
+                                    if(La[position] == Lc){
+                                        G[currentIndex] = Ma[position];
+                                        E[currentIndex] = 0 == G[currentIndex] ? 6702131 : 3359829;
                                     }
                                 }
                             }
@@ -894,46 +894,89 @@ function Id() {
             }
         }
     }
-    prefix = ia - Math.floor((Ja - Ha) / 2);
-    ret = ja - Math.floor((Ka - Ia) / 2);
-    i = 0;
-    for (; i < Sa; i++) {
-        if (!(8 > prefix + Na[i] || 504 <= prefix + Na[i] || 8 > ret + Oa[i] || 288 <= ret + Oa[i] || 8 > prefix + Pa[i] || 504 <= prefix + Pa[i] || 8 > ret + Qa[i] || 288 <= ret + Qa[i])) {
-            t = I[(ret + Oa[i]) * screenWidth + prefix + Na[i]];
-            k = I[(ret + Qa[i]) * screenWidth + prefix + Pa[i]];
-            if (t >= p && k >= p && t != k && 255 != (Jd[t] & 255) && 255 != (Jd[k] & 255)) {
-                Gd(0, 0, t, k, Ra[i]);
+
+    adjustedX = ia - Math.floor((Ja - Ha) / 2);
+    adjustedY = ja - Math.floor((Ka - Ia) / 2);
+
+    currentIndex = 0;
+    for(; currentIndex < Sa; currentIndex++){
+        if(!(
+            8 > adjustedX + Na[currentIndex]||
+            504 <= adjustedX + Na[currentIndex]||
+            8 > adjustedY + Oa[currentIndex]||
+            288 <= adjustedY + Oa[currentIndex]||
+            8 > adjustedX + Pa[currentIndex]||
+            504 <= adjustedX + Pa[currentIndex]||
+            8 > adjustedY + Qa[currentIndex]||
+            288 <= adjustedY + Qa[currentIndex]
+        )){
+            xCoord = I[(adjustedY + Oa[currentIndex]) * screenWidth + adjustedX + Na[currentIndex]];
+            yCoord = I[(adjustedY + Qa[currentIndex]) * screenWidth + adjustedX + Pa[currentIndex]];
+            if(xCoord >= position && yCoord >= position && xCoord != yCoord && 255 != (Jd[xCoord] & 255) && 255 != (Jd[yCoord] & 255)) {
+                Gd(0, 0, xCoord, yCoord, Ra[currentIndex]);
             }
         }
     }
-};
-
-function Kd(a, c, b, d) {
-    for (var e = a;;)
-        if (D[I[e]] == c) L(I[e], b, d, s[b]), e--;
-        else break;
-    e++;
-    for (var f = a + 1;;)
-        if (D[I[f]] == c) L(I[f], b, d, s[b]), f++;
-        else break;
-    f--;
-    for (a = e; a <= f; a++) D[I[a - screenWidth]] == c && Kd(a - screenWidth, c, b, d), D[I[a + screenWidth]] == c && Kd(a + screenWidth, c, b, d)
 }
+
+function Kd(startIndex, targetValue, direction, depth){
+    let leftIndex = startIndex;
+    for(;;){
+        if(D[I[leftIndex]] == targetValue){
+            L(I[leftIndex], direction, depth, s[direction]);
+            leftIndex--;
+        }else{
+            break;
+        }
+    }
+
+    leftIndex++;
+
+    let rightIndex = startIndex + 1;
+    for(;;){
+        if(D[I[rightIndex]] == targetValue){
+            L(I[rightIndex], direction, depth, s[direction]);
+            rightIndex++;
+        }else{
+            break;
+        }
+    }
+
+    rightIndex--;
+
+    for(let currentIndex = leftIndex; currentIndex <= rightIndex; currentIndex++){
+        if(D[I[currentIndex - screenWidth]] == targetValue){
+            Kd(currentIndex - screenWidth, targetValue, direction, depth);
+        }
+
+        if(D[I[currentIndex + screenWidth]] == targetValue){
+            Kd(currentIndex + screenWidth, targetValue, direction, depth);
+        }
+    }
+}
+
 var loadingPhase = 0;
 
-function startScript(a, c, b, d) {
-    if (0 == loadingPhase) {
+function startScript(a, c, b, d){
+    if(loadingPhase == 0){
         $a = null != a ? a : "";
         ab = null != c ? c : "";
-        for (a = 0; 8 > a && a < ab.length; a++) bb[a] = ab.charCodeAt(a);
+
+        for(a = 0; 8 > a && a < ab.length; a++){
+            bb[a] = ab.charCodeAt(a);
+        }
+
         cb = 0 == b ? true : false;
         db = null != d ? d : 0;
+
         console.log("Created by ha55ii");
+
         canvasElement.width = screenWidth;
         canvasElement.height = screenHeight;
         canvasElement.width = 496;
         canvasElement.height = 422;
-        for (b = 0; 256 > b; b++) {
+
+        for(b = 0; 256 > b; b++){
             Qd[b] = false;
             Rd[b] = false;
             Sd[b] = false;
@@ -943,10 +986,23 @@ function startScript(a, c, b, d) {
             Wd[b] = 0;
             Xd[b] = 0;
         }
-        for (b = 0; 10 > b; b++) Wd[48 + b] = 48 + b;
-        for (b = 0; 9 > b; b++) Xd[49 + b] = 33 + b;
-        for (b = 0; 4 > b; b++) Wd[37 + b] = 37 + b;
-        for (b = 0; 4 > b; b++) Xd[37 + b] = 37 + b;
+
+        for(b = 0; 10 > b; b++){
+            Wd[48 + b] = 48 + b;
+        }
+
+        for(b = 0; 9 > b; b++){
+            Xd[49 + b] = 33 + b;
+        }
+
+        for(b = 0; 4 > b; b++){
+            Wd[37 + b] = 37 + b;
+        }
+
+        for(b = 0; 4 > b; b++){
+            Xd[37 + b] = 37 + b;
+        }
+
         Wd[13] = Xd[13] = 13;
         Wd[16] = Xd[16] = 16;
         Wd[17] = Xd[17] = 17;
@@ -986,27 +1042,42 @@ function startScript(a, c, b, d) {
         Xd[64] = 96;
         Wd[160] = 94;
         Xd[160] = 126;
-        for (b = 0; 1024 > b; b++) Yd[b] = b / 1024;
-        for (b = 0; 1024 > b; b++) {
+
+        for(b = 0; 1024 > b; b++){
+            Yd[b] = b / 1024;
+        }
+
+        for(b = 0; 1024 > b; b++){
             d = Math.floor(1024 * Math.random());
             a = Yd[b];
             Yd[b] = Yd[d];
             Yd[d] = a;
         }
+
         Zd = Math.floor(1024 * Math.random()) & 1023;
         $d = Math.floor(512 * Math.random()) | 1;
-        for (b = 0; b < screenWidth * screenHeight; b++) v[b] = 0;
-        for (b = 0; b < screenWidth * screenHeight * 4; b++) ae[b] = 255;
+
+        for(b = 0; b < screenWidth * screenHeight; b++){
+            v[b] = 0;
+        }
+
+        for(b = 0; b < screenWidth * screenHeight * 4; b++){
+            ae[b] = 255;
+        }
+
         fontImage.m("font.gif", 8, 12);
         loadingPhase++
     }
-    if (1 == loadingPhase) {
+    
+    if(loadingPhase == 1){
         b = fontImage.l;
-        if (0 == b.j && b.img.complete) {
+        if(0 == b.j && b.img.complete){
             ce--;
             d = b.img.width;
             a = b.img.height;
+
             if (0 == d || 0 == a) throw delete b.img, b.file = "", "ERROR";
+
             c = document.createElement("canvas");
             c.width = d;
             c.height = a;
