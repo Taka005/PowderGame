@@ -957,7 +957,7 @@ function Kd(startIndex, targetValue, direction, depth){
 
 var loadingPhase = 0;
 
-function startScript(a, c, b, d){
+function startScript(a, c, flag, d){
     if(loadingPhase == 0){
         $a = null != a ? a : "";
         ab = null != c ? c : "";
@@ -966,7 +966,7 @@ function startScript(a, c, b, d){
             bb[a] = ab.charCodeAt(a);
         }
 
-        cb = 0 == b ? true : false;
+        cb = 0 == flag ? true : false;
         db = null != d ? d : 0;
 
         console.log("Created by ha55ii");
@@ -976,31 +976,31 @@ function startScript(a, c, b, d){
         canvasElement.width = 496;
         canvasElement.height = 422;
 
-        for(b = 0; 256 > b; b++){
-            Qd[b] = false;
-            Rd[b] = false;
-            Sd[b] = false;
-            Td[b] = false;
-            Ud[b] = false;
-            Vd[b] = false;
-            Wd[b] = 0;
-            Xd[b] = 0;
+        for(let i = 0; 256 >i; i++){
+            Qd[i] = false;
+            Rd[i] = false;
+            Sd[i] = false;
+            Td[i] = false;
+            Ud[i] = false;
+            Vd[i] = false;
+            Wd[i] = 0;
+            Xd[i] = 0;
         }
 
-        for(b = 0; 10 > b; b++){
-            Wd[48 + b] = 48 + b;
+        for(let i = 0; 10 > i; i++){
+            Wd[48 + i] = 48 + i;
         }
 
-        for(b = 0; 9 > b; b++){
-            Xd[49 + b] = 33 + b;
+        for(let i = 0; 9 > i; i++){
+            Xd[49 + i] = 33 + i;
         }
 
-        for(b = 0; 4 > b; b++){
-            Wd[37 + b] = 37 + b;
+        for(let i = 0; 4 > i; i++){
+            Wd[37 + i] = 37 + i;
         }
 
-        for(b = 0; 4 > b; b++){
-            Xd[37 + b] = 37 + b;
+        for(let i = 0; 4 > i; i++){
+            Xd[37 + i] = 37 + i;
         }
 
         Wd[13] = Xd[13] = 13;
@@ -1043,26 +1043,26 @@ function startScript(a, c, b, d){
         Wd[160] = 94;
         Xd[160] = 126;
 
-        for(b = 0; 1024 > b; b++){
-            Yd[b] = b / 1024;
+        for(let i = 0; 1024 > i; i++){
+            Yd[i] = i / 1024;
         }
 
-        for(b = 0; 1024 > b; b++){
+        for(let i = 0; 1024 > i; i++){
             d = Math.floor(1024 * Math.random());
-            a = Yd[b];
-            Yd[b] = Yd[d];
+            a = Yd[i];
+            Yd[i] = Yd[d];
             Yd[d] = a;
         }
 
-        Zd = Math.floor(1024 * Math.random()) & 1023;
-        $d = Math.floor(512 * Math.random()) | 1;
+        Zd = Math.floor(1024*Math.random()) & 1023;
+        $d = Math.floor(512*Math.random()) | 1;
 
-        for(b = 0; b < screenWidth * screenHeight; b++){
-            v[b] = 0;
+        for(let i = 0; i < screenWidth*screenHeight; i++){
+            v[i] = 0;
         }
 
-        for(b = 0; b < screenWidth * screenHeight * 4; b++){
-            ae[b] = 255;
+        for(let i = 0; i < screenWidth*screenHeight*4; i++){
+            ae[i] = 255;
         }
 
         fontImage.m("font.gif", 8, 12);
@@ -1070,45 +1070,79 @@ function startScript(a, c, b, d){
     }
     
     if(loadingPhase == 1){
-        b = fontImage.l;
-        if(0 == b.j && b.img.complete){
+        const font = fontImage.l;
+        if(0 == font.j && font.img.complete){
             ce--;
-            d = b.img.width;
-            a = b.img.height;
+            d = font.img.width;
+            a = font.img.height;
 
-            if (0 == d || 0 == a) throw delete b.img, b.file = "", "ERROR";
+            if (0 == d || 0 == a) throw delete font.img, font.file = "", "ERROR";
 
             c = document.createElement("canvas");
             c.width = d;
             c.height = a;
             c = c.getContext("2d");
-            c.drawImage(b.img, 0, 0);
+            c.drawImage(font.img, 0, 0);
             c = c.getImageData(0, 0, d, a).data;
-            he(b, d, a);
+            he(font, d, a);
             d = 0;
             for (a = c.length; d < a; d += 4) {
-                b.a[d >> 2] = 0 == c[d + 3] ? -1 : c[d + 0] << 16 | c[d + 1] << 8 | c[d + 2];
+                font.a[d >> 2] = 0 == c[d + 3] ? -1 : c[d + 0] << 16 | c[d + 1] << 8 | c[d + 2];
             }
-            delete b.img;
-            b.j = 1
+            delete font.img;
+            font.j = 1
         }
-        0 != ce ? setTimeout(startScript, je()) : loadingPhase++
+
+        if(0 != ce){
+            setTimeout(startScript,je());
+        }else{
+            loadingPhase++
+        }
     }
-    if (2 == loadingPhase) {
-        if (0 == ab.length) {
+
+    if(loadingPhase == 2){
+        if(0 == ab.length){
             kb = 2;
             mb = 1;
-        } else {
-            if(0 != db) {
+        }else{
+            if(0 != db){
                 kb = 2;
                 mb = 3;
             }
         }
+
         reset(0);
         saveGameFromScreen();
-        0 < db && (b = "/score/dust2.php?a=", b += db, AjaxRequest(b, ""), 1 == me && "ok" == ne[0] ? (eb = ne[1], ad(0), 0 < Za ? (loadGameToScreen(), lb = 1) : lb = 2) : lb = 2, isStopped = 1);
+
+        if(0 < db){
+            let url = "/score/dust2.php?a="
+            url += db;
+            AjaxRequest(url,"");
+
+            if(1 == me && "ok" == ne[0]){
+                eb = ne[1];
+                ad(0);
+
+                if(0 < Za){
+                    loadGameToScreen();
+                    lb = 1;
+                }else{
+                    lb = 2;
+                }
+            }else{
+                lb = 2;
+                isStopped = 1;
+            }
+        }
+
         ed(1);
-        for (a = 0; a < s.length; a++) b = Math.floor((2989 * (s[a] >> 16 & 255) + 5866 * (s[a] >> 8 & 255) + 1145 * (s[a] & 255)) / 1E4), Rc[a] = b << 16 | b << 8 | b;
+
+        let b = 0;
+        for (a = 0; a < s.length; a++){
+            b = Math.floor((2989 * (s[a] >> 16 & 255) + 5866 * (s[a] >> 8 & 255) + 1145 * (s[a] & 255)) / 1E4)
+            Rc[a] = b << 16 | b << 8 | b;
+        }
+
         oe(0, 0, screenWidth, screenHeight, 4210752);
         drawTextUsingImage(fontImage, 13, 291, "POWDER", 15908203, 0);
         drawTextUsingImage(fontImage, 13, 305, "WATER", 4210943, 0);
@@ -1194,10 +1228,18 @@ function startScript(a, c, b, d){
         drawTextUsingImage(fontImage, 153, 417, "dot", -1, 0);
         drawTextUsingImage(fontImage, 230, 417, "j", -1, 0);
         drawTextUsingImage(fontImage, 285, 417, "Created by ha55ii", -1, 0);
+
         he(imageHandlerForScreen, screenWidth, screenHeight);
-        for (a = 0; a < screenWidth * screenHeight; a++) imageHandlerForScreen.a[a] = v[a] & 16777215;
-        for (b = screenWidth * screenHeight - 1; 0 <= b; b--) v[b] = 0;
-        loop()
+
+        for(a = 0; a < screenWidth*screenHeight; a++){
+            imageHandlerForScreen.a[a] = v[a] & 16777215;
+        }
+
+        for(let i = screenWidth*screenHeight - 1; 0 <= i; i--){
+            v[i] = 0;
+        }
+
+        loop();
     }
 }
 
@@ -1205,7 +1247,7 @@ function startScript(a, c, b, d){
  * リセット
  * 1のとき、画面に枠なし
  * 0のとき、画面に枠あり
- * @param {Number} a 
+ * @param {Number} mode
  */
 function reset(mode){
     let index, row, col;
