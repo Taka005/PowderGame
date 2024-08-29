@@ -5050,8 +5050,11 @@ function Me(a, c, b, d) {
 function getPosition(event){
     const rect = canvasElement.getBoundingClientRect();
 
-    touchPosX = Math.floor(event.clientX - rect.left);
-    touchPosY = Math.floor(event.clientY - rect.top);
+    const scaleX = canvasElement.width / rect.width;
+    const scaleY = canvasElement.height / rect.height;
+
+    touchPosX = Math.floor((event.clientX - rect.left)*scaleX);
+    touchPosY = Math.floor((event.clientY - rect.top)*scaleY);
 }
 
 document.addEventListener("mousemove",getPosition);
@@ -5106,8 +5109,13 @@ function saveTouchPosition(event){
         offsetY += element.offsetTop;
     }
 
-    touchPosX = Math.floor(event.touches[0].pageX - offsetX);
-    touchPosY = Math.floor(event.touches[0].pageY - offsetY);
+    const rect = canvasElement.getBoundingClientRect();
+
+    const scaleX = canvasElement.width / rect.width;
+    const scaleY = canvasElement.height / rect.height;
+
+    touchPosX = Math.floor((event.touches[0].pageX - offsetX)*scaleX);
+    touchPosY = Math.floor((event.touches[0].pageY - offsetY)*scaleY);
 }
 
 canvasElement.addEventListener("touchstart",(event)=>{
