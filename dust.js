@@ -112,6 +112,7 @@ var aa = 0,
     Kb = 2,
     Lb = 3,
     p = 4,
+    //粉の分別番号?
     Mb = 0,
     Nb = 1,
     Ob = 2,
@@ -147,8 +148,7 @@ var aa = 0,
     rc = 32,
     sc = 33,
     tc = 34,
-    uc =
-    35,
+    uc = 35,
     vc = 36,
     wc = 37,
     xc = 38,
@@ -194,7 +194,7 @@ window.GameSave = gameSave;
 /**
  * ゲームのセーブ
  * @param {String} gameData
- * @returns 
+ * @returns
  */
 function gameSave(gameData){
     if (0 == gameData.length || 0 != db) return "";
@@ -216,8 +216,8 @@ window.GameLoad = gameLoad;
 
 /**
  * ゲームのロード
- * @param {String} gameData 
- * @returns 
+ * @param {String} gameData
+ * @returns
  */
 function gameLoad(gameData){
     if(5 < gameData.length){
@@ -249,13 +249,13 @@ var cd = 0,
 
 function ed(flag){
     let checksum, randomValue;
-    
+
     if(oa < 0 && oa > 9){
         v = null;
     }
 
     randomValue = flag === 0 ? dd : (dd = customRandom(1024));
-    
+
     randomValue += (ea | 1)*(randomValue & 15 | 1);
     randomValue += (fa | 1)*(randomValue & 15 | 1);
     randomValue += (oa | 1)*(randomValue & 15 | 1);
@@ -275,7 +275,7 @@ function ed(flag){
     for(checksum = 0; checksum < 8; checksum++){
         randomValue += (bb[checksum] | 1)*(randomValue & 15 | 1);
     }
-    
+
     randomValue += (cb ? 1 : 2)*(randomValue & 15 | 1);
     randomValue += (db | 1)*(randomValue & 15 | 1);
     randomValue += (kb | 1)*(randomValue & 15 | 1);
@@ -405,7 +405,7 @@ function saveGameFromScreen(){
                             break;
                         case Lc:
                             arrayOfTypesOfElementInThisPosition[tempValue + 138880] = G[index] & 1;
-    
+
                             break;
                         default:
                             break;
@@ -476,8 +476,8 @@ function saveGameFromScreen(){
 }
 
 /**
- * 
- * @param {Number} option オプション 
+ *
+ * @param {Number} option オプション
  */
 function Yc(option){
     let index, tempIndex;
@@ -620,8 +620,8 @@ function Yc(option){
 
     tempIndex = 0;
     for(index = 3; index < Za; index++){
-        tempIndex = (arrayOfTypesOfElementInThisPosition[index] < 128) ? 
-            tempIndex + arrayOfTypesOfElementInThisPosition[index] * ((index & 15) + 1) : 
+        tempIndex = (arrayOfTypesOfElementInThisPosition[index] < 128) ?
+            tempIndex + arrayOfTypesOfElementInThisPosition[index] * ((index & 15) + 1) :
             tempIndex + (arrayOfTypesOfElementInThisPosition[index] - 256) * ((index & 15) + 1);
     }
     arrayOfTypesOfElementInThisPosition[1] = tempIndex & 255;
@@ -1069,7 +1069,7 @@ function startScript(a, c, flag, d){
         fontImage.m("font.gif", 8, 12);
         loadingPhase++
     }
-    
+
     if(loadingPhase == 1){
         const font = fontImage.l;
         if(0 == font.j && font.img.complete){
@@ -1094,6 +1094,7 @@ function startScript(a, c, flag, d){
             for (let i = data.length; d < i; d += 4){
                 font.a[d >> 2] = 0 == data[d + 3] ? -1 : data[d + 0] << 16 | data[d + 1] << 8 | data[d + 2];
             }
+
             delete font.img;
             font.j = 1
         }
@@ -1337,7 +1338,7 @@ function Ge() {
         gameSave("");
         gameLoad("");
         280 <= Ie && (Je || Ke) && false == ga ? ga = true : 280 > Ie && (Je || Ke) && true == ga && (ga = false);
-        
+
         Je && 0 == Xa && (Qd[48] ? oa = 0 : Qd[49] ? oa = 1 : Qd[50] ? oa = 2 : Qd[51] ? oa = 3 : Qd[52] ? oa = 4 : Qd[53] ? oa = 5 : Qd[54] ? oa = 6 : Qd[55] ? oa = 7 : Qd[56] ? oa = 8 : Qd[57] ? oa = 9 : Qd[32] ? isStopped = returnBetween0_MAX(isStopped + 1, 1) : Qd[10] || Qd[13] ? isStopped = 1 : Qd[108] ? (loadGameToScreen(), pa = -10) : Qd[106] && (Va = returnBetween0_MAX(Va + 1, 3)));
         f = 13;
         g = 291;
@@ -1346,7 +1347,7 @@ function Ge() {
                 if( Ke ) {
                     if( 5 == ea ) {
                         Fa = returnBetween0_MAX(Fa + 8, 56);
-                        ea = c; 
+                        ea = c;
                     } else {
                         if ( Oe ) {
                             if( 5 == fa ) {
@@ -1356,7 +1357,7 @@ function Ge() {
                         }
                     }
                 }
-                
+
             } else if (40 != c && 41 != c && 42 != c && 43 != c && 44 != c && 48 != c)
             if (53 == c) Ke ? (53 == ea && (Ta = returnBetween0_MAX(Ta + 1, 5)), ea = c) : Oe && (53 == fa && (Ta = returnBetween0_MAX(Ta - 1, 5)), fa = c);
             else if (59 != c && 60 != c && 61 != c)
@@ -1409,7 +1410,7 @@ function Ge() {
             if(0 != Pe) reset(0)
         } else if(Ke) {
             ea = c
-        } else { 
+        } else {
             Oe && (fa = c);
         }
         if (!ga && 0 == Xa) {
@@ -1449,7 +1450,7 @@ function Ge() {
             bf(1);
             if (Ke || Oe) nb = minInsideRange(nb + 1, 0, 65535)
         }
-        
+
         ed(1);
         c = [1, 2, 4, 8];
         for (d = 0; d < c[wa] && (1 != isStopped || Je && 0 == Xa && Qd[10] | Qd[13]); d++) cf++, df(), ef(), ff(), processStickman(), hf();
@@ -1473,25 +1474,25 @@ function Ge() {
         drawCompositeTextUsingImage(f + 275, g + 112, "JOINT-n J-left J-right J-scale J-none J-blind".split(" ")[Ta], 15908203, 0, -1);
         1 == isMinimapActive && drawCompositeTextUsingImage(f + 330, g + 112, "MiniMap", 16777215, 16711680, -1);
         0 == Ga ? drawCompositeTextUsingImage(f + 385 - 1, g + 28, "Copy", 16728128, -1, -2) : drawCompositeTextUsingImage(f + 385 + 23, g + 28, "Paste", 16728128, -1, -3);
-        
+
         pen_paint_type = ["free", "line", "lock", "paint"];
         3 > Aa ? drawCompositeTextUsingImage(f + 385 + 1, g + 42, "   " + pen_paint_type[Aa],
             16777215, 0, -1) : drawCompositeTextUsingImage(f + 385 + 4, g + 42, "   " + pen_paint_type[Aa], 16777215, 0, -2);
-            
+
         drawCompositeTextUsingImage(f + 385, g + 56, "      " + oa, 16777215, 0, -1);
-        
+
         drawCompositeTextUsingImage(f + 385, g + 70, "      " + ["x1", "x2", "x4", "x8", "16"][ra], 16777215, 0, -2);
-        
+
         drawCompositeTextUsingImage(f + 385, g + 84, " " + ["normal", "exact"][ua], 16777215, 0, -1);
-        
+
         drawCompositeTextUsingImage(f + 385, g + 98, "       " + (1 << wa), 16777215, 0, -2);
-        
+
         if( isStopped == 0 ) {
             drawCompositeTextUsingImage(f + 385 - 1, g + 112, "Start", 16728128, -1, -3);
         } else {
             drawCompositeTextUsingImage(f + 385 + 25, g + 112, "Stop", 16728128, -1, -2);
         }
-        
+
         if (kb == 2) {
             drawTextUsingImage(fontImage, f + 440, g + 0, "UPLOAD", 5259328, 3158064);
         }
@@ -1499,11 +1500,11 @@ function Ge() {
         0 > pa && (pa++, -1 > pa && drawTextUsingImage(fontImage, f + 440, g + 28, "LOAD",
             16777215, 16711680));
         drawTextUsingImage(fontImage, f + 440, g + 56, isGravityOn ? "  on" : "  off", -1, 0);
-        
+
         side_off_loop = ["OFF", "LOOP"];
         drawCompositeTextUsingImage(f + 440 + 25, g + 70, side_off_loop[xa], -1, 0, -2);
         drawCompositeTextUsingImage(f + 440 + 25, g + 70, side_off_loop[xa], 16777215, -1, -2);
-        
+
         backgroundDrawTypesArray = "non air line blur g-map shade aura light toon mesh gray track dark TG silet mosaic color ".split(" ");
         if( backgroundDrawType == 15 ) {
             drawCompositeTextUsingImage(f + 440 + 3, g + 84, "   " + backgroundDrawTypesArray[backgroundDrawType], -1, 0, -3);
@@ -1512,19 +1513,19 @@ function Ge() {
             drawCompositeTextUsingImage(f + 440, g + 84, "   " + backgroundDrawTypesArray[backgroundDrawType], -1, 0, -2);
             drawCompositeTextUsingImage(f + 440, g + 84, "   " + backgroundDrawTypesArray[backgroundDrawType], 16777215, -1, -2);
         }
-        
+
         drawTextUsingImage(fontImage, f + 440, g + 98, "     " + ya, 8388608, 0);
-        
+
         oe(f - 4 + 55 * Math.floor(ea / 9), g + 1 + ea % 9 * 14, 3, 4, 16711680);
-        
+
         oe(f - 4 + 55 * Math.floor(fa / 9), g + 6 + fa % 9 * 14, 3, 4, 255);
-        
+
         drawTextUsingImage(fontImage, f + 56, g + 126, " " + (ia - 8), -1, 0);
-        
+
         drawTextUsingImage(fontImage, f + 56, g + 126, "      " + (ja - 8), -1, 0);
-        
+
         drawTextUsingImage(fontImage, f + 140, g + 126, "   " + (mf - qd), -1, 0);
-        
+
         0 == Va ? drawTextUsingImage(fontImage, f + 217, g + 126, " " + sd, -1, 0) : 1 == Va ? drawTextUsingImage(fontImage, f + 217, g + 126, " " + sd, -1, 14540253) : 2 == Va ? drawTextUsingImage(fontImage, f + 217, g + 126, " " + sd, -1, 2236962) : 3 == Va && drawTextUsingImage(fontImage, f + 217, g + 126, " " + sd, 0, -1);
         f += 0;
         g += 126;
@@ -1703,7 +1704,7 @@ function bf(a) {
                 normalize(e);
                 P[b] = 10 * e.x;
                 Q[b] = 10 * e.y;
-            } 
+            }
         };
     } else if (46 == elementType) f && (b = (ja >> 2) * w + (ia >> 2), d = oa + 1, 0 == a ? (0 == x[b - w] && (P[b - w] += d, Q[b - w] += d), 0 == x[b + 1] && (P[b + 1] -= d, Q[b + 1] += d), 0 == x[b + w] && (P[b + w] -= d, Q[b + w] -= d), 0 == x[b - 1] && (P[b - 1] += d, Q[b - 1] -= d), 0 == x[b - w + 1] && (P[b - w + 1] += d, Q[b - w + 1] += d), 0 == x[b + w + 1] && (P[b + w + 1] -= d, Q[b + w + 1] += d), 0 == x[b + w -
         1] && (P[b + w - 1] -= d, Q[b + w - 1] -= d), 0 == x[b - w - 1] && (P[b - w - 1] += d, Q[b - w - 1] -= d)) : (0 == x[b - w] && (P[b - w] -= d, Q[b - w] += d), 0 == x[b - 1] && (P[b - 1] += d, Q[b - 1] += d), 0 == x[b + w] && (P[b + w] += d, Q[b + w] -= d), 0 == x[b + 1] && (P[b + 1] -= d, Q[b + 1] -= d), 0 == x[b - w - 1] && (P[b - w - 1] -= d, Q[b - w - 1] += d), 0 == x[b + w - 1] && (P[b + w - 1] += d, Q[b + w - 1] += d), 0 == x[b + w + 1] && (P[b + w + 1] += d, Q[b + w + 1] -= d), 0 == x[b - w + 1] && (P[b - w + 1] -= d, Q[b - w + 1] -= d)));
@@ -3581,7 +3582,7 @@ function constraintJoints(point1, point2, b, d, e) {
         stickManBodyPoints[point1].y -= f.y * d;
         stickManBodyPoints[point2].x += f.x * e;
         stickManBodyPoints[point2].y += f.y * e
-    } 
+    }
 }
 
 function nh(a, c, b, d, e) {
@@ -3671,7 +3672,7 @@ function processStickman() {
         } else {
             // Move fighter (cpu)
             processFighterMove(a);
-        } 
+        }
     }
 }
 
@@ -5199,7 +5200,7 @@ document.addEventListener("keyup",(event)=>{
     if(keyCode !== 0 && isInputCancel){
         event.preventDefault();
     }
-});    
+});
 
 var isInputCancel = false;
 
