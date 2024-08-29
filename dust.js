@@ -2261,87 +2261,262 @@ var sd = 0,
     td = new Int8Array(jg),
     lg = [16773360, 16777200, 15794160, 15794175, 15790335, 16773375];
 
-function Gd(a, c, b, d, e) {
+function Gd(pointType1,pointType2,index1,index2,value){
     if (sd >= jg) return -1;
-    var f = null,
-        g = null,
-        m = false,
-        n = false;
-    0 == a ? (f = C[b], D[b] == nc && (m = true)) : 1 == a ? f = stickManBodyPoints[b * hd + 1] : 2 == a && (f = B[b]);
-    0 == c ? (g = C[d], D[d] == nc && (n = true)) : 1 == c ? g = stickManBodyPoints[d * hd + 1] : 2 == c && (g = B[d]);
-    m && (G[b] = 1);
-    n && (G[d] = 1);
-    m ? f = 4 : (m = ~~g.x - ~~f.x, f = ~~g.y - ~~f.y, f = Math.sqrt(m * m + f * f));
-    ud[sd] = a;
-    wd[sd] = c;
-    vd[sd] = b;
-    xd[sd] = d;
-    kg[sd] = f;
-    td[sd] = e;
-    0 == a && Jd[b]++;
-    0 == c && Jd[d]++;
-    1 == a && Be[b]++;
-    1 == c && Be[d]++;
-    2 == a && De[b]++;
-    2 == c && De[d]++;
+
+    let pointA = null;
+    let pointB = null;
+    let isPointAStuck = false;
+    let isPointBStuck = false;
+
+    if(pointType1 === 0){
+        pointA = C[index1];
+        if(D[index1] === nc) isPointAStuck = true;
+    }else if(pointType1 === 1){
+        pointA = stickManBodyPoints[index1*hd + 1];
+    }else if(pointType1 === 2){
+        pointA = B[index1];
+    }
+
+    if(pointType2 === 0){
+        pointB = C[index2];
+        if(D[index2] === nc) isPointBStuck = true;
+    }else if(pointType2 === 1){
+        pointB = stickManBodyPoints[index2 * hd + 1];
+    }else if(pointType2 === 2){
+        pointB = B[index2];
+    }
+
+    if(isPointAStuck) G[index1] = 1;
+    if(isPointBStuck) G[index2] = 1;
+
+    if(isPointAStuck){
+        pointA = 4;
+    }else{
+        const deltaX = Math.floor(pointB.x) - Math.floor(pointA.x);
+        const deltaY = Math.floor(pointB.y) - Math.floor(pointA.y);
+        pointA = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    }
+
+    ud[sd] = pointType1;
+    wd[sd] = pointType2;
+    vd[sd] = index1;
+    xd[sd] = index2;
+    kg[sd] = pointA;
+    td[sd] = value;
+
+    if(pointType1 === 0) Jd[index1]++;
+    if(pointType2 === 0) Jd[index2]++;
+    if(pointType1 === 1) Be[index1]++;
+    if(pointType2 === 1) Be[index2]++;
+    if(pointType1 === 2) De[index1]++;
+    if(pointType2 === 2) De[index2]++;
+
     sd++;
-    return sd - 1
+    return sd - 1;
 }
 
-function mg(a, c) {
-    for (var b = 0; b < sd; b++)
-        if (ud[b] == a && vd[b] == c || wd[b] == a && xd[b] == c) 0 == ud[b] && D[vd[b]] == nc && (G[vd[b]] = 2), 0 == wd[b] && D[xd[b]] == nc && (G[xd[b]] = 2), sd--, 0 == ud[b] && Jd[vd[b]]--, 0 == wd[b] && Jd[xd[b]]--, 1 == ud[b] && Be[vd[b]]--, 1 == wd[b] && Be[xd[b]]--, 2 == ud[b] && De[vd[b]]--, 2 == wd[b] && De[xd[b]]--, ud[b] = ud[sd], wd[b] = wd[sd], vd[b] = vd[sd], xd[b] = xd[sd], kg[b] = kg[sd], td[b] = td[sd], b--
-}
+function mg(type, index){
+    for(let i = 0; i < sd; i++){
+        if(
+            (ud[i] === type && vd[i] === index)||
+            (wd[i] === type && xd[i] === index)
+        ){
+            if(ud[i] === 0 && D[vd[i]] === nc) G[vd[i]] = 2;
+            if(wd[i] === 0 && D[xd[i]] === nc) G[xd[i]] = 2;
 
-function ng(a, c, b) {
-    for (var d = 0; d < sd; d++) ud[d] == a && vd[d] == c && (vd[d] = b), wd[d] == a && xd[d] == c && (xd[d] = b)
-}
+            sd--;
 
+            if(ud[i] === 0) Jd[vd[i]]--;
+            if(wd[i] === 0) Jd[xd[i]]--;
+            if(ud[i] === 1) Be[vd[i]]--;
+            if(wd[i] === 1) Be[xd[i]]--;
+            if(ud[i] === 2) De[vd[i]]--;
+            if(wd[i] === 2) De[xd[i]]--;
 
-function ff() {
-    var a = new Vector,
-        c, b = null,
-        d = null,
-        e = null,
-        f = null,
-        g = 1,
-        m = 1;
-    c = false;
-    we++;
-    for (var n = 0; n < sd; n++) {
-        c = false;
-        0 == ud[n] ? (b = C[vd[n]], e = J[vd[n]], g = Jd[vd[n]] & 255, D[vd[n]] == nc && (c = true)) : 1 == ud[n] ? (b = stickManBodyPoints[vd[n] * hd + 1], e = stickManBodyPoints[vd[n] * hd + 1], g = Be[vd[n]] & 255) : 2 == ud[n] && (b = B[vd[n]], e = W[vd[n]], g = De[vd[n]] & 255);
-        0 == wd[n] ? (d = C[xd[n]], f = J[xd[n]], m = Jd[xd[n]] & 255) : 1 == wd[n] ? (d = stickManBodyPoints[xd[n] * hd + 1], f = stickManBodyPoints[xd[n] * hd + 1], m = Be[xd[n]] & 255) : 2 == wd[n] && (d = B[xd[n]], f = W[xd[n]], m = De[xd[n]] & 255);
-        c && (vectorSub(a, C[xd[n]], C[vd[n]]), vectorRotateVertical(a), normalize(a), vectorScale(a, 0.1), J[vd[n]].add(a),
-            J[xd[n]].add(a));
-        if (1 == td[n]) vectorSub(a, d, b), vectorRotateVertical(a), normalize(a), vectorScale(a, 0.1), e.sub(a), f.add(a);
-        else if (2 == td[n]) vectorSub(a, d, b), vectorRotateVertical(a), normalize(a), vectorScale(a, 0.1), e.add(a), f.sub(a);
-        else if (4 == td[n]) continue;
-        vectorSub(a, d, b);
-        c || (1 != wd[n] && a.add(f), 1 != ud[n] && a.sub(e));
-        c = normalize(a);
-        if (0 != c) {
-            if (3 == td[n]) {
-                var t = we & 255;
-                128 <= t && (t = 256 - t);
-                c = 0.5 * (kg[n] * (0.5 + t / 128) - c)
-            } else c = 0.5 * (kg[n] - c);
-            e.x -= a.x * c / (0.5 * g + 0.5);
-            e.y -= a.y * c / (0.5 * g + 0.5);
-            f.x += a.x * c / (0.5 * m + 0.5);
-            f.y += a.y * c / (0.5 * m + 0.5);
-            1 == ud[n] && (e.x = minInsideRange(e.x, 4, 508), e.y = minInsideRange(e.y, 4, 292));
-            1 == wd[n] && (f.x = minInsideRange(f.x, 4, 508),
-                f.y = minInsideRange(f.y, 4, 292))
+            ud[i] = ud[sd];
+            wd[i] = wd[sd];
+            vd[i] = vd[sd];
+            xd[i] = xd[sd];
+            kg[i] = kg[sd];
+            td[i] = td[sd];
+
+            i--;
         }
     }
 }
 
+function ng(type,oldIndex,newIndex){
+    for(let i = 0; i < sd; i++){
+        if(ud[i] === type && vd[i] === oldIndex){
+            vd[i] = newIndex;
+        }
 
-function Tf() {
-    for (var a, c, b, d = null, e = null, f = 0, g = 0, m = 0; m < sd; m++) 0 == ud[m] ? (d = C[vd[m]], f = E[vd[m]]) : 1 == ud[m] ? (d = stickManBodyPoints[vd[m] * hd + 1], f = 16769198) : 2 == ud[m] && (d = B[vd[m]], f = s[A[vd[m]]]), 0 == wd[m] ? (e = C[xd[m]], g = E[xd[m]]) : 1 == wd[m] ? (e = stickManBodyPoints[xd[m] * hd + 1], g = 16769198) : 2 == wd[m] && (e = B[xd[m]], g = s[A[xd[m]]]), a = (f >> 16 & 255) + (g >> 16 & 255) >> 1, c = (f >> 8 & 255) + (g >> 8 & 255) >> 1, b = (f & 255) + (g & 255) >> 1, 0 != Va ? 1 == Va ? lf(d.x, d.y, e.x, e.y, 14540253) : 2 == Va && lf(d.x, d.y, e.x, e.y, 2236962) : 5 != td[m] && (10 == backgroundDrawType ? (a = Math.floor((2989 * a + 5866 * c + 1145 * b) / 1E4), lf(d.x, d.y, e.x, e.y,
-        a << 16 | a << 8 | a)) : 14 == backgroundDrawType ? lf(d.x, d.y, e.x, e.y, 0) : lf(d.x, d.y, e.x, e.y, a << 16 | c << 8 | b))
+        if(wd[i] === type && xd[i] === oldIndex){
+            xd[i] = newIndex;
+        }
+    }
 }
+
+function ff(){
+    const displace = new Vector();
+    let pointA = null;
+    let pointB = null;
+    let velocityA = null;
+    let velocityB = null;
+    let massA = 1;
+    let massB = 1;
+    let isStuck = false;
+    we++;
+
+    for(let i = 0; i < sd; i++){
+        isStuck = false;
+        
+        if(ud[i] === 0){
+            pointA = C[vd[i]];
+            velocityA = J[vd[i]];
+            massA = Jd[vd[i]] & 255;
+            if (D[vd[i]] === nc) isStuck = true;
+        }else if (ud[i] === 1){
+            pointA = stickManBodyPoints[vd[i] * hd + 1];
+            velocityA = stickManBodyPoints[vd[i] * hd + 1];
+            massA = Be[vd[i]] & 255;
+        }else if (ud[i] === 2){
+            pointA = B[vd[i]];
+            velocityA = W[vd[i]];
+            massA = De[vd[i]] & 255;
+        }
+
+        if(wd[i] === 0){
+            pointB = C[xd[i]];
+            velocityB = J[xd[i]];
+            massB = Jd[xd[i]] & 255;
+        }else if(wd[i] === 1){
+            pointB = stickManBodyPoints[xd[i] * hd + 1];
+            velocityB = stickManBodyPoints[xd[i] * hd + 1];
+            massB = Be[xd[i]] & 255;
+        }else if(wd[i] === 2){
+            pointB = B[xd[i]];
+            velocityB = W[xd[i]];
+            massB = De[xd[i]] & 255;
+        }
+
+        if(isStuck){
+            vectorSub(displace, C[xd[i]], C[vd[i]]);
+            vectorRotateVertical(displace);
+            normalize(displace);
+            vectorScale(displace, 0.1);
+            J[vd[i]].add(displace);
+            J[xd[i]].add(displace);
+        }
+
+        if(td[i] === 1){
+            vectorSub(displace, pointB, pointA);
+            vectorRotateVertical(displace);
+            normalize(displace);
+            vectorScale(displace, 0.1);
+            velocityA.sub(displace);
+            velocityB.add(displace);
+        }else if(td[i] === 2){
+            vectorSub(displace, pointB, pointA);
+            vectorRotateVertical(displace);
+            normalize(displace);
+            vectorScale(displace, 0.1);
+            velocityA.add(displace);
+            velocityB.sub(displace);
+        }else if(td[i] === 4){
+            continue;
+        }
+
+        vectorSub(displace, pointB, pointA);
+        if(!isStuck){
+            if(wd[i] !== 1) displace.add(velocityB);
+            if(ud[i] !== 1) displace.sub(velocityA);
+        }
+
+        const norm = normalize(displace);
+        if(norm !== 0){
+            if(td[i] === 3){
+                let t = we & 255;
+                if(t >= 128) t = 256 - t;
+                norm = 0.5 * (kg[i] * (0.5 + t / 128) - norm);
+            }else{
+                norm = 0.5 * (kg[i] - norm);
+            }
+
+            velocityA.x -= (displace.x * norm) / (0.5 * massA + 0.5);
+            velocityA.y -= (displace.y * norm) / (0.5 * massA + 0.5);
+            velocityB.x += (displace.x * norm) / (0.5 * massB + 0.5);
+            velocityB.y += (displace.y * norm) / (0.5 * massB + 0.5);
+
+            if(ud[i] === 1){
+                velocityA.x = minInsideRange(velocityA.x, 4, 508);
+                velocityA.y = minInsideRange(velocityA.y, 4, 292);
+            }
+
+            if(wd[i] === 1){
+                velocityB.x = minInsideRange(velocityB.x, 4, 508);
+                velocityB.y = minInsideRange(velocityB.y, 4, 292);
+            }
+        }
+    }
+}
+
+function Tf(){
+    let startPoint = null;
+    let endPoint = null;
+    let startColor = 0;
+    let endColor = 0;
+    let avgRed = 0;
+    let avgGreen = 0;
+    let avgBlue = 0;
+
+    for(let i = 0; i < sd; i++){
+        if(ud[i] === 0){
+            startPoint = C[vd[i]];
+            startColor = E[vd[i]];
+        }else if(ud[i] === 1){
+            startPoint = stickManBodyPoints[vd[i] * hd + 1];
+            startColor = 16769198;
+        }else if(ud[i] === 2){
+            startPoint = B[vd[i]];
+            startColor = s[A[vd[i]]];
+        }
+
+        if(wd[i] === 0){
+            endPoint = C[xd[i]];
+            endColor = E[xd[i]];
+        }else if(wd[i] === 1){
+            endPoint = stickManBodyPoints[xd[i] * hd + 1];
+            endColor = 16769198;
+        }else if(wd[i] === 2){
+            endPoint = B[xd[i]];
+            endColor = s[A[xd[i]]];
+        }
+
+        avgRed = ((startColor >> 16) & 255) + ((endColor >> 16) & 255) >> 1;
+        avgGreen = ((startColor >> 8) & 255) + ((endColor >> 8) & 255) >> 1;
+        avgBlue = (startColor & 255) + (endColor & 255) >> 1;
+
+        if(Va !== 0){
+            if(Va === 1){
+                lf(startPoint.x, startPoint.y, endPoint.x, endPoint.y, 14540253);
+            }else if(Va === 2){
+                lf(startPoint.x, startPoint.y, endPoint.x, endPoint.y, 2236962);
+            }
+        }else if(td[i] !== 5){
+            if(backgroundDrawType === 10){
+                const grayScale = Math.floor((2989 * avgRed + 5866 * avgGreen + 1145 * avgBlue) / 10000);
+                lf(startPoint.x, startPoint.y, endPoint.x, endPoint.y, (grayScale << 16) | (grayScale << 8) | grayScale);
+            }else if(backgroundDrawType === 14){
+                lf(startPoint.x, startPoint.y, endPoint.x, endPoint.y, 0);
+            }else{
+                lf(startPoint.x, startPoint.y, endPoint.x, endPoint.y, (avgRed << 16) | (avgGreen << 8) | avgBlue);
+            }
+        }
+    }
+}
+
 var qd = p,
     mf = p + 4E4,
     C = Array(mf);
@@ -2381,40 +2556,70 @@ var D = new Int8Array(mf),
         -2561, -2559, -2557, -2555, -2054, -2052, -2050, -2048, -2046, -2044, -2042, -1543, -1541, -1539, -1537, -1535, -1533, -1531, -1529, -1030, -1028, -1026, -1024, -1022, -1020, -1018, -519, -517, -515, -513, -511, -509, -507, -505, -8, -6, -4, -2, 0, 2, 4, 6, 8, 505, 507, 509, 511, 513, 515, 517, 519, 1018, 1020, 1022, 1024, 1026, 1028, 1030, 1529, 1531, 1533, 1535, 1537, 1539, 1541, 1543, 2042, 2044, 2046, 2048, 2050, 2052, 2054, 2555, 2557, 2559, 2561, 2563, 2565, 3068, 3070, 3072, 3074, 3076, 3581, 3583, 3585, 3587, 4096
     ];
 
-function L(a, c, b, d) {
-    D[a] == nc && mg(0, a);
+function L(a,c,b,d){
+    if(D[a] == nc){
+        mg(0, a)
+    }
+
     D[a] = c;
     G[a] = b;
     E[a] = d
 }
 
-function Hg(a, c) {
+function Hg(a,c){
     L(a, c, 0, s[c])
 }
 
-function Bd(a, c, b, d) {
-    if (qd >= mf || 7 > a || 505 <= a || 7 > c || 289 <= c) return -1;
-    setToVector(C[qd], a + 0.5, c + 0.5);
+function Bd(x,y,type,state){
+    if (qd >= mf || x < 7 || x >= 505 || y < 7 || y >= 289) return -1;
+
+    setToVector(C[qd], x + 0.5, y + 0.5);
     setToVector(J[qd], 0, 0);
-    D[qd] = b;
-    G[qd] = d;
-    E[qd] = s[b];
-    H[qd] = ~~c * screenWidth + ~~a;
+
+    D[qd] = type;
+    G[qd] = state;
+    E[qd] = s[type];
+
+    H[qd] = Math.floor(y)*screenWidth + Math.floor(x);
     I[H[qd]] = qd;
+
     Jd[qd] = 0;
+
     qd++;
-    return qd - 1
+    return qd - 1;
 }
 
-function rd(a) {
-    if (qd != p) {
-        I[H[a]] = Jb;
+function rd(index){
+    if(qd !== p){
+        I[H[index]] = Jb;
         qd--;
-        for (var c = 0; c < Ig; c++) Jg[c] == a ? (Ig--, Jg[c] = Jg[Ig]) : Jg[c] == qd && (Jg[c] = a);
-        mg(0, a);
-        qd != a && (C[a].set(C[qd]), J[a].set(J[qd]), D[a] = D[qd], G[a] = G[qd], E[a] = E[qd], Jd[a] = Jd[qd], H[a] = H[qd], ng(0, qd, a), I[H[a]] = D[a] == Nb ? l : a)
+
+        for(let i = 0; i < Ig; i++){
+            if(Jg[i] === index){
+                Ig--;
+                Jg[i] = Jg[Ig];
+            }else if(Jg[i] === qd){
+                Jg[i] = index;
+            }
+        }
+
+        mg(0,index);
+
+        if(qd !== index){
+            C[index].set(C[qd]);
+            J[index].set(J[qd]);
+            D[index] = D[qd];
+            G[index] = G[qd];
+            E[index] = E[qd];
+            Jd[index] = Jd[qd];
+            H[index] = H[qd];
+
+            ng(0, qd, index);
+            I[H[index]] = D[index] === Nb ? l : index;
+        }
     }
 }
+
 var Kg = 1781,
     Ig = 0,
     Jg = new Int32Array(Kg);
