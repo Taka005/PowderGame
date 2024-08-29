@@ -247,14 +247,14 @@ function gameLoad(gameData){
 var cd = 0,
     dd = 0;
 
-function ed(isInitial){
+function ed(flag){
     let checksum, randomValue;
     
     if(oa < 0 && oa > 9){
         v = null;
     }
 
-    randomValue = isInitial === 0 ? dd : (dd = customRandom(1024));
+    randomValue = flag === 0 ? dd : (dd = customRandom(1024));
     
     randomValue += (ea | 1)*(randomValue & 15 | 1);
     randomValue += (fa | 1)*(randomValue & 15 | 1);
@@ -283,7 +283,7 @@ function ed(isInitial){
     randomValue += (mb | 1)*(randomValue & 15 | 1);
     randomValue += (nb | 1)*(randomValue & 15 | 1);
 
-    if(isInitial === 0){
+    if(flag === 0){
         if (cd !== (randomValue^16777215)){
             v = null;
         }
@@ -696,6 +696,7 @@ function Yc(option){
 // ユーザーが「LOAD」ボタンをクリックするたびに呼び出し
 function loadGameToScreen(){
     reset(1);
+
     if(Za !== 0){
         let currentIndex = Ya + 138880;
         let ycoord = 8;
@@ -962,8 +963,8 @@ function startScript(a, c, flag, d){
         $a = null != a ? a : "";
         ab = null != c ? c : "";
 
-        for(a = 0; 8 > a && a < ab.length; a++){
-            bb[a] = ab.charCodeAt(a);
+        for(let i = 0; 8 > i && i < ab.length; i++){
+            bb[i] = ab.charCodeAt(i);
         }
 
         cb = 0 == flag ? true : false;
@@ -1048,10 +1049,10 @@ function startScript(a, c, flag, d){
         }
 
         for(let i = 0; 1024 > i; i++){
-            d = Math.floor(1024 * Math.random());
-            a = Yd[i];
-            Yd[i] = Yd[d];
-            Yd[d] = a;
+            const randIndex = Math.floor(1024*Math.random());
+            const tmp = Yd[i];
+            Yd[i] = Yd[randIndex];
+            Yd[randIndex] = tmp;
         }
 
         Zd = Math.floor(1024*Math.random()) & 1023;
@@ -1072,22 +1073,26 @@ function startScript(a, c, flag, d){
     if(loadingPhase == 1){
         const font = fontImage.l;
         if(0 == font.j && font.img.complete){
-            ce--;
-            d = font.img.width;
-            a = font.img.height;
+            ce--
 
-            if (0 == d || 0 == a) throw delete font.img, font.file = "", "ERROR";
+            const width = font.img.width;
+            const height = font.img.height;
 
-            c = document.createElement("canvas");
-            c.width = d;
-            c.height = a;
-            c = c.getContext("2d");
-            c.drawImage(font.img, 0, 0);
-            c = c.getImageData(0, 0, d, a).data;
-            he(font, d, a);
-            d = 0;
-            for (a = c.length; d < a; d += 4) {
-                font.a[d >> 2] = 0 == c[d + 3] ? -1 : c[d + 0] << 16 | c[d + 1] << 8 | c[d + 2];
+            if(0 == width || 0 == height) throw delete font.img, font.file = "", "ERROR";
+
+            const canvas = document.createElement("canvas");
+            canvas.width = width;
+            canvas.height = width;
+
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(font.img,0,0);
+            const data = ctx.getImageData(0,0,width,height).data;
+
+            he(font,width,height);
+
+            let d = 0;
+            for (let i = data.length; d < i; d += 4){
+                font.a[d >> 2] = 0 == data[d + 3] ? -1 : data[d + 0] << 16 | data[d + 1] << 8 | data[d + 2];
             }
             delete font.img;
             font.j = 1
@@ -1115,9 +1120,7 @@ function startScript(a, c, flag, d){
         saveGameFromScreen();
 
         if(0 < db){
-            let url = "/score/dust2.php?a="
-            url += db;
-            AjaxRequest(url,"");
+            AjaxRequest(`/score/dust2.php?a=${db}`,"");
 
             if(1 == me && "ok" == ne[0]){
                 eb = ne[1];
@@ -1137,10 +1140,9 @@ function startScript(a, c, flag, d){
 
         ed(1);
 
-        let b = 0;
-        for (a = 0; a < s.length; a++){
-            b = Math.floor((2989 * (s[a] >> 16 & 255) + 5866 * (s[a] >> 8 & 255) + 1145 * (s[a] & 255)) / 1E4)
-            Rc[a] = b << 16 | b << 8 | b;
+        for(let i = 0; i < s.length; i++){
+            const num = Math.floor((2989*(s[i] >> 16 & 255) + 5866*(s[i] >> 8 & 255) + 1145*(s[i] & 255))/1E4)
+            Rc[i] = num << 16 | num << 8 | num;
         }
 
         oe(0, 0, screenWidth, screenHeight, 4210752);
@@ -1231,8 +1233,8 @@ function startScript(a, c, flag, d){
 
         he(imageHandlerForScreen, screenWidth, screenHeight);
 
-        for(a = 0; a < screenWidth*screenHeight; a++){
-            imageHandlerForScreen.a[a] = v[a] & 16777215;
+        for(let i = 0; i < screenWidth*screenHeight; i++){
+            imageHandlerForScreen.a[i] = v[i] & 16777215;
         }
 
         for(let i = screenWidth*screenHeight - 1; 0 <= i; i--){
