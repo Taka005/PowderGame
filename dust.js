@@ -778,14 +778,14 @@ function loadGameToScreen(){
         }
 
         let remainingEntities = Math.floor((Za - currentIndex) / 7);
-        for(let a = currentIndex; a < currentIndex + remainingEntities; a++){
-            let color1 = ((arrayOfTypesOfElementInThisPosition[a + 1 * remainingEntities] & 255) << 16) |
-                ((arrayOfTypesOfElementInThisPosition[a + 2 * remainingEntities] & 255) << 8) |
-                (arrayOfTypesOfElementInThisPosition[a + 3 * remainingEntities] & 255);
+        for(let i = currentIndex; i < currentIndex + remainingEntities; i++){
+            let color1 = ((arrayOfTypesOfElementInThisPosition[i + 1 * remainingEntities] & 255) << 16) |
+                ((arrayOfTypesOfElementInThisPosition[i + 2 * remainingEntities] & 255) << 8) |
+                (arrayOfTypesOfElementInThisPosition[i + 3 * remainingEntities] & 255);
 
-            let color2 = ((arrayOfTypesOfElementInThisPosition[a + 4 * remainingEntities] & 255) << 16) |
-                ((arrayOfTypesOfElementInThisPosition[a + 5 * remainingEntities] & 255) << 8) |
-                (arrayOfTypesOfElementInThisPosition[a + 6 * remainingEntities] & 255);
+            let color2 = ((arrayOfTypesOfElementInThisPosition[i + 4 * remainingEntities] & 255) << 16) |
+                ((arrayOfTypesOfElementInThisPosition[i + 5 * remainingEntities] & 255) << 8) |
+                (arrayOfTypesOfElementInThisPosition[i + 6 * remainingEntities] & 255);
 
             let g = 0, m = 0, n = 0;
 
@@ -798,7 +798,7 @@ function loadGameToScreen(){
             m = g === 0 ? I[color1] : g === 1 ? Ed(color1) : Fd(color1);
             n = d === 0 ? I[color2] : d === 1 ? Ed(color2) : Fd(color2);
 
-            Gd(g, d, m, n, arrayOfTypesOfElementInThisPosition[a + 0 * remainingEntities]);
+            Gd(g, d, m, n, arrayOfTypesOfElementInThisPosition[i + 0 * remainingEntities]);
         }
 
         nb = ob;
@@ -857,12 +857,12 @@ function Hd(){
 }
 
 function Id(){
-    var currentIndex;
-    var xCoord;
-    var yCoord;
-    var position;
-    var adjustedX = ia - Math.floor((Ja - Ha) / 2) - Ha;
-    var adjustedY = ja - Math.floor((Ka - Ia) / 2) - Ia;
+    let currentIndex;
+    let xCoord;
+    let yCoord;
+    let position;
+    let adjustedX = ia - Math.floor((Ja - Ha) / 2) - Ha;
+    let adjustedY = ja - Math.floor((Ka - Ia) / 2) - Ia;
 
     yCoord = Ia - 8;
     for(; yCoord <= Ka - 8; yCoord++){
@@ -1447,8 +1447,7 @@ function Ge() {
             normalize(na);
             bf(0);
             bf(1);
-            if (Ke || Oe) nb = minInsideRange(nb + 1,
-                0, 65535)
+            if (Ke || Oe) nb = minInsideRange(nb + 1, 0, 65535)
         }
         
         ed(1);
@@ -1649,6 +1648,9 @@ function Ge() {
     }
 }
 
+/**
+ * 要素の生成処理
+ */
 function bf(a) {
     var c, b, d, e, f;
     e = new Vector;
@@ -2083,26 +2085,53 @@ var eg = new Float32Array(296 * screenWidth),
     V = new Float32Array(296 * screenWidth),
     Se = 0;
 
-function fg() {
-    var a, c, b, d = new Vector,
-        e;
-    for (b = c = 0; 280 > c; c++, b += 16)
-        for (a = 0; 496 > a; a++, b++) d.x = -0.5 - a, d.y = -0.5 - c, e = normalize(d) + 16, e = 100 / (e * e), U[b] = d.x * e, V[b] = d.y * e
+function fg(){
+    const vector = new Vector;
+    let y, index;
+    for(index = y = 0; y < 280; y++, index += 16){
+        for(let x = 0; x < 496; x++, index++){
+            vector.x = -0.5 - x;
+            vector.y = -0.5 - y;
+
+            const magnitude = 100 / (normalize(vector) + 16)**2;
+
+            U[index] = vector.x*magnitude;
+            V[index] = vector.y*magnitude;
+        }
+    }
 }
 
-function hg(a, c) {
-    var b, d, e, f;
-    e = 4104;
-    f = (c - 8 - 1 << 9) + (a - 8 - 1);
-    for (d = 8; d < c; d++, e += 16) {
-        for (b = 8; b < a; b++, e++, f--) eg[e] -= U[f], Re[e] -= V[f];
-        for (f++; 504 > b; b++, e++, f++) eg[e] += U[f], Re[e] -= V[f];
-        f += a + a - 1025
+function hg(width,height){
+    let x, y;
+    let offset = 4104;
+    let index = (height - 8 - 1 << 9) + (width - 8 - 1);
+
+    for(y = 8; y < height; y++, offset += 16){
+        for(x = 8; x < width; x++, offset++, index--){
+            eg[offset] -= U[index];
+            Re[offset] -= V[index];
+        }
+
+        for(index++; x < 504; x++, offset++, index++){
+            eg[offset] += U[index];
+            Re[offset] -= V[index];
+        }
+
+        index += 2*width - 1025;
     }
-    for (f += 512; 288 > d; d++, e += 16) {
-        for (b = 8; b < a; b++, e++, f--) eg[e] -= U[f], Re[e] += V[f];
-        for (f++; 504 > b; b++, e++, f++) eg[e] += U[f], Re[e] += V[f];
-        f += a + a - 1
+
+    for(index += 512; y < 288; y++, offset += 16){
+        for(x = 8; x < width; x++, offset++, index--){
+            eg[offset] -= U[index];
+            Re[offset] += V[index];
+        }
+
+        for(index++; x < 504; x++, offset++, index++){
+            eg[offset] += U[index];
+            Re[offset] += V[index];
+        }
+
+        index += 2*width - 1;
     }
 }
 
