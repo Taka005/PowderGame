@@ -693,19 +693,18 @@ function Yc(option){
     eb = window.btoa(eb);
 }
 
-// ユーザーが「LOAD」ボタンをクリックするたびに呼び出されます
-function loadGameToScreen() {
-    reset(1); // ゲーム画面のリセット
-    if (Za !== 0) { // Zaが0でない場合のみ処理を実行
-        let currentIndex = Ya + 138880; // eに相当
-        let ycoord = 8; // 初期Y座標
+// ユーザーが「LOAD」ボタンをクリックするたびに呼び出し
+function loadGameToScreen(){
+    reset(1);
+    if(Za !== 0){
+        let currentIndex = Ya + 138880;
+        let ycoord = 8;
 
-        // 各画面ピクセルをループ
-        for (let d = Ya; ycoord < 288; ycoord++) {
-            for (let xcoord = 8; xcoord < 504; xcoord++, d++) {
+        for(let d = Ya; ycoord < 288; ycoord++){
+            for(let xcoord = 8; xcoord < 504; xcoord++, d++){
                 let elementType = arrayOfTypesOfElementInThisPosition[d];
-                if (elementType !== 0) { // 配列の現在位置が空でない場合に処理
-                    switch (elementType) {
+                if(elementType !== 0){
+                    switch(elementType){
                         case Ob:
                             x[(ycoord >> 2) * w + (xcoord >> 2)] = Gb;
                             I[ycoord * screenWidth + xcoord] = Kb;
@@ -721,43 +720,44 @@ function loadGameToScreen() {
                         case Ec:
                         case Fc:
                             createFighterPlayerClone(xcoord, ycoord, elementType, arrayOfTypesOfElementInThisPosition[currentIndex++]);
+
                             break;
                         case fighterId:
                         case cloneId:
                             createFighterPlayerClone(xcoord, ycoord, elementType, 0);
                             currentIndex++;
+
                             break;
                         case Hc:
                             Ad(xcoord, ycoord, arrayOfTypesOfElementInThisPosition[currentIndex++]);
+
                             break;
                         default:
-                            // 通常の要素描画
                             let a = Bd(xcoord, ycoord, elementType, 0);
-                            if (elementType === Nb) {
+                            if(elementType === Nb){
                                 J[a].x = 0.01 * Math.cos(arrayOfTypesOfElementInThisPosition[currentIndex] * Math.PI / 32);
                                 J[a].y = 0.01 * -Math.sin(arrayOfTypesOfElementInThisPosition[currentIndex] * Math.PI / 32);
                                 G[a] = arrayOfTypesOfElementInThisPosition[currentIndex];
                                 currentIndex++;
                                 I[ycoord * screenWidth + xcoord] = l;
-                            } else if (elementType === ac) {
+                            }else if(elementType === ac){
                                 G[a] = arrayOfTypesOfElementInThisPosition[currentIndex++];
-                            } else if (elementType === Lc) {
+                            }else if(elementType === Lc){
                                 G[a] = arrayOfTypesOfElementInThisPosition[currentIndex++];
                                 E[a] = G[a] === 0 ? 6702131 : 3359829;
                             }
+
                             break;
                     }
                 }
             }
         }
 
-        // 一般的な描画処理の終了
         Dd();
-        let swapVector = new Vector();
-        let temp;
 
-        // シャッフル処理: 要素をランダムに交換
-        for (let a = p; a < qd; a++) {
+        let swapVector = new Vector();
+
+        for(let a = p; a < qd; a++){
             let randomIndex = p + Math.floor(Math.random() * (qd - p));
             swapVector.set(C[a]);
             C[a].set(C[randomIndex]);
@@ -776,9 +776,8 @@ function loadGameToScreen() {
             I[H[randomIndex]] = D[randomIndex] === Nb ? l : randomIndex;
         }
 
-        // 特殊なエンティティの処理
         let remainingEntities = Math.floor((Za - currentIndex) / 7);
-        for (let a = currentIndex; a < currentIndex + remainingEntities; a++) {
+        for(let a = currentIndex; a < currentIndex + remainingEntities; a++){
             let color1 = ((arrayOfTypesOfElementInThisPosition[a + 1 * remainingEntities] & 255) << 16) |
                 ((arrayOfTypesOfElementInThisPosition[a + 2 * remainingEntities] & 255) << 8) |
                 (arrayOfTypesOfElementInThisPosition[a + 3 * remainingEntities] & 255);
@@ -801,7 +800,6 @@ function loadGameToScreen() {
             Gd(g, d, m, n, arrayOfTypesOfElementInThisPosition[a + 0 * remainingEntities]);
         }
 
-        // 最終処理
         nb = ob;
     }
 }
@@ -930,7 +928,7 @@ function startScript(a, c, b, d) {
         for (a = 0; 8 > a && a < ab.length; a++) bb[a] = ab.charCodeAt(a);
         cb = 0 == b ? true : false;
         db = null != d ? d : 0;
-        logOnConsole("Created by ha55ii");
+        console.log("Created by ha55ii");
         canvasElement.width = screenWidth;
         canvasElement.height = screenHeight;
         canvasElement.width = 496;
@@ -4425,7 +4423,6 @@ function Bh(a, c, b, d) {
     return 0
 }
 
-
 function Ch(a, c) {
     var b, d, e = new Vector;
     d = (B[a].y << 9) + ~~B[a].x;
@@ -4566,24 +4563,20 @@ function Vf() {
                 } else 13 == backgroundDrawType && (Eb[b] = 2 * Sc[A[a]])
         }
 }
-var    canvasElement = document.getElementById("cv"),
+var canvasElement = document.getElementById("cv"),
     canvasContext = canvasElement.getContext("2d"),
     canvasImageData = canvasContext.createImageData(screenWidth, screenHeight),
     ae = new Uint8Array(canvasImageData.data.buffer);
 
 
-function drawCanvas(a, c, b, d, e, f, g) {
-    try {
-        canvasElement = document.getElementById("cv"), canvasContext = canvasElement.getContext("2d"), canvasContext.putImageData(a, c, b, d, e, f, g)
-    } catch (m) {}
+function drawCanvas(a, c, b, d, e, f, g){
+    try{
+        canvasElement = document.getElementById("cv");
+        canvasContext = canvasElement.getContext("2d");
+        canvasContext.putImageData(a, c, b, d, e, f, g);
+    }catch(m){}
 }
 
-
-function logOnConsole(a) {
-    try {
-        window.console.log(a);
-    } catch (c) {}
-}
 window.Init = startScript;
     Jh = 11; // Changed
     v = new Int32Array(screenWidth * screenHeight);
@@ -4609,8 +4602,8 @@ function loop() {
     Pe = trueAfterMouseUpButOnlyForOneTick ? 1 : Ve ? -1 : 0;
     Qf = Ne;
     Rf = Ie;
-    Ne = distanceXFromTopScreen;
-    Ie = distanceYFromTopScreen;
+    Ne = touchPosX;
+    Ie = touchPosY;
     Ke && (Qf = Ne, Rf = Ie);
     for (a = 0; 256 > a; a++) Qd[a] = Rd[a], Rd[a] = false, Ud[a] = false == Td[a] && true == Sd[a], Vd[a] = true == Td[a] && false == Sd[a], Td[a] = Sd[a];
     Zd = Zd + Math.floor(1024 * Math.random()) & 1023;
@@ -4854,8 +4847,8 @@ var $e = new Vector,
     Ie = 0,
     Qf = 0,
     Rf = 0,
-    distanceXFromTopScreen = 0,
-    distanceYFromTopScreen = 0;
+    touchPosX = 0,
+    touchPosY = 0;
 
 function Me(a, c, b, d) {
     return Ne < a || a + b <= Ne || Ie < c || c + d <= Ie ? false : true
@@ -4864,8 +4857,8 @@ function Me(a, c, b, d) {
 function getPosition(event){
     const rect = canvasElement.getBoundingClientRect();
 
-    distanceXFromTopScreen = Math.floor(event.clientX - rect.left);
-    distanceYFromTopScreen = Math.floor(event.clientY - rect.top);
+    touchPosX = Math.floor(event.clientX - rect.left);
+    touchPosY = Math.floor(event.clientY - rect.top);
 }
 
 document.addEventListener("mousemove",getPosition);
@@ -4876,10 +4869,10 @@ document.addEventListener("mousedown",(event)=>{
     isInputCancel = false;
 
     if(
-        distanceXFromTopScreen >= 0 &&
-        distanceXFromTopScreen < screenWidth &&
-        distanceYFromTopScreen >= 0 &&
-        distanceYFromTopScreen < screenHeight
+        touchPosX >= 0 &&
+        touchPosX < screenWidth &&
+        touchPosY >= 0 &&
+        touchPosY < screenHeight
     ){
         isInputCancel = true;
 
@@ -4920,8 +4913,8 @@ function saveTouchPosition(event){
         offsetY += element.offsetTop;
     }
 
-    distanceXFromTopScreen = Math.floor(event.touches[0].pageX - offsetX);
-    distanceYFromTopScreen = Math.floor(event.touches[0].pageY - offsetY);
+    touchPosX = Math.floor(event.touches[0].pageX - offsetX);
+    touchPosY = Math.floor(event.touches[0].pageY - offsetY);
 }
 
 canvasElement.addEventListener("touchstart",(event)=>{
