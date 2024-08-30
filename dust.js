@@ -5307,21 +5307,13 @@ document.addEventListener("contextmenu",(event)=>{
 });
 
 function saveTouchPosition(event){
-    let offsetX = 0;
-    let offsetY = 0;
-
-    for(let element = canvasElement; element !== null; element = element.offsetParent){
-        offsetX += element.offsetLeft;
-        offsetY += element.offsetTop;
-    }
-
     const rect = canvasElement.getBoundingClientRect();
 
     const scaleX = canvasElement.width / rect.width;
     const scaleY = canvasElement.height / rect.height;
 
-    touchPosX = Math.floor((event.touches[0].pageX - offsetX)*scaleX);
-    touchPosY = Math.floor((event.touches[0].pageY - offsetY)*scaleY);
+    touchPosX = Math.floor((event.touches[0].clientX - rect.left)*scaleX);
+    touchPosY = Math.floor((event.touches[0].clientY - rect.top)*scaleY);
 }
 
 canvasElement.addEventListener("touchstart",(event)=>{
